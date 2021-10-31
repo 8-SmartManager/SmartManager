@@ -1,16 +1,18 @@
 package com.example.smartmanagertwo;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.GridView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hopchoncohinh.HopChonAdapter;
 import com.example.hopchoncohinh.HopChonItem;
 
 import java.util.ArrayList;
 
-public class HopChonNhacNhoTheLoai extends AppCompatActivity {
+public class HopChonTheLoaiThu extends AppCompatActivity {
+
     GridView gvNhacNhoTheLoai;
     ArrayList<HopChonItem> items;
     HopChonAdapter adapter;
@@ -32,16 +34,15 @@ public class HopChonNhacNhoTheLoai extends AppCompatActivity {
 
     private void initData() {
         items=new ArrayList<HopChonItem>();
-        items.add(new HopChonItem(R.drawable.ic_thu_nhap_the_loai_nhac_nho,"Thu"));
-        items.add(new HopChonItem(R.drawable.ic_di_chuyen_the_loai_nhac_nho,"Chi"));
-        items.add(new HopChonItem(R.drawable.ic_quan__ao_the_loai_nhac_nho,"Tiết kiệm"));
-        items.add(new HopChonItem(R.drawable.ic_mua_sam_the_loai_nhac_nho,"DS mua sắm"));
+        items.add(new HopChonItem(R.drawable.ic_tai_chinh_thu_chi_the_loai,"Tiền lương"));
+        items.add(new HopChonItem(R.drawable.ic_di_chuyen_thu_chi_the_loai,"Tiền cấp"));
+        items.add(new HopChonItem(R.drawable.ic_tuy_chon_thu_chi_the_loai,"Khác"));
 
 
     }
 
     private void LoadData() {
-        adapter = new HopChonAdapter(HopChonNhacNhoTheLoai.this,R.layout.hop_chon_item,items);
+        adapter = new HopChonAdapter(HopChonTheLoaiThu.this,R.layout.hop_chon_item,items);
         gvNhacNhoTheLoai.setAdapter(adapter);
     }
 

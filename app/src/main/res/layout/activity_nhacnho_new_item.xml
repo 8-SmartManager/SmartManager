@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:text="Tạo nhắc nhở"
 
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:fontFamily="@font/header2_bold_20"
             android:textColor="@color/white"
             android:layout_weight="1"/>
@@ -46,7 +46,7 @@
                 android:layout_marginLeft="30dp"
                 android:gravity="left"
                 android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
+
                 android:textColor="@color/mau_xam"/>
            <TextView
                android:id="@+id/txtNhacNhoThemTheLoai"
@@ -54,6 +54,7 @@
                android:backgroundTint="@color/mau_xam"
                android:layout_height="56dp"
                android:layout_weight="1"
+               android:fontFamily="@font/header3_semibold_14"
                android:background="@drawable/textlines_khong"
                android:layout_marginRight="30dp"
                android:textColor="@color/mau_dam"
@@ -69,13 +70,14 @@
                 android:layout_marginLeft="30dp"
                 android:gravity="left"
                 android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
+
                 android:textColor="@color/mau_xam"/>
             <EditText
                 android:id="@+id/edtNhacNhoThemTen"
                 android:backgroundTint="@color/mau_xam"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
+                android:fontFamily="@font/header3_semibold_14"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
                 android:textColor="@color/mau_dam"
@@ -90,13 +92,14 @@
                 android:layout_marginLeft="30dp"
                 android:gravity="left"
                 android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
+
                 android:textColor="@color/mau_xam"/>
             <TextView
                 android:id="@+id/edtNhacNhoThemChuKy"
 
                 android:layout_width="match_parent"
                 android:background="@drawable/textlines_khong"
+                android:fontFamily="@font/header3_semibold_14"
                 android:layout_height="56dp"
                 android:layout_weight="1"
                 android:layout_marginRight="30dp"
@@ -112,7 +115,7 @@
                 android:layout_marginLeft="30dp"
                 android:gravity="left"
                 android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
+
                 android:textColor="@color/mau_xam"/>
             <TextView
                 android:id="@+id/txtNhacNhoThemNgayBatDau"
@@ -120,6 +123,7 @@
                 android:layout_height="56dp"
                 android:layout_weight="1"
                 android:background="@drawable/textlines_khong"
+                android:fontFamily="@font/header3_semibold_14"
                 android:layout_marginRight="30dp"
                 android:textColor="@color/mau_dam"
                 />
@@ -133,12 +137,13 @@
                 android:layout_marginLeft="30dp"
                 android:gravity="left"
                 android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
+
                 android:textColor="@color/mau_xam"/>
             <TextView
                 android:id="@+id/edtNhacNhoThemGioNhac"
                 android:layout_width="match_parent"
                 android:background="@drawable/textlines_khong"
+                android:fontFamily="@font/header3_semibold_14"
                 android:layout_weight="1"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
@@ -149,14 +154,14 @@
     </TableLayout>
 <Button
     android:layout_width="match_parent"
-    android:layout_height="56dp"
+    android:layout_height="36dp"
     android:layout_marginTop="39dp"
     android:layout_marginLeft="32dp"
     android:layout_marginRight="32dp"
     android:background="@drawable/bg_button"
 
     android:text="Tạo nhắc nhở"
-    android:textSize="16sp"
+    android:fontFamily="@font/header3_semibold_14"
     android:textAllCaps="false"
     android:textColor="@color/chu_dao"
 

@@ -86,7 +86,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
-                android:textSize="13sp"
+
                 android:textColor="@color/mau_dam"/>
             <TextView
                 android:layout_width="match_parent"
@@ -95,7 +95,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
-                android:textSize="13sp"
+
                 android:textColor="@color/mau_dam"/>
             <TextView
                 android:layout_width="match_parent"
@@ -104,7 +104,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
-                android:textSize="13sp"
+
                 android:textColor="@color/mau_dam"/>
         </TableRow>
         <TableRow>
@@ -115,7 +115,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
-                android:textSize="13sp"
+
                 android:textColor="@color/mau_dam"
                 android:background="#FF4268" />
             <TextView
@@ -125,7 +125,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
-                android:textSize="13sp"
+
                 android:textColor="@color/mau_dam"/>
             <TextView
                 android:layout_width="match_parent"
@@ -134,7 +134,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
-                android:textSize="13sp"
+
                 android:textColor="@color/mau_dam"/>
         </TableRow>
         <TableRow>
@@ -145,7 +145,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
-                android:textSize="13sp"
+
                 android:textColor="@color/mau_dam"
                 android:background="#FDB713"/>
 
@@ -157,7 +157,7 @@
                 android:gravity="center"
                 android:text="Sở thích"
                 android:textColor="@color/mau_dam"
-                android:textSize="13sp" />
+                 />
 
             <TextView
                 android:layout_width="match_parent"
@@ -166,7 +166,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
-                android:textSize="13sp"
+
                 android:textColor="@color/mau_dam"/>
         </TableRow>
     </TableLayout>

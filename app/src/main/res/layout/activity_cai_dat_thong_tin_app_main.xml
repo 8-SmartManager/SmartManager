@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="56dp"
         android:text="SmartManager Inc"
-        android:textSize="16dp"
+        android:fontFamily="@font/header3_semibold_14"
 
         android:textColor="@color/mau_dam"
         android:layout_gravity="center"
@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:text="help@smartmanager.com"
-            android:textSize="14dp"
+            android:fontFamily="@font/body_medium_13"
 
             android:textColor="@color/chu_dao"
 
@@ -81,7 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:text="http://smartmanager.com"
-            android:textSize="14dp"
+            android:fontFamily="@font/body_medium_13"
 
             android:textColor="@color/chu_dao"
 
@@ -90,7 +90,7 @@
     </LinearLayout>
     <Button
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="36dp"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
@@ -98,7 +98,7 @@
 
         android:text="Chính sách bảo mật"
 
-        android:textSize="16sp"
+        android:fontFamily="@font/header3_semibold_14"
         android:textAllCaps="false"
         android:textColor="@color/chu_dao"
 

@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:text="Đổi mật khẩu"
 
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:fontFamily="@font/header2_bold_20"
             android:textColor="@color/white"
             android:layout_weight="1"/>
@@ -44,7 +44,8 @@
         android:layout_height="wrap_content"
         android:textColor="@color/mau_dam"
         android:text="Nhập lại mật khẩu"
-        android:textSize="24sp"
+        android:fontFamily="@font/header2_bold_20"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp"/>

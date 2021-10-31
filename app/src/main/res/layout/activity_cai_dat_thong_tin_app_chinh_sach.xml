@@ -38,15 +38,16 @@
         android:layout_height="wrap_content"
         android:textAlignment="gravity"
         android:lineHeight="18sp"
-        android:textSize="16sp"
+        android:fontFamily="@font/body_medium_13"
         android:text="@string/chinh_sach_bao_mat"
         android:textColor="@color/chu_dao"/>
 <TextView
     android:layout_width="match_parent"
     android:layout_height="40dp"
     android:text="1. Infomation to be collected and method of collection"
-    android:textSize="16dp"
+    android:fontFamily="@font/body_medium_13"
     android:paddingLeft="10dp"
+    android:background="@color/thay_trang"
     android:gravity="center_vertical"
     android:textColor="@color/mau_dam"/>
     <TextView
@@ -54,23 +55,26 @@
         android:layout_height="40dp"
         android:paddingLeft="10dp"
         android:gravity="center_vertical"
+        android:background="@color/thay_trang"
         android:text="2. Use of collected information"
-        android:textSize="16dp"
+        android:fontFamily="@font/body_medium_13"
         android:textColor="@color/mau_dam"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:paddingLeft="10dp"
+        android:background="@color/thay_trang"
         android:gravity="center_vertical"
         android:text="3. Sharing collected information"
-        android:textSize="16dp"
+        android:fontFamily="@font/body_medium_13"
         android:textColor="@color/mau_dam"/>
     <TextView
         android:layout_width="match_parent"
         android:gravity="center_vertical"
         android:layout_height="40dp"
         android:paddingLeft="10dp"
+        android:background="@color/thay_trang"
         android:text="4. Cookies, Beacons and Similar Technologies"
-        android:textSize="16dp"
+        android:fontFamily="@font/body_medium_13"
         android:textColor="@color/mau_dam"/>
 </LinearLayout>

@@ -50,28 +50,31 @@
             app:tint="@color/white"
             android:backgroundTint="@color/chu_dao"/>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Áo quần"
-        android:textSize="28sp"
-        android:padding="10dp"
-        android:layout_marginLeft="20dp"
-        android:fontFamily="@font/header3_semibold_14"
-        android:textColor="@color/mau_dam"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/header3_semibold_14"
+            android:padding="10dp"
+            android:text="Áo quần"
+            android:textColor="@color/mau_dam"
+            android:textSize="28sp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="5.000.000đ"
-            android:layout_marginRight="10dp"
             android:layout_marginLeft="40dp"
+            android:layout_marginRight="10dp"
             android:fontFamily="@font/body_medium_13"
-            android:textSize="28sp"
-            android:textColor="@color/mau_dam"/>
+            android:text="5.000.000đ"
+            android:textColor="@color/mau_dam"
+            android:textSize="28sp" />
     </LinearLayout>
 </LinearLayout>
 

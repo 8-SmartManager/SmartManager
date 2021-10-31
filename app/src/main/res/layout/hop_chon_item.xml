@@ -11,7 +11,7 @@
         android:layout_height="24dp"
         android:src="@drawable/ic_tuy_chon"
         android:layout_gravity="center_vertical"
-        app:tint="#CD59EA" />
+       />
     <TextView
         android:id="@+id/txtHopChonItemName"
         android:layout_marginLeft="20dp"
@@ -20,6 +20,6 @@
         android:gravity="center"
         android:text="Giải trí"
         android:textColor="@color/mau_dam"
-        android:textSize="16sp"/>
+        android:fontFamily="@font/header3_semibold_14"/>
 
 </LinearLayout>

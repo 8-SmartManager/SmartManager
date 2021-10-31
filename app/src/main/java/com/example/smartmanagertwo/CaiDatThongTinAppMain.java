@@ -9,6 +9,6 @@ public class CaiDatThongTinAppMain extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cai_dat_thong_tin_app_main);
+        setContentView(R.layout.activity_menu);
     }
 }

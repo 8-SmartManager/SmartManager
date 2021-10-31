@@ -1,4 +1,4 @@
-package com.example.hopchon;
+package com.example.hopchoncohinh;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,11 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.nhacnho.NhacNho;
-import com.example.smartmanagertwo.HopChonNhacNhoTheLoai;
 import com.example.smartmanagertwo.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class HopChonAdapter extends BaseAdapter {

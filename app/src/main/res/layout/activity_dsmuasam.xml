@@ -60,7 +60,7 @@
                 android:layout_marginLeft="30dp"
                 android:gravity="left"
                 android:fontFamily="@font/header3_semibold_14"
-                android:textSize="13dp"
+
                 android:textColor="@color/mau_xam"/>
             <EditText
                 android:id="@+id/edtNhacNhoChiTietTên"

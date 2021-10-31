@@ -44,8 +44,9 @@
         android:layout_height="wrap_content"
         android:textColor="@color/mau_dam"
         android:text="Nhập mật khẩu mới"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/header2_bold_20"
+        android:textSize="20sp"
+
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp"/>
     <LinearLayout
