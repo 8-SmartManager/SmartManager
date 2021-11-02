@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnThemMoi"
+        android:id="@+id/btnNhacNhoTao"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="bottom|right"

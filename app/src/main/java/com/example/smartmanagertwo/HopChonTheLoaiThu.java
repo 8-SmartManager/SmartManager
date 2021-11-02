@@ -21,7 +21,7 @@ public class HopChonTheLoaiThu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.hop_chon_chung_co_hinh);
+        setContentView(R.layout.hop_chon_chung);
         linkViews();
         initData();
         LoadData();
@@ -42,7 +42,7 @@ public class HopChonTheLoaiThu extends AppCompatActivity {
     }
 
     private void LoadData() {
-        adapter = new HopChonAdapter(HopChonTheLoaiThu.this,R.layout.hop_chon_item,items);
+        adapter = new HopChonAdapter(HopChonTheLoaiThu.this,R.layout.hop_chon_item_co_hinh,items);
         gvNhacNhoTheLoai.setAdapter(adapter);
     }
 

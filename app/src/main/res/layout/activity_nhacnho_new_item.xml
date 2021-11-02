@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,6 +51,7 @@
                 android:textColor="@color/mau_xam"/>
            <TextView
                android:id="@+id/txtNhacNhoThemTheLoai"
+               android:text="Thu"
                android:layout_width="match_parent"
                android:backgroundTint="@color/mau_xam"
                android:layout_height="56dp"
@@ -72,14 +74,15 @@
                 android:fontFamily="@font/body_medium_13"
 
                 android:textColor="@color/mau_xam"/>
-            <EditText
-                android:id="@+id/edtNhacNhoThemTen"
+            <TextView
+                android:id="@+id/txtNhacNhoThemTen"
                 android:backgroundTint="@color/mau_xam"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:fontFamily="@font/header3_semibold_14"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
+                android:background="@drawable/textlines_khong"
                 android:textColor="@color/mau_dam"
                 />
 
@@ -95,8 +98,8 @@
 
                 android:textColor="@color/mau_xam"/>
             <TextView
-                android:id="@+id/edtNhacNhoThemChuKy"
-
+                android:id="@+id/txtNhacNhoThemChuKy"
+                android:text="Hàng tuần"
                 android:layout_width="match_parent"
                 android:background="@drawable/textlines_khong"
                 android:fontFamily="@font/header3_semibold_14"
@@ -140,7 +143,7 @@
 
                 android:textColor="@color/mau_xam"/>
             <TextView
-                android:id="@+id/edtNhacNhoThemGioNhac"
+                android:id="@+id/txtNhacNhoThemGioNhac"
                 android:layout_width="match_parent"
                 android:background="@drawable/textlines_khong"
                 android:fontFamily="@font/header3_semibold_14"
@@ -166,6 +169,16 @@
     android:textColor="@color/chu_dao"
 
    />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+    <LinearLayout
+        android:id="@+id/layoutContainerThemNhacNho"
+        android:orientation="vertical"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 
 </LinearLayout>

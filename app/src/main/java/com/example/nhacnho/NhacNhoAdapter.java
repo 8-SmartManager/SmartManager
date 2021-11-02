@@ -62,7 +62,7 @@ public class NhacNhoAdapter extends BaseAdapter {
         holder.txtTheLoai.setText(nhacNho.getTheLoai());
         holder.txtTen.setText(nhacNho.getTen());
         holder.txtChuKy.setText(nhacNho.getChuKy());
-        holder.txtThoiGianNhac.setText(nhacNho.getThoiGianNhac());
+        holder.txtThoiGianNhac.setText(nhacNho.getNgayBatDau());
         return view;
     }
     public static class ViewHolder{

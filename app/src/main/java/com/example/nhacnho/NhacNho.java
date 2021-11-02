@@ -1,16 +1,20 @@
 package com.example.nhacnho;
 
+import java.util.Date;
+
 public class NhacNho {
     private String theLoai;
     private String ten;
     private String chuKy;
-    private String thoiGianNhac;
+    private String ngayBatDau;
+    private String gioNhac;
 
-    public NhacNho(String theLoai, String ten, String chuKy, String thoiGianNhac) {
+    public NhacNho(String theLoai, String ten, String chuKy, String ngayBatDau, String gioNhac) {
         this.theLoai = theLoai;
         this.ten = ten;
         this.chuKy = chuKy;
-        this.thoiGianNhac = thoiGianNhac;
+        this.ngayBatDau = ngayBatDau;
+        this.gioNhac = gioNhac;
     }
 
     public String getTheLoai() {
@@ -37,11 +41,19 @@ public class NhacNho {
         this.chuKy = chuKy;
     }
 
-    public String getThoiGianNhac() {
-        return thoiGianNhac;
+    public String getNgayBatDau() {
+        return ngayBatDau;
     }
 
-    public void setThoiGianNhac(String thoiGianNhac) {
-        this.thoiGianNhac = thoiGianNhac;
+    public void setNgayBatDau(String ngayBatDau) {
+        this.ngayBatDau = ngayBatDau;
+    }
+
+    public String getGioNhac() {
+        return gioNhac;
+    }
+
+    public void setGioNhac(String gioNhac) {
+        this.gioNhac = gioNhac;
     }
 }

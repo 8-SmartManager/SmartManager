@@ -67,7 +67,7 @@
 
                 android:textColor="@color/mau_xam"/>
             <TextView
-                android:id="@+id/edtNhacNhoChiTietTheLoai"
+                android:id="@+id/txtNhacNhoChiTietTheLoai"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
@@ -86,17 +86,19 @@
 
                 android:layout_marginLeft="30dp"
                 android:gravity="left"
+
                 android:fontFamily="@font/body_medium_13"
 
                 android:textColor="@color/mau_xam"/>
             <TextView
-                android:id="@+id/edtNhacNhoChiTietTên"
+                android:id="@+id/txtNhacNhoChiTietTen"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
                 android:layout_weight="1"
                 android:textColor="@color/mau_dam"
                 android:backgroundTint="@color/mau_xam"
+                android:background="@drawable/textlines_khong"
                 />
 
         </TableRow>
@@ -111,7 +113,7 @@
 
                 android:textColor="@color/mau_xam"/>
             <TextView
-                android:id="@+id/edtNhacNhoChiTietChuKy"
+                android:id="@+id/txtNhacNhoChiTietChuKy"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
@@ -133,7 +135,7 @@
                 android:layout_marginRight="16dp"
                 android:textColor="@color/mau_xam"/>
             <TextView
-                android:id="@+id/edtNhacNhoChiTietNgayBatDau"
+                android:id="@+id/txtNhacNhoChiTietNgayBatDau"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:backgroundTint="@color/mau_xam"
@@ -155,7 +157,7 @@
 
                 android:textColor="@color/mau_xam"/>
             <TextView
-                android:id="@+id/edtNhacNhoChiTietGioNhac"
+                android:id="@+id/txtNhacNhoChiTietGioNhac"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
@@ -167,6 +169,16 @@
 
         </TableRow>
     </TableLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+    <LinearLayout
+        android:id="@+id/layoutContainerChiTietNhacNho"
+        android:orientation="vertical"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 
 </LinearLayout>
