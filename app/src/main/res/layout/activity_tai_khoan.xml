@@ -139,6 +139,7 @@
         android:background="@color/white">
         <TableRow>
             <TextView
+                android:id="@+id/txtTienMat"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:text="Tiền mặt"

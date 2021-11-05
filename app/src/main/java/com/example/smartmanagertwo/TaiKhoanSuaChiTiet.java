@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ThuChi extends AppCompatActivity {
+public class TaiKhoanSuaChiTiet extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.them_moi);
+        setContentView(R.layout.sua_hoat_dong);
     }
 }
