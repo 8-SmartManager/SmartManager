@@ -44,7 +44,8 @@ public class HopChonNhacNhoChuKy extends DialogFragment {
                     adapter = new HopChonKhongHinhAdapter(getContext(),R.layout.hop_chon_item_khong_hinh,initData());
                     HopChonKhongHinhItem hopChonItem= (HopChonKhongHinhItem) adapter.getItem(i);
 
-                    txtChuKy.setText(hopChonItem.getName());
+                    txtChuKy.setText(hopChonItem.getName());dismiss();
+
                 }
             });
             btnDismiss.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +59,7 @@ public class HopChonNhacNhoChuKy extends DialogFragment {
     private ArrayList<HopChonKhongHinhItem> initData() {
         items = new ArrayList<HopChonKhongHinhItem>();
         items.add(new HopChonKhongHinhItem( "Một lần"));
+        items.add(new HopChonKhongHinhItem( "Hàng ngày"));
         items.add(new HopChonKhongHinhItem( "Hàng tuần"));
         items.add(new HopChonKhongHinhItem( "Hàng tháng"));
         items.add(new HopChonKhongHinhItem( "Hàng năm"));

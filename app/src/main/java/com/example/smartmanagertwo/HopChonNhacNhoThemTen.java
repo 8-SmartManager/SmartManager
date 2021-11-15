@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -24,6 +25,7 @@ public class HopChonNhacNhoThemTen extends DialogFragment {
     GridView gvNhacNhoTheLoai;
     ArrayList<HopChonKhongHinhItem> items;
     HopChonKhongHinhAdapter adapter;
+    EditText edtTen;
     TextView txtTieuDe, txtTheLoaiThem, txtTheLoaiChiTiet;
     ImageButton btnDismiss;
 
@@ -35,9 +37,14 @@ public class HopChonNhacNhoThemTen extends DialogFragment {
         gvNhacNhoTheLoai=view.findViewById(R.id.gvHopChonItem);
         txtTieuDe= view.findViewById(R.id.txtTieuDe);
         btnDismiss = view.findViewById(R.id.btnDismiss);
+        edtTen=view.findViewById(R.id.edtNhacNhoChiTietTen);
         txtTheLoaiThem = getActivity().findViewById(R.id.txtNhacNhoThemTheLoai);
         txtTheLoaiChiTiet= getActivity().findViewById(R.id.txtNhacNhoChiTietTheLoai);
+        if (view.getId()==R.id.edtNhacNhoChiTietTen){
+            edtTen.setFocusable(true);
+            edtTen.setFocusableInTouchMode(true);
 
+        }
         if(txtTheLoaiThem.getText()=="Thu")
         {
             txtTieuDe.setText("Thu");
@@ -47,10 +54,12 @@ public class HopChonNhacNhoThemTen extends DialogFragment {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     TextView txtTen= getActivity().findViewById(R.id.txtNhacNhoThemTen);
+
                     adapter = new HopChonKhongHinhAdapter(getContext(),R.layout.hop_chon_item_khong_hinh,initDataThu());
                     HopChonKhongHinhItem hopChonItem= (HopChonKhongHinhItem) adapter.getItem(i);
 
                     txtTen.setText(hopChonItem.getName());
+                    dismiss();
                 }
             });
         }
@@ -67,6 +76,7 @@ public class HopChonNhacNhoThemTen extends DialogFragment {
                     HopChonKhongHinhItem hopChonItem= (HopChonKhongHinhItem) adapter.getItem(i);
 
                     txtTen.setText(hopChonItem.getName());
+                    dismiss();
                 }
             });
         }
@@ -80,12 +90,19 @@ public class HopChonNhacNhoThemTen extends DialogFragment {
                     TextView txtTen = getActivity().findViewById(R.id.txtNhacNhoThemTen);
                     adapter = new HopChonKhongHinhAdapter(getContext(), R.layout.hop_chon_item_khong_hinh, initDataTietKiem());
                     HopChonKhongHinhItem hopChonItem = (HopChonKhongHinhItem) adapter.getItem(i);
-
+                    if( hopChonItem.getName()=="Khác")
+                    {
+                        txtTen.setEnabled(true);
+                    }
+                    else {
                     txtTen.setText(hopChonItem.getName());
+                        dismiss();}
                 }
             });
-            if (txtTheLoaiThem.getText() == "Ds mua sắm" ) {
-                txtTieuDe.setText("Ds mua sắm");
+
+        }
+            if (txtTheLoaiThem.getText() == "DS mua sắm" ) {
+                txtTieuDe.setText("DS mua sắm");
                 adapter = new HopChonKhongHinhAdapter(getContext(), R.layout.hop_chon_item_khong_hinh, initDataDsMuaSam());
                 gvNhacNhoTheLoai.setAdapter(adapter);
                 gvNhacNhoTheLoai.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -96,18 +113,20 @@ public class HopChonNhacNhoThemTen extends DialogFragment {
                         HopChonKhongHinhItem hopChonItem = (HopChonKhongHinhItem) adapter.getItem(i);
 
                         txtTen.setText(hopChonItem.getName());
-                    }
-                });
-                btnDismiss.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
                         dismiss();
                     }
                 });
+
+
             }
-        }
 
 
+        btnDismiss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dismiss();
+            }
+        });
         addEvents();
         return view;
     }
@@ -118,6 +137,8 @@ public class HopChonNhacNhoThemTen extends DialogFragment {
         items.add(new HopChonKhongHinhItem( "Mua xe"));
         items.add(new HopChonKhongHinhItem( "Hôn nhân"));
         items.add(new HopChonKhongHinhItem( "Du học"));
+        items.add(new HopChonKhongHinhItem( "Khác"));
+
         return items;
 
     }

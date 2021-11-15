@@ -1,8 +1,11 @@
 package com.example.smartmanagertwo;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +20,7 @@ import com.example.hopchoncohinh.HopChonAdapter;
 import com.example.hopchoncohinh.HopChonItem;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class HopChonNhacNhoThemTheLoai extends DialogFragment {
     GridView gvNhacNhoTheLoai;
@@ -34,6 +38,7 @@ public class HopChonNhacNhoThemTheLoai extends DialogFragment {
         btnDismiss = view.findViewById(R.id.btnDismiss);
         adapter = new HopChonAdapter(getContext(),R.layout.hop_chon_item_co_hinh,initData());
         gvNhacNhoTheLoai.setAdapter(adapter);
+
         gvNhacNhoTheLoai.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -42,7 +47,8 @@ public class HopChonNhacNhoThemTheLoai extends DialogFragment {
                 adapter = new HopChonAdapter(getContext(),R.layout.hop_chon_item_co_hinh,initData());
                 HopChonItem hopChonItem= (HopChonItem) adapter.getItem(i);
 
-                txtTheLoai.setText(hopChonItem.getItemName());}
+                txtTheLoai.setText(hopChonItem.getItemName());
+                dismiss();}
 
             }
         );
@@ -52,8 +58,12 @@ public class HopChonNhacNhoThemTheLoai extends DialogFragment {
                 dismiss();
             }
         });
+
+
         addEvents();
+
         return view;
+
     }
 
     private ArrayList<HopChonItem> initData() {

@@ -41,7 +41,9 @@ public class HopChonNhacNhoChiTietTheLoai extends DialogFragment {
                 adapter = new HopChonAdapter(getContext(),R.layout.hop_chon_item_co_hinh,initData());
                 HopChonItem hopChonItem= (HopChonItem) adapter.getItem(i);
 
-                txtTheLoai.setText(hopChonItem.getItemName());}
+                txtTheLoai.setText(hopChonItem.getItemName());
+                dismiss();
+            }
 
         }
         );

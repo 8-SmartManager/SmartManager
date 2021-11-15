@@ -1,15 +1,18 @@
 package com.example.nhacnho;
 
+import java.io.Serializable;
+import java.sql.Time;
+import java.time.LocalDate;
 import java.util.Date;
 
-public class NhacNho {
+public class NhacNho implements Serializable {
     private String theLoai;
     private String ten;
     private String chuKy;
-    private String ngayBatDau;
-    private String gioNhac;
+    private LocalDate ngayBatDau;
+    private Time gioNhac;
 
-    public NhacNho(String theLoai, String ten, String chuKy, String ngayBatDau, String gioNhac) {
+    public NhacNho(String theLoai, String ten, String chuKy, LocalDate ngayBatDau,Time gioNhac) {
         this.theLoai = theLoai;
         this.ten = ten;
         this.chuKy = chuKy;
@@ -41,19 +44,19 @@ public class NhacNho {
         this.chuKy = chuKy;
     }
 
-    public String getNgayBatDau() {
+    public LocalDate getNgayBatDau() {
         return ngayBatDau;
     }
 
-    public void setNgayBatDau(String ngayBatDau) {
+    public void setNgayBatDau(LocalDate ngayBatDau) {
         this.ngayBatDau = ngayBatDau;
     }
 
-    public String getGioNhac() {
+    public Time getGioNhac() {
         return gioNhac;
     }
 
-    public void setGioNhac(String gioNhac) {
+    public void setGioNhac(Time gioNhac) {
         this.gioNhac = gioNhac;
     }
 }

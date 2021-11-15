@@ -34,8 +34,8 @@ public class HopChonNhacNhoChiTietTen extends DialogFragment {
 
         btnDismiss = view.findViewById(R.id.btnDismiss);
         txtTheLoai= getActivity().findViewById(R.id.txtNhacNhoChiTietTheLoai);
-
-        if(txtTheLoai.getText()=="Thu")
+        String t= txtTheLoai.getText().toString();
+        if(t=="Thu")
         {
             txtTieuDe.setText("Thu");
             adapter = new HopChonKhongHinhAdapter(getContext(),R.layout.hop_chon_item_khong_hinh,initDataThu());
@@ -43,15 +43,16 @@ public class HopChonNhacNhoChiTietTen extends DialogFragment {
             gvNhacNhoTheLoai.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    TextView txtTen= getActivity().findViewById(R.id.txtNhacNhoChiTietTen);
+                    TextView txtTen= getActivity().findViewById(R.id.edtNhacNhoChiTietTen);
                     adapter = new HopChonKhongHinhAdapter(getContext(),R.layout.hop_chon_item_khong_hinh,initDataThu());
                     HopChonKhongHinhItem hopChonItem= (HopChonKhongHinhItem) adapter.getItem(i);
 
                     txtTen.setText(hopChonItem.getName());
+                    dismiss();
                 }
             });
         }
-        if(txtTheLoai.getText()=="Chi")
+        if(t=="Chi")
         {
             txtTieuDe.setText("Chi");
             adapter = new HopChonKhongHinhAdapter(getContext(),R.layout.hop_chon_item_khong_hinh,initDataChi());
@@ -59,41 +60,44 @@ public class HopChonNhacNhoChiTietTen extends DialogFragment {
             gvNhacNhoTheLoai.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    TextView txtTen= getActivity().findViewById(R.id.txtNhacNhoChiTietTen);
+                    TextView txtTen= getActivity().findViewById(R.id.edtNhacNhoChiTietTen);
                     adapter = new HopChonKhongHinhAdapter(getContext(),R.layout.hop_chon_item_khong_hinh,initDataChi());
                     HopChonKhongHinhItem hopChonItem= (HopChonKhongHinhItem) adapter.getItem(i);
 
                     txtTen.setText(hopChonItem.getName());
+                    dismiss();
                 }
             });
         }
-        if(txtTheLoai.getText()=="Tiết kiệm") {
+        if(t=="Tiết kiệm") {
             txtTieuDe.setText("Tiết kiệm");
             adapter = new HopChonKhongHinhAdapter(getContext(), R.layout.hop_chon_item_khong_hinh, initDataTietKiem());
             gvNhacNhoTheLoai.setAdapter(adapter);
             gvNhacNhoTheLoai.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    TextView txtTen = getActivity().findViewById(R.id.txtNhacNhoChiTietTen);
+                    TextView txtTen = getActivity().findViewById(R.id.edtNhacNhoChiTietTen);
                     adapter = new HopChonKhongHinhAdapter(getContext(), R.layout.hop_chon_item_khong_hinh, initDataTietKiem());
                     HopChonKhongHinhItem hopChonItem = (HopChonKhongHinhItem) adapter.getItem(i);
 
                     txtTen.setText(hopChonItem.getName());
+                    dismiss();
                 }
             });
         }
-            if (txtTheLoai.getText() == "Ds mua sắm" ) {
-                txtTieuDe.setText("Ds mua sắm");
+            if (t == "DS mua sắm" ) {
+                txtTieuDe.setText("DS mua sắm");
                 adapter = new HopChonKhongHinhAdapter(getContext(), R.layout.hop_chon_item_khong_hinh, initDataDsMuaSam());
                 gvNhacNhoTheLoai.setAdapter(adapter);
                 gvNhacNhoTheLoai.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        TextView txtTen = getActivity().findViewById(R.id.txtNhacNhoChiTietTen);
+                        TextView txtTen = getActivity().findViewById(R.id.edtNhacNhoChiTietTen);
                         adapter = new HopChonKhongHinhAdapter(getContext(), R.layout.hop_chon_item_khong_hinh, initDataDsMuaSam());
                         HopChonKhongHinhItem hopChonItem = (HopChonKhongHinhItem) adapter.getItem(i);
 
                         txtTen.setText(hopChonItem.getName());
+                        dismiss();
                     }
                 });
             }

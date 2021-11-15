@@ -10,6 +10,6 @@ public class ThemMoi extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.Thu_chi_Them_moi);
+        setContentView(R.layout.thu_chi_them_moi);
     }
 }
