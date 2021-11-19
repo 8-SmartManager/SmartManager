@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/banPhimNhapTien"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/chu_dao"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/actioonBar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:background="@color/chu_dao"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_back"
+            app:navigationIconTint="@color/white"
+            android:theme="@style/Theme.SmartManagerTwo"
+            app:title="Tạo mục tiêu" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+        android:text="Bạn tiết kiệm vì điều gì? "
+        android:textSize="20sp"
+        android:paddingVertical="30dp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+    <LinearLayout
+        android:id="@+id/text_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtTitle"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:gravity="center"
+        android:weightSum="10">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:text="Tên"
+            android:textSize="20sp"
+            android:textColor="@color/mau_dam"/>
+        <EditText
+            android:id="@+id/edtTenMucTieu"
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mau_dam"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnTaoMucTieu"
+        app:layout_constraintTop_toBottomOf="@id/text_edittext"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:textSize="14sp"
+        app:backgroundTint="@null"
+        android:text="Tạo mục tiêu"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@drawable/button_tao"
+        android:textColor="@color/mau_xam"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btnTaoMucTieu"
+        app:layout_constraintBottom_toTopOf="@id/lblTheLoai"
+        android:text="Hoặc chọn"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:padding="30dp"/>
+
+
+
+    <TableLayout
+        android:id="@+id/lblTheLoai"
+    android:layout_width="match_parent"
+    android:stretchColumns="*"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    >
+    <TableRow
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:background="@color/chu_dao"
+
+        android:gravity="center_vertical"
+        >
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:gravity="center_vertical"
+            android:text="@string/the_loai"
+            android:textSize="20sp"
+            android:layout_span="3"
+            android:paddingLeft="16dp"
+
+            android:textColor="@color/white"/>
+
+    </TableRow>
+    <TableRow>
+        <Button
+            android:id="@+id/btnNha"
+            android:layout_height="70dp"
+            android:layout_width="match_parent"
+            android:drawableLeft="@drawable/ic_nha"
+            android:drawableTint="#FF4268"
+            android:text="Mua nhà"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/mau_dam"/>
+
+        <Button
+            android:id="@+id/btnXe"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:backgroundTint="@color/white"
+            android:drawableLeft="@drawable/ic_xe"
+            android:drawableTint="#4AD1B0"
+            android:text="Mua xe"
+            android:textAllCaps="false"
+            android:textColor="@color/mau_dam" />
+        <Button
+            android:id="@+id/btnDuLich"
+            android:layout_height="70dp"
+            android:layout_width="match_parent"
+            android:drawableLeft="@drawable/ic_dullich"
+            android:drawableTint="#CD59EA"
+            android:text="Du lịch"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/mau_dam"/>
+
+
+    </TableRow>
+    <TableRow>
+        <Button
+            android:id="@+id/btnHocTap"
+            android:layout_height="70dp"
+            android:layout_width="match_parent"
+            android:drawableLeft="@drawable/ic_hoctap"
+            android:drawableTint="#18A0FB"
+            android:text="Học tập"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/mau_dam"/>
+
+        <Button
+            android:id="@+id/btnSucKhoe"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:backgroundTint="@color/white"
+            android:drawableLeft="@drawable/ic_suc_khoe_1"
+            android:drawableTint="#FF4268"
+            android:text="Sức khỏe"
+            android:textAllCaps="false"
+            android:textColor="@color/mau_dam" />
+        <Button
+            android:id="@+id/btnConCai"
+            android:layout_height="70dp"
+            android:layout_width="match_parent"
+            android:drawableLeft="@drawable/ic_concai"
+            android:drawableTint="#5CDC70"
+            android:text="Con cái"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/mau_dam"/>
+
+    </TableRow>
+    <TableRow>
+        <Button
+            android:id="@+id/btnKetHon"
+            android:layout_height="70dp"
+            android:layout_width="match_parent"
+            android:drawableLeft="@drawable/ic_kethon"
+
+            android:text="Kết hôn"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/mau_dam"/>
+
+        <Button
+            android:id="@+id/btnBoMe"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:backgroundTint="@color/white"
+            android:drawableLeft="@drawable/ic_bame"
+            android:drawableTint="#18A0FB"
+            android:text="Bố mẹ"
+            android:textAllCaps="false"
+            android:textColor="@color/mau_dam" />
+
+
+
+    </TableRow>
+</TableLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
