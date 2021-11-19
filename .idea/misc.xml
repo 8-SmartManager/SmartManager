@@ -145,6 +145,26 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManagerTwo/app/src/main/res/layout/nav_header_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManagerTwo/app/src/main/res/menu/activity_menu_drawer.xml" value="0.4" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManagerTwo/app/src/main/res/menu/menu.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/drawable/button_tao.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/drawable/ic_back.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/activity_ds_shopping.xml" value="0.184375" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/activity_nhacnho_chi_tiet.xml" value="0.184375" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/activity_tai_khoan.xml" value="0.184375" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/activity_tao_muc_tieu_chi_tiet.xml" value="0.184375" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/ban_phim_so.xml" value="0.184375" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/dialog_ketnoi_invite.xml" value="0.184375" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/fragment_the_loai.xml" value="0.184375" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/fragment_the_loai_muctieu.xml" value="0.184375" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/fragment_tintuc1.xml" value="0.184375" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/fragment_tintuc2.xml" value="0.184375" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/hoat_dong_fragment.xml" value="0.184375" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/hop_chon_chung.xml" value="0.184375" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/hop_chon_item_co_hinh.xml" value="0.184375" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/hop_chon_item_khong_hinh.xml" value="0.184375" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/hop_thoai_chon.xml" value="0.184375" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/sua_hoat_dong.xml" value="0.184375" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/sua_thong_tin.xml" value="0.184375" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/thu_chi_them_moi.xml" value="0.184375" />
       </map>
     </option>
   </component>
