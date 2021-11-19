@@ -51,50 +51,47 @@
             android:backgroundTint="@color/chu_dao"/>
     </LinearLayout>
 
+
     <com.google.android.material.tabs.TabLayout
-     android:layout_width="match_parent"
-     android:layout_height="56dp"
-     android:layout_marginTop="56dp"
-     app:tabIndicatorColor="@color/thu_cap"
-     app:tabTextColor="@color/chu_dao"
-     app:tabIndicatorHeight="2dp"
-     >
-     <com.google.android.material.tabs.TabItem
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="Chung"
-         />
-     <com.google.android.material.tabs.TabItem
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="Ngày"
-         />
-     <com.google.android.material.tabs.TabItem
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="Tuần"
-         />
-     <com.google.android.material.tabs.TabItem
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="Tháng"
-         />
-     <com.google.android.material.tabs.TabItem
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="Tổng"
-         />
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="56dp"
+        app:tabIndicatorColor="@color/thu_cap"
+        app:tabIndicatorHeight="2dp"
+        app:tabTextColor="@color/chu_dao">
 
- </com.google.android.material.tabs.TabLayout>
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chung" />
 
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ngày" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tuần" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tháng" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tổng" />
+
+    </com.google.android.material.tabs.TabLayout>
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_marginTop="112dp"
-        android:gravity="center"
-
-      >
+        android:gravity="center">
 
         <TableRow>
 
@@ -143,187 +140,68 @@
         </TableRow>
     </TableLayout>
 
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="168dp">
+        android:layout_marginTop="168dp"
+        android:weightSum="12">
 
-        <TableRow>
+
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:text="18, Th2"
-                android:layout_weight="1"
+                android:layout_weight="4"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
                 android:textSize="13dp"
                 android:textColor="@color/mau_dam"
                 android:textStyle="bold"
 
+
                 />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:text="2000000"
-                android:layout_weight="1"
+                android:layout_weight="4"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
                 android:textSize="13dp"
                 android:textColor="@color/mau_dam"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="2000000"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
-                android:textColor="@color/thu_cap"
                 android:textStyle="bold"
                 />
 
-        </TableRow>
-
-        <TableRow>
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Giải trí"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
-                android:textColor="@color/mau_xam"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Tiền mặt"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
-                android:textColor="@color/mau_xam"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
                 android:text="2000000"
-                android:layout_weight="1"
+                android:layout_weight="4"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
                 android:textSize="13dp"
-                android:textColor="@color/thu_cap"/>
-
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Tiền lương"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
-                android:textColor="@color/mau_xam"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Tài khoản"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
-                android:textColor="@color/mau_xam"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="2000000"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
-                android:textColor="@color/mau_dam"/>
-
-        </TableRow>
-
-        <TableRow>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="17, Th2"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
-                android:textColor="@color/mau_dam"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="0"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
-                android:textColor="@color/mau_dam"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/body_medium_13"
-                android:gravity="center"
-                android:text="50000"
                 android:textColor="@color/thu_cap"
-                android:textSize="13dp"
                 android:textStyle="bold"/>
 
-        </TableRow>
 
-        <TableRow>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Ăn uống"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
-                android:textColor="@color/mau_xam"
-                />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Tiền mặt"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
-                android:textColor="@color/mau_xam"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="224dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="50000"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
-                android:textColor="@color/thu_cap"/>
+        <ListView
+            android:id="@+id/lvActivity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:listSelector="@color/thay_trang"/>
+    </LinearLayout>
 
-        </TableRow>
-    </TableLayout>
+
+
+
 
 
 
