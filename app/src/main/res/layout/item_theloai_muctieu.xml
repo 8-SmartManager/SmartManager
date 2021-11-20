@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="140dp"
+    android:layout_height="70dp"
+    android:orientation="horizontal"
+     >
+    <ImageView
+        android:id="@+id/imvTheLoaiIcon"
+        android:layout_width="24dp"
+        android:layout_marginLeft="20dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_nha"
+        android:layout_gravity="center_vertical"
+        />
+    <TextView
+        android:id="@+id/txtItemTenTheLoai"
+        android:layout_marginLeft="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:text="Mua nhà"
+        android:textColor="@color/mau_dam"
+        android:fontFamily="@font/header3_semibold_14"/>
+
+</LinearLayout>
