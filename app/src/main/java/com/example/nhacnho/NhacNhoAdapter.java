@@ -71,13 +71,14 @@ public class NhacNhoAdapter extends BaseAdapter {
         holder.txtTheLoai.setText(nhacNho.getTheLoai());
         holder.txtTen.setText(nhacNho.getTen());
         holder.txtChuKy.setText(nhacNho.getChuKy());
-        if(holder.txtChuKy.getText()== "Một lần"||holder.txtChuKy.getText()=="Hàng ngày" ){
+        String t= holder.txtChuKy.getText().toString();
+        if(holder.txtChuKy.getText().equals("Một lần")||holder.txtChuKy.getText().equals("Hàng ngày") ){
 
             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
             String str = sdf.format(nhacNho.getGioNhac());
             holder.txtThoiGianNhac.setText(str);
         }
-        else if (holder.txtChuKy.getText()=="Hàng tuần")
+        else if (holder.txtChuKy.getText().equals("Hàng tuần"))
         {
             LocalDate date = nhacNho.getNgayBatDau();
             DayOfWeek dow = date.getDayOfWeek();
@@ -112,10 +113,11 @@ public class NhacNhoAdapter extends BaseAdapter {
 
 
             holder.txtThoiGianNhac.setText(ngay);}
-        else if (holder.txtChuKy.getText()=="Hàng tháng" ){
+        else if (holder.txtChuKy.getText().equals("Hàng tháng")){
 
             holder.txtThoiGianNhac.setText("Ngày "+nhacNho.getNgayBatDau().getDayOfMonth());
         }
+
         return view;
     }
     public static class ViewHolder{

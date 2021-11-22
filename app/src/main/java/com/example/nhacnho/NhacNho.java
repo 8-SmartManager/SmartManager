@@ -6,18 +6,28 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public class NhacNho implements Serializable {
+    private  int ID;
     private String theLoai;
     private String ten;
     private String chuKy;
     private LocalDate ngayBatDau;
     private Time gioNhac;
 
-    public NhacNho(String theLoai, String ten, String chuKy, LocalDate ngayBatDau,Time gioNhac) {
+    public NhacNho(int ID, String theLoai, String ten, String chuKy, LocalDate ngayBatDau, Time gioNhac) {
+        this.ID = ID;
         this.theLoai = theLoai;
         this.ten = ten;
         this.chuKy = chuKy;
         this.ngayBatDau = ngayBatDau;
         this.gioNhac = gioNhac;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public String getTheLoai() {
