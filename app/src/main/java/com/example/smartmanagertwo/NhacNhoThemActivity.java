@@ -164,9 +164,6 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                         calendarTime.get(Calendar.HOUR),
                 calendarTime.get(Calendar.MINUTE),true);
                 timePickerDialog.show();
-
-
-
             }
 
         }
