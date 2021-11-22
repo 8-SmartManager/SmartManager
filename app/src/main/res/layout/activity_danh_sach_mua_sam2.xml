@@ -12,6 +12,7 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
         <ImageButton
+            android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_back"
@@ -62,16 +63,16 @@
                 android:fontFamily="@font/header3_semibold_14"
 
                 android:textColor="@color/mau_xam"/>
-            <EditText
-                android:id="@+id/edtNhacNhoChiTietTên"
-                android:layout_width="256dp"
-                android:layout_height="56dp"
-                android:text="Tiền mặt"
+            <TextView
+                android:id="@+id/txtTaiKhoan"
+                android:layout_width="match_parent"
+                android:background="@drawable/textlines_khong"
                 android:fontFamily="@font/header3_semibold_14"
-                android:layout_marginRight="10dp"
-                android:layout_marginStart="10dp"
+                android:hint="Chọn tài khoản"
+                android:layout_weight="1"
+                android:layout_height="56dp"
+                android:layout_marginRight="30dp"
                 android:textColor="@color/mau_dam"
-                android:backgroundTint="@color/mau_xam"
                 />
 
         </TableRow>
@@ -84,16 +85,15 @@
                 android:gravity="left"
                 android:fontFamily="@font/header3_semibold_14"
                 android:textColor="@color/mau_xam"/>
-            <EditText
-                android:id="@+id/edtNhacNhoChiTietChuKy"
-                android:layout_width="256dp"
-                android:layout_height="56dp"
-                android:hint="Chọn thể loại"
+            <TextView
+                android:id="@+id/txtTheLoai"
+                android:layout_width="match_parent"
+                android:background="@drawable/textlines_khong"
                 android:fontFamily="@font/header3_semibold_14"
-                android:textSize="14sp"
-                android:layout_marginStart="10dp"
-                android:layout_marginRight="10dp"
-                android:backgroundTint="@color/mau_xam"
+                android:hint="Chọn thể loại"
+                android:layout_weight="1"
+                android:layout_height="56dp"
+                android:layout_marginRight="30dp"
                 android:textColor="@color/mau_dam"
                 />
 
@@ -108,21 +108,21 @@
                 android:fontFamily="@font/header3_semibold_14"
                 android:textSize="14sp"
                 android:textColor="@color/mau_xam"/>
-            <EditText
-                android:id="@+id/edtNhacNhoChiTietNgayBatDau"
-                android:layout_width="256dp"
-                android:layout_height="56dp"
-                android:hint="Nhập số tiền"
+            <TextView
+                android:id="@+id/txtSoTien"
+                android:layout_width="match_parent"
+                android:background="@drawable/textlines_khong"
                 android:fontFamily="@font/header3_semibold_14"
-                android:textSize="14sp"
-                android:layout_marginStart="10dp"
-                android:backgroundTint="@color/mau_xam"
-                android:layout_marginRight="10dp"
+                android:hint="Nhập số tiền"
+                android:layout_weight="1"
+                android:layout_height="56dp"
+                android:layout_marginRight="30dp"
                 android:textColor="@color/mau_dam"
                 />
         </TableRow>
     </TableLayout>
     <Button
+        android:id="@+id/btnThem"
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:layout_marginTop="150dp"
@@ -135,12 +135,14 @@
         android:textColor="@color/chu_dao"
 
         />
-    <fragment
-        android:id="@+id/fragmentTheLoai"
-        android:name="com.example.smartmanagertwo.TheLoaiFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-
-        tools:layout="@layout/fragment_the_loai" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+    <LinearLayout
+        android:id="@+id/layoutContainer"
+        android:orientation="vertical"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

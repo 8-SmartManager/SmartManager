@@ -11,9 +11,11 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
         android:background="@color/white"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:bottomLeftRadius="7dp">
 
         <ImageView
+            android:id="@+id/imvThumb"
             android:layout_width="300dp"
             android:layout_height="239dp"
             android:layout_gravity="center"
@@ -27,6 +29,7 @@
             android:padding="10dp">
 
             <TextView
+                android:id="@+id/txtName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/header2_bold_20"
@@ -34,6 +37,7 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/txtChiTiet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/body_medium_13"
