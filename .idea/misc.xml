@@ -3,6 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/BTTHMobile/SmartManager/app/src/main/res/layout/activity_nhacnho_chi_tiet.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/SmartManager/app/src/main/res/layout/activity_nhacnho_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/SmartManager/app/src/main/res/layout/activity_nhacnho_them_moi.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/SmartManager/app/src/main/res/layout/activity_tai_khoan_chi_tiet.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/SmartManager/app/src/main/res/layout/activity_thong_ke.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/SmartManager/app/src/main/res/layout/activity_thong_ke_chi_tiet.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/SmartManager/app/src/main/res/layout/ban_phim_so.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/SmartManager/app/src/main/res/layout/hoat_dong_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/SmartManager/app/src/main/res/layout/hop_chon_chung.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/SmartManager/app/src/main/res/layout/hop_chon_item_co_hinh.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/SmartManager/app/src/main/res/layout/hop_chon_item_khong_hinh.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/SmartManager/app/src/main/res/layout/hop_thoai_chon.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/SmartManager/app/src/main/res/layout/nhac_nho_item_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/SmartManager/app/src/main/res/layout/sua_thong_tin.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/SmartManager/app/src/main/res/layout/thong_ke_item_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/drawable/bg_button.xml" value="0.2546875" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/drawable/cham_tron_mat_khau_color.xml" value="0.2546875" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/drawable/image_button_color.xml" value="0.2546875" />
