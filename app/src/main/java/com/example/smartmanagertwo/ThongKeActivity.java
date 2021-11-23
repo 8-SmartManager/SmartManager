@@ -1,6 +1,7 @@
 package com.example.smartmanagertwo;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,8 @@ import com.example.thongke.ThongKe;
 import com.example.thongke.ThongKeAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class ThongKeActivity extends AppCompatActivity {
 
@@ -28,17 +31,25 @@ public class ThongKeActivity extends AppCompatActivity {
     ListView lvThongKe;
     ArrayList<ThongKe> InfoTK;
     ThongKeAdapter thongKeAdapter;
+    public static MyDatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thong_ke);
 
+        prepareDb();
         linkViews();
         loadData();
-        initData();
+//        initData();
         loadDataAdapter();
         addEvents();
+    }
+
+    @Override
+    protected void onResume() {
+        loadDataAdapter();
+        super.onResume();
     }
 
     private void linkViews() {
@@ -46,6 +57,22 @@ public class ThongKeActivity extends AppCompatActivity {
         lvThongKe = findViewById(R.id.lvThongKe);
     }
 
+    private void prepareDb() {
+        db = new MyDatabaseHelper(this);
+        db.createSomeData();
+    }
+    private List<ThongKe> getDataFromDb(){
+        InfoTK = new ArrayList<>();
+        Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_THONGKE);
+        InfoTK.clear();
+        while (cursor.moveToNext()){
+            InfoTK.add(new ThongKe(cursor.getString(0), cursor.getString(1),cursor.getDouble(2)));
+        }
+        cursor.close();
+        return InfoTK;
+    }
+
+//Spinner
     private void loadData() {
         timeList = new ArrayList<>();
         timeList.add("Hàng tuần");
@@ -55,15 +82,15 @@ public class ThongKeActivity extends AppCompatActivity {
         spTime.setAdapter(adapter);
     }
 
-    private void initData() {
-        InfoTK = new ArrayList<ThongKe>();
-        InfoTK.add(new ThongKe("50%", "Ăn uống", 2000000.0));
-        InfoTK.add(new ThongKe("27%", "Giải trí", 500000.0));
-        InfoTK.add(new ThongKe("23%", "Giáo dục", 300000.0));
-    }
+//    private void initData() {
+//        InfoTK = new ArrayList<ThongKe>();
+//        InfoTK.add(new ThongKe("50%", "Ăn uống", 2000000.0));
+//        InfoTK.add(new ThongKe("27%", "Giải trí", 500000.0));
+//        InfoTK.add(new ThongKe("23%", "Giáo dục", 300000.0));
+//    }
 
     private void loadDataAdapter() {
-        thongKeAdapter = new ThongKeAdapter(ThongKeActivity.this, R.layout.thong_ke_item_layout,InfoTK);
+        thongKeAdapter = new ThongKeAdapter(ThongKeActivity.this, R.layout.thong_ke_item_layout,getDataFromDb());
         lvThongKe.setAdapter(thongKeAdapter);
     }
 
