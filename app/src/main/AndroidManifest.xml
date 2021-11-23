@@ -17,6 +17,17 @@
         <activity
             android:name=".NhacNhoActivity"
             android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".ThemMoi"
+            android:exported="true" />
+        <activity
+            android:name=".ThongKeChiTiet"
+            android:exported="true" />
+        <activity
+            android:name=".TaiKhoan"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,17 +35,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ThemMoi"
-            android:exported="true" />
-        <activity
-            android:name=".ThongKe"
-            android:exported="true" />
-        <activity
-            android:name=".TaiKhoan"
-            android:exported="true"></activity>
-        <activity
             android:name=".ThuChi"
-            android:exported="true" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true" />
@@ -42,11 +46,12 @@
             android:name=".CaiDatThongTinAppChinhSach"
             android:exported="true" />
         <activity
-            android:name=".NhacNhoChiTietActivity"
+            android:name=".CaiDatMatKhauMain"
             android:exported="true" />
         <activity
             android:name=".NhacNhoThemActivity"
             android:exported="true" />
+        <activity android:name=".NhacNhoChiTietActivity" android:exported="true"/>
     </application>
 
 </manifest>
