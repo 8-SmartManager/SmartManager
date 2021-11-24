@@ -22,9 +22,7 @@ import java.util.ArrayList;
 public class TaoMucTieu extends AppCompatActivity {
     EditText edtTenMucTieu;
     Button btnTaoMucTieu;
-    GridView gvTheLoai;
-    ArrayList<TheLoai> theLoai;
-    TheLoaiMucTieuAdapter adapter;
+
 
 
     @Override
@@ -37,12 +35,8 @@ public class TaoMucTieu extends AppCompatActivity {
     }
 
     private void addEvents() {
-        gvTheLoai.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                edtTenMucTieu.setText(theLoai.get(i).getTenTheLoai());
-            }
-        });
+
+
         btnTaoMucTieu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,19 +56,6 @@ public class TaoMucTieu extends AppCompatActivity {
     }
 
     private void initData() {
-        theLoai= new ArrayList<>();
-
-        theLoai.add(new TheLoai("Mua nhà",R.drawable.ic_nha));
-        theLoai.add(new TheLoai("Mua xe",R.drawable.ic_xe));
-        theLoai.add(new TheLoai("Du lịch",R.drawable.ic_dullich));
-        theLoai.add(new TheLoai("Học tập",R.drawable.ic_hoctap));
-        theLoai.add(new TheLoai("Sức khỏe",R.drawable.ic_suc_khoe_1));
-        theLoai.add(new TheLoai("Con cái",R.drawable.ic_concai));
-        theLoai.add(new TheLoai("Kết hôn",R.drawable.ic_kethon));
-        theLoai.add(new TheLoai("Bố mẹ",R.drawable.ic_bame));
-
-        adapter = new TheLoaiMucTieuAdapter(this, R.layout.fragment_the_loai,theLoai);
-        gvTheLoai.setAdapter(adapter);
 
 
 
@@ -83,7 +64,6 @@ public class TaoMucTieu extends AppCompatActivity {
     private void LinkView() {
         edtTenMucTieu= findViewById(R.id.edtTenMucTieu);
         btnTaoMucTieu=findViewById(R.id.btnTaoMucTieu);
-        gvTheLoai=findViewById(R.id.gvTheLoai);
 
 
     }

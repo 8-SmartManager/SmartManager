@@ -61,6 +61,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/mau_dam"/>
 
+
     </LinearLayout>
 
     <Button
@@ -84,11 +85,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/btnTaoMucTieu"
-        app:layout_constraintBottom_toTopOf="@id/txtTheLoai"
+        app:layout_constraintBottom_toTopOf="@id/LayoutContainerTietKiem"
         android:text="Hoặc chọn"
         android:gravity="center"
         android:textSize="20sp"
         android:padding="30dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/LayoutContainerTietKiem"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </LinearLayout>
 
 
 
@@ -229,24 +238,29 @@
 
 <!--    </TableRow>-->
 <!--</TableLayout>-->
-    <TextView
-                android:id="@+id/txtTheLoai"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:gravity="center_vertical"
-                android:text="@string/the_loai"
-                android:textSize="20sp"
-                android:layout_span="3"
-                android:paddingLeft="16dp"
-                android:background="@color/mau_dam"
-                app:layout_constraintBottom_toTopOf="@id/gvTheLoai"
-                android:textColor="@color/white"/>
-    <GridView
-        android:id="@+id/gvTheLoai"
-        android:numColumns="3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent">
 
-    </GridView>
+
+
+<!--    <TextView-->
+<!--                android:id="@+id/txtTheLoai"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="45dp"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:text="@string/the_loai"-->
+<!--                android:textSize="20sp"-->
+<!--                android:layout_span="3"-->
+<!--                android:paddingLeft="16dp"-->
+<!--                android:background="@color/mau_dam"-->
+<!--                app:layout_constraintBottom_toTopOf="@id/gvTheLoai"-->
+<!--                android:textColor="@color/white"/>-->
+
+
+<!--    <GridView-->
+<!--        android:id="@+id/gvTheLoai"-->
+<!--        android:numColumns="3"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent">-->
+
+<!--    </GridView>-->
 </androidx.constraintlayout.widget.ConstraintLayout>
