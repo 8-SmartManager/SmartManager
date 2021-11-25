@@ -1,5 +1,6 @@
 package com.example.muctieutietkiem.packages;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,10 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.muctieutietkiem.packages.adapter.GoalAdapter;
 import com.example.muctieutietkiem.packages.model.Goal;
+import com.example.nhacnho.NhacNho;
+import com.example.nhacnho.NhacNhoAdapter;
+import com.example.smartmanagertwo.NhacNhoActivity;
+import com.example.smartmanagertwo.NhacNhoChiTietActivity;
 import com.example.smartmanagertwo.R;
 
 import java.util.ArrayList;
@@ -42,6 +47,8 @@ public class hoat_dong_fragment extends Fragment {
         lvGoal.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent intent = new Intent(getContext(), chitiet_muctieu_fragement.class);
                 adapter=new GoalAdapter(getContext(),R.layout.custom_muctieu_tietkiem,goals);
                 Goal g = (Goal) adapter.getItem(i);
                 FragmentManager manager = getActivity().getSupportFragmentManager();
@@ -52,5 +59,7 @@ public class hoat_dong_fragment extends Fragment {
                 transaction.commit();
             }
         });
+
+
    }
 }

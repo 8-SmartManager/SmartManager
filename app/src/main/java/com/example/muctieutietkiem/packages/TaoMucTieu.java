@@ -3,18 +3,28 @@ package com.example.muctieutietkiem.packages;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.muctieutietkiem.packages.adapter.GoalAdapter;
 import com.example.muctieutietkiem.packages.adapter.TheLoaiMucTieuAdapter;
 import com.example.muctieutietkiem.packages.model.Goal;
 import com.example.muctieutietkiem.packages.model.TheLoai;
+import com.example.nhacnho.HopChonNhacNhoChiTietTen;
+import com.example.smartmanagertwo.HopChonNhacNhoChuKy;
+import com.example.smartmanagertwo.HopChonNhacNhoThemTheLoai;
 import com.example.smartmanagertwo.R;
 
 import java.util.ArrayList;
@@ -22,6 +32,8 @@ import java.util.ArrayList;
 public class TaoMucTieu extends AppCompatActivity {
     EditText edtTenMucTieu;
     Button btnTaoMucTieu;
+    Intent intent;
+
 
 
 
@@ -29,8 +41,12 @@ public class TaoMucTieu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_the_loai_muctieu);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         LinkView();
-        initData();
+
+        loadFragment();
         addEvents();
     }
 
@@ -45,17 +61,25 @@ public class TaoMucTieu extends AppCompatActivity {
                     ShowDialog();
                 }
                 else {
-                    Intent intent= new Intent(TaoMucTieu.this,TaoMucTieuChiTiet.class);
+                    intent= new Intent(TaoMucTieu.this,TaoMucTieuChiTiet.class);
                     intent.putExtra("tlName",edtTenMucTieu.getText().toString());
                     startActivity(intent);
 
                 }
             }
         });
+        edtTenMucTieu.setOnClickListener(myClick);
 
     }
 
-    private void initData() {
+    private void loadFragment() {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        Fragment fragment = null;
+        fragment = new HopChonTheLoaiTietKiem();
+        transaction.replace(R.id.LayoutContainerTietKiem, fragment);
+
+        transaction.commit();
 
 
 
@@ -81,4 +105,28 @@ public class TaoMucTieu extends AppCompatActivity {
         dialog.show();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+
+            default:break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    View.OnClickListener myClick =new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if (view.getId() == R.id.edtTenMucTieu) {
+
+
+                edtTenMucTieu.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(), R.color.thu_cap));
+
+            }
+        }
+    };
 }
