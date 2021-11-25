@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.hopchonkhonghinh.HopChonKhongHinhAdapter;
 import com.example.hopchonkhonghinh.HopChonKhongHinhItem;
+import com.example.smartmanagertwo.NhacNhoChiTietActivity;
 import com.example.smartmanagertwo.R;
 
 import java.util.ArrayList;
@@ -33,11 +34,11 @@ public class HopChonNhacNhoChiTietTen extends DialogFragment {
         txtTieuDe= view.findViewById(R.id.txtTieuDe);
 
         btnDismiss = view.findViewById(R.id.btnDismiss);
-        txtTheLoai= getActivity().findViewById(R.id.txtNhacNhoChiTietTheLoai);
-        String t= txtTheLoai.getText().toString();
+
+        String t= NhacNhoChiTietActivity.theLoai;
         if(t=="Thu")
         {
-            txtTieuDe.setText("Thu");
+            txtTieuDe.setText(t);
             adapter = new HopChonKhongHinhAdapter(getContext(),R.layout.hop_chon_item_khong_hinh,initDataThu());
             gvNhacNhoTheLoai.setAdapter(adapter);
             gvNhacNhoTheLoai.setOnItemClickListener(new AdapterView.OnItemClickListener() {

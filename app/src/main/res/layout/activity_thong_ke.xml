@@ -4,170 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ThongKe"
+    tools:context=".ThongKeActivity"
     android:orientation="vertical">
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/chu_dao"
-        android:gravity="center_vertical">
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_menu"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="32dp"
-            app:tint="@color/white"
-            android:backgroundTint="@color/chu_dao"/>
-        <TextView
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Thống kê"
-            android:textSize="20sp"
-            android:fontFamily="@font/header2_bold_20"
-            android:textColor="@color/white"
-            android:layout_weight="1"/>
-        <Spinner
-            android:id="@+id/spCategory"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="24dp"
-            android:spinnerMode="dropdown"/>
-        <ImageButton
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_lich"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="24dp"
-            app:tint="@color/white"
-            android:backgroundTint="@color/chu_dao"/>
-    </LinearLayout>
-
-    <com.google.android.material.tabs.TabLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginTop="56dp"
-        app:tabIndicatorColor="@color/thu_cap"
-        app:tabTextColor="@color/chu_dao"
-        app:tabIndicatorHeight="2dp">
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Chi" />
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thu" />
-    </com.google.android.material.tabs.TabLayout>
-    <LinearLayout
-        android:layout_width="333dp"
-        android:layout_height="270dp"
-        android:orientation="vertical"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="120dp">
-        <ImageView
+            android:layout_height="56dp"
+            android:background="@color/chu_dao"
+            android:gravity="center_vertical">
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/chu_dao"
+                android:src="@drawable/ic_menu"
+                app:tint="@color/white" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/header2_bold_20"
+                android:text="Thống kê"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+            <Spinner
+                android:id="@+id/spTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown" />
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/chu_dao"
+                android:src="@drawable/ic_lich"
+                app:tint="@color/white" />
+        </LinearLayout>
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:tabIndicatorColor="@color/thu_cap"
+            app:tabTextColor="@color/chu_dao"
+            app:tabIndicatorHeight="2dp">
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chi" />
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thu" />
+        </com.google.android.material.tabs.TabLayout>
+        <LinearLayout
             android:layout_width="333dp"
             android:layout_height="270dp"
-            android:src="@drawable/ic_donut_small"/>
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal">
+            <ImageView
+                android:layout_width="333dp"
+                android:layout_height="270dp"
+                android:src="@drawable/ic_donut_small"/>
+        </LinearLayout>
+        <ListView
+            android:layout_weight="1"
+            android:id="@+id/lvThongKe"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:listSelector="@color/thay_trang" />
     </LinearLayout>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp">
-        <TableRow>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="97%"
-                android:background="#4AD1B0"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-
-                android:textColor="@color/mau_dam"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Ăn uống"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-
-                android:textColor="@color/mau_dam"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="2000000"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-
-                android:textColor="@color/mau_dam"/>
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="2%"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-
-                android:textColor="@color/mau_dam"
-                android:background="#FF4268" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Giải trí"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-
-                android:textColor="@color/mau_dam"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="500000"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-
-                android:textColor="@color/mau_dam"/>
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="1%"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-
-                android:textColor="@color/mau_dam"
-                android:background="#FDB713"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/body_medium_13"
-                android:gravity="center"
-                android:text="Sở thích"
-                android:textColor="@color/mau_dam"
-                 />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="50000"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-
-                android:textColor="@color/mau_dam"/>
-        </TableRow>
-    </TableLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/chu_dao"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="32dp"
+                android:backgroundTint="@color/chu_dao"
+                android:src="@drawable/ic_menu"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/header2_bold_20"
+                android:text="Kế hoạch mua sắm"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginTop="30dp">
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/body_medium_13"
+
+                    android:gravity="center"
+                    android:text="Tên"
+                    android:textColor="@color/mau_xam"
+                    android:textSize="13dp" />
+
+                <EditText
+                    android:id="@+id/edtDatTen"
+                    android:layout_width="256dp"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/body_medium_13"
+                    android:hint="Đặt tên cho danh sách mua săm"
+                    android:textColor="@color/mau_xam"
+                    android:textSize="13dp" />
+
+            </TableRow>
+        </TableLayout>
+
+        <Button
+            android:id="@+id/btnTaoDanhSach"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30sp"
+            android:layout_marginRight="30sp"
+            android:layout_gravity="center"
+            android:textSize="14sp"
+            app:backgroundTint="@null"
+            android:text="Tạo danh sách"
+            android:backgroundTint="@color/thay_trang"
+            android:background="@drawable/button_tao"
+            android:textColor="@color/mau_xam"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="40dp"
+        android:backgroundTint="@color/thu_cap"
+        android:src="@drawable/ic_dau_cong"
+        android:tint="@color/white" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -29,6 +29,7 @@ import java.util.Calendar;
 
 public class NhacNhoChiTietActivity extends AppCompatActivity {
     TextView txtTheLoai, txtChuKy, txtNgayBatDau, txtGioNhac;
+    public  static String theLoai="";
     EditText edtTen;
     ImageButton btnBack;
     @Override
@@ -50,8 +51,7 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(NhacNhoChiTietActivity.this,NhacNhoActivity.class);
-                startActivity(intent);
+               onBackPressed();
             }
         });
 
@@ -75,6 +75,7 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
         Intent intent= getIntent();
         NhacNho nhacNho= (NhacNho) intent.getSerializableExtra("Nhac Nho");
         txtTheLoai.setText(nhacNho.getTheLoai());
+        theLoai=txtTheLoai.getText().toString();
         edtTen.setText(nhacNho.getTen());
         txtChuKy.setText(nhacNho.getChuKy());
         txtNgayBatDau.setText(nhacNho.getNgayBatDau().toString());

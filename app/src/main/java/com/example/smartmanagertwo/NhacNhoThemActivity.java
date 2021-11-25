@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,8 +17,10 @@ import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
 
 public class NhacNhoThemActivity extends AppCompatActivity {
@@ -52,17 +55,13 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-//        btnTao.setOnClickListener(new View.OnClickListener() {
-//            @RequiresApi(api = Build.VERSION_CODES.O)
-//            @Override
-//            public void onClick(View view) {
-//                intent= new Intent(NhacNhoThemActivity.this, NhacNhoActivity.class);
-//                NhacNho nhacNho = new NhacNho(txtTheLoai.getText().toString(),txtTen.getText().toString()
-//                ,txtChuKy.getText().toString(),LocalDate.parse(txtNgayBatDau.getText().toString()),Time.valueOf(txtGioNhac.getText().toString()));
-//
-//                intent.putExtra("new", nhacNho);
-//            }
-//        });
+        btnTao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                finish();
+            }
+        });
 
     }
 
@@ -164,9 +163,6 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                         calendarTime.get(Calendar.HOUR),
                 calendarTime.get(Calendar.MINUTE),true);
                 timePickerDialog.show();
-
-
-
             }
 
         }
