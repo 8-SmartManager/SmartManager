@@ -21,6 +21,7 @@
             app:tint="@color/white"
             android:backgroundTint="@color/chu_dao"/>
         <TextView
+            android:id="@+id/txtTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Shopping"
@@ -108,16 +109,16 @@
                 android:fontFamily="@font/header3_semibold_14"
                 android:textSize="14sp"
                 android:textColor="@color/mau_xam"/>
-            <TextView
-                android:id="@+id/txtSoTien"
+            <EditText
+                android:id="@+id/edtSoTien"
                 android:layout_width="match_parent"
-                android:background="@drawable/textlines_khong"
                 android:fontFamily="@font/header3_semibold_14"
-                android:hint="Nhập số tiền"
+                android:textSize="14sp"
                 android:layout_weight="1"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
                 android:textColor="@color/mau_dam"
+                android:inputType="number"
                 />
         </TableRow>
     </TableLayout>
