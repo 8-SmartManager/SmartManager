@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ThuChi extends AppCompatActivity {
 
-    MyDatabaseHelper db;
+    public static MyDatabaseHelper db;
 
     TextView txtActivityName, txtActivityAccount, txtActivityAmount;
     ListView lvActivity;

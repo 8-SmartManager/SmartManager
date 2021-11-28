@@ -33,10 +33,12 @@ import javax.xml.transform.sax.TemplatesHandler;
 
 public class DanhSachMuaSam2 extends AppCompatActivity {
 
-    TextView txtTaiKhoan, txtTheLoai,txtSoTien;
+    TextView txtTaiKhoan, txtTheLoai, txtTitle;
+    EditText edtSoTien;
     Button btnThem;
     FragmentManager manager;
     FragmentTransaction transaction;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,19 +48,28 @@ public class DanhSachMuaSam2 extends AppCompatActivity {
         linkViews();
         addEvent();
 
-
     }
+
 
     private void addEvent() {
         txtTaiKhoan.setOnClickListener(myClick);
         txtTheLoai.setOnClickListener(myClick);
-        txtSoTien.setOnClickListener(myClick);
+
+
+        btnThem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(DanhSachMuaSam2.this, DanhSachMuaSam3.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void linkViews() {
         txtTaiKhoan=findViewById(R.id.txtTaiKhoan);
         txtTheLoai=findViewById(R.id.txtTheLoai);
-        txtSoTien=findViewById(R.id.txtSoTien);
+        edtSoTien=findViewById(R.id.edtSoTien);
+        txtTitle=findViewById(R.id.txtTitle);
 
         btnThem=findViewById(R.id.btnThem);
 
@@ -66,7 +77,7 @@ public class DanhSachMuaSam2 extends AppCompatActivity {
     View.OnClickListener myClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            if(view.getId()==R.id.txtTaiKhoan||view.getId()==R.id.txtTheLoai||view.getId()==R.id.txtSoTien )
+            if(view.getId()==R.id.txtTaiKhoan||view.getId()==R.id.txtTheLoai )
             {
                 FragmentManager manager= getSupportFragmentManager();
                 FragmentTransaction transaction= manager.beginTransaction();
@@ -74,27 +85,20 @@ public class DanhSachMuaSam2 extends AppCompatActivity {
                 if(view.getId()==R.id.txtTaiKhoan){
                     txtTaiKhoan.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.thu_cap));
                     txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                    txtSoTien.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                    fragment= new TaiKhoanFragment();
+                    edtSoTien.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
+                    fragment= new HopChonTaiKhoan();
 
                 }
                 if(view.getId()==R.id.txtTheLoai ){
                     txtTaiKhoan.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                     txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.thu_cap));
-                    txtSoTien.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                    fragment= new TheLoaiFragment();
+                    edtSoTien.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
+                    fragment= new HopChonTheLoai();
                 }
 
-                if(view.getId()==R.id.txtSoTien){
-
-                    txtTaiKhoan.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                    txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                    txtSoTien.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.thu_cap));
-                    fragment= new BanPhimSoFragment();
-
-                }
                 transaction.replace(R.id.layoutContainer, fragment);
-                transaction.commit();}
+                transaction.commit();
+            }
 
 
         }

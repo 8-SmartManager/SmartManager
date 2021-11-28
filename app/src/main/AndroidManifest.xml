@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.smartmanagertwo">
 
     <application
@@ -12,36 +11,12 @@
         android:theme="@style/Theme.SmartManagerTwo">
         <activity
             android:name="com.example.muctieutietkiem.packages.TaoMucTieuChiTiet"
-            android:exported="true">
-        </activity>
-        <activity
-            android:name="com.example.muctieutietkiem.packages.EditMucTieuHoatDong"
-            android:exported="true">
-        </activity>
-        <activity
-            android:name="com.example.muctieutietkiem.packages.MucTieuChiTiet"
-            android:exported="true">
-
-        </activity>
-        <activity
-            android:name="com.example.muctieutietkiem.packages.TaoMucTieu"
-            android:exported="true">
-
-
-        </activity>
-        <activity android:name=".kehoach_muctieu_tietkiem" android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity android:name=".TaiKhoanSuaChiTiet"></activity>
         <activity android:name=".TaiKhoanChiTiet" />
         <activity
             android:name=".NhacNhoActivity"
             android:exported="true">
-
 
         </activity>
         <activity
@@ -50,7 +25,11 @@
         <activity
             android:name=".ThongKeActivity"
             android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".TaiKhoan"
@@ -70,8 +49,6 @@
         <activity
             android:name=".NhacNhoThemActivity"
             android:exported="true" />
-
-
     </application>
 
 </manifest>

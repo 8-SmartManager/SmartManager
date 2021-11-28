@@ -125,12 +125,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             execSql("INSERT INTO " + TBL_NAME_THUCHI + " VALUES('Giải trí', 'Tiền mặt', 20000)");
             execSql("INSERT INTO " + TBL_NAME_THUCHI + " VALUES('Tiền học', 'Tiền mặt', 20000)");
         }
-        int countNhacNho = getCountNhacNho();
-        if(countNhacNho == 0){
-            execSql("INSERT INTO " + TBL_NAME_NHAC_NHO + " VALUES(null, 'Tiết Kiệm','Mua xe','Hàng tháng','2021-10-19','20:30:00')");
-            execSql("INSERT INTO " + TBL_NAME_NHAC_NHO + " VALUES(null, 'Thu','Lương','Hàng tháng','2021-11-14','07:30:00')");
-            execSql("INSERT INTO " + TBL_NAME_NHAC_NHO + " VALUES(null, 'Chi','Chơi game','Hàng tuần','2021-09-10','20:00:00')");
-        }
+
         int countThongKe = getCountThongKe();
         if (countThongKe == 0){
             execSql("INSERT INTO " + TBL_NAME_THONGKE + " VALUES('80%', 'Ăn uống', 2000000)");
@@ -144,7 +139,14 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         }
     }
-
+public  void  createSomeNhacNhoData(){
+    int countNhacNho = getCountNhacNho();
+    if(countNhacNho == 0){
+        execSql("INSERT INTO " + TBL_NAME_NHAC_NHO + " VALUES(null, 'Tiết Kiệm','Mua xe','Hàng tháng','2021-10-19','20:30:00')");
+        execSql("INSERT INTO " + TBL_NAME_NHAC_NHO + " VALUES(null, 'Thu','Lương','Hàng tháng','2021-11-14','07:30:00')");
+        execSql("INSERT INTO " + TBL_NAME_NHAC_NHO + " VALUES(null, 'Chi','Chơi game','Hàng tuần','2021-09-10','20:00:00')");
+    }
+}
     public void execSql(String sql){
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL(sql);
