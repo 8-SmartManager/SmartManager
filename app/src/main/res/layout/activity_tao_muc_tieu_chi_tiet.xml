@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/llTaoMucTieu"
-    tools:context="com.example.muctieutietkiem.packages.TaoMucTieuChiTiet">
+    tools:context="com.example.muctieutietkiem.packages.TaoMucTieuChiTiet"
+    android:padding="16dp">
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -44,6 +45,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/body_medium_13"
+                android:textSize="14sp"
                 />
 
 
@@ -71,7 +73,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:inputType="number"
-                android:fontFamily="@font/body_medium_13"                />
+                android:fontFamily="@font/body_medium_13"
+                android:textSize="14sp"/>
         </TableRow>
         <TableRow
             android:layout_weight="1"
@@ -96,7 +99,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:inputType="number"
-                android:fontFamily="@font/body_medium_13"                />
+                android:fontFamily="@font/body_medium_13"
+                android:textSize="14sp"/>
         </TableRow>
         <TableRow
             android:layout_weight="1"
@@ -120,6 +124,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:focusable="false"
+
+                android:textSize="14sp"
                 android:clickable="true"
                 android:cursorVisible="false"
                 android:fontFamily="@font/body_medium_13"  />
@@ -135,7 +141,7 @@
                 android:text="Màu"
                 android:layout_gravity="bottom"
                 android:gravity="bottom"
-
+android:textSize="14sp"
                 android:fontFamily="@font/header3_semibold_14"
                 android:layout_weight="0"
                 android:layout_marginLeft="10dp"/>
@@ -196,6 +202,7 @@
                 android:layout_weight="7"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
+                android:textSize="14sp"
                 android:fontFamily="@font/body_medium_13"    />
         </TableRow>
 
@@ -204,15 +211,20 @@
 
     <Button
         android:id="@+id/btnTao"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="center"
-        android:textSize="14sp"
-        app:backgroundTint="@null"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/bg_button"
+
         android:text="Tạo"
-        android:background="@drawable/button_tao"
-        android:textColor="@color/mau_xam"/>
+        android:fontFamily="@font/header3_semibold_14"
+
+        android:textAllCaps="false"
+        android:textColor="@color/button_text_color"
+
+        />
 </LinearLayout>
 
     <LinearLayout

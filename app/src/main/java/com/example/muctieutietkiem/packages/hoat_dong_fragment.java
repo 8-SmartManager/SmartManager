@@ -36,7 +36,7 @@ import java.util.List;
 
 public class hoat_dong_fragment extends Fragment{
 
-    MyDatabaseHelper db;
+    public static MyDatabaseHelper db;
 
     ListView lvGoal;
     ArrayList<Goal> goals;
@@ -50,34 +50,46 @@ public class hoat_dong_fragment extends Fragment{
         lvGoal=view.findViewById(R.id.lvGoal);
 
 
-        goals=new ArrayList<>();
+
         lvGoal=view.findViewById(R.id.lvGoal);
-        goals.add(new Goal(1,R.drawable.ic_car,"Mua xe",LocalDate.of(2021,11,20),-11873872,1500000,5000000,"Quan trọng"));
-        goals.add(new Goal(2,R.drawable.ic_nha,"Mua nhà",LocalDate.of(2021,11,20),-11873872,0,10000000,"Quan trọng"));
-        adapter = new GoalAdapter(getContext(),R.layout.custom_muctieu_tietkiem,goals);
-        lvGoal.setAdapter(adapter);
+//        goals.add(new Goal(1,R.drawable.ic_car,"Mua xe",LocalDate.of(2022,11,22),-11873872,1500000,5000000,"Quan trọng"));
+//        goals.add(new Goal(2,R.drawable.ic_nha,"Mua nhà",LocalDate.of(2024,10,24),-11873872,0,10000000,"Quan trọng"));
+
         addEvents();
         return view;
     }
 
-//    @Override
-//    public void onAttach(@NonNull Context context) {
-//        super.onAttach(context);
-//        db= new MyDatabaseHelper(context);
-//        db.createSomeData();
-//    }
-//    @RequiresApi(api = Build.VERSION_CODES.O)
-//    private List<Goal> getDataFromDb() {
-//        goals = new ArrayList<>();
-//        Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_MUC_TIEU);
-//        goals.clear();
-//        while(cursor.moveToNext()){
-////            activity.add(new ThuChiActivity(cursor.getInt(0), cursor.getString(1)));
-//            goals.add(new Goal(cursor.getInt(0), cursor.getInt(1), cursor.getString(2), LocalDate.parse( cursor.getString(3)), cursor.getInt(4) , cursor.getDouble(5), cursor.getDouble(6),cursor.getString(7) ));
-//        }
-//        cursor.close();
-//        return goals;
-//    }
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    public void onResume() {
+        loadData();
+        super.onResume();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void loadData() {
+        adapter = new GoalAdapter(getContext(),R.layout.custom_muctieu_tietkiem,getDataFromDb());
+        lvGoal.setAdapter(adapter);
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        db= new MyDatabaseHelper(context);
+        db.createSomeMucTieuHoatDong();
+    }
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private List<Goal> getDataFromDb() {
+        goals = new ArrayList<>();
+        Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_MUC_TIEU);
+        goals.clear();
+        while(cursor.moveToNext()){
+//            activity.add(new ThuChiActivity(cursor.getInt(0), cursor.getString(1)));
+            goals.add(new Goal(cursor.getInt(0), cursor.getInt(5), cursor.getString(1), LocalDate.parse( cursor.getString(4)), cursor.getInt(6) , cursor.getDouble(3), cursor.getDouble(2),cursor.getString(7) ));
+        }
+        cursor.close();
+        return goals;
+    }
 
     private void addEvents() {
 

@@ -10,6 +10,8 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -42,6 +44,12 @@ public class NhacNhoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nhacnho_main);
+        Drawable drawable=getResources().getDrawable(R.drawable.ic_menu);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(drawable);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
+        getSupportActionBar().setTitle("Nhắc nhở");
         prepareDb();
         linkViews();
 
@@ -66,7 +74,7 @@ public class NhacNhoActivity extends AppCompatActivity {
     }
     private void prepareDb() {
         db = new MyDatabaseHelper(this);
-
+        db.createSomeNhacNhoData();
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
     private List<NhacNho> getDataFromDb() {
@@ -94,9 +102,7 @@ public class NhacNhoActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void loadData() {
         adapter= new NhacNhoAdapter(NhacNhoActivity.this,R.layout.nhac_nho_item_layout,getDataFromDb());
-        if(nhacNhos==null){
-            layoutTabInfo.setVisibility(View.GONE);
-        }
+
         lvNhacNho.setAdapter(adapter);
     }
 

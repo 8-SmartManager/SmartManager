@@ -15,6 +15,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -38,12 +40,17 @@ public class NhacNhoThemActivity extends AppCompatActivity {
     EditText edtTen;
     Button btnTao;
     Intent intent;
-    ImageButton btnBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nhacnho_them_moi);
-
+        Drawable drawable=getResources().getDrawable(R.drawable.ic_back);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(drawable);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
+        getSupportActionBar().setTitle("Tạo nhắc nhở");
         linkViews();
         getData();
         addEvents();
@@ -90,12 +97,12 @@ public class NhacNhoThemActivity extends AppCompatActivity {
         txtChuKy.setOnClickListener(myClick);
         txtNgayBatDau.setOnClickListener(myClick);
         txtGioNhac.setOnClickListener(myClick);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+//        btnBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                onBackPressed();
+//            }
+//        });
         btnTao.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -134,7 +141,7 @@ public class NhacNhoThemActivity extends AppCompatActivity {
         txtNgayBatDau= findViewById(R.id.txtNhacNhoThemNgayBatDau);
         txtGioNhac=findViewById(R.id.txtNhacNhoThemGioNhac);
         btnTao= findViewById(R.id.btnNhacNhoThemMoiTao);
-        btnBack=findViewById(R.id.btnNhacNhoThemMoiBack);
+
     }
 
     View.OnClickListener myClick = new View.OnClickListener() {

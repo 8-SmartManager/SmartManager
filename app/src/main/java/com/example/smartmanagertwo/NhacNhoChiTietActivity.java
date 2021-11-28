@@ -8,8 +8,12 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -20,6 +24,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -38,12 +43,18 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
     TextView txtTheLoai, txtChuKy, txtNgayBatDau, txtGioNhac;
     public  static String theLoai="";
     EditText edtTen;
-    ImageButton btnBack, btnDone, btnDelete;
+
     NhacNho selectedNhacNho;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nhacnho_chi_tiet);
+        Drawable drawable=getResources().getDrawable(R.drawable.ic_back);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(drawable);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
+        getSupportActionBar().setTitle("Chi tiết nhắc nhở");
         linkViews();
         getData();
         addEvents();
@@ -78,22 +89,46 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
             }
         }
     }
-    private void addEvents() {
-        txtTheLoai.setOnClickListener(myClick);
-        edtTen.setOnClickListener(myClick);
 
-        txtChuKy.setOnClickListener(myClick);
-        txtNgayBatDau.setOnClickListener(myClick);
-        txtGioNhac.setOnClickListener(myClick);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               onBackPressed();
-            }
-        });
-        btnDone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.nhac_nho_edit_option_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.mnDelete:
+                Dialog dialog = new Dialog(NhacNhoChiTietActivity.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                dialog.setContentView(R.layout.dialog_error);
+                TextView txtTitle=dialog.findViewById(R.id.txtTitle),
+                        txtMessage=dialog.findViewById(R.id.txtMessage);
+                Button btnYes=dialog.findViewById(R.id.btnYes),
+                        btnNo=dialog.findViewById(R.id.btnNo);
+                txtTitle.setText("Thông báo");
+                txtMessage.setText("Bạn có chắc chắn muốn xóa?");
+                btnYes.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        NhacNhoActivity.db.execSql("DELETE FROM "+MyDatabaseHelper.TBL_NAME_NHAC_NHO+" WHERE "+MyDatabaseHelper.COL_NHACNHO_ID + "=" +selectedNhacNho.getID());
+
+                        finish();
+                    }
+                });
+                btnNo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+                break;
+            case R.id.mnDone:
                 String theLoai=txtTheLoai.getText().toString(),
                         ten=edtTen.getText().toString(),
                         chuKy=txtChuKy.getText().toString(),
@@ -115,37 +150,79 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
 
                     finish();
                 }
+                break;
+            default:break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    private void addEvents() {
+        txtTheLoai.setOnClickListener(myClick);
+        edtTen.setOnClickListener(myClick);
 
-            }
-        });
-        btnDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Dialog dialog = new Dialog(NhacNhoChiTietActivity.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-                dialog.setContentView(R.layout.dialog_error);
-                TextView txtTitle=dialog.findViewById(R.id.txtTitle),
-                        txtMessage=dialog.findViewById(R.id.txtMessage);
-                Button btnYes=dialog.findViewById(R.id.btnYes),
-                        btnNo=dialog.findViewById(R.id.btnNo);
-                txtTitle.setText("Thông báo");
-                txtMessage.setText("Bạn có chắc chắn muốn xóa?");
-                btnYes.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        NhacNhoActivity.db.execSql("DELETE FROM "+MyDatabaseHelper.TBL_NAME_NHAC_NHO+" WHERE "+MyDatabaseHelper.COL_NHACNHO_ID + "=" +selectedNhacNho.getID());
-
-                        finish();
-                    }
-                });
-               btnNo.setOnClickListener(new View.OnClickListener() {
-                   @Override
-                   public void onClick(View view) {
-                       dialog.dismiss();
-                   }
-               });
-               dialog.show();
-            }
-        });
+        txtChuKy.setOnClickListener(myClick);
+        txtNgayBatDau.setOnClickListener(myClick);
+        txtGioNhac.setOnClickListener(myClick);
+//        btnBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//               onBackPressed();
+//            }
+//        });
+//        btnDone.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String theLoai=txtTheLoai.getText().toString(),
+//                        ten=edtTen.getText().toString(),
+//                        chuKy=txtChuKy.getText().toString(),
+//                        ngayBatDau=txtNgayBatDau.getText().toString(),
+//                        gioNhac=txtGioNhac.getText().toString();
+//                if(theLoai.equals("")||ten.equals("")||chuKy.equals("")||ngayBatDau.equals("")||gioNhac.equals("")){
+//                    AlertDialog.Builder builder= new AlertDialog.Builder(NhacNhoChiTietActivity.this);
+//                    builder.setTitle("Lỗi!");
+//                    builder.setMessage("Vui lòng nhập đầy đủ thông tin");
+//                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            dialogInterface.dismiss();
+//                        }
+//                    });
+//                    builder.create().show();
+//                }else {
+//                    NhacNhoActivity.db.execSql("UPDATE "+MyDatabaseHelper.TBL_NAME_NHAC_NHO+" SET "+MyDatabaseHelper.COL_NHACNHO_TYPE+" = '"+theLoai+"', "+MyDatabaseHelper.COL_NHACNHO_NAME+" = '"+ten+"', "+MyDatabaseHelper.COL_NHACNHO_PERIOD+" = '"+chuKy+"', "+MyDatabaseHelper.COL_NHACNHO_START_DAY+" = '"+ngayBatDau+"', "+MyDatabaseHelper.COL_NHACNHO_REMIND_TIME+" = '"+gioNhac+"' WHERE "+MyDatabaseHelper.COL_NHACNHO_ID+"=" +selectedNhacNho.getID());
+//
+//                    finish();
+//                }
+//
+//            }
+//        });
+//        btnDelete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Dialog dialog = new Dialog(NhacNhoChiTietActivity.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+//                dialog.setContentView(R.layout.dialog_error);
+//                TextView txtTitle=dialog.findViewById(R.id.txtTitle),
+//                        txtMessage=dialog.findViewById(R.id.txtMessage);
+//                Button btnYes=dialog.findViewById(R.id.btnYes),
+//                        btnNo=dialog.findViewById(R.id.btnNo);
+//                txtTitle.setText("Thông báo");
+//                txtMessage.setText("Bạn có chắc chắn muốn xóa?");
+//                btnYes.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        NhacNhoActivity.db.execSql("DELETE FROM "+MyDatabaseHelper.TBL_NAME_NHAC_NHO+" WHERE "+MyDatabaseHelper.COL_NHACNHO_ID + "=" +selectedNhacNho.getID());
+//
+//                        finish();
+//                    }
+//                });
+//               btnNo.setOnClickListener(new View.OnClickListener() {
+//                   @Override
+//                   public void onClick(View view) {
+//                       dialog.dismiss();
+//                   }
+//               });
+//               dialog.show();
+//            }
+//        });
 
     }
 
@@ -158,9 +235,7 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
 
 
 
-        btnBack=findViewById(R.id.btnNhacNhoChiTietBack);
-        btnDone=findViewById(R.id.btnNhacNhoChiTietDone);
-        btnDelete=findViewById(R.id.btnNhacNhoCHiTietXoa);
+
 
     }
 

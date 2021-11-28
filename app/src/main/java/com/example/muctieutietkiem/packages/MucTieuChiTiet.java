@@ -24,7 +24,8 @@ public class MucTieuChiTiet extends AppCompatActivity {
     TextView txtTenMucTieu, txtNgayKetThuc, txtPercent,txtSoTienDatDuoc;
     ImageView imvGoal;
     ProgressBar progressBar;
-    Goal goal=null;
+
+    Goal selectedGoal=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,13 +42,18 @@ public class MucTieuChiTiet extends AppCompatActivity {
 
     private void getData() {
         Intent intent= getIntent();
-        goal= (Goal) intent.getSerializableExtra("Muc tieu");
-        txtTenMucTieu.setText(goal.getGoalName());
-        imvGoal.setImageResource(goal.getGoalThumb());
-        txtNgayKetThuc.setText(String.valueOf(goal.getGoalTime()));
-        double percent = (goal.getGoalSaved()/goal.getGoalTarget())*100;
-        txtPercent.setText(String.format("%,.0f",percent)+"%");
-        txtSoTienDatDuoc.setText(String.format("%,.0f",goal.getGoalSaved()));
+        selectedGoal= (Goal) intent.getSerializableExtra("Muc tieu");
+        txtTenMucTieu.setText(selectedGoal.getGoalName());
+        imvGoal.setImageResource(selectedGoal.getGoalThumb());
+        txtNgayKetThuc.setText(String.valueOf(selectedGoal.getGoalTime()));
+        double percent = (selectedGoal.getGoalSaved()/selectedGoal.getGoalTarget())*100;
+        if((selectedGoal.getGoalSaved()*100)%selectedGoal.getGoalTarget()>0){
+            txtPercent.setText(String.format("%,.1f",percent)+"%");
+        }else {
+            txtPercent.setText(String.format("%,.0f",percent)+"%");
+        }
+
+        txtSoTienDatDuoc.setText(String.format("%,.0f",selectedGoal.getGoalSaved()));
         progressBar.setProgress((int) percent);
 
     }
@@ -80,7 +86,10 @@ public class MucTieuChiTiet extends AppCompatActivity {
             case R.id.editMucTieu:
                 Intent intent = new Intent(MucTieuChiTiet.this,EditMucTieuHoatDong.class);
 
+
+                intent.putExtra("Muc tieu",selectedGoal);
                 startActivity(intent);
+                finish();
                 break;
 
             default:break;

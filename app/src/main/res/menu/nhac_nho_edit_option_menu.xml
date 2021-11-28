@@ -2,11 +2,7 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Tạm dừng"
-        android:id="@+id/edit"
-        android:icon="@drawable/ic_pause__1_"
-        android:iconTint="@color/white"
-        app:showAsAction="always"/>
+
 
     <item android:title="Xóa"
         android:id="@+id/mnDelete"
@@ -14,7 +10,7 @@
         android:iconTint="@color/white"
         app:showAsAction="always" />
     <item android:title="Xong"
-        android:id="@+id/mnSave"
+        android:id="@+id/mnDone"
         android:icon="@drawable/ic_check"
         android:iconTint="@color/white"
         app:showAsAction="always"/>

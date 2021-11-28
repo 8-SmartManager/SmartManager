@@ -27,7 +27,7 @@ public class Goal implements Serializable {
     }
 
     public int getGoalID() {
-        return getGoalID();
+        return goalID;
     }
 
     public void setGoalID(int goalID) {

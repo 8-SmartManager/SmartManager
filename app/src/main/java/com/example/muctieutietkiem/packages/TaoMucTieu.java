@@ -69,7 +69,7 @@ public class TaoMucTieu extends AppCompatActivity {
                     intent= new Intent(TaoMucTieu.this,TaoMucTieuChiTiet.class);
                     intent.putExtra("tlName",edtTenMucTieu.getText().toString());
                     startActivity(intent);
-
+                    finish();
                 }
             }
         });

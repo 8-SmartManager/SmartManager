@@ -132,10 +132,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             execSql("INSERT INTO " + TBL_NAME_THONGKE + " VALUES('15%', 'Giải trí', 200000)");
             execSql("INSERT INTO " + TBL_NAME_THONGKE + " VALUES('5%', 'Tiền học', 20000)");
         }
+
+    }
+    public  void createSomeMucTieuHoatDong(){
         int countMucTieu = getCountMucTieu();
         if(countMucTieu == 0){
-            execSql("INSERT INTO " + TBL_NAME_MUC_TIEU + " VALUES(null, 'Mua xe','20000000','15000000','2021-05-28','null','-11873872','Quan trọng')");
-            execSql("INSERT INTO " + TBL_NAME_MUC_TIEU + " VALUES(null, 'Mua nhà','2500000000','15000000','2021-09-23','null','-11873872','Quan trọng')");
+            execSql("INSERT INTO " + TBL_NAME_MUC_TIEU + " VALUES(null, 'Mua xe','20000000','15000000','2024-05-28',null,'-11873872','Quan trọng')");
+            execSql("INSERT INTO " + TBL_NAME_MUC_TIEU + " VALUES(null, 'Mua nhà','2500000000','15000000','2021-09-23',null,'-11873872','Quan trọng')");
 
         }
     }

@@ -21,6 +21,7 @@
         <activity
             android:name="com.example.muctieutietkiem.packages.EditMucTieuHoatDong"
             android:exported="true" />
+
         <activity android:name=".TaiKhoanSuaChiTiet"></activity>
         <activity android:name=".TaiKhoanChiTiet" />
         <activity
@@ -54,6 +55,8 @@
         <activity
             android:name=".NhacNhoThemActivity"
             android:exported="true" />
+
+
         <activity
             android:name=".kehoach_muctieu_tietkiem"
             android:exported="true" >

@@ -1,6 +1,7 @@
 package com.example.muctieutietkiem.packages;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.content.ContextCompat;
@@ -8,13 +9,18 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -23,6 +29,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.nhacnho.HopChonNhacNhoChiTietTen;
+import com.example.smartmanagertwo.MyDatabaseHelper;
+import com.example.smartmanagertwo.NhacNhoActivity;
 import com.example.smartmanagertwo.NhacNhoChiTietActivity;
 import com.example.smartmanagertwo.R;
 
@@ -54,6 +62,36 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
 
 
     }
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        View v = getCurrentFocus();
+
+        if (v != null && (ev.getAction() == MotionEvent.ACTION_UP || ev.getAction() == MotionEvent.ACTION_MOVE) &&
+                v instanceof EditText &&
+                !v.getClass().getName().startsWith("android.webkit.")) {
+            int[] sourceCoordinates = new int[2];
+            v.getLocationOnScreen(sourceCoordinates);
+            float x = ev.getRawX() + v.getLeft() - sourceCoordinates[0];
+            float y = ev.getRawY() + v.getTop() - sourceCoordinates[1];
+
+            if (x < v.getLeft() || x > v.getRight() || y < v.getTop() || y > v.getBottom()) {
+                hideKeyboard(this);
+            }
+
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void hideKeyboard(Activity activity) {
+        if (activity != null && activity.getWindow() != null) {
+            activity.getWindow().getDecorView();
+            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (imm != null) {
+                imm.hideSoftInputFromWindow(activity.getWindow().getDecorView().getWindowToken(), 0);
+            }
+        }
+    }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -72,7 +110,33 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
 
             edtNgayKetThuc.setOnClickListener(myClick);
             imvColor.setOnClickListener(myClick);
+            btnTao.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String ten= edtTenMucTieu.getText().toString(),
+                            soTienDatDuoc=edtSoTienDatDuoc.getText().toString(),
+                            soTienMucTieu=edtSoTienMucTieu.getText().toString(),
+                            ngayKetThuc=edtNgayKetThuc.getText().toString(),
+//                        mau=selectedGoal.getGoalColor(),
+                            luuY=edtLuuY.getText().toString();
+                    if(ten.equals("")||soTienDatDuoc.equals("")||soTienMucTieu.equals("")||ngayKetThuc.equals("")||luuY.equals("")){
+                        AlertDialog.Builder builder= new AlertDialog.Builder(TaoMucTieuChiTiet.this);
+                        builder.setTitle("Lỗi!");
+                        builder.setMessage("Vui lòng nhập đầy đủ thông tin");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        });
+                        builder.create().show();
+                    }else {
+                        hoat_dong_fragment.db.execSql("INSERT INTO "+MyDatabaseHelper.TBL_NAME_MUC_TIEU+" VALUES(null, '"+ten+"', '"+soTienMucTieu+"', '"+soTienDatDuoc+"', '"+ngayKetThuc+"',null,'-11873872', '"+luuY+"')");
 
+                        finish();
+                    }
+                }
+            });
     }
 
     private void getData() {
@@ -101,7 +165,7 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
         public void onClick(View view) {
             if(view.getId()==R.id.edtSelectDate ) {
                 Calendar calendarDate= Calendar.getInstance();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 DatePickerDialog.OnDateSetListener callBack= new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
@@ -117,7 +181,7 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
                         calendarDate.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
             }
-            if (view.getId() == R.id.imvColor) {
+            if (view.getId() == R.id.imvDrop||view.getId() == R.id.imvColor) {
                 closeKeyBoard();
                 FragmentManager manager = getSupportFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
