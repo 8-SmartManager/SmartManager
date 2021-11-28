@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.example.nhacnho.NhacNho;
@@ -31,6 +32,7 @@ import java.util.List;
 public class NhacNhoActivity extends AppCompatActivity {
     ListView lvNhacNho;
     ArrayList<NhacNho> nhacNhos;
+    LinearLayout layoutTabInfo;
     NhacNhoAdapter adapter;
     public  static  MyDatabaseHelper db;
     FloatingActionButton btnThemMoi;
@@ -51,6 +53,8 @@ public class NhacNhoActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onResume() {
+
+
         loadData();
         super.onResume();
     }
@@ -58,10 +62,11 @@ public class NhacNhoActivity extends AppCompatActivity {
     private void linkViews() {
         lvNhacNho=findViewById(R.id.lvNhacNho);
         btnThemMoi=findViewById(R.id.btnNhacNhoTao);
+        layoutTabInfo=findViewById(R.id.layoutNhacNhoTabInfo);
     }
     private void prepareDb() {
         db = new MyDatabaseHelper(this);
-        db.createSomeData();
+
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
     private List<NhacNho> getDataFromDb() {
@@ -89,6 +94,9 @@ public class NhacNhoActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void loadData() {
         adapter= new NhacNhoAdapter(NhacNhoActivity.this,R.layout.nhac_nho_item_layout,getDataFromDb());
+        if(nhacNhos==null){
+            layoutTabInfo.setVisibility(View.GONE);
+        }
         lvNhacNho.setAdapter(adapter);
     }
 

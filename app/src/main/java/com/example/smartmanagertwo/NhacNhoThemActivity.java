@@ -1,30 +1,41 @@
 package com.example.smartmanagertwo;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
 
 public class NhacNhoThemActivity extends AppCompatActivity {
-    TextView txtTheLoai, txtTen, txtChuKy, txtNgayBatDau, txtGioNhac;
+    TextView txtTheLoai, txtChuKy, txtNgayBatDau, txtGioNhac;
+    EditText edtTen;
     Button btnTao;
     Intent intent;
     ImageButton btnBack;
@@ -38,6 +49,36 @@ public class NhacNhoThemActivity extends AppCompatActivity {
         addEvents();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        View v = getCurrentFocus();
+
+        if (v != null && (ev.getAction() == MotionEvent.ACTION_UP || ev.getAction() == MotionEvent.ACTION_MOVE) &&
+                v instanceof EditText &&
+                !v.getClass().getName().startsWith("android.webkit.")) {
+            int[] sourceCoordinates = new int[2];
+            v.getLocationOnScreen(sourceCoordinates);
+            float x = ev.getRawX() + v.getLeft() - sourceCoordinates[0];
+            float y = ev.getRawY() + v.getTop() - sourceCoordinates[1];
+
+            if (x < v.getLeft() || x > v.getRight() || y < v.getTop() || y > v.getBottom()) {
+                hideKeyboard(this);
+            }
+
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void hideKeyboard(Activity activity) {
+        if (activity != null && activity.getWindow() != null) {
+            activity.getWindow().getDecorView();
+            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (imm != null) {
+                imm.hideSoftInputFromWindow(activity.getWindow().getDecorView().getWindowToken(), 0);
+            }
+        }
+    }
     private void getData() {
          intent= getIntent();
     }
@@ -45,7 +86,7 @@ public class NhacNhoThemActivity extends AppCompatActivity {
     private void addEvents() {
 
         txtTheLoai.setOnClickListener(myClick);
-        txtTen.setOnClickListener(myClick);
+        edtTen.setOnClickListener(myClick);
         txtChuKy.setOnClickListener(myClick);
         txtNgayBatDau.setOnClickListener(myClick);
         txtGioNhac.setOnClickListener(myClick);
@@ -56,10 +97,30 @@ public class NhacNhoThemActivity extends AppCompatActivity {
             }
         });
         btnTao.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
+                String theLoai=txtTheLoai.getText().toString(),
+                        ten=edtTen.getText().toString(),
+                        chuKy=txtChuKy.getText().toString(),
+                        ngayBatDau=txtNgayBatDau.getText().toString(),
+                        gioNhac=txtGioNhac.getText().toString();
+                if(theLoai.equals("")||ten.equals("")||chuKy.equals("")||ngayBatDau.equals("")||gioNhac.equals("")){
+                    AlertDialog.Builder builder= new AlertDialog.Builder(NhacNhoThemActivity.this);
+                    builder.setTitle("Lỗi!");
+                    builder.setMessage("Vui lòng nhập đầy đủ thông tin");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+                    builder.create().show();
+                }else {
+                    NhacNhoActivity.db.execSql("INSERT INTO "+MyDatabaseHelper.TBL_NAME_NHAC_NHO+" VALUES(null, '"+theLoai+"', '"+ten+"', '"+chuKy+"', '"+ngayBatDau+"', '"+gioNhac+":00')");
+                    finish();
+                }
 
-                finish();
             }
         });
 
@@ -68,46 +129,37 @@ public class NhacNhoThemActivity extends AppCompatActivity {
 
     private void linkViews() {
         txtTheLoai=findViewById(R.id.txtNhacNhoThemTheLoai);
-        txtTen=findViewById(R.id.txtNhacNhoThemTen);
+        edtTen=findViewById(R.id.edtNhacNhoThemTen);
         txtChuKy=findViewById(R.id.txtNhacNhoThemChuKy);
         txtNgayBatDau= findViewById(R.id.txtNhacNhoThemNgayBatDau);
         txtGioNhac=findViewById(R.id.txtNhacNhoThemGioNhac);
         btnTao= findViewById(R.id.btnNhacNhoThemMoiTao);
         btnBack=findViewById(R.id.btnNhacNhoThemMoiBack);
     }
+
     View.OnClickListener myClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            if(view.getId()==R.id.txtNhacNhoThemTheLoai||view.getId()==R.id.txtNhacNhoThemTen||view.getId()==R.id.txtNhacNhoThemChuKy )
+            if(view.getId()==R.id.txtNhacNhoThemTheLoai||view.getId()==R.id.txtNhacNhoThemChuKy )
             {
             FragmentManager manager= getSupportFragmentManager();
             FragmentTransaction transaction= manager.beginTransaction();
             Fragment fragment= null;
             if(view.getId()==R.id.txtNhacNhoThemTheLoai){
                 txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.thu_cap));
-                txtTen.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
+                edtTen.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 txtChuKy.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 txtNgayBatDau.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 txtGioNhac.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 fragment= new HopChonNhacNhoThemTheLoai();
 
             }
-            if(view.getId()==R.id.txtNhacNhoThemTen ){
-                txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                txtTen.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.thu_cap));
-                txtChuKy.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                txtNgayBatDau.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                txtGioNhac.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                fragment= new HopChonNhacNhoThemTen();
 
-
-
-            }
 
             if(view.getId()==R.id.txtNhacNhoThemChuKy){
 
                 txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                txtTen.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
+                edtTen.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 txtChuKy.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.thu_cap));
                 txtNgayBatDau.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 txtGioNhac.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
@@ -115,11 +167,23 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                 fragment= new HopChonNhacNhoChuKy();
 
             }
+
             transaction.replace(R.id.layoutContainerThemNhacNho, fragment);
             transaction.commit();}
+            if(view.getId()==R.id.edtNhacNhoThemTen ){
+                txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
+                edtTen.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.thu_cap));
+                txtChuKy.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
+                txtNgayBatDau.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
+                txtGioNhac.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
+
+
+
+
+            }
             if(view.getId()==R.id.txtNhacNhoThemNgayBatDau){
                 txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                txtTen.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
+                edtTen.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 txtChuKy.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 txtNgayBatDau.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.thu_cap));
                 txtGioNhac.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
@@ -145,22 +209,24 @@ public class NhacNhoThemActivity extends AppCompatActivity {
             }
             if(view.getId()==R.id.txtNhacNhoThemGioNhac){
                 txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                txtTen.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
+                edtTen.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 txtChuKy.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 txtNgayBatDau.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 txtGioNhac.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.thu_cap));
                 Calendar calendarTime= Calendar.getInstance();
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
+
                 TimePickerDialog.OnTimeSetListener callback = new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                        calendarTime.get(Calendar.HOUR);
-                        calendarTime.get(Calendar.MINUTE);
+
+                        calendarTime.set(0,0,0,i,i1);
+
                         txtGioNhac.setText(simpleDateFormat.format(calendarTime.getTime()));
                     }
                 };
                 TimePickerDialog timePickerDialog = new TimePickerDialog(NhacNhoThemActivity.this,callback,
-                        calendarTime.get(Calendar.HOUR),
+                        calendarTime.get(Calendar.HOUR_OF_DAY),
                 calendarTime.get(Calendar.MINUTE),true);
                 timePickerDialog.show();
             }
