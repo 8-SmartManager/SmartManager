@@ -3,6 +3,7 @@ package com.example.muctieutietkiem.packages;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -63,13 +65,14 @@ public class hoat_dong_fragment extends Fragment{
         db= new MyDatabaseHelper(context);
         db.createSomeData();
     }
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private List<Goal> getDataFromDb() {
         goals = new ArrayList<>();
         Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_MUC_TIEU);
         goals.clear();
         while(cursor.moveToNext()){
 //            activity.add(new ThuChiActivity(cursor.getInt(0), cursor.getString(1)));
-//            goals.add(new Goal(cursor.getInt(0), cursor.getString(1), cursor.getDouble(2), cursor.getDouble(3),Date(cursor.getLong(4)), cursor.getInt(5), cursor.getInt(6),cursor.getString(7) ));
+            goals.add(new Goal(cursor.getInt(0), cursor.getInt(1), cursor.getString(2), LocalDate.parse( cursor.getString(3)), cursor.getInt(4) , cursor.getDouble(5), cursor.getDouble(6),cursor.getString(7) ));
         }
         cursor.close();
         return goals;

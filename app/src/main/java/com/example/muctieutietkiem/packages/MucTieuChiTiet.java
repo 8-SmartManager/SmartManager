@@ -44,7 +44,7 @@ public class MucTieuChiTiet extends AppCompatActivity {
         goal= (Goal) intent.getSerializableExtra("Muc tieu");
         txtTenMucTieu.setText(goal.getGoalName());
         imvGoal.setImageResource(goal.getGoalThumb());
-        txtNgayKetThuc.setText(goal.getGoalTime());
+        txtNgayKetThuc.setText(String.valueOf(goal.getGoalTime()));
         double percent = (goal.getGoalSaved()/goal.getGoalTarget())*100;
         txtPercent.setText(String.format("%,.0f",percent)+"%");
 //        txtPercent.setText(String.valueOf(percent));

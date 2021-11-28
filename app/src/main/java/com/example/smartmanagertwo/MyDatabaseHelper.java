@@ -42,10 +42,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_THONGKE_NAME = "ThongKe_Name";
     public static final String COL_THONGKE_AMOUNT = "ThongKe_Amount";
 
-    public MyDatabaseHelper(@Nullable Context context) {
-        super(context, DB_NAME, null, DB_VERSION);
-    }
-
     // Bảng Mục Tiêu
     public static final String TBL_NAME_MUC_TIEU = "MucTieu";
     public static final String COL_MUCTIEU_ID = "MucTieu_ID";
@@ -56,6 +52,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_MUCTIEU_IMAGE="MucTieu_Image";
     public static final String COL_MUCTIEU_IMAGE_COLOR="MucTieu_Image_Color";
     public static final String COL_MUCTIEU_LUUY = "MucTieu_LuuY";
+
+    public MyDatabaseHelper(@Nullable Context context) {
+        super(context, DB_NAME, null, DB_VERSION);
+    }
+
+
 
 
 

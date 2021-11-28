@@ -1,18 +1,22 @@
 package com.example.muctieutietkiem.packages.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Locale;
 
 public class Goal implements Serializable {
+    private int goalID;
     private int goalThumb;
     private String goalName;
-    private String goalTime;
+    private LocalDate goalTime;
     private int goalColor;
     private double goalSaved;
     private double goalTarget;
     private String goalNote;
 
 
-    public Goal(int goalThumb, String goalName, String goalTime, int goalColor, double goalSaved, double goalTarget, String goalNote) {
+    public Goal(int goalId, int goalThumb, String goalName, LocalDate goalTime, int goalColor, double goalSaved, double goalTarget, String goalNote) {
+        this.goalID = goalId;
         this.goalThumb = goalThumb;
         this.goalName = goalName;
         this.goalTime = goalTime;
@@ -20,6 +24,14 @@ public class Goal implements Serializable {
         this.goalSaved = goalSaved;
         this.goalTarget = goalTarget;
         this.goalNote = goalNote;
+    }
+
+    public int getGoalID() {
+        return getGoalID();
+    }
+
+    public void setGoalID(int goalID) {
+        this.goalID = goalID;
     }
 
     public int getGoalThumb() {
@@ -38,11 +50,11 @@ public class Goal implements Serializable {
         this.goalName = goalName;
     }
 
-    public String getGoalTime() {
+    public LocalDate getGoalTime() {
         return goalTime;
     }
 
-    public void setGoalTime(String goalTime) {
+    public void setGoalTime(LocalDate goalTime) {
         this.goalTime = goalTime;
     }
 
@@ -68,10 +80,10 @@ public class Goal implements Serializable {
     public void setGoalTarget(double goalSaved) {
         this.goalTarget = goalTarget;
     }
+
     public String getGoalNote() {
         return goalNote;
     }
-
     public void setGoalNote(String goalNote) {
         this.goalNote = goalNote;
     }
