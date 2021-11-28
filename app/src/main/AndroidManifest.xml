@@ -28,23 +28,9 @@
 
         </activity>
         <activity
-            android:name=".SuaHoatDong"
-            android:exported="true">
-
-        </activity>
-        <activity
-            android:name=".ThongKeChiTietActivity"
-            android:exported="true">
-
-        </activity>
-        <activity
             android:name=".ThongKeActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.example.KeHoachMuaSam.DanhSachMuaSam"
@@ -52,7 +38,11 @@
         <activity
             android:name="com.example.KeHoachMuaSam.DanhSachMuaSam2"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".TaiKhoan"

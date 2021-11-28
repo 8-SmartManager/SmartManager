@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Tạm dừng"
+        android:id="@+id/edit"
+        android:icon="@drawable/ic_pause__1_"
+        android:iconTint="@color/white"
+        app:showAsAction="always"/>
+
+    <item android:title="Xóa"
+        android:id="@+id/mnDelete"
+        android:icon="@drawable/ic_xoa"
+        android:iconTint="@color/white"
+        app:showAsAction="always" />
+    <item android:title="Xong"
+        android:id="@+id/mnSave"
+        android:icon="@drawable/ic_check"
+        android:iconTint="@color/white"
+        app:showAsAction="always"/>
+</menu>

@@ -53,12 +53,12 @@ public class HopChonNhacNhoThemTen extends DialogFragment {
             gvNhacNhoTheLoai.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    TextView txtTen= getActivity().findViewById(R.id.txtNhacNhoThemTen);
+                    EditText edtTen= getActivity().findViewById(R.id.edtNhacNhoThemTen);
 
                     adapter = new HopChonKhongHinhAdapter(getContext(),R.layout.hop_chon_item_khong_hinh,initDataThu());
                     HopChonKhongHinhItem hopChonItem= (HopChonKhongHinhItem) adapter.getItem(i);
 
-                    txtTen.setText(hopChonItem.getName());
+                    edtTen.setText(hopChonItem.getName());
                     dismiss();
                 }
             });
@@ -71,7 +71,7 @@ public class HopChonNhacNhoThemTen extends DialogFragment {
             gvNhacNhoTheLoai.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    TextView txtTen= getActivity().findViewById(R.id.txtNhacNhoThemTen);
+                    TextView txtTen= getActivity().findViewById(R.id.edtNhacNhoThemTen);
                     adapter = new HopChonKhongHinhAdapter(getContext(),R.layout.hop_chon_item_khong_hinh,initDataChi());
                     HopChonKhongHinhItem hopChonItem= (HopChonKhongHinhItem) adapter.getItem(i);
 
@@ -87,7 +87,7 @@ public class HopChonNhacNhoThemTen extends DialogFragment {
             gvNhacNhoTheLoai.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    TextView txtTen = getActivity().findViewById(R.id.txtNhacNhoThemTen);
+                    TextView txtTen = getActivity().findViewById(R.id.edtNhacNhoThemTen);
                     adapter = new HopChonKhongHinhAdapter(getContext(), R.layout.hop_chon_item_khong_hinh, initDataTietKiem());
                     HopChonKhongHinhItem hopChonItem = (HopChonKhongHinhItem) adapter.getItem(i);
                     if( hopChonItem.getName()=="Khác")
@@ -108,7 +108,7 @@ public class HopChonNhacNhoThemTen extends DialogFragment {
                 gvNhacNhoTheLoai.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        TextView txtTen = getActivity().findViewById(R.id.txtNhacNhoThemTen);
+                        TextView txtTen = getActivity().findViewById(R.id.edtNhacNhoThemTen);
                         adapter = new HopChonKhongHinhAdapter(getContext(), R.layout.hop_chon_item_khong_hinh, initDataDsMuaSam());
                         HopChonKhongHinhItem hopChonItem = (HopChonKhongHinhItem) adapter.getItem(i);
 

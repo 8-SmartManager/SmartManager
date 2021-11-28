@@ -4,4 +4,18 @@
         >
 
     </style>
+
+    <style name="MyEditTextStyle" parent="@style/Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="AppTheme.MyEditTextTheme">
+        <item name="android:textColorHint">@color/mau_xam</item>
+
+        <item name="colorControlNormal">@color/mau_xam</item>
+        <item name="colorControlActivated">@color/thu_cap</item>
+        <item name="colorControlHighlight">@color/thu_cap</item>
+    </style>
+
+
 </resources>

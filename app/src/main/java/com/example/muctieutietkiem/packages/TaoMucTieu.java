@@ -2,19 +2,31 @@ package com.example.muctieutietkiem.packages;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.muctieutietkiem.packages.adapter.GoalAdapter;
 import com.example.muctieutietkiem.packages.adapter.TheLoaiMucTieuAdapter;
 import com.example.muctieutietkiem.packages.model.Goal;
 import com.example.muctieutietkiem.packages.model.TheLoai;
+import com.example.nhacnho.HopChonNhacNhoChiTietTen;
+import com.example.smartmanagertwo.HopChonNhacNhoChuKy;
+import com.example.smartmanagertwo.HopChonNhacNhoThemTheLoai;
 import com.example.smartmanagertwo.R;
 
 import java.util.ArrayList;
@@ -22,27 +34,30 @@ import java.util.ArrayList;
 public class TaoMucTieu extends AppCompatActivity {
     EditText edtTenMucTieu;
     Button btnTaoMucTieu;
-    GridView gvTheLoai;
-    ArrayList<TheLoai> theLoai;
-    TheLoaiMucTieuAdapter adapter;
+    Intent intent;
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_the_loai_muctieu);
+        Drawable drawable=getResources().getDrawable(R.drawable.ic_back);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(drawable);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
+        getSupportActionBar().setTitle("Tạo mục tiêu");
         LinkView();
-        initData();
+
+        loadFragment();
         addEvents();
     }
 
     private void addEvents() {
-        gvTheLoai.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                edtTenMucTieu.setText(theLoai.get(i).getTenTheLoai());
-            }
-        });
+
+
         btnTaoMucTieu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,30 +66,25 @@ public class TaoMucTieu extends AppCompatActivity {
                     ShowDialog();
                 }
                 else {
-                    Intent intent= new Intent(TaoMucTieu.this,TaoMucTieuChiTiet.class);
+                    intent= new Intent(TaoMucTieu.this,TaoMucTieuChiTiet.class);
                     intent.putExtra("tlName",edtTenMucTieu.getText().toString());
                     startActivity(intent);
-
+                    finish();
                 }
             }
         });
+        edtTenMucTieu.setOnClickListener(myClick);
 
     }
 
-    private void initData() {
-        theLoai= new ArrayList<>();
+    private void loadFragment() {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        Fragment fragment = null;
+        fragment = new HopChonTheLoaiTietKiem();
+        transaction.replace(R.id.LayoutContainerTietKiem, fragment,"fragMucTieu");
 
-        theLoai.add(new TheLoai("Mua nhà",R.drawable.ic_nha));
-        theLoai.add(new TheLoai("Mua xe",R.drawable.ic_xe));
-        theLoai.add(new TheLoai("Du lịch",R.drawable.ic_dullich));
-        theLoai.add(new TheLoai("Học tập",R.drawable.ic_hoctap));
-        theLoai.add(new TheLoai("Sức khỏe",R.drawable.ic_suc_khoe_1));
-        theLoai.add(new TheLoai("Con cái",R.drawable.ic_concai));
-        theLoai.add(new TheLoai("Kết hôn",R.drawable.ic_kethon));
-        theLoai.add(new TheLoai("Bố mẹ",R.drawable.ic_bame));
-
-        adapter = new TheLoaiMucTieuAdapter(this, R.layout.fragment_the_loai,theLoai);
-        gvTheLoai.setAdapter(adapter);
+        transaction.commit();
 
 
 
@@ -83,7 +93,6 @@ public class TaoMucTieu extends AppCompatActivity {
     private void LinkView() {
         edtTenMucTieu= findViewById(R.id.edtTenMucTieu);
         btnTaoMucTieu=findViewById(R.id.btnTaoMucTieu);
-        gvTheLoai=findViewById(R.id.gvTheLoai);
 
 
     }
@@ -101,4 +110,33 @@ public class TaoMucTieu extends AppCompatActivity {
         dialog.show();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+
+            default:break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    View.OnClickListener myClick =new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if (view.getId() == R.id.edtTenMucTieu) {
+
+                FragmentManager manager = getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                Fragment fragment = new HopChonTheLoaiTietKiem();
+                transaction.replace(R.id.LayoutContainerTietKiem, fragment,"fragMucTieu");
+                transaction.hide(fragment);
+                transaction.commit();
+
+
+            }
+        }
+    };
 }

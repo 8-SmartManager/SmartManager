@@ -116,6 +116,9 @@ public class NhacNhoAdapter extends BaseAdapter {
         else if (holder.txtChuKy.getText().equals("Hàng tháng")){
 
             holder.txtThoiGianNhac.setText("Ngày "+nhacNho.getNgayBatDau().getDayOfMonth());
+        }else if (holder.txtChuKy.getText().equals("Hàng năm")){
+
+            holder.txtThoiGianNhac.setText("Ngày "+nhacNho.getNgayBatDau().getDayOfMonth()+" / "+nhacNho.getNgayBatDau().getMonthValue());
         }
 
         return view;

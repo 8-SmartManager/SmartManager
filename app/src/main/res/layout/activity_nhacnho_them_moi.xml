@@ -5,35 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/chu_dao"
-        android:gravity="center_vertical">
 
-        <ImageButton
-            android:id="@+id/btnNhacNhoThemMoiBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_back"
-            android:layout_marginLeft="16dp"
-            android:backgroundTint="@color/chu_dao"
-            android:layout_marginRight="32dp"
-
-            app:tint="@color/white" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tạo nhắc nhở"
-
-            android:textSize="20sp"
-            android:fontFamily="@font/header2_bold_20"
-            android:textColor="@color/white"
-            android:layout_weight="1"/>
-
-
-    </LinearLayout>
 
     <TableLayout
         android:layout_width="match_parent"
@@ -52,12 +24,13 @@
                 android:textColor="@color/mau_xam"/>
            <TextView
                android:id="@+id/txtNhacNhoThemTheLoai"
-               android:text="Thu"
+               android:text=""
                android:layout_width="match_parent"
                android:backgroundTint="@color/mau_xam"
                android:layout_height="56dp"
                android:layout_weight="1"
                android:fontFamily="@font/header3_semibold_14"
+               android:textSize="14sp"
                android:background="@drawable/textlines_khong"
                android:layout_marginRight="30dp"
                android:textColor="@color/mau_dam"
@@ -75,12 +48,13 @@
                 android:fontFamily="@font/body_medium_13"
 
                 android:textColor="@color/mau_xam"/>
-            <TextView
-                android:id="@+id/txtNhacNhoThemTen"
+            <EditText
+                android:id="@+id/edtNhacNhoThemTen"
                 android:backgroundTint="@color/mau_xam"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:fontFamily="@font/header3_semibold_14"
+                android:textSize="14sp"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
                 android:background="@drawable/textlines_khong"
@@ -100,10 +74,11 @@
                 android:textColor="@color/mau_xam"/>
             <TextView
                 android:id="@+id/txtNhacNhoThemChuKy"
-                android:text="Hàng tuần"
+                android:text=""
                 android:layout_width="match_parent"
                 android:background="@drawable/textlines_khong"
                 android:fontFamily="@font/header3_semibold_14"
+                android:textSize="14sp"
                 android:layout_height="56dp"
                 android:layout_weight="1"
                 android:layout_marginRight="30dp"
@@ -128,6 +103,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/textlines_khong"
                 android:fontFamily="@font/header3_semibold_14"
+                android:textSize="14sp"
                 android:layout_marginRight="30dp"
                 android:textColor="@color/mau_dam"
                 />
@@ -148,6 +124,7 @@
                 android:layout_width="match_parent"
                 android:background="@drawable/textlines_khong"
                 android:fontFamily="@font/header3_semibold_14"
+                android:textSize="14sp"
                 android:layout_weight="1"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
@@ -167,8 +144,9 @@
 
     android:text="Tạo nhắc nhở"
     android:fontFamily="@font/header3_semibold_14"
+    android:textSize="14sp"
     android:textAllCaps="false"
-    android:textColor="@color/chu_dao"
+    android:textColor="@color/button_text_color"
 
    />
     <Space
