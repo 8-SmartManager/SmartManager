@@ -12,6 +12,15 @@
         <activity
             android:name="com.example.muctieutietkiem.packages.TaoMucTieuChiTiet"
             android:exported="true" />
+        <activity
+            android:name="com.example.muctieutietkiem.packages.TaoMucTieu"
+            android:exported="true" />
+        <activity
+            android:name="com.example.muctieutietkiem.packages.MucTieuChiTiet"
+            android:exported="true" />
+        <activity
+            android:name="com.example.muctieutietkiem.packages.EditMucTieuHoatDong"
+            android:exported="true" />
         <activity android:name=".TaiKhoanSuaChiTiet"></activity>
         <activity android:name=".TaiKhoanChiTiet" />
         <activity
@@ -25,11 +34,7 @@
         <activity
             android:name=".ThongKeActivity"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".TaiKhoan"
@@ -49,6 +54,15 @@
         <activity
             android:name=".NhacNhoThemActivity"
             android:exported="true" />
+        <activity
+            android:name=".kehoach_muctieu_tietkiem"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

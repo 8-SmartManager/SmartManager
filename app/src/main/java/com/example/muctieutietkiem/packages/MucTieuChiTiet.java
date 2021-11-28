@@ -47,7 +47,6 @@ public class MucTieuChiTiet extends AppCompatActivity {
         txtNgayKetThuc.setText(String.valueOf(goal.getGoalTime()));
         double percent = (goal.getGoalSaved()/goal.getGoalTarget())*100;
         txtPercent.setText(String.format("%,.0f",percent)+"%");
-//        txtPercent.setText(String.valueOf(percent));
         txtSoTienDatDuoc.setText(String.format("%,.0f",goal.getGoalSaved()));
         progressBar.setProgress((int) percent);
 
