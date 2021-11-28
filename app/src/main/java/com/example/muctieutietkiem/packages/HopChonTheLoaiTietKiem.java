@@ -35,6 +35,7 @@ public class HopChonTheLoaiTietKiem extends DialogFragment {
         View view= inflater.inflate(R.layout.hop_chon_chung, container, false);
         gvTheLoai=view.findViewById(R.id.gvHopChonItem);
         btnDismiss = view.findViewById(R.id.btnDismiss);
+        EditText edtTenMucTieu = view.findViewById(R.id.edtTenMucTieu);
         adapter = new TheLoaiMucTieuAdapter(getContext(),R.layout.item_theloai_muctieu,initData());
         gvTheLoai.setAdapter(adapter);
         gvTheLoai.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -56,11 +57,17 @@ public class HopChonTheLoaiTietKiem extends DialogFragment {
                 dismiss();
             }
         });
+
         return view;
 
 
 
+
+
+
+
     }
+
 
 
 
@@ -78,4 +85,5 @@ public class HopChonTheLoaiTietKiem extends DialogFragment {
         return theLoai;
 
     }
+
 }

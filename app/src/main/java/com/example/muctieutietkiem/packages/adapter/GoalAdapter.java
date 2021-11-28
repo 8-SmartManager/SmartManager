@@ -1,11 +1,13 @@
 package com.example.muctieutietkiem.packages.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.muctieutietkiem.packages.model.Goal;
@@ -40,6 +42,7 @@ public class GoalAdapter extends BaseAdapter {
         return 0;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder holder;
@@ -51,8 +54,9 @@ public class GoalAdapter extends BaseAdapter {
             holder.goalThumb= view.findViewById(R.id.imvGoal);
             holder.goalName=view.findViewById(R.id.txtGoal);
             holder.goalTime=view.findViewById(R.id.txtDate);
-            holder.barThumb=view.findViewById(R.id.imvBar);
-            holder.goalSaved=view.findViewById(R.id.txtSaved);
+            holder.progressBar=view.findViewById(R.id.progressBar);
+            holder.goalTarget=view.findViewById(R.id.txtGoalTarget);
+
 
             view.setTag(holder);
         }
@@ -62,14 +66,16 @@ public class GoalAdapter extends BaseAdapter {
         holder.goalThumb.setImageResource(g.getGoalThumb());
         holder.goalName.setText(g.getGoalName());
         holder.goalTime.setText(("Ngày đạt: "+g.getGoalTime()));
-        holder.barThumb.setImageResource(g.getBarThumb());
-        holder.goalSaved.setText("Đã tiết kiệm:"+g.getGoalSaved());
 
+        double percent = (g.getGoalSaved()/g.getGoalTarget())*100;
+        holder.goalTarget.setText("Số tiền mục tiêu: "+String.format("%,.0f",g.getGoalTarget())+"đ");
+        holder.progressBar.setProgress((int) percent);
         return view;
     }
     public static class ViewHolder{
-        ImageView goalThumb,barThumb;
-        TextView goalName,goalTime,goalSaved;
+        ImageView goalThumb;
+        TextView goalName,goalTime,goalTarget;
+        ProgressBar progressBar;
 
     }
 }

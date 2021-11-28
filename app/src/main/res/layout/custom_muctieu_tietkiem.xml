@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="15dp"
+    android:padding="10dp"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -45,20 +45,20 @@
             </LinearLayout>
 
         </LinearLayout>
-        <ImageView
-            android:id="@+id/imvBar"
+        <ProgressBar
+            android:id="@+id/progressBar"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/ic_group_61__1_" />
+            android:layout_height="7dp"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:progressDrawable="@drawable/progressbar_horizon"/>
         <TextView
-            android:id="@+id/txtSaved"
+            android:id="@+id/txtGoalTarget"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/thu_cap"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:text="Đã tiết kiệm: 5.000.000đ"/>
 
     </LinearLayout>

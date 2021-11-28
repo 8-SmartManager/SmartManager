@@ -2,6 +2,8 @@ package com.example.muctieutietkiem.packages;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -41,9 +43,12 @@ public class TaoMucTieu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_the_loai_muctieu);
+        Drawable drawable=getResources().getDrawable(R.drawable.ic_back);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(drawable);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
+        getSupportActionBar().setTitle("Tạo mục tiêu");
         LinkView();
 
         loadFragment();
@@ -77,7 +82,7 @@ public class TaoMucTieu extends AppCompatActivity {
         FragmentTransaction transaction = manager.beginTransaction();
         Fragment fragment = null;
         fragment = new HopChonTheLoaiTietKiem();
-        transaction.replace(R.id.LayoutContainerTietKiem, fragment);
+        transaction.replace(R.id.LayoutContainerTietKiem, fragment,"fragMucTieu");
 
         transaction.commit();
 
@@ -123,8 +128,13 @@ public class TaoMucTieu extends AppCompatActivity {
         public void onClick(View view) {
             if (view.getId() == R.id.edtTenMucTieu) {
 
+                FragmentManager manager = getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                Fragment fragment = new HopChonTheLoaiTietKiem();
+                transaction.replace(R.id.LayoutContainerTietKiem, fragment,"fragMucTieu");
+                transaction.hide(fragment);
+                transaction.commit();
 
-                edtTenMucTieu.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(), R.color.thu_cap));
 
             }
         }

@@ -46,6 +46,19 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
+    // Bảng Mục Tiêu
+    public static final String TBL_NAME_MUC_TIEU = "MucTieu";
+    public static final String COL_MUCTIEU_ID = "MucTieu_ID";
+    public static final String COL_MUCTIEU_NAME = "MucTieu_Name";
+    public static final String COL_MUCTIEU_SOTIENMUCTIEU = "MucTieu_SoTIenMucTieu";
+    public static final String COL_MUCTIEU_SOTIENDATDUOC = "MucTieu_SoTIenDatDuoc";
+    public static final String COL_MUCTIEU_NGAYKETTHUC = "MucTieu_NgayKetThuc";
+    public static final String COL_MUCTIEU_IMAGE="MucTieu_Image";
+    public static final String COL_MUCTIEU_IMAGE_COLOR="MucTieu_Image_Color";
+    public static final String COL_MUCTIEU_LUUY = "MucTieu_LuuY";
+
+
+
 
 
     @Override
@@ -56,6 +69,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(sqlNhacNho);
         String sqlThongKe = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_THONGKE + "(" + COL_THONGKE_PERCENT + " VARCHAR(10), " + COL_THONGKE_NAME + " VARCHAR(50), " + COL_THONGKE_AMOUNT + " VARCHAR(50))";
         sqLiteDatabase.execSQL(sqlThongKe);
+        String sqlMucTieu = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_MUC_TIEU + "(" + COL_MUCTIEU_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_MUCTIEU_NAME + " VARCHAR(50), " + COL_MUCTIEU_SOTIENMUCTIEU + " DOUBLE, "+  COL_MUCTIEU_SOTIENDATDUOC + " DOUBLE," + COL_MUCTIEU_NGAYKETTHUC+ " DATE," + COL_MUCTIEU_IMAGE + " INT, "+ COL_MUCTIEU_IMAGE_COLOR + " INT, " + COL_MUCTIEU_LUUY + " VARCHAR(50))";
+        sqLiteDatabase.execSQL(sqlMucTieu);
+
     }
 
     @Override
@@ -63,6 +79,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TBL_NAME_THUCHI);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TBL_NAME_NHAC_NHO);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TBL_NAME_THONGKE);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TBL_NAME_MUC_TIEU);
         onCreate(sqLiteDatabase);
 
     }
@@ -90,6 +107,14 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return count;
     }
+    public int getCountMucTieu(){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TBL_NAME_MUC_TIEU, null);
+        int count = cursor.getCount();
+        cursor.close();
+        return count;
+    }
+
 
     public void createSomeData(){
         int countThuChi = getCountThuChi();
@@ -109,6 +134,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             execSql("INSERT INTO " + TBL_NAME_THONGKE + " VALUES('80%', 'Ăn uống', 2000000)");
             execSql("INSERT INTO " + TBL_NAME_THONGKE + " VALUES('15%', 'Giải trí', 200000)");
             execSql("INSERT INTO " + TBL_NAME_THONGKE + " VALUES('5%', 'Tiền học', 20000)");
+        }
+        int countMucTieu = getCountMucTieu();
+        if(countMucTieu == 0){
+            execSql("INSERT INTO " + TBL_NAME_MUC_TIEU + " VALUES(null, 'Mua xe','20000000','15000000','2021-05-28','null','-11873872','Quan trọng')");
+            execSql("INSERT INTO " + TBL_NAME_MUC_TIEU + " VALUES(null, 'Mua nhà','2500000000','15000000','2021-09-23','null','-11873872','Quan trọng')");
+
         }
     }
 
