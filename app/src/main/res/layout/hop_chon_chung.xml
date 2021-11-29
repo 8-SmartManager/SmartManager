@@ -38,7 +38,7 @@ android:id="@+id/txtTieuDe"
         android:id="@+id/gvHopChonItem"
         android:layout_width="match_parent"
         android:layout_height="325dp"
-
+        android:background="@color/white"
         android:listSelector="@color/thu_cap"
         android:numColumns="3" />
 </LinearLayout>

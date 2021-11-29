@@ -3,6 +3,7 @@ package com.example.smartmanagertwo;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -147,8 +148,9 @@ public class NhacNhoThemActivity extends AppCompatActivity {
     View.OnClickListener myClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            if(view.getId()==R.id.txtNhacNhoThemTheLoai||view.getId()==R.id.txtNhacNhoThemChuKy )
+            if(view.getId()==R.id.txtNhacNhoThemTheLoai||view.getId()==R.id.txtNhacNhoThemChuKy ||view.getId()==R.id.edtNhacNhoThemTen)
             {
+
             FragmentManager manager= getSupportFragmentManager();
             FragmentTransaction transaction= manager.beginTransaction();
             Fragment fragment= null;
@@ -174,20 +176,22 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                 fragment= new HopChonNhacNhoChuKy();
 
             }
+                if(view.getId()==R.id.edtNhacNhoThemTen ){
+                    txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
+                    edtTen.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.thu_cap));
+                    txtChuKy.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
+                    txtNgayBatDau.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
+                    txtGioNhac.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
+                        fragment= new Fragment();
+
+
+
+                }
 
             transaction.replace(R.id.layoutContainerThemNhacNho, fragment);
+
             transaction.commit();}
-            if(view.getId()==R.id.edtNhacNhoThemTen ){
-                txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                edtTen.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.thu_cap));
-                txtChuKy.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                txtNgayBatDau.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                txtGioNhac.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
 
-
-
-
-            }
             if(view.getId()==R.id.txtNhacNhoThemNgayBatDau){
                 txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 edtTen.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
