@@ -34,6 +34,7 @@
             android:textColor="@color/mau_dam"/>
         <EditText
             android:id="@+id/edtTenMucTieu"
+            android:theme="@style/AppTheme.MyEditTextTheme"
             android:layout_width="0dp"
             android:layout_weight="8"
             android:layout_height="wrap_content"

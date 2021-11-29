@@ -7,29 +7,16 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.GridView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.muctieutietkiem.packages.adapter.GoalAdapter;
-import com.example.muctieutietkiem.packages.adapter.TheLoaiMucTieuAdapter;
-import com.example.muctieutietkiem.packages.model.Goal;
-import com.example.muctieutietkiem.packages.model.TheLoai;
-import com.example.nhacnho.HopChonNhacNhoChiTietTen;
-import com.example.smartmanagertwo.HopChonNhacNhoChuKy;
-import com.example.smartmanagertwo.HopChonNhacNhoThemTheLoai;
 import com.example.smartmanagertwo.R;
-
-import java.util.ArrayList;
 
 public class TaoMucTieu extends AppCompatActivity {
     EditText edtTenMucTieu;
@@ -99,7 +86,7 @@ public class TaoMucTieu extends AppCompatActivity {
 
     private void ShowDialog() {
         Dialog dialog = new Dialog(this);
-        dialog.setContentView(R.layout.nhaptenmuctieu_dialog);
+        dialog.setContentView(R.layout.dialog_nhapmuctieu);
         Button btnOk = dialog.findViewById(R.id.btnOk);
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override

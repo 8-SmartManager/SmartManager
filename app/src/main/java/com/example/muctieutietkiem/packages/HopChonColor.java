@@ -62,14 +62,14 @@ public class HopChonColor extends DialogFragment {
     private ArrayList<Color> initData() {
         colors=new ArrayList<Color>();
         colors.add(new Color("Coral Pink",-430225,R.drawable.ic_coral_pink));
-        colors.add(new Color("Pink",-430225,R.drawable.ic_pink));
-        colors.add(new Color("Lime",-430225,R.drawable.ic_lime));
-        colors.add(new Color("Grey",-430225,R.drawable.ic_grey));
-        colors.add(new Color("Green",-430225,R.drawable.ic_green));
-        colors.add(new Color("Yellow",-430225,R.drawable.ic_yellow));
-        colors.add(new Color("Blue",-430225,R.drawable.ic_blue));
-        colors.add(new Color("Orange",-430225,R.drawable.ic_orange));
-        colors.add(new Color("Purple",-430225,R.drawable.ic_purple));
+        colors.add(new Color("Pink",-48536,R.drawable.ic_pink));
+        colors.add(new Color("Lime",-7082464,R.drawable.ic_lime));
+        colors.add(new Color("Grey",-3881788,R.drawable.ic_grey));
+        colors.add(new Color("Green",-11873872,R.drawable.ic_green));
+        colors.add(new Color("Yellow",-256,R.drawable.ic_yellow));
+        colors.add(new Color("Blue",-15163141,R.drawable.ic_blue));
+        colors.add(new Color("149741",-430225,R.drawable.ic_orange));
+        colors.add(new Color("Purple",-3319318,R.drawable.ic_purple));
 
 
         return colors;

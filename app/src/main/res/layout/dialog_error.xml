@@ -6,6 +6,8 @@
     android:layout_height="wrap_content"
     android:background="@drawable/dialog_confirm_border"
     android:orientation="vertical"
+    android:clipToOutline="true"
+    android:layout_gravity="center_horizontal"
     android:padding="24dp">
 <TextView
     android:id="@+id/txtTitle"
