@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/txtTKChiTietTheLoai"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:text="Giải trí"
+        android:layout_gravity="center_vertical"
+        android:gravity="center|left"
+        android:fontFamily="@font/body_medium_13"
+        android:layout_marginLeft="16dp"
+        android:textColor="@color/mau_xam"
+        />
+    <LinearLayout
+        android:layout_marginLeft="20dp"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/txtTKChiTietTaiKhoan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tiền mặt"
+            android:fontFamily="@font/header2_bold_20"
+            android:textColor="@color/mau_dam"/>
+        <TextView
+            android:id="@+id/txtTKChiTietMoney"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2000000"
+            android:fontFamily="@font/body_medium_13"
+            android:textColor="@color/mau_xam"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/txtTKChiTietTime"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        android:text="Ngày 12"
+        android:gravity="center"
+        android:layout_gravity="center_vertical"
+        android:fontFamily="@font/body_medium_13"
+        android:textColor="@color/thu_cap"
+        />
+</LinearLayout>

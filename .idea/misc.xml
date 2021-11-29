@@ -3,6 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/BTTHMobile/CK/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/CK/app/src/main/res/layout/activity_nhacnho_chi_tiet.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/CK/app/src/main/res/layout/activity_nhacnho_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/CK/app/src/main/res/layout/activity_nhacnho_them_moi.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/CK/app/src/main/res/layout/activity_thong_ke.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/CK/app/src/main/res/layout/activity_thong_ke_chi_tiet.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/CK/app/src/main/res/layout/item_theloai_muctieu.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/CK/app/src/main/res/layout/item_thong_ke_chi_tiet.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/CK/app/src/main/res/layout/nhac_nho_item_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/CK/app/src/main/res/layout/nhaptenmuctieu_dialog.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/CK/app/src/main/res/layout/sua_hoat_dong.xml" value="0.25416666666666665" />
+        <entry key="..\:/BTTHMobile/CK/app/src/main/res/layout/thong_ke_item_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/BTTHMobile/SmartManager/app/src/main/res/layout/activity_nhacnho_chi_tiet.xml" value="0.25416666666666665" />
         <entry key="..\:/BTTHMobile/SmartManager/app/src/main/res/layout/activity_nhacnho_main.xml" value="0.25416666666666665" />
         <entry key="..\:/BTTHMobile/SmartManager/app/src/main/res/layout/activity_nhacnho_them_moi.xml" value="0.25416666666666665" />

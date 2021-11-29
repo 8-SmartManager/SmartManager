@@ -2,7 +2,6 @@ package com.example.smartmanagertwo;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,16 +9,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.nhacnho.NhacNho;
 import com.example.thongke.ThongKe;
 import com.example.thongke.ThongKeAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class ThongKeActivity extends AppCompatActivity {
 
@@ -98,11 +94,11 @@ public class ThongKeActivity extends AppCompatActivity {
         lvThongKe.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(ThongKeActivity.this, ThongKeChiTiet.class);
+                Intent intent = new Intent(ThongKeActivity.this, ThongKeChiTietActivity.class);
                 thongKeAdapter = new ThongKeAdapter(ThongKeActivity.this, R.layout.thong_ke_item_layout,InfoTK);
                 ThongKe thongKe= (ThongKe) thongKeAdapter.getItem(i);
                 intent.putExtra("Thong Ke",thongKe);
-                //startActivity(intent);
+                startActivity(intent);
             }
         });
     }
