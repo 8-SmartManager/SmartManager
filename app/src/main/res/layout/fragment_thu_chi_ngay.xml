@@ -6,57 +6,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:weightSum="12">
-
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="56dp"
-                android:text="18, Th2"
-                android:layout_weight="4"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
-                android:textColor="@color/mau_dam"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="56dp"
-                android:text="2000000"
-                android:layout_weight="4"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
-                android:textColor="@color/mau_dam"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="56dp"
-                android:text="2000000"
-                android:layout_weight="4"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
-                android:textColor="@color/thu_cap"
-                android:textStyle="bold"/>
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="56dp">
+        android:layout_marginTop="0dp">
 
-        <ListView
-            android:id="@+id/lvActivity"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:listSelector="@color/thay_trang"/>
+        <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/gvActivity"
+            android:numColumns="3"
+            android:gravity="center"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+        </GridView>
     </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnThemMoiThuChi"

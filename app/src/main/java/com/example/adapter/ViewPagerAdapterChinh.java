@@ -13,8 +13,8 @@ import fragment.ThuChiTong;
 import fragment.ThuChiTuan;
 
 
-public class ViewPagerAdapter extends FragmentStatePagerAdapter {
-    public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
+public class ViewPagerAdapterChinh extends FragmentStatePagerAdapter {
+    public ViewPagerAdapterChinh(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
     }
 

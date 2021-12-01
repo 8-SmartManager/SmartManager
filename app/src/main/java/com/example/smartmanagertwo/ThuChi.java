@@ -10,8 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.muctieutietkiem.packages.TaoMucTieu;
-import com.example.adapter.ViewPagerAdapter;
+import com.example.adapter.ViewPagerAdapterChinh;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
@@ -47,7 +46,7 @@ public class ThuChi extends AppCompatActivity {
     }
 
     private void initData() {
-        ViewPagerAdapter viewPagerAdapter=new ViewPagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        ViewPagerAdapterChinh viewPagerAdapter=new ViewPagerAdapterChinh(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         vp_thuchi.setAdapter(viewPagerAdapter);
         tab_thuchi.setupWithViewPager(vp_thuchi);
     }
