@@ -5,6 +5,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.content.ContextCompat;
+import androidx.core.widget.ImageViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -15,6 +16,7 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -130,12 +132,31 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
                             }
                         });
                         builder.create().show();
-                    }else {
+                    }
+                    else if ( Double.parseDouble(soTienMucTieu)<Double.parseDouble(soTienDatDuoc)){
+                        AlertDialog.Builder builder= new AlertDialog.Builder(TaoMucTieuChiTiet.this);
+                        builder.setTitle("Ủa alo!");
+                        builder.setMessage("Sao Số tiền đạt được của bạn lại lớn hơn Số tiền mục tiêu dzợ .-. Bạn chỉnh lại chỗ này nhennn!");
+                        builder.setPositiveButton("Ukii", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        });
+                        builder.create().show();
+
+                    }
+
+
+
+
+                    else {
                         hoat_dong_fragment.db.execSql("INSERT INTO "+MyDatabaseHelper.TBL_NAME_MUC_TIEU+" VALUES(null, '"+ten+"', '"+soTienMucTieu+"', '"+soTienDatDuoc+"', '"+ngayKetThuc+"',null,'-11873872', '"+luuY+"')");
 
                         finish();
                     }
                 }
+
             });
     }
 
@@ -180,8 +201,10 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
                         calendarDate.get(Calendar.MONTH),
                         calendarDate.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
+
             }
             if (view.getId() == R.id.imvDrop||view.getId() == R.id.imvColor) {
+                ImageViewCompat.setImageTintList(imvDropdown, ColorStateList.valueOf(-149741));
                 closeKeyBoard();
                 FragmentManager manager = getSupportFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
@@ -191,10 +214,15 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
                 transaction.commit();
 
 
+
+
             }if(view.getId() == R.id.edtTenMucTieu||view.getId() == R.id.edtSoTienMucTieu||view.getId() == R.id.edtSoTienDatDuoc||view.getId() == R.id.edtSelectDate||view.getId() == R.id.edtLuuY){
                 Fragment fragment =getSupportFragmentManager().findFragmentByTag("fragColor");
                 if(fragment!=null) {
                     getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+                    ImageViewCompat.setImageTintList(imvDropdown, null);
+
+
                 }
 
 

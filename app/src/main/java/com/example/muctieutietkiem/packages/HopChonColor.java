@@ -1,5 +1,6 @@
 package com.example.muctieutietkiem.packages;
 
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import androidx.core.widget.ImageViewCompat;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.muctieutietkiem.packages.adapter.ColorAdapter;
@@ -38,17 +40,21 @@ public class HopChonColor extends DialogFragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 ImageView imageView= getActivity().findViewById(R.id.imvColor);
+                ImageView imvDrop= getActivity().findViewById(R.id.imvDrop);
                 adapter = new ColorAdapter(getContext(),R.layout.item_color_muctieu,initData());
                 Color color= (Color) adapter.getItem(i);
                 imageView.setImageResource(color.getColorThumb());
                 dismiss();
+                ImageViewCompat.setImageTintList(imvDrop, null);
             }
             }
             );
         btnDismiss.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    ImageView imvDrop= getActivity().findViewById(R.id.imvDrop);
                     dismiss();
+                    ImageViewCompat.setImageTintList(imvDrop, null);
                 }
             });
 
@@ -68,7 +74,7 @@ public class HopChonColor extends DialogFragment {
         colors.add(new Color("Green",-11873872,R.drawable.ic_green));
         colors.add(new Color("Yellow",-256,R.drawable.ic_yellow));
         colors.add(new Color("Blue",-15163141,R.drawable.ic_blue));
-        colors.add(new Color("149741",-430225,R.drawable.ic_orange));
+        colors.add(new Color("Orange",-149741,R.drawable.ic_orange));
         colors.add(new Color("Purple",-3319318,R.drawable.ic_purple));
 
 

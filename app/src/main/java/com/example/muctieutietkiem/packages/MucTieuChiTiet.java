@@ -111,7 +111,7 @@ public class MucTieuChiTiet extends AppCompatActivity implements DialogThemTien.
         txtSoTienDatDuoc=findViewById(R.id.txtSoTienDatDuoc);
         imvGoal=findViewById(R.id.imvGoal);
         progressBar=findViewById(R.id.progressBar);
-        txtTest=findViewById(R.id.txtTest);
+
 
     }
 
@@ -151,8 +151,9 @@ public class MucTieuChiTiet extends AppCompatActivity implements DialogThemTien.
         double soTienThem = Double.parseDouble(tienThem);
         double tien = soTienThem+selectedGoal.getGoalSaved();
 
-        hoat_dong_fragment.db.execSql("UPDATE "+ MyDatabaseHelper.TBL_NAME_MUC_TIEU+" SET "+MyDatabaseHelper.COL_MUCTIEU_SOTIENDATDUOC+" = '"+tien+"'WHERE "+MyDatabaseHelper.COL_MUCTIEU_ID+"=" +selectedGoal.getGoalID());
+
         selectedGoal.setGoalSaved(tien);
+        hoat_dong_fragment.db.execSql("UPDATE "+ MyDatabaseHelper.TBL_NAME_MUC_TIEU+" SET "+MyDatabaseHelper.COL_MUCTIEU_SOTIENDATDUOC+" = '"+tien+"'WHERE "+MyDatabaseHelper.COL_MUCTIEU_ID+"=" +selectedGoal.getGoalID());
 
         txtSoTienDatDuoc.setText(String.format("%,.0f",tien));
         double percent = (selectedGoal.getGoalSaved()/selectedGoal.getGoalTarget())*100;

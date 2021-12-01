@@ -9,10 +9,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import com.example.muctieutietkiem.packages.TaoMucTieu;
-import com.example.muctieutietkiem.packages.ViewPagerAdapter;
+import com.example.muctieutietkiem.packages.adapter.ViewPagerAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 

@@ -7,13 +7,14 @@
     android:orientation="vertical"
     android:id="@+id/llTaoMucTieu"
     tools:context="com.example.muctieutietkiem.packages.TaoMucTieuChiTiet"
-    android:padding="16dp">
+    >
 
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:layout_constraintTop_toTopOf="parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -46,6 +47,7 @@
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/body_medium_13"
                 android:textSize="14sp"
+
                 />
 
 
@@ -73,6 +75,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:inputType="number"
+
                 android:fontFamily="@font/body_medium_13"
                 android:textSize="14sp"/>
         </TableRow>
@@ -100,6 +103,7 @@
                 android:layout_marginTop="10dp"
                 android:inputType="number"
                 android:fontFamily="@font/body_medium_13"
+
                 android:textSize="14sp"/>
         </TableRow>
         <TableRow
@@ -203,6 +207,7 @@ android:textSize="14sp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:textSize="14sp"
+
                 android:fontFamily="@font/body_medium_13"    />
         </TableRow>
 

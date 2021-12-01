@@ -15,21 +15,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.muctieutietkiem.packages.adapter.GoalAdapter;
 import com.example.muctieutietkiem.packages.model.Goal;
-import com.example.nhacnho.NhacNho;
-import com.example.nhacnho.NhacNhoAdapter;
 import com.example.smartmanagertwo.MyDatabaseHelper;
-import com.example.smartmanagertwo.NhacNhoActivity;
-import com.example.smartmanagertwo.NhacNhoChiTietActivity;
 import com.example.smartmanagertwo.R;
-import com.example.smartmanagertwo.kehoach_muctieu_tietkiem;
 
-import java.sql.Date;
-import java.sql.Time;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +59,7 @@ public class hoat_dong_fragment extends Fragment{
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void loadData() {
-        adapter = new GoalAdapter(getContext(),R.layout.custom_muctieu_tietkiem,getDataFromDb());
+        adapter = new GoalAdapter(getContext(),R.layout.item_muctieu,getDataFromDb());
         lvGoal.setAdapter(adapter);
     }
 
