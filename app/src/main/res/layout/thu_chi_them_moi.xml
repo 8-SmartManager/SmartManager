@@ -12,6 +12,7 @@
         android:background="@color/chu_dao"
         android:gravity="center_vertical">
         <ImageButton
+            android:id="@+id/btnThuChiBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_back"
@@ -21,6 +22,7 @@
             app:tint="@color/white"
             />
         <TextView
+            android:id="@+id/txtMucHoatDong"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Chi"
@@ -30,26 +32,27 @@
             android:layout_weight="1"/>
     </LinearLayout>
 
+
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
         app:tabIndicatorColor="@color/thu_cap"
-        app:tabTextColor="@color/chu_dao"
         app:tabIndicatorHeight="2dp"
-        >
+        app:tabTextColor="@color/chu_dao">
+
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/btnMucChi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chi"
-            />
+            android:text="Chi" />
+
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/btnMucThu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Thu"
-            />
+            android:text="Thu" />
 
     </com.google.android.material.tabs.TabLayout>
-
 
     <TableLayout
         android:layout_width="match_parent"
@@ -58,6 +61,7 @@
         android:layout_gravity="center" >
         <TableRow>
             <TextView
+
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
 
@@ -69,6 +73,7 @@
                 android:textColor="@color/mau_xam"/>
 
             <TextView
+                android:id="@+id/txtNewActivityDate"
                 android:layout_width="256dp"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
@@ -93,6 +98,7 @@
                 android:textSize="13dp"
                 android:textColor="@color/mau_xam"/>
             <TextView
+                android:id="@+id/txtNewActivityAccount"
                 android:layout_width="256dp"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
@@ -115,11 +121,12 @@
                 android:textSize="13dp"
                 android:textColor="@color/mau_xam"/>
             <TextView
+                android:id="@+id/txtNewActivityName"
                 android:layout_width="256dp"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
                 android:textColor="@color/mau_xam"
-                android:background="@drawable/textlines_chon"
+                android:background="@drawable/textlines_khong"
                 android:text="Chọn thể loại"
                 android:textSize="13dp"
                 android:fontFamily="@font/body_medium_13"
@@ -137,6 +144,7 @@
                 android:textSize="13dp"
                 android:textColor="@color/mau_xam"/>
             <EditText
+                android:id="@+id/txtNewActivityAmount"
                 android:layout_width="256dp"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
@@ -153,7 +161,7 @@
 
 
     <LinearLayout
-        android:id="@+id/layoutContainerThemMoi"
+        android:id="@+id/layoutContainerThuChiThemMoi"
         android:orientation="vertical"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
