@@ -6,13 +6,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import fragment.ThuChiChinh;
-import fragment.ThuChiNgay;
-import fragment.ThuChiThang;
-import fragment.ThuChiThemMoiChi;
-import fragment.ThuChiThemMoiThu;
-import fragment.ThuChiTong;
-import fragment.ThuChiTuan;
+import com.example.fragment.ThuChiChinh;
+import com.example.fragment.ThuChiNgay;
+import com.example.fragment.ThuChiThang;
+import com.example.fragment.ThuChiThemMoiChi;
+import com.example.fragment.ThuChiThemMoiThu;
+import com.example.fragment.ThuChiTong;
+import com.example.fragment.ThuChiTuan;
 
 public class ViewPagerAdapterThemMoi extends FragmentStatePagerAdapter {
     public ViewPagerAdapterThemMoi (@NonNull FragmentManager fm, int behavior) {
