@@ -2,6 +2,7 @@ package com.example.fragment;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import com.example.adapter.ActivityAdapter;
@@ -20,6 +22,7 @@ import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.R;
 import com.example.smartmanagertwo.TaiKhoanSuaChiTiet;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,13 +68,14 @@ public class ThuChiChinh extends Fragment{
         lvActivity.setAdapter(adapter);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private List<ThuChiActivity> getDataFromDb() {
         activity = new ArrayList<>();
         Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_THUCHI);
         activity.clear();
         while(cursor.moveToNext()){
 //            activity.add(new ThuChiActivity(cursor.getInt(0), cursor.getString(1)));
-            activity.add(new ThuChiActivity(cursor.getString(0), cursor.getString(1), cursor.getDouble(2)));
+            activity.add(new ThuChiActivity(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), LocalDate.parse(cursor.getString(5))));
         }
         cursor.close();
         return activity;
