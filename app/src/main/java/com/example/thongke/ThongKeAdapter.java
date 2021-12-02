@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.smartmanagertwo.R;
-import com.example.smartmanagertwo.ThongKeActivity;
 
 import java.util.List;
 

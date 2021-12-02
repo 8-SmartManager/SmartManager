@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center" >
+        <TableRow>
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+
+                android:text="Ngày"
+                android:layout_marginLeft="30dp"
+                android:gravity="left"
+                android:fontFamily="@font/body_medium_13"
+                android:textSize="13dp"
+                android:textColor="@color/mau_xam"/>
+
+            <TextView
+                android:id="@+id/txtNewActivityDate"
+                android:layout_width="256dp"
+                android:layout_height="56dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/textlines_khong"
+                android:fontFamily="@font/body_medium_13"
+                android:text="18, Th2"
+                android:textColor="@color/mau_dam"
+                android:textSize="13dp"
+                android:textStyle="bold"
+                />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Tài khoản"
+                android:layout_marginLeft="30dp"
+
+                android:gravity="left"
+                android:fontFamily="@font/body_medium_13"
+                android:textSize="13dp"
+                android:textColor="@color/mau_xam"/>
+            <TextView
+                android:id="@+id/txtNewActivityAccount"
+                android:layout_width="256dp"
+                android:layout_height="56dp"
+                android:layout_marginRight="30dp"
+                android:textColor="@color/mau_xam"
+                android:background="@drawable/textlines_chon"
+                android:text="Chọn tài khoản"
+                android:textSize="13dp"
+                android:fontFamily="@font/body_medium_13"
+                />
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Thể loại"
+                android:layout_marginLeft="30dp"
+                android:gravity="left"
+                android:fontFamily="@font/body_medium_13"
+                android:textSize="13dp"
+                android:textColor="@color/mau_xam"/>
+            <TextView
+                android:id="@+id/txtNewActivityName"
+                android:layout_width="256dp"
+                android:layout_height="56dp"
+                android:layout_marginRight="30dp"
+                android:textColor="@color/mau_xam"
+                android:background="@drawable/textlines_khong"
+                android:text="Chọn thể loại"
+                android:textSize="13dp"
+                android:fontFamily="@font/body_medium_13"
+                />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Số tiền"
+                android:layout_marginLeft="30dp"
+                android:gravity="left"
+                android:fontFamily="@font/body_medium_13"
+                android:textSize="13dp"
+                android:textColor="@color/mau_xam"/>
+            <EditText
+                android:id="@+id/txtNewActivityAmount"
+                android:layout_width="256dp"
+                android:layout_height="56dp"
+                android:layout_marginRight="30dp"
+                android:textColor="@color/mau_xam"
+                android:textSize="13dp"
+                android:hint="Nhập số tiền"
+                android:backgroundTint="@color/mau_xam"
+                android:fontFamily="@font/body_medium_13"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/bg_button"
+
+        android:text="Lưu"
+        android:fontFamily="@font/header3_semibold_14"
+
+        android:textAllCaps="false"
+        android:textColor="@color/button_text_color"
+
+        />
+
+    <LinearLayout
+        android:id="@+id/layoutContainerThuChiThemMoi"
+        android:orientation="vertical"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

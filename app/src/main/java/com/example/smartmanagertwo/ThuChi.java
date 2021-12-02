@@ -1,63 +1,59 @@
 package com.example.smartmanagertwo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.database.Cursor;
+import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.view.View;
 
-import com.example.adapter.ActivityAdapter;
-import com.example.model.ThuChiActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.adapter.ViewPagerAdapterChinh;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.tabs.TabLayout;
 
 public class ThuChi extends AppCompatActivity {
-
-    public static MyDatabaseHelper db;
-
-    TextView txtActivityName, txtActivityAccount, txtActivityAmount;
-    ListView lvActivity;
-    ActivityAdapter adapter;
-    ArrayList<ThuChiActivity> activity;
+    FloatingActionButton btnThemMoi;
+    TabLayout tab_thuchi;
+    ViewPager vp_thuchi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.thu_chi_chinh);
-
-        prepareDb();
-        linkViews();
-        loadData();
+        setContentView(R.layout.activity_thu_chi);
+        Drawable drawable=getResources().getDrawable(R.drawable.ic_menu);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(drawable);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
+        getSupportActionBar().setTitle("Thu Chi");
+        LinkViews();
+        initData();
+        addEvents();
 
     }
 
-    private void prepareDb() {
-        db = new MyDatabaseHelper(this);
-        db.createSomeData();
+    private void addEvents() {
+        btnThemMoi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ThuChi.this, ThuChiThemMoi.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    private void loadData() {
-
-        adapter = new ActivityAdapter(ThuChi.this, R.layout.item_thuchi, getDataFromDb());
-        lvActivity.setAdapter(adapter);
+    private void initData() {
+        ViewPagerAdapterChinh viewPagerAdapter=new ViewPagerAdapterChinh(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        vp_thuchi.setAdapter(viewPagerAdapter);
+        tab_thuchi.setupWithViewPager(vp_thuchi);
     }
 
-    private List<ThuChiActivity> getDataFromDb() {
-        activity = new ArrayList<>();
-        Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_THUCHI);
-        activity.clear();
-        while(cursor.moveToNext()){
-//            activity.add(new ThuChiActivity(cursor.getInt(0), cursor.getString(1)));
-            activity.add(new ThuChiActivity(cursor.getString(0), cursor.getString(1), cursor.getDouble(2)));
-        }
-        cursor.close();
-        return activity;
-    }
-
-    private void linkViews() {
-        lvActivity = findViewById(R.id.lvActivity);
-
+    private void LinkViews() {
+        btnThemMoi=findViewById(R.id.btnThemMoiThuChi);
+        tab_thuchi=findViewById(R.id.tab_thuchi);
+        vp_thuchi=findViewById(R.id.vp_thuchi);
     }
 }

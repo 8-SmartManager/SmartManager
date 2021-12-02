@@ -6,49 +6,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/chu_dao"
-        android:gravity="center_vertical">
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_back"
-            android:layout_marginLeft="16dp"
-            android:backgroundTint="@color/chu_dao"
-            android:layout_marginRight="32dp"
-            app:tint="@color/white"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Chi"
-            android:textSize="20dp"
-            android:fontFamily="@font/header2_bold_20"
-            android:textColor="@color/white"
-            android:layout_weight="1"/>
-    </LinearLayout>
-
-    <com.google.android.material.tabs.TabLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        app:tabIndicatorColor="@color/thu_cap"
-        app:tabTextColor="@color/chu_dao"
-        app:tabIndicatorHeight="2dp"
-        >
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Chi"
-            />
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thu"
-            />
-
-    </com.google.android.material.tabs.TabLayout>
 
 
     <TableLayout
@@ -58,6 +15,7 @@
         android:layout_gravity="center" >
         <TableRow>
             <TextView
+
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
 
@@ -69,6 +27,7 @@
                 android:textColor="@color/mau_xam"/>
 
             <TextView
+                android:id="@+id/txtNewActivityDate"
                 android:layout_width="256dp"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
@@ -93,6 +52,7 @@
                 android:textSize="13dp"
                 android:textColor="@color/mau_xam"/>
             <TextView
+                android:id="@+id/txtNewActivityAccount"
                 android:layout_width="256dp"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
@@ -115,11 +75,12 @@
                 android:textSize="13dp"
                 android:textColor="@color/mau_xam"/>
             <TextView
+                android:id="@+id/txtNewActivityName"
                 android:layout_width="256dp"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
                 android:textColor="@color/mau_xam"
-                android:background="@drawable/textlines_chon"
+                android:background="@drawable/textlines_khong"
                 android:text="Chọn thể loại"
                 android:textSize="13dp"
                 android:fontFamily="@font/body_medium_13"
@@ -137,6 +98,7 @@
                 android:textSize="13dp"
                 android:textColor="@color/mau_xam"/>
             <EditText
+                android:id="@+id/txtNewActivityAmount"
                 android:layout_width="256dp"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
@@ -150,10 +112,25 @@
 
     </TableLayout>
 
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/bg_button"
 
+        android:text="Lưu"
+        android:fontFamily="@font/header3_semibold_14"
+
+        android:textAllCaps="false"
+        android:textColor="@color/button_text_color"
+
+        />
 
     <LinearLayout
-        android:id="@+id/layoutContainerThemMoi"
+        android:id="@+id/layoutContainerThuChiThemMoi"
         android:orientation="vertical"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"

@@ -5,28 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/layoutContainer"
-    tools:context=".kehoach_muctieu_tietkiem"
-    android:padding="16dp"
+    tools:context=".ThuChi"
+    android:padding="0dp"
     android:orientation="vertical">
+
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_thongKe"
+            android:id="@+id/tab_thuchiThemmoi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabIndicatorColor="@color/thu_cap"
             app:tabMode="fixed"
             app:tabSelectedTextColor="@color/mau_dam"
-            app:tabTextColor="@color/chu_dao"/>
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/vp_thongKe"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tab_muctieu"
-            app:layout_constraintVertical_bias="0.0" />
+            app:tabTextColor="@color/chu_dao" />
+
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_thuchiThemmoi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@+id/linearLayout"
+        app:layout_anchorGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tab_muctieu"
+        app:layout_constraintVertical_bias="0.0" />
+
     </LinearLayout>
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
