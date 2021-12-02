@@ -38,9 +38,9 @@
     </LinearLayout>
     <TextView
         android:id="@+id/txtTKChiTietTime"
-        android:layout_width="60dp"
+        android:layout_width="70dp"
         android:layout_height="70dp"
-        android:text="Ngày 12"
+        android:text="2021-11-30"
         android:gravity="center"
         android:layout_gravity="center_vertical"
         android:fontFamily="@font/body_medium_13"

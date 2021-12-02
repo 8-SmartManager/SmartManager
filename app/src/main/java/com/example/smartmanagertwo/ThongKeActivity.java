@@ -1,108 +1,66 @@
 package com.example.smartmanagertwo;
 
-import android.content.Intent;
-import android.database.Cursor;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Spinner;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.MenuItemCompat;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
-import com.example.thongke.ThongKe;
-import com.example.thongke.ThongKeAdapter;
+import com.example.thongke.ViewPagerAdapter;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ThongKeActivity extends AppCompatActivity {
+    TabLayout tab_thongKe;
+    ViewPager vp_thongKe;
 
     Spinner spTime;
     ArrayList<String> timeList;
     ArrayAdapter<String> adapter;
-
-
-    ListView lvThongKe;
-    ArrayList<ThongKe> InfoTK;
-    ThongKeAdapter thongKeAdapter;
-    public static MyDatabaseHelper db;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thong_ke);
-
-        prepareDb();
+        Drawable drawable=getResources().getDrawable(R.drawable.ic_menu);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(drawable);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
+        getSupportActionBar().setTitle("Thống kê");
         linkViews();
-        loadData();
-//        initData();
-        loadDataAdapter();
-        addEvents();
+        initData();
     }
-
-    @Override
-    protected void onResume() {
-        loadDataAdapter();
-        super.onResume();
-    }
-
     private void linkViews() {
-        spTime = findViewById(R.id.spTime);
-        lvThongKe = findViewById(R.id.lvThongKe);
-    }
+        tab_thongKe = findViewById(R.id.tab_thongKe);
+        vp_thongKe = findViewById(R.id.vp_thongKe);
 
-    private void prepareDb() {
-        db = new MyDatabaseHelper(this);
-        db.createSomeData();
+        spTime = findViewById(R.id.mnSpinner);
     }
-    private List<ThongKe> getDataFromDb(){
-        InfoTK = new ArrayList<>();
-        Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_THONGKE);
-        InfoTK.clear();
-        while (cursor.moveToNext()){
-            InfoTK.add(new ThongKe(cursor.getString(0), cursor.getString(1),cursor.getDouble(2)));
-        }
-        cursor.close();
-        return InfoTK;
+    private void initData() {
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        vp_thongKe.setAdapter(viewPagerAdapter);
+        tab_thongKe.setupWithViewPager(vp_thongKe);
     }
-
-//Spinner
-    private void loadData() {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.thong_ke_menu, menu);
+        MenuItem item = menu.findItem(R.id.mnSpinner);
+        Spinner spinner = (Spinner) MenuItemCompat.getActionView(item);
         timeList = new ArrayList<>();
         timeList.add("Hàng tuần");
         timeList.add("Hàng tháng");
         timeList.add("Hàng năm");
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, timeList);
-        spTime.setAdapter(adapter);
+        spinner.setAdapter(adapter);
+        return super.onCreateOptionsMenu(menu);
     }
-
-//    private void initData() {
-//        InfoTK = new ArrayList<ThongKe>();
-//        InfoTK.add(new ThongKe("50%", "Ăn uống", 2000000.0));
-//        InfoTK.add(new ThongKe("27%", "Giải trí", 500000.0));
-//        InfoTK.add(new ThongKe("23%", "Giáo dục", 300000.0));
-//    }
-
-    private void loadDataAdapter() {
-        thongKeAdapter = new ThongKeAdapter(ThongKeActivity.this, R.layout.thong_ke_item_layout,getDataFromDb());
-        lvThongKe.setAdapter(thongKeAdapter);
-    }
-
-    private void addEvents() {
-        lvThongKe.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(ThongKeActivity.this, ThongKeChiTietActivity.class);
-                thongKeAdapter = new ThongKeAdapter(ThongKeActivity.this, R.layout.thong_ke_item_layout,InfoTK);
-                ThongKe thongKe= (ThongKe) thongKeAdapter.getItem(i);
-                intent.putExtra("Thong Ke",thongKe);
-                startActivity(intent);
-            }
-        });
-    }
-
-
-
 }
