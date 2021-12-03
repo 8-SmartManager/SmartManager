@@ -66,10 +66,11 @@ public class ThongKeThuFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private List<ThongKe> getDataFromDb(){
         InfoTKThu = new ArrayList<>();
-        Cursor cursor = db.getData("SELECT " + MyDatabaseHelper.COL_TKTHUCHITIET_THELOAI + " , " + " SUM(" + MyDatabaseHelper.COL_TKTHUCHITIET_MONEY + " ) " + " FROM " + MyDatabaseHelper.TBL_NAME_THONG_KE_THU_CHI_TIET + " GROUP BY " + MyDatabaseHelper.COL_TKTHUCHITIET_THELOAI);
+        Cursor cursor = db.getData("SELECT " + MyDatabaseHelper.COL_THUCHI_NAME + " , " + MyDatabaseHelper.COL_THUCHI_TYPE+", SUM(" + MyDatabaseHelper.COL_THUCHI_AMOUNT + " ) " + " FROM " + MyDatabaseHelper.TBL_NAME_THUCHI +" WHERE "+MyDatabaseHelper.COL_THUCHI_TYPE+"='"+ "Thu"+"' GROUP BY " + MyDatabaseHelper.COL_THUCHI_NAME);
+//        Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_THONG_KE_CHI_CHI_TIET);
         InfoTKThu.clear();
         while (cursor.moveToNext()){
-            InfoTKThu.add(new ThongKe(null, cursor.getString(0),cursor.getDouble(1)));
+            InfoTKThu.add(new ThongKe(null, cursor.getString(0), cursor.getString(1),cursor.getDouble(2)));
         }
         cursor.close();
         return InfoTKThu;
@@ -80,7 +81,7 @@ public class ThongKeThuFragment extends Fragment {
         lvThongKeThu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(), ThongKeThuChiTietActivity.class);
+                Intent intent = new Intent(getActivity(), ThongKeChiTietActivity.class);
                 adapter = new ThongKeAdapter(getActivity(), R.layout.thong_ke_item_layout,InfoTKThu);
                 ThongKe thongKe= (ThongKe) adapter.getItem(i);
                 intent.putExtra("Thong Ke",thongKe);

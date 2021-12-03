@@ -82,7 +82,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sqlThuChi = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_THUCHI + "(" + COL_THUCHI_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_THUCHI_TYPE + " VARCHAR(50), "+ COL_THUCHI_NAME + " VARCHAR(50), "+ COL_THUCHI_ACCOUNT + " VARCHAR(50), " + COL_THUCHI_AMOUNT + " VARCHAR(50), " + COL_THUCHI_TIME + " DATE)";
+        String sqlThuChi = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_THUCHI + "(" + COL_THUCHI_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COL_THUCHI_TYPE + " VARCHAR(50), "+ COL_THUCHI_NAME + " VARCHAR(50), "+ COL_THUCHI_ACCOUNT + " VARCHAR(50), " + COL_THUCHI_AMOUNT + " DOUBLE, " + COL_THUCHI_TIME + " DATE)";
         sqLiteDatabase.execSQL(sqlThuChi);
         String sqlNhacNho = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_NHAC_NHO + "(" + COL_NHACNHO_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_NHACNHO_TYPE + " VARCHAR(50), " + COL_NHACNHO_NAME + " VARCHAR(50), "+  COL_NHACNHO_PERIOD + " VARCHAR(50)," + COL_NHACNHO_START_DAY+ " DATE," + COL_NHACNHO_REMIND_TIME + " TIME )";
         sqLiteDatabase.execSQL(sqlNhacNho);
@@ -158,9 +158,11 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void createSomeData(){
         int countThuChi = getCountThuChi();
         if(countThuChi == 0){
-            execSql("INSERT INTO " + TBL_NAME_THUCHI + " VALUES(null, 'Chi', 'Ăn uống', 'Tiền mặt', 20000, '2024-05-28')");
-            execSql("INSERT INTO " + TBL_NAME_THUCHI + " VALUES(null, 'Chi', 'Giải trí', 'Tiền mặt', 20000, '2024-05-28')");
-            execSql("INSERT INTO " + TBL_NAME_THUCHI + " VALUES(null, 'Thu', 'Tiền lương', 'Tiền mặt', 20000, '2024-05-28')");
+            execSql("INSERT INTO " + TBL_NAME_THUCHI + " VALUES(null, 'Chi', 'Ăn uống', 'Tiền mặt', 10000, '2021-05-28')");
+            execSql("INSERT INTO " + TBL_NAME_THUCHI + " VALUES(null, 'Chi', 'Giải trí', 'Tiền mặt', 20000, '2021-05-28')");
+            execSql("INSERT INTO " + TBL_NAME_THUCHI + " VALUES(null, 'Thu', 'Tiền lương', 'Tiền mặt', 30000, '2021-05-28')");
+            execSql("INSERT INTO " + TBL_NAME_THUCHI + " VALUES(null, 'Thu', 'Tiền trợ cấp', 'Tiền mặt', 100000, '2021-05-28')");
+            execSql("INSERT INTO " + TBL_NAME_THUCHI + " VALUES(null, 'Chi', 'Ăn uống', 'Tiền mặt', 50000, '2021-05-28')");
         }
 
 //        int countThongKe = getCountThongKe();

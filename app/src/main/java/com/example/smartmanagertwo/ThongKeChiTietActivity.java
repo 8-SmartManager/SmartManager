@@ -23,6 +23,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.model.ThuChiActivity;
 import com.example.thongke.ThongKe;
 import com.example.thongke.ThongKeChiTiet;
 import com.example.thongke.ThongKeChiTietAdapter;
@@ -33,12 +34,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class ThongKeChiChiTietActivity extends AppCompatActivity {
+public class ThongKeChiTietActivity extends AppCompatActivity {
 
     //ImageButton btnBack;
 
     ListView lvThongKeChiTiet;
-    ArrayList<ThongKeChiTiet> InfoTKChiTiet;
+    ArrayList<ThuChiActivity> InfoTKChiTiet;
     ThongKeChiTietAdapter chiTietAdapter;
     ThongKe selectedThongKe;
     public static MyDatabaseHelper db;
@@ -133,7 +134,7 @@ public class ThongKeChiChiTietActivity extends AppCompatActivity {
                         calendarDate.set(Calendar.DAY_OF_MONTH,i2);
                     }
                 };
-                DatePickerDialog datePickerDialog = new DatePickerDialog(ThongKeChiChiTietActivity.this,callBack,
+                DatePickerDialog datePickerDialog = new DatePickerDialog(ThongKeChiTietActivity.this,callBack,
                         calendarDate.get(Calendar.YEAR),
                         calendarDate.get(Calendar.MONTH),
                         calendarDate.get(Calendar.DAY_OF_MONTH));
@@ -160,16 +161,16 @@ public class ThongKeChiChiTietActivity extends AppCompatActivity {
 
     private void prepareDb() {
         db = new MyDatabaseHelper(this);
-        db.createSomeThongKeChiTietData();
+
 
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private List<ThongKeChiTiet> getDataFromDb(){
+    private List<ThuChiActivity> getDataFromDb(){
         InfoTKChiTiet = new ArrayList<>();
-        Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_THONG_KE_CHI_CHI_TIET + " WHERE " + MyDatabaseHelper.COL_TKCHICHITIET_THELOAI + " = '" + selectedThongKe.getInfoCategory() + "'");
+        Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_THUCHI + " WHERE "+MyDatabaseHelper.COL_THUCHI_TYPE+"='"+selectedThongKe.getInfoThuOrChi()+"' AND " + MyDatabaseHelper.COL_THUCHI_NAME + " = '" + selectedThongKe.getInfoCategory() + "'");
         InfoTKChiTiet.clear();
         while (cursor.moveToNext()){
-            InfoTKChiTiet.add(new ThongKeChiTiet(cursor.getString(0), cursor.getString(1), cursor.getDouble(2), LocalDate.parse(cursor.getString(3))));
+            InfoTKChiTiet.add(new ThuChiActivity(cursor.getInt(0), LocalDate.parse(cursor.getString(5)), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getDouble(4)));
         }
         cursor.close();
         return InfoTKChiTiet;
@@ -193,7 +194,7 @@ public class ThongKeChiChiTietActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void loadData() {
-        chiTietAdapter = new ThongKeChiTietAdapter(ThongKeChiChiTietActivity.this, R.layout.item_thong_ke_chi_tiet, getDataFromDb());
+        chiTietAdapter = new ThongKeChiTietAdapter(ThongKeChiTietActivity.this, R.layout.item_thong_ke_chi_tiet, getDataFromDb());
         lvThongKeChiTiet.setAdapter(chiTietAdapter);
     }
 
@@ -209,9 +210,9 @@ public class ThongKeChiChiTietActivity extends AppCompatActivity {
         lvThongKeChiTiet.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(ThongKeChiChiTietActivity.this, ThongKeChinhSua.class);
-                chiTietAdapter = new ThongKeChiTietAdapter(ThongKeChiChiTietActivity.this, R.layout.item_thong_ke_chi_tiet, InfoTKChiTiet);
-                ThongKeChiTiet thongKeChiTiet = (ThongKeChiTiet) chiTietAdapter.getItem(i);
+                Intent intent = new Intent(ThongKeChiTietActivity.this, ThongKeChinhSua.class);
+                chiTietAdapter = new ThongKeChiTietAdapter(ThongKeChiTietActivity.this, R.layout.item_thong_ke_chi_tiet, InfoTKChiTiet);
+                ThuChiActivity thongKeChiTiet = (ThuChiActivity) chiTietAdapter.getItem(i);
                 intent.putExtra("ThongKeChiTiet", thongKeChiTiet);
                 startActivity(intent);
             }

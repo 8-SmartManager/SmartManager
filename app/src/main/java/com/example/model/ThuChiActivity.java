@@ -11,7 +11,7 @@ public class ThuChiActivity implements Serializable {
     private String activityType;
     private String activityName;
     private String activityAccount;
-    private int activityAmount;
+    private double activityAmount;
 
     public int getActivityId() {
         return activityId;
@@ -57,16 +57,18 @@ public class ThuChiActivity implements Serializable {
         return activityAmount;
     }
 
-    public void setActivityAmount(int activityAmount) {
+    public void setActivityAmount(double activityAmount) {
         this.activityAmount = activityAmount;
     }
 
-    public ThuChiActivity(int activityId, String activityType, String activityName, String activityAccount, int activityAmount, LocalDate activityDate) {
+
+
+    public ThuChiActivity(int activityId, LocalDate activityDate, String activityType, String activityName, String activityAccount, double activityAmount) {
         this.activityId = activityId;
+        this.activityDate = activityDate;
         this.activityType = activityType;
         this.activityName = activityName;
         this.activityAccount = activityAccount;
         this.activityAmount = activityAmount;
-        this.activityDate = activityDate;
     }
 }

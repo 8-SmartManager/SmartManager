@@ -12,7 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.adapter.XemActivityAdapter;
-import com.example.model.ThuChiActivity;
 import com.example.model.XemThuChiActivity;
 import com.example.smartmanagertwo.R;
 

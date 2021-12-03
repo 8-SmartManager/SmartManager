@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 
-import com.example.model.ThuChiActivity;
 import com.example.model.XemThuChiActivity;
 import com.example.smartmanagertwo.R;
 

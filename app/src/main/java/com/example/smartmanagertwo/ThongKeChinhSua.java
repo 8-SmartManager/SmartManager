@@ -27,6 +27,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.model.ThuChiActivity;
 import com.example.thongke.HopChonTKTaiKhoan;
 import com.example.thongke.HopChonTKTheLoai;
 import com.example.thongke.ThongKeChiTiet;
@@ -40,7 +41,7 @@ public class ThongKeChinhSua extends AppCompatActivity {
     EditText edtMoney;
     Button btnXoa, btnDanhDau;
 
-    ThongKeChiTiet selectedThongKeChiTiet;
+    ThuChiActivity selectedThongKeChiTiet;
 
 
     @Override
@@ -56,9 +57,9 @@ public class ThongKeChinhSua extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
 
-        if (selectedThongKeChiTiet.getInfoTheLoai().equals("Ăn uống") || selectedThongKeChiTiet.getInfoTheLoai().equals("Giải trí") || (selectedThongKeChiTiet.getInfoTheLoai().equals("Sở thích")) || (selectedThongKeChiTiet.getInfoTheLoai().equals("Sức khỏe")) || (selectedThongKeChiTiet.getInfoTheLoai().equals("Mua sắm")) || (selectedThongKeChiTiet.getInfoTheLoai().equals("Khác"))){
+        if (selectedThongKeChiTiet.getActivityType().equals("Chí")){
             getSupportActionBar().setTitle("Chi");
-        }else if(selectedThongKeChiTiet.getInfoTheLoai().equals("Tiền lương") || (selectedThongKeChiTiet.getInfoTheLoai().equals("Tiền cấp")) || (selectedThongKeChiTiet.getInfoTheLoai().equals("Tiền thưởng")) || (selectedThongKeChiTiet.getInfoTheLoai().equals("Trả thêm giờ")) || (selectedThongKeChiTiet.getInfoTheLoai().equals("Khác"))){
+        }else if(selectedThongKeChiTiet.getActivityType().equals("Thu")){
             getSupportActionBar().setTitle("Thu");
         }
 
@@ -154,17 +155,17 @@ public class ThongKeChinhSua extends AppCompatActivity {
 
     private void getData1() {
         Intent intent = getIntent();
-        selectedThongKeChiTiet = (ThongKeChiTiet) intent.getSerializableExtra("ThongKeChiTiet");
+        selectedThongKeChiTiet = (ThuChiActivity) intent.getSerializableExtra("ThongKeChiTiet");
     }
 
     private void getData() {
         Intent intent = getIntent();
-        selectedThongKeChiTiet = (ThongKeChiTiet) intent.getSerializableExtra("ThongKeChiTiet");
-        txtNgay.setText(selectedThongKeChiTiet.getInfoTime().toString());
-        txtTaiKhoan.setText(selectedThongKeChiTiet.getInfoTaiKhoan());
-        txtTheLoai.setText(selectedThongKeChiTiet.getInfoTheLoai());
+        selectedThongKeChiTiet = (ThuChiActivity) intent.getSerializableExtra("ThongKeChiTiet");
+        txtNgay.setText(selectedThongKeChiTiet.getActivityDate().toString());
+        txtTaiKhoan.setText(selectedThongKeChiTiet.getActivityAccount());
+        txtTheLoai.setText(selectedThongKeChiTiet.getActivityName());
 
-        edtMoney.setText(String.valueOf(selectedThongKeChiTiet.getInfoCTMoney()));
+        edtMoney.setText(String.valueOf(selectedThongKeChiTiet.getActivityAmount()));
     }
     View.OnClickListener myClick = new View.OnClickListener() {
         @Override

@@ -79,16 +79,16 @@ public class ThongKeChiFragment extends Fragment {
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         db = new MyDatabaseHelper(context);
-        db.createSomeThongKeChiTietData();
+        db.createSomeData();
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
     private List<ThongKe> getDataFromDb(){
         InfoTK = new ArrayList<>();
-        Cursor cursor = db.getData("SELECT " + MyDatabaseHelper.COL_TKCHICHITIET_THELOAI + " , " + " SUM(" + MyDatabaseHelper.COL_TKCHICHITIET_MONEY + " ) " + " FROM " + MyDatabaseHelper.TBL_NAME_THONG_KE_CHI_CHI_TIET + " GROUP BY " + MyDatabaseHelper.COL_TKCHICHITIET_THELOAI);
+        Cursor cursor = db.getData("SELECT " + MyDatabaseHelper.COL_THUCHI_NAME + " , " + MyDatabaseHelper.COL_THUCHI_TYPE+", SUM( " + MyDatabaseHelper.COL_THUCHI_AMOUNT + ") " + " FROM " + MyDatabaseHelper.TBL_NAME_THUCHI +" WHERE "+MyDatabaseHelper.COL_THUCHI_TYPE+"='"+ "Chi"+"' GROUP BY " + MyDatabaseHelper.COL_THUCHI_NAME);
 //        Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_THONG_KE_CHI_CHI_TIET);
         InfoTK.clear();
         while (cursor.moveToNext()){
-            InfoTK.add(new ThongKe(null, cursor.getString(0),cursor.getDouble(1)));
+            InfoTK.add(new ThongKe(null, cursor.getString(0), cursor.getString(1),cursor.getDouble(2)));
         }
         cursor.close();
         return InfoTK;
@@ -117,7 +117,7 @@ public class ThongKeChiFragment extends Fragment {
         lvThongKe.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(), ThongKeChiChiTietActivity.class);
+                Intent intent = new Intent(getActivity(), ThongKeChiTietActivity.class);
                 thongKeAdapter = new ThongKeAdapter(getActivity(), R.layout.thong_ke_item_layout,InfoTK);
                 ThongKe thongKe= (ThongKe) thongKeAdapter.getItem(i);
                 intent.putExtra("Thong Ke",thongKe);

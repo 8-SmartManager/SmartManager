@@ -26,11 +26,7 @@
         <activity
             android:name=".NhacNhoActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ThuChiThemMoi"
@@ -50,7 +46,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ThongKeChiChiTietActivity"
+            android:name=".ThongKeChiTietActivity"
             android:exported="true">
 
         </activity>

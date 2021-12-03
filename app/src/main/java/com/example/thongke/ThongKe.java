@@ -6,12 +6,14 @@ import java.sql.Time;
 public class ThongKe implements Serializable {
     private String InfoPercent;
     private String InfoCategory;
+    private String InfoThuOrChi;
     private double InfoMoney;
 
-    public ThongKe(String infoPercent, String infoCategory, Double infoMoney) {
+    public ThongKe(String infoPercent, String infoCategory, String infoThuOrChi, double infoMoney) {
         InfoPercent = infoPercent;
         InfoCategory = infoCategory;
-        this.InfoMoney = infoMoney;
+        InfoThuOrChi = infoThuOrChi;
+        InfoMoney = infoMoney;
     }
 
     public String getInfoPercent() {
@@ -36,5 +38,17 @@ public class ThongKe implements Serializable {
 
     public void setInfoMoney(Double infoMoney) {
         this.InfoMoney = infoMoney;
+    }
+
+    public String getInfoThuOrChi() {
+        return InfoThuOrChi;
+    }
+
+    public void setInfoThuOrChi(String infoThuOrChi) {
+        InfoThuOrChi = infoThuOrChi;
+    }
+
+    public void setInfoMoney(double infoMoney) {
+        InfoMoney = infoMoney;
     }
 }

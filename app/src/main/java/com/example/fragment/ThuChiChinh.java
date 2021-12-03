@@ -63,6 +63,7 @@ public class ThuChiChinh extends Fragment{
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void loadData() {
         adapter = new ActivityAdapter(getActivity(), R.layout.item_thuchi, getDataFromDb());
         lvActivity.setAdapter(adapter);
@@ -75,7 +76,7 @@ public class ThuChiChinh extends Fragment{
         activity.clear();
         while(cursor.moveToNext()){
 //            activity.add(new ThuChiActivity(cursor.getInt(0), cursor.getString(1)));
-            activity.add(new ThuChiActivity(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), LocalDate.parse(cursor.getString(5))));
+            activity.add(new ThuChiActivity(cursor.getInt(0), LocalDate.parse(cursor.getString(5)), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getDouble(4)));
         }
         cursor.close();
         return activity;
