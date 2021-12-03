@@ -6,30 +6,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.TimePicker;
 
-import com.example.smartmanagertwo.BanPhimSoFragment;
-import com.example.smartmanagertwo.HopChonNhacNhoChuKy;
-import com.example.smartmanagertwo.HopChonNhacNhoThemTen;
-import com.example.smartmanagertwo.HopChonNhacNhoThemTheLoai;
-import com.example.smartmanagertwo.NhacNhoThemActivity;
 import com.example.smartmanagertwo.R;
-import com.example.smartmanagertwo.TaiKhoanFragment;
-import com.example.smartmanagertwo.TheLoaiFragment;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
-import javax.xml.transform.sax.TemplatesHandler;
 
 public class DanhSachMuaSam2 extends AppCompatActivity {
 
