@@ -62,7 +62,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:layout_marginRight="30dp"
-                    android:cursorVisible="false"
+
                     android:layout_weight="1"
                     android:background="@drawable/textlines_khong"
                     android:backgroundTint="@color/mau_xam"
