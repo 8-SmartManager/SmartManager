@@ -78,6 +78,8 @@
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/activity_edit_muctieu_hoatdong.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/activity_hop_chon_nhac_nho_the_loai.xml" value="0.23854166666666668" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/activity_kehoach_muctieu_tietkiem.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/activity_ket_noi_moi_ban.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/activity_ketnoi_tintuc_chitiet.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/activity_main.xml" value="0.22447916666666667" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/activity_nhac_nho_them.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/activity_nhacnho_chi_tiet.xml" value="0.23854166666666668" />
@@ -90,7 +92,10 @@
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/ban_phim_so.xml" value="0.23854166666666668" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/custom_muctieu_tietkiem.xml" value="0.13333333333333333" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/dialog_error_nhap_chua_du_thong_tin.xml" value="0.264" />
+        <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/fragment_nhacnho_main_data_null.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/fragment_nhacnho_main_list_is_not_null.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/fragment_nhacnho_main_list_is_null.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/fragment_taikhoan.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/fragment_the_loai.xml" value="0.23333333333333334" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/fragment_tintuc2.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/hop_chon_chung.xml" value="0.2421875" />

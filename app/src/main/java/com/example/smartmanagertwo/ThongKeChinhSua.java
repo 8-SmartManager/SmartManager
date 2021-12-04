@@ -57,7 +57,7 @@ public class ThongKeChinhSua extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
 
-        if (selectedThongKeChiTiet.getActivityType().equals("Chí")){
+        if (selectedThongKeChiTiet.getActivityType().equals("Chi")){
             getSupportActionBar().setTitle("Chi");
         }else if(selectedThongKeChiTiet.getActivityType().equals("Thu")){
             getSupportActionBar().setTitle("Thu");
