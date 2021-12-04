@@ -7,51 +7,14 @@
     tools:context=".TaiKhoan"
     android:orientation="vertical"
     android:background="@color/thay_trang">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/chu_dao"
-        android:gravity="center_vertical">
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_menu"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="32dp"
-            app:tint="@color/white"
-            android:backgroundTint="@color/chu_dao"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tài khoản"
-            android:textSize="20sp"
-            android:fontFamily="@font/header2_bold_20"
-            android:textColor="@color/white"
-            android:layout_weight="1"/>
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_thong_ke"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="24dp"
-            app:tint="@color/white"
-            android:backgroundTint="@color/chu_dao"/>
-        <ImageButton
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_tuy_chon"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="24dp"
-            app:tint="@color/white"
-            android:backgroundTint="@color/chu_dao"/>
-    </LinearLayout>
+
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:background="@color/white">
         <TableRow>
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="28dp"
                 android:text="Tài khoản"
                 android:layout_weight="1"
@@ -60,7 +23,7 @@
                 android:textSize="13dp"
                 android:textColor="@color/mau_dam"/>
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="28dp"
                 android:text="Khoản nợ"
                 android:layout_weight="1"
@@ -91,7 +54,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="28dp"
-                android:text="5000000đ"
+                android:text="0đ"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
@@ -100,7 +63,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="28dp"
-                android:text="-5000000đ"
+                android:text="0đ"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
@@ -125,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:text="3000000đ"
+                android:text="0đ"
                 android:layout_marginLeft="215dp"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
@@ -156,7 +119,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:text="3000000đ"
+                android:text="0đ"
                 android:layout_marginLeft="215dp"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
@@ -181,7 +144,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:text="2000000đ"
+                android:text="0đ"
                 android:layout_marginLeft="135dp"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
@@ -207,7 +170,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:text="2000000đ"
+                android:text="0đ"
                 android:layout_marginLeft="135dp"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"

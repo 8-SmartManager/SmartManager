@@ -146,7 +146,7 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
                     });
                     builder.create().show();
                 }else {
-                    NhacNhoActivity.db.execSql("UPDATE "+MyDatabaseHelper.TBL_NAME_NHAC_NHO+" SET "+MyDatabaseHelper.COL_NHACNHO_TYPE+" = '"+theLoai+"', "+MyDatabaseHelper.COL_NHACNHO_NAME+" = '"+ten+"', "+MyDatabaseHelper.COL_NHACNHO_PERIOD+" = '"+chuKy+"', "+MyDatabaseHelper.COL_NHACNHO_START_DAY+" = '"+ngayBatDau+"', "+MyDatabaseHelper.COL_NHACNHO_REMIND_TIME+" = '"+gioNhac+"' WHERE "+MyDatabaseHelper.COL_NHACNHO_ID+"=" +selectedNhacNho.getID());
+                    NhacNhoActivity.db.execSql("UPDATE "+MyDatabaseHelper.TBL_NAME_NHAC_NHO+" SET "+MyDatabaseHelper.COL_NHACNHO_TYPE+" = '"+theLoai+"', "+MyDatabaseHelper.COL_NHACNHO_NAME+" = '"+ten+"', "+MyDatabaseHelper.COL_NHACNHO_PERIOD+" = '"+chuKy+"', "+MyDatabaseHelper.COL_NHACNHO_START_DAY+" = '"+ngayBatDau+"', "+MyDatabaseHelper.COL_NHACNHO_REMIND_TIME+" = '"+gioNhac+":00' WHERE "+MyDatabaseHelper.COL_NHACNHO_ID+"=" +selectedNhacNho.getID());
 
                     finish();
                 }
@@ -279,20 +279,20 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
 
 
 
+
+                }
+                if(view.getId()==R.id.edtNhacNhoChiTietTen ){
+                    txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
+                    edtTen.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.thu_cap));
+                    txtChuKy.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
+                    txtNgayBatDau.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
+                    txtGioNhac.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
+
+                    fragment= new Fragment();
             }
             transaction.replace(R.id.layoutContainerChiTietNhacNho, fragment);
             transaction.commit();}
-            if(view.getId()==R.id.edtNhacNhoChiTietTen ){
-                txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                edtTen.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.thu_cap));
-                txtChuKy.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                txtNgayBatDau.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                txtGioNhac.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
 
-
-
-
-            }
             if(view.getId()==R.id.txtNhacNhoChiTietNgayBatDau){
                 txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 edtTen.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
@@ -326,7 +326,7 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
                 txtNgayBatDau.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 txtGioNhac.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.thu_cap));
                 Calendar calendarTime= Calendar.getInstance();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
                 TimePickerDialog.OnTimeSetListener callback = new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {

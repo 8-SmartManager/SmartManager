@@ -6,53 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/chu_dao"
-        android:gravity="center_vertical">
-        <ImageButton
-            android:id="@+id/btnThuChiBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_back"
-            android:layout_marginLeft="16dp"
-            android:backgroundTint="@color/chu_dao"
-            android:layout_marginRight="32dp"
-            app:tint="@color/white"
-            />
-        <TextView
-            android:id="@+id/txtMucHoatDong"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Chi"
-            android:textSize="20dp"
-            android:fontFamily="@font/header2_bold_20"
-            android:textColor="@color/white"
-            android:layout_weight="1"/>
-    </LinearLayout>
 
-
-    <com.google.android.material.tabs.TabLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        app:tabIndicatorColor="@color/thu_cap"
-        app:tabIndicatorHeight="2dp"
-        app:tabTextColor="@color/chu_dao">
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/btnMucChi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Chi" />
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/btnMucThu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thu" />
-
-    </com.google.android.material.tabs.TabLayout>
 
     <TableLayout
         android:layout_width="match_parent"
@@ -158,7 +112,22 @@
 
     </TableLayout>
 
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/bg_button"
 
+        android:text="Lưu"
+        android:fontFamily="@font/header3_semibold_14"
+
+        android:textAllCaps="false"
+        android:textColor="@color/button_text_color"
+
+        />
 
     <LinearLayout
         android:id="@+id/layoutContainerThuChiThemMoi"

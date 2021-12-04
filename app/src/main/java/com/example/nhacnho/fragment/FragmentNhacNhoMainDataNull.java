@@ -1,4 +1,4 @@
-package fragment;
+package com.example.nhacnho.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,11 +11,11 @@ import androidx.fragment.app.Fragment;
 
 import com.example.smartmanagertwo.R;
 
-public class ThuChiTuan extends Fragment {
+public class FragmentNhacNhoMainDataNull extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_thu_chi_tuan, container, false);
+        View view = inflater.inflate(R.layout.fragment_nhacnho_main_list_is_null,container,false);
         return view;
     }
 }

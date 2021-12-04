@@ -4,73 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ThongKeActivity"
+    android:id="@+id/layoutContainer"
+    tools:context=".kehoach_muctieu_tietkiem"
+    android:padding="16dp"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="@color/chu_dao"
-            android:gravity="center_vertical">
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/chu_dao"
-                android:src="@drawable/ic_menu"
-                app:tint="@color/white" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/header2_bold_20"
-                android:text="Thống kê"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-            <Spinner
-                android:id="@+id/spTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:spinnerMode="dropdown" />
-            <ImageButton
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:backgroundTint="@color/chu_dao"
-                android:src="@drawable/ic_lich"
-                app:tint="@color/white" />
-        </LinearLayout>
         <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_thongKe"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="wrap_content"
             app:tabIndicatorColor="@color/thu_cap"
-            app:tabTextColor="@color/chu_dao"
-            app:tabIndicatorHeight="2dp">
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Chi" />
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Thu" />
-        </com.google.android.material.tabs.TabLayout>
-        <LinearLayout
-            android:layout_width="333dp"
-            android:layout_height="270dp"
-            android:orientation="vertical"
-            android:layout_gravity="center_horizontal">
-            <ImageView
-                android:layout_width="333dp"
-                android:layout_height="270dp"
-                android:src="@drawable/ic_donut_small"/>
-        </LinearLayout>
-        <ListView
-            android:layout_weight="1"
-            android:id="@+id/lvThongKe"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/mau_dam"
+            app:tabTextColor="@color/chu_dao"/>
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_thongKe"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:listSelector="@color/thay_trang" />
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tab_muctieu"
+            app:layout_constraintVertical_bias="0.0" />
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -9,6 +9,6 @@ public class TaiKhoanSuaChiTiet extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sua_hoat_dong);
+        setContentView(R.layout.thong_ke_chinh_sua);
     }
 }

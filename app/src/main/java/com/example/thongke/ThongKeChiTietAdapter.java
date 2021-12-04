@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.model.ThuChiActivity;
 import com.example.smartmanagertwo.R;
 
 import java.util.List;
@@ -16,9 +17,9 @@ public class ThongKeChiTietAdapter extends BaseAdapter {
 
     Activity context;
     int item_listview;
-    List<ThongKeChiTiet> thongKeChiTietList;
+    List<ThuChiActivity> thongKeChiTietList;
 
-    public ThongKeChiTietAdapter(Activity context, int item_listview, List<ThongKeChiTiet> thongKeChiTietList) {
+    public ThongKeChiTietAdapter(Activity context, int item_listview, List<ThuChiActivity> thongKeChiTietList) {
         this.context = context;
         this.item_listview = item_listview;
         this.thongKeChiTietList = thongKeChiTietList;
@@ -40,11 +41,11 @@ public class ThongKeChiTietAdapter extends BaseAdapter {
         this.item_listview = item_listview;
     }
 
-    public List<ThongKeChiTiet> getThongKeChiTietList() {
+    public List<ThuChiActivity> getThongKeChiTietList() {
         return thongKeChiTietList;
     }
 
-    public void setThongKeChiTietList(List<ThongKeChiTiet> thongKeChiTietList) {
+    public void setThongKeChiTietList(List<ThuChiActivity> thongKeChiTietList) {
         this.thongKeChiTietList = thongKeChiTietList;
     }
 
@@ -80,11 +81,11 @@ public class ThongKeChiTietAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
         //Binding data
-        ThongKeChiTiet t = thongKeChiTietList.get(i);
-        holder.txtTheLoai.setText(t.getInfoTheLoai());
-        holder.txtTaiKhoan.setText(t.getInfoTaiKhoan());
-        holder.txtMoney.setText(String.valueOf(t.getInfoCTMoney()));
-        holder.txtTime.setText(t.getInfoTime().toString());
+        ThuChiActivity t = thongKeChiTietList.get(i);
+        holder.txtTheLoai.setText(t.getActivityName());
+        holder.txtTaiKhoan.setText(t.getActivityAccount());
+        holder.txtMoney.setText(String.valueOf(t.getActivityAmount()));
+        holder.txtTime.setText(t.getActivityDate().toString());
 
         return view;
     }

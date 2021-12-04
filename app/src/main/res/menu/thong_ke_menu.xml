@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        app:actionViewClass="android.widget.Spinner"
+        android:id="@+id/mnSpinner"
+        android:title="Spinner"
+        android:background="#ffffff"
+        app:showAsAction="always"
+        />
+    <item android:title="Lịch"
+        android:id="@+id/mnLich"
+        android:icon="@drawable/ic_lich"
+        android:iconTint="@color/white"
+        app:showAsAction="always" />
+</menu>
