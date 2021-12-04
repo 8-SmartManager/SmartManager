@@ -14,7 +14,7 @@ import com.example.adapter.ViewPagerAdapterChinh;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
-public class ThuChi extends AppCompatActivity {
+public class                                                ThuChi extends AppCompatActivity {
     FloatingActionButton btnThemMoi;
     TabLayout tab_thuchi;
     ViewPager vp_thuchi;

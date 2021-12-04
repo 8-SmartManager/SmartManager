@@ -36,15 +36,15 @@ public class TinTucAdapter extends RecyclerView.Adapter<TinTucAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final TinTucData myMovieDataList = myNewsData[position];
-        holder.textViewName.setText(myMovieDataList.getMovieName());
-        holder.textViewDetail.setText(myMovieDataList.getMovieDate());
-        holder.newImage.setImageResource(myMovieDataList.getMovieImage());
+        final TinTucData myNewsDataList = myNewsData[position];
+        holder.textViewName.setText(myNewsDataList.getMovieName());
+        holder.textViewDetail.setText(myNewsDataList.getMovieDate());
+        holder.newImage.setImageResource(myNewsDataList.getNewsImage());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, myMovieDataList.getMovieName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, myNewsDataList.getMovieName(), Toast.LENGTH_SHORT).show();
             }
         });
     }
