@@ -4,6 +4,9 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -23,6 +26,8 @@ import android.widget.ListView;
 
 import com.example.nhacnho.NhacNho;
 import com.example.nhacnho.NhacNhoAdapter;
+import com.example.nhacnho.fragment.FragmentNhacNhoMainDataNotNull;
+import com.example.nhacnho.fragment.FragmentNhacNhoMainDataNull;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.sql.Date;
@@ -32,9 +37,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NhacNhoActivity extends AppCompatActivity {
-    ListView lvNhacNho;
-    ArrayList<NhacNho> nhacNhos;
-    LinearLayout layoutTabInfo;
+//    ListView lvNhacNho;
+    public static ArrayList<NhacNho> nhacNhos;
+    LinearLayout layoutContainer;
     NhacNhoAdapter adapter;
     public  static  MyDatabaseHelper db;
     FloatingActionButton btnThemMoi;
@@ -51,6 +56,7 @@ public class NhacNhoActivity extends AppCompatActivity {
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
         getSupportActionBar().setTitle("Nhắc nhở");
         prepareDb();
+
         linkViews();
 
 
@@ -58,26 +64,40 @@ public class NhacNhoActivity extends AppCompatActivity {
 
     }
 
+    private void setView() {
+        FragmentManager manager= getSupportFragmentManager();
+        FragmentTransaction transaction= manager.beginTransaction();
+        Fragment fragment= null;
+        if (nhacNhos.size()==0){
+            fragment=new FragmentNhacNhoMainDataNull();
+        }else {
+            fragment=new FragmentNhacNhoMainDataNotNull();
+        }
+        transaction.replace(R.id.layoutContainer, fragment);
+
+        transaction.commit();
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onResume() {
-
-
-        loadData();
+        getDataFromDb();
+        setView();
+//        loadData();
         super.onResume();
     }
 
     private void linkViews() {
-        lvNhacNho=findViewById(R.id.lvNhacNho);
+//        lvNhacNho=findViewById(R.id.lvNhacNho);
         btnThemMoi=findViewById(R.id.btnNhacNhoTao);
-        layoutTabInfo=findViewById(R.id.layoutNhacNhoTabInfo);
+//        layoutTabInfo=findViewById(R.id.layoutNhacNhoTabInfo);
     }
     private void prepareDb() {
         db = new MyDatabaseHelper(this);
-        db.createSomeNhacNhoData();
+//        db.createSomeNhacNhoData();
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private List<NhacNho> getDataFromDb() {
+    private void getDataFromDb() {
         nhacNhos = new ArrayList<>();
         Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_NHAC_NHO);
         nhacNhos.clear();
@@ -86,7 +106,8 @@ public class NhacNhoActivity extends AppCompatActivity {
             nhacNhos.add(new NhacNho(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3),LocalDate.parse( cursor.getString(4)),Time.valueOf(cursor.getString(5))  ));
         }
         cursor.close();
-        return nhacNhos;
+
+
     }
 //    @RequiresApi(api = Build.VERSION_CODES.O)
 //    private void initData() {
@@ -99,12 +120,12 @@ public class NhacNhoActivity extends AppCompatActivity {
 
 
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private void loadData() {
-        adapter= new NhacNhoAdapter(NhacNhoActivity.this,R.layout.nhac_nho_item_layout,getDataFromDb());
-
-        lvNhacNho.setAdapter(adapter);
-    }
+//    @RequiresApi(api = Build.VERSION_CODES.O)
+//    private void loadData() {
+//        adapter= new NhacNhoAdapter(NhacNhoActivity.this,R.layout.nhac_nho_item_layout,getDataFromDb());
+//
+////        lvNhacNho.setAdapter(adapter);
+//    }
 
     private void addEvents() {
         btnThemMoi.setOnClickListener(new View.OnClickListener() {
@@ -114,16 +135,16 @@ public class NhacNhoActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        lvNhacNho.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(NhacNhoActivity.this, NhacNhoChiTietActivity.class);
-                adapter= new NhacNhoAdapter(NhacNhoActivity.this,R.layout.nhac_nho_item_layout,nhacNhos);
-                NhacNho nhacNho= (NhacNho) adapter.getItem(i);
-                intent.putExtra("Nhac Nho",nhacNho);
-                startActivity(intent);
-            }
-        });
+//        lvNhacNho.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @RequiresApi(api = Build.VERSION_CODES.O)
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Intent intent = new Intent(NhacNhoActivity.this, NhacNhoChiTietActivity.class);
+//                adapter= new NhacNhoAdapter(NhacNhoActivity.this,R.layout.nhac_nho_item_layout,nhacNhos);
+//                NhacNho nhacNho= (NhacNho) adapter.getItem(i);
+//                intent.putExtra("Nhac Nho",nhacNho);
+//                startActivity(intent);
+//            }
+//        });
     }
 }

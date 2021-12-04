@@ -4,32 +4,35 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     <LinearLayout
-        android:id="@+id/layoutNhacNhoTabInfo"
+
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:weightSum="10"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Thể loại"
             android:layout_marginLeft="16dp"
+            android:layout_weight="2.25"
             android:layout_gravity="center_vertical"
             android:textColor="@color/mau_dam"
             android:fontFamily="@font/body_medium_13"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:layout_weight="6"
             android:text="Tên"
-            android:layout_marginLeft="50dp"
+
             android:layout_gravity="center_vertical"
             android:textColor="@color/mau_dam"
             android:fontFamily="@font/body_medium_13"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:text="Thời gian nhắc"
-            android:layout_marginLeft="140dp"
+
             android:layout_gravity="center_vertical"
             android:textColor="@color/mau_dam"
             android:fontFamily="@font/body_medium_13"/>
