@@ -36,14 +36,11 @@ import java.util.List;
 
 public class ThongKeChiTietActivity extends AppCompatActivity {
 
-    //ImageButton btnBack;
-
     ListView lvThongKeChiTiet;
     ArrayList<ThuChiActivity> InfoTKChiTiet;
     ThongKeChiTietAdapter chiTietAdapter;
     ThongKe selectedThongKe;
     public static MyDatabaseHelper db;
-
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -56,33 +53,45 @@ public class ThongKeChiTietActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(drawable);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
 
-        if (selectedThongKe.getInfoCategory().equals("Ăn uống")){
-            getSupportActionBar().setTitle("Ăn uống");
-        }else if(selectedThongKe.getInfoCategory().equals("Giải trí")){
+        if (selectedThongKe.getInfoCategory().equals("Giải trí")){
             getSupportActionBar().setTitle("Giải trí");
-        }else if(selectedThongKe.getInfoCategory().equals("Mua sắm")){
-            getSupportActionBar().setTitle("Mua sắm");
+        }else if(selectedThongKe.getInfoCategory().equals("Ăn uống")){
+            getSupportActionBar().setTitle("Ăn uống");
+        }else if(selectedThongKe.getInfoCategory().equals("Sở thích")){
+            getSupportActionBar().setTitle("Sở thích");
+        }else if(selectedThongKe.getInfoCategory().equals("Giáo dục")){
+            getSupportActionBar().setTitle("Giáo dục");
+        }else if(selectedThongKe.getInfoCategory().equals("Sức khỏe")){
+            getSupportActionBar().setTitle("Sức khỏe");
+        }else if(selectedThongKe.getInfoCategory().equals("Sinh hoạt")){
+            getSupportActionBar().setTitle("Sinh hoạt");
+        }else if(selectedThongKe.getInfoCategory().equals("Áo quần")){
+            getSupportActionBar().setTitle("Áo quần");
+        }else if(selectedThongKe.getInfoCategory().equals("Làm đẹp")){
+            getSupportActionBar().setTitle("Làm đẹp");
+        }else if(selectedThongKe.getInfoCategory().equals("Khác")) {
+            getSupportActionBar().setTitle("Khác");
+        }else if (selectedThongKe.getInfoCategory().equals("Trả thêm giờ")){
+            getSupportActionBar().setTitle("Trả thêm giờ");
+        }else if (selectedThongKe.getInfoCategory().equals("Tiền lương")){
+            getSupportActionBar().setTitle("Tiền lương");
+        }else if (selectedThongKe.getInfoCategory().equals("Tiền thưởng")){
+            getSupportActionBar().setTitle("Tiền thưởng");
+        }else if (selectedThongKe.getInfoCategory().equals("Tiền trợ cấp")){
+            getSupportActionBar().setTitle("Tiền trợ cấp");
         }
-
         prepareDb();
         linkViews();
-
-        //initData();
-
         loadData();
         addEvents();
-
-
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         View v = getCurrentFocus();
-
         if (v != null && (ev.getAction() == MotionEvent.ACTION_UP || ev.getAction() == MotionEvent.ACTION_MOVE) &&
                 v instanceof EditText &&
                 !v.getClass().getName().startsWith("android.webkit.")) {
@@ -90,11 +99,9 @@ public class ThongKeChiTietActivity extends AppCompatActivity {
             v.getLocationOnScreen(sourceCoordinates);
             float x = ev.getRawX() + v.getLeft() - sourceCoordinates[0];
             float y = ev.getRawY() + v.getTop() - sourceCoordinates[1];
-
             if (x < v.getLeft() || x > v.getRight() || y < v.getTop() || y > v.getBottom()) {
                 hideKeyboard(this);
             }
-
         }
         return super.dispatchTouchEvent(ev);
     }
@@ -145,7 +152,6 @@ public class ThongKeChiTietActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onResume() {
@@ -154,15 +160,11 @@ public class ThongKeChiTietActivity extends AppCompatActivity {
     }
 
     private void linkViews() {
-        //btnBack = findViewById(R.id.btnThongKeChiTietBack);
         lvThongKeChiTiet = findViewById(R.id.lvThongKeChiTiet);
-
     }
 
     private void prepareDb() {
         db = new MyDatabaseHelper(this);
-
-
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
     private List<ThuChiActivity> getDataFromDb(){
@@ -176,17 +178,6 @@ public class ThongKeChiTietActivity extends AppCompatActivity {
         return InfoTKChiTiet;
     }
 
-
-    //    @RequiresApi(api = Build.VERSION_CODES.O)
-//    private void initData() {
-//        InfoTKChiTiet = new ArrayList<ThongKeChiChiTiet>();
-//        InfoTKChiTiet.add(new ThongKeChiChiTiet("Tiền mặt", "Giải trí", 200000, LocalDate.of(2021, 11, 27)));
-//        InfoTKChiTiet.add(new ThongKeChiChiTiet("Tài khoản ngân hàng", "Mua sắm", 500000, LocalDate.of(2021, 11, 27)));
-//        InfoTKChiTiet.add(new ThongKeChiChiTiet("Thẻ tín dụng", "Ăn uống", 2000000, LocalDate.of(2021, 11, 27)));
-//        InfoTKChiTiet.add(new ThongKeChiChiTiet("Thẻ tín dụng", "Ăn uống", 2000000, LocalDate.of(2021, 11, 27)));
-//        InfoTKChiTiet.add(new ThongKeChiChiTiet("Thẻ tín dụng", "Ăn uống", 2000000, LocalDate.of(2021, 11, 27)));
-//        InfoTKChiTiet.add(new ThongKeChiChiTiet("Thẻ tín dụng", "Ăn uống", 2000000, LocalDate.of(2021, 11, 27)));
-//    }
     private void getData() {
         Intent intent = getIntent();
         selectedThongKe = (ThongKe) intent.getSerializableExtra("Thong Ke");
@@ -199,13 +190,6 @@ public class ThongKeChiTietActivity extends AppCompatActivity {
     }
 
     private void addEvents() {
-        //Nút back
-//        btnBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                onBackPressed();
-//            }
-//        });
         //Tạo sự kiện listview
         lvThongKeChiTiet.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

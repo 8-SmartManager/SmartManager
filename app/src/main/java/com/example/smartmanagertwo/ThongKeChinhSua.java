@@ -2,13 +2,14 @@ package com.example.smartmanagertwo;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -21,6 +22,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -29,8 +31,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.model.ThuChiActivity;
 import com.example.thongke.HopChonTKTaiKhoan;
-import com.example.thongke.HopChonTKTheLoai;
-import com.example.thongke.ThongKeChiTiet;
+import com.example.thongke.HopChonTKTheLoaiChi;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -39,10 +40,9 @@ public class ThongKeChinhSua extends AppCompatActivity {
 
     TextView txtNgay, txtTaiKhoan, txtTheLoai;
     EditText edtMoney;
-    Button btnXoa, btnDanhDau;
+    Button btnXoa, btnLuu;
 
     ThuChiActivity selectedThongKeChiTiet;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,8 +62,6 @@ public class ThongKeChinhSua extends AppCompatActivity {
         }else if(selectedThongKeChiTiet.getActivityType().equals("Thu")){
             getSupportActionBar().setTitle("Thu");
         }
-
-
         linkViews();
         addEvents();
         getData();
@@ -73,7 +71,6 @@ public class ThongKeChinhSua extends AppCompatActivity {
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         View v = getCurrentFocus();
-
         if (v != null && (ev.getAction() == MotionEvent.ACTION_UP || ev.getAction() == MotionEvent.ACTION_MOVE) &&
                 v instanceof EditText &&
                 !v.getClass().getName().startsWith("android.webkit.")) {
@@ -99,13 +96,6 @@ public class ThongKeChinhSua extends AppCompatActivity {
             }
         }
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.thong_ke_chi_chinh_sua, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId())
@@ -113,24 +103,6 @@ public class ThongKeChinhSua extends AppCompatActivity {
             case android.R.id.home:
                 onBackPressed();
                 return true;
-            case R.id.mnTKCheck:
-                Calendar calendarDate= Calendar.getInstance();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                DatePickerDialog.OnDateSetListener callBack= new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                        calendarDate.set(Calendar.YEAR,i);
-                        calendarDate.set(Calendar.MONTH,i1);
-                        calendarDate.set(Calendar.DAY_OF_MONTH,i2);
-                    }
-                };
-                DatePickerDialog datePickerDialog = new DatePickerDialog(ThongKeChinhSua.this,callBack,
-                        calendarDate.get(Calendar.YEAR),
-                        calendarDate.get(Calendar.MONTH),
-                        calendarDate.get(Calendar.DAY_OF_MONTH));
-                datePickerDialog.show();
-                break;
-            default:break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -143,7 +115,7 @@ public class ThongKeChinhSua extends AppCompatActivity {
         edtMoney = findViewById(R.id.edtTKMoney);
 
         btnXoa = findViewById(R.id.btnXoa);
-        btnDanhDau = findViewById(R.id.btnDanhDau);
+        btnLuu = findViewById(R.id.btnLuu);
     }
 
     private void addEvents() {
@@ -151,6 +123,52 @@ public class ThongKeChinhSua extends AppCompatActivity {
         txtTaiKhoan.setOnClickListener(myClick);
         edtMoney.setOnClickListener(myClick);
         txtNgay.setOnClickListener(myClick);
+        btnLuu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String ngay = txtNgay.getText().toString(), taiKhoan = txtTaiKhoan.getText().toString(), theLoai = txtTheLoai.getText().toString(), money = edtMoney.getText().toString();
+                if (theLoai.equals("") || taiKhoan.equals("") || money.equals("")){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ThongKeChinhSua.this);
+                    builder.setTitle("Thông báo!");
+                    builder.setMessage("Bạn có chắc chắn muốn chỉnh sửa không?");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+                    builder.create().show();
+                }else {
+                    ThongKeChiTietActivity.db.execSql("UPDATE " + MyDatabaseHelper.TBL_NAME_THUCHI + " SET " + MyDatabaseHelper.COL_THUCHI_TIME + " = '" + ngay + "', " + MyDatabaseHelper.COL_THUCHI_NAME + " = '" + theLoai + "', " + MyDatabaseHelper.COL_THUCHI_ACCOUNT + " = '" + taiKhoan + "', " + MyDatabaseHelper.COL_THUCHI_AMOUNT + " = '" + money + "' WHERE " + MyDatabaseHelper.COL_THUCHI_TYPE + " = '" + selectedThongKeChiTiet.getActivityType() + "'" + " AND " + MyDatabaseHelper.COL_THUCHI_ID + "=" + selectedThongKeChiTiet.getActivityId());
+                    finish();
+                }
+            }
+        });
+        btnXoa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dialog dialog = new Dialog(ThongKeChinhSua.this, R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                dialog.setContentView(R.layout.dialog_error);
+                TextView txtTitle = dialog.findViewById(R.id.txtTitle), txtMessage = dialog.findViewById(R.id.txtMessage);
+                Button btnYes = dialog.findViewById(R.id.btnYes), btnNo = dialog.findViewById(R.id.btnNo);
+                txtTitle.setText("Thông báo!");
+                txtMessage.setText("Bạn có chắc chắn muốn xóa không?");
+                btnYes.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        ThongKeChiTietActivity.db.execSql("DELETE FROM "+MyDatabaseHelper.TBL_NAME_THUCHI+" WHERE "+MyDatabaseHelper.COL_THUCHI_ID + "=" +selectedThongKeChiTiet.getActivityId());
+                        finish();
+                    }
+                });
+                btnNo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+            }
+        });
     }
 
     private void getData1() {
@@ -175,14 +193,12 @@ public class ThongKeChinhSua extends AppCompatActivity {
                 FragmentTransaction transaction= manager.beginTransaction();
                 Fragment fragment= null;
 
-
                 if (view.getId() == R.id.txtTKTheLoai){
                     txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.thu_cap));
                     txtTaiKhoan.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                     txtNgay.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                     edtMoney.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                    fragment = new HopChonTKTheLoai();
-
+                    fragment = new HopChonTKTheLoaiChi();
 
                 }
                 if (view.getId() == R.id.txtTKTaiKhoan){

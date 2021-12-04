@@ -19,7 +19,7 @@ import com.example.smartmanagertwo.R;
 
 import java.util.ArrayList;
 
-public class HopChonTKTheLoai extends DialogFragment {
+public class HopChonTKTheLoaiChi extends DialogFragment {
     GridView gvThongKeTheLoai;
     ArrayList<HopChonItem> items;
     HopChonAdapter adapter;
@@ -56,10 +56,15 @@ public class HopChonTKTheLoai extends DialogFragment {
 
     private ArrayList<HopChonItem> initData() {
         items = new ArrayList<HopChonItem>();
-        items.add(new HopChonItem(R.drawable.ic_thu_nhap_the_loai_nhac_nho, "Ăn uống"));
         items.add(new HopChonItem(R.drawable.ic_giai_tri, "Giải trí"));
+        items.add(new HopChonItem(R.drawable.ic_thuc_pham, "Ăn uống"));
+        items.add(new HopChonItem(R.drawable.ic_so_thich_the_loai_chi, "Sở thích"));
+        items.add(new HopChonItem(R.drawable.ic_hoctap, "Giáo dục"));
+        items.add(new HopChonItem(R.drawable.ic_suc_khoe_1, "Sức khỏe"));
+        items.add(new HopChonItem(R.drawable.ic_home, "Sinh hoạt"));
+        items.add(new HopChonItem(R.drawable.ic_quan_ao, "Áo quần"));
         items.add(new HopChonItem(R.drawable.ic_lam_dep, "Làm đẹp"));
-        items.add(new HopChonItem(R.drawable.ic_hoctap, "Học tập"));
+        items.add(new HopChonItem(R.drawable.ic_tuy_chon, "Khác"));
         return items;
     }
 }

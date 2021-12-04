@@ -30,7 +30,6 @@ public class ThongKeThuFragment extends Fragment {
     ThongKeAdapter adapter;
     public static MyDatabaseHelper db;
 
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Nullable
     @Override
@@ -61,13 +60,12 @@ public class ThongKeThuFragment extends Fragment {
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         db = new MyDatabaseHelper(context);
-        db.createSomeThongKeThuChiTietData();
+        db.createSomeData();
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
     private List<ThongKe> getDataFromDb(){
         InfoTKThu = new ArrayList<>();
         Cursor cursor = db.getData("SELECT " + MyDatabaseHelper.COL_THUCHI_NAME + " , " + MyDatabaseHelper.COL_THUCHI_TYPE+", SUM(" + MyDatabaseHelper.COL_THUCHI_AMOUNT + " ) " + " FROM " + MyDatabaseHelper.TBL_NAME_THUCHI +" WHERE "+MyDatabaseHelper.COL_THUCHI_TYPE+"='"+ "Thu"+"' GROUP BY " + MyDatabaseHelper.COL_THUCHI_NAME);
-//        Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_THONG_KE_CHI_CHI_TIET);
         InfoTKThu.clear();
         while (cursor.moveToNext()){
             InfoTKThu.add(new ThongKe(null, cursor.getString(0), cursor.getString(1),cursor.getDouble(2)));
@@ -75,7 +73,6 @@ public class ThongKeThuFragment extends Fragment {
         cursor.close();
         return InfoTKThu;
     }
-
 
     private void addEvents() {
         lvThongKeThu.setOnItemClickListener(new AdapterView.OnItemClickListener() {

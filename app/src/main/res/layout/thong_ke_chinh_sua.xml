@@ -126,10 +126,10 @@
                 android:textSize="14sp"
                 android:fontFamily="@font/header3_semibold_14"/>
             <Button
-                android:id="@+id/btnDanhDau"
+                android:id="@+id/btnLuu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Đánh dấu"
+                android:text="Lưu"
                 android:layout_weight="1"
                 android:textColor="@color/chu_dao"
                 android:layout_marginRight="32dp"

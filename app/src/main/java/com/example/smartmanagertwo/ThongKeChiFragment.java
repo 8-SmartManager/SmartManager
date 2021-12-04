@@ -25,12 +25,6 @@ import java.util.List;
 
 public class ThongKeChiFragment extends Fragment {
 
-
-//    Spinner spTime;
-//    ArrayList<String> timeList;
-//    ArrayAdapter<String> adapter;
-
-
     ListView lvThongKe;
     ArrayList<ThongKe> InfoTK;
     ThongKeAdapter thongKeAdapter;
@@ -43,11 +37,7 @@ public class ThongKeChiFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_thong_ke_chi, container, false);
         lvThongKe = view.findViewById(R.id.lvThongKe);
 
-
-        //prepareDb();
         linkViews();
-        loadData();
-//        initData();
         loadDataAdapter();
         addEvents();
 
@@ -61,14 +51,8 @@ public class ThongKeChiFragment extends Fragment {
     }
 
     private void linkViews() {
-        //spTime = findViewById(R.id.spTime);
-//        lvThongKe = view.findViewById(R.id.lvThongKe);
     }
 
-//    private void prepareDb() {
-//        db = new MyDatabaseHelper(this);
-//        db.createSomeData();
-//    }
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void loadDataAdapter() {
         thongKeAdapter = new ThongKeAdapter((Activity) getContext(), R.layout.thong_ke_item_layout,getDataFromDb());
@@ -85,7 +69,6 @@ public class ThongKeChiFragment extends Fragment {
     private List<ThongKe> getDataFromDb(){
         InfoTK = new ArrayList<>();
         Cursor cursor = db.getData("SELECT " + MyDatabaseHelper.COL_THUCHI_NAME + " , " + MyDatabaseHelper.COL_THUCHI_TYPE+", SUM( " + MyDatabaseHelper.COL_THUCHI_AMOUNT + ") " + " FROM " + MyDatabaseHelper.TBL_NAME_THUCHI +" WHERE "+MyDatabaseHelper.COL_THUCHI_TYPE+"='"+ "Chi"+"' GROUP BY " + MyDatabaseHelper.COL_THUCHI_NAME);
-//        Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_THONG_KE_CHI_CHI_TIET);
         InfoTK.clear();
         while (cursor.moveToNext()){
             InfoTK.add(new ThongKe(null, cursor.getString(0), cursor.getString(1),cursor.getDouble(2)));
@@ -93,25 +76,6 @@ public class ThongKeChiFragment extends Fragment {
         cursor.close();
         return InfoTK;
     }
-
-//Spinner
-    private void loadData() {
-//        timeList = new ArrayList<>();
-//        timeList.add("Hàng tuần");
-//        timeList.add("Hàng tháng");
-//        timeList.add("Hàng năm");
-//        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, timeList);
-//        spTime.setAdapter(adapter);
-    }
-
-//    private void initData() {
-//        InfoTK = new ArrayList<ThongKe>();
-//        InfoTK.add(new ThongKe("50%", "Ăn uống", 2000000.0));
-//        InfoTK.add(new ThongKe("27%", "Giải trí", 500000.0));
-//        InfoTK.add(new ThongKe("23%", "Giáo dục", 300000.0));
-//    }
-
-
 
     private void addEvents() {
         lvThongKe.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -125,21 +89,4 @@ public class ThongKeChiFragment extends Fragment {
             }
         });
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.thong_ke_menu, menu);
-//
-//        MenuItem item = menu.findItem(R.id.mnSpinner);
-//        Spinner spinner = (Spinner) MenuItemCompat.getActionView(item);
-//        timeList = new ArrayList<>();
-//        timeList.add("Hàng tuần");
-//        timeList.add("Hàng tháng");
-//        timeList.add("Hàng năm");
-//        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, timeList);
-//
-//        spinner.setAdapter(adapter);
-//
-//        return super.onCreateOptionsMenu(menu);
-//    }
 }
