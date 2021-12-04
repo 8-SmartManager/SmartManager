@@ -71,6 +71,7 @@
                 android:textColor="@color/mau_dam"/>
         </TableRow>
     </TableLayout>
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="56dp">

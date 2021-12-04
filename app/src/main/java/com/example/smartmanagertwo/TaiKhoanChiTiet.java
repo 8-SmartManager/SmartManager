@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.thongke.ThongKeChiTiet;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class TaiKhoanChiTiet extends AppCompatActivity {
@@ -36,7 +37,7 @@ public class TaiKhoanChiTiet extends AppCompatActivity {
         btnThemMoi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(TaiKhoanChiTiet.this,ThongKeChiTietActivity.class);
+                Intent intent = new Intent(TaiKhoanChiTiet.this, ThuChiThemMoi.class);
                 startActivity(intent);
             }
         });
