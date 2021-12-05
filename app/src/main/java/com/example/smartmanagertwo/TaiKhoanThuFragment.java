@@ -7,18 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TableRow;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import com.example.thongke.ThongKe;
-import com.example.thongke.ThongKeAdapter;
 
 public class TaiKhoanThuFragment extends Fragment {
     TableRow tbrTienMat;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_tai_khoan, container, false);
+        View view = inflater.inflate(R.layout.activity_tai_khoan_chinh, container, false);
 
         tbrTienMat = view.findViewById(R.id.tbrow);
 
