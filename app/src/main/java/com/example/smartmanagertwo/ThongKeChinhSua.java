@@ -32,6 +32,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.model.ThuChiActivity;
 import com.example.thongke.HopChonTKTaiKhoan;
 import com.example.thongke.HopChonTKTheLoaiChi;
+import com.example.thongke.HopChonTheLoaiThu;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -198,7 +199,11 @@ public class ThongKeChinhSua extends AppCompatActivity {
                     txtTaiKhoan.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                     txtNgay.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                     edtMoney.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                    fragment = new HopChonTKTheLoaiChi();
+                    if (selectedThongKeChiTiet.getActivityType().equals("Chi")) {
+                        fragment = new HopChonTKTheLoaiChi();
+                    }else if (selectedThongKeChiTiet.getActivityType().equals("Thu")){
+                        fragment = new HopChonTheLoaiThu();
+                    }
 
                 }
                 if (view.getId() == R.id.txtTKTaiKhoan){

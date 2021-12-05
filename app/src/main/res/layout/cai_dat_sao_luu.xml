@@ -6,45 +6,22 @@
     android:layout_height="match_parent"
     android:background="@color/thay_trang">
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/chu_dao"
-        android:gravity="center_vertical">
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_menu"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="32dp"
-            app:tint="@color/white"
-            android:backgroundTint="@color/chu_dao"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sao lưu"
-            android:textSize="20sp"
-            android:fontFamily="@font/header2_bold_20"
-            android:textColor="@color/white"
-            android:layout_weight="1"/>
-    </LinearLayout>
-    <LinearLayout
+        android:id="@+id/chooseGGDrive"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:orientation="horizontal"
-        android:padding="10dp"
         android:background="@color/white"
         android:gravity="center">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="56dp"
-            android:text="Google Drive Sao lưu"
-            android:fontFamily="@font/body_medium_13"
-            android:textColor="@color/mau_dam"
-            android:gravity="center"
-            android:textSize="13sp"
-            android:layout_weight="1"
             android:layout_marginRight="200dp"
-            />
+            android:layout_weight="1"
+            android:fontFamily="@font/body_medium_13"
+            android:gravity="center"
+            android:text="Google Drive Sao lưu"
+            android:textColor="@color/mau_dam"
+            android:textSize="13sp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="56dp"
@@ -53,10 +30,10 @@
             android:textColor="@color/mau_dam"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="13sp"
-            />
+            android:textSize="13sp"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/chooseThietBi"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:background="@color/white"
@@ -67,7 +44,7 @@
             android:layout_height="56dp"
             android:fontFamily="@font/body_medium_13"
             android:gravity="center"
-            android:text="Thiết lập lại"
+            android:text="Thiết bị"
             android:textColor="@color/mau_dam"
             android:textSize="13sp"/>
     </LinearLayout>
@@ -79,10 +56,11 @@
         android:fontFamily="@font/body_medium_13"
         android:textColor="@color/mau_dam"
         android:gravity="center"
-        android:textSize="13sp" />
+        android:textSize="13sp"/>
     <LinearLayout
+        android:id="@+id/chooseTatCaKhoiTao"
         android:layout_width="match_parent"
-        android:layout_height="112dp"
+        android:layout_height="56dp"
         android:orientation="vertical"
         android:padding="10dp"
         android:background="@color/white"
@@ -95,6 +73,15 @@
             android:textColor="@color/mau_dam"
             android:gravity="center"
             android:textSize="13sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/chooseChuKyKhoiTao"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="@color/white"
+        android:gravity="center_vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="56dp"
@@ -104,5 +91,4 @@
             android:gravity="center"
             android:textSize="13sp"/>
     </LinearLayout>
-
 </LinearLayout>

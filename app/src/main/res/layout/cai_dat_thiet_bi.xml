@@ -4,34 +4,11 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/chu_dao"
-        android:gravity="center_vertical">
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_menu"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="32dp"
-            app:tint="@color/white"
-            android:backgroundTint="@color/chu_dao"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Thiết bị"
-            android:textSize="20sp"
-            android:fontFamily="@font/header2_bold_20"
-            android:textColor="@color/white"
-            android:layout_weight="1"/>
-    </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:gravity="left"
         android:text="Các tệp tin sao lưu được lưu trữ trong thư mục SmartManager. Các tệp tin được lưu trữ trong điện thoại của bạn, thật khó để khôi phục lại khi điện thoại của bạn bị mất, bị phá vỡ và thiết lập lại. Nếu bạn chọn mục danh sách, quá trình khôi phục bắt đầu. Trước khi khôi phục lại dữ liệu của bạn, xin vui lòng kiểm tra tên file, ngày tháng và kích cỡ."
         android:textColor="@color/chu_dao"
         />
@@ -42,7 +19,6 @@
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
         android:background="@drawable/bg_button"
-
         android:text="Sao lưu dữ liệu"
         android:textSize="16sp"
         android:textAllCaps="false"
