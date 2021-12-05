@@ -49,14 +49,15 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nhacnho_chi_tiet);
+        linkViews();
+        getData();
         Drawable drawable=getResources().getDrawable(R.drawable.ic_back);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(drawable);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
-        getSupportActionBar().setTitle("Chi tiết nhắc nhở");
-        linkViews();
-        getData();
+        getSupportActionBar().setTitle(edtTen.getText());
+
         addEvents();
     }
     @RequiresApi(api = Build.VERSION_CODES.M)
