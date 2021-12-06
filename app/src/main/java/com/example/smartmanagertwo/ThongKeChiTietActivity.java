@@ -131,7 +131,7 @@ public class ThongKeChiTietActivity extends AppCompatActivity {
             case android.R.id.home:
                 onBackPressed();
                 return true;
-            case R.id.mnLich:
+            case R.id.mnChooseDate:
                 Calendar calendarDate= Calendar.getInstance();
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 DatePickerDialog.OnDateSetListener callBack= new DatePickerDialog.OnDateSetListener() {

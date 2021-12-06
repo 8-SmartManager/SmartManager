@@ -48,7 +48,7 @@ public class ThongKeChinhSua extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.thong_ke_chinh_sua);
+        setContentView(R.layout.activity_thong_ke_chinh_sua);
 
         getData1();
 
