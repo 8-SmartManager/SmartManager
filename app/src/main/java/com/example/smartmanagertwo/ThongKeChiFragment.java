@@ -55,7 +55,7 @@ public class ThongKeChiFragment extends Fragment {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void loadDataAdapter() {
-        thongKeAdapter = new ThongKeAdapter((Activity) getContext(), R.layout.thong_ke_item_layout,getDataFromDb());
+        thongKeAdapter = new ThongKeAdapter((Activity) getContext(), R.layout.item_thong_ke_layout,getDataFromDb());
         lvThongKe.setAdapter(thongKeAdapter);
     }
 
@@ -82,7 +82,7 @@ public class ThongKeChiFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getActivity(), ThongKeChiTietActivity.class);
-                thongKeAdapter = new ThongKeAdapter(getActivity(), R.layout.thong_ke_item_layout,InfoTK);
+                thongKeAdapter = new ThongKeAdapter(getActivity(), R.layout.item_thong_ke_layout,InfoTK);
                 ThongKe thongKe= (ThongKe) thongKeAdapter.getItem(i);
                 intent.putExtra("Thong Ke",thongKe);
                 startActivity(intent);

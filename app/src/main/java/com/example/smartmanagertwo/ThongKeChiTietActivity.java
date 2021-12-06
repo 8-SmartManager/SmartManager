@@ -25,7 +25,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.model.ThuChiActivity;
 import com.example.thongke.ThongKe;
-import com.example.thongke.ThongKeChiTiet;
 import com.example.thongke.ThongKeChiTietAdapter;
 
 import java.text.SimpleDateFormat;
@@ -46,7 +45,7 @@ public class ThongKeChiTietActivity extends AppCompatActivity {
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_thong_ke_chi_chi_tiet);
+        setContentView(R.layout.activity_thong_ke_chi_tiet);
 
         getData();
         Drawable drawable=getResources().getDrawable(R.drawable.ic_back);
@@ -130,7 +129,7 @@ public class ThongKeChiTietActivity extends AppCompatActivity {
             case android.R.id.home:
                 onBackPressed();
                 return true;
-            case R.id.mnLich:
+            case R.id.mnChooseDate:
                 Calendar calendarDate= Calendar.getInstance();
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 DatePickerDialog.OnDateSetListener callBack= new DatePickerDialog.OnDateSetListener() {
