@@ -43,6 +43,7 @@
         android:padding="10dp"
         >
         <TextView
+            android:id="@+id/txtTimePeriod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hàng tháng"
@@ -51,6 +52,7 @@
             android:textColor="@color/mau_dam"
             android:layout_margin="10dp"/>
         <TextView
+            android:id="@+id/txtTotalAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2000000"
