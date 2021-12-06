@@ -65,10 +65,10 @@ public class ThongKeThuFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private List<ThongKe> getDataFromDb(){
         InfoTKThu = new ArrayList<>();
-        Cursor cursor = db.getData("SELECT " + MyDatabaseHelper.COL_THUCHI_NAME + " , " + MyDatabaseHelper.COL_THUCHI_TYPE+", SUM(" + MyDatabaseHelper.COL_THUCHI_AMOUNT + " ) " + " FROM " + MyDatabaseHelper.TBL_NAME_THUCHI +" WHERE "+MyDatabaseHelper.COL_THUCHI_TYPE+"='"+ "Thu"+"' GROUP BY " + MyDatabaseHelper.COL_THUCHI_NAME);
+        Cursor cursor = db.getData("SELECT (SUM("+MyDatabaseHelper.COL_THUCHI_AMOUNT+")/(SELECT SUM("+MyDatabaseHelper.COL_THUCHI_AMOUNT+") FROM "+MyDatabaseHelper.TBL_NAME_THUCHI+" WHERE "+MyDatabaseHelper.COL_THUCHI_TYPE+"='"+ "Thu' )),"+ MyDatabaseHelper.COL_THUCHI_NAME + " , " + MyDatabaseHelper.COL_THUCHI_TYPE+", SUM( " + MyDatabaseHelper.COL_THUCHI_AMOUNT + ") " + " FROM " + MyDatabaseHelper.TBL_NAME_THUCHI +" WHERE "+MyDatabaseHelper.COL_THUCHI_TYPE+"='"+ "Thu"+"' GROUP BY " + MyDatabaseHelper.COL_THUCHI_NAME);
         InfoTKThu.clear();
         while (cursor.moveToNext()){
-            InfoTKThu.add(new ThongKe(null, cursor.getString(0), cursor.getString(1),cursor.getDouble(2)));
+            InfoTKThu.add(new ThongKe( cursor.getDouble(0), cursor.getString(1),cursor.getString(2),cursor.getDouble(3)));
         }
         cursor.close();
         return InfoTKThu;

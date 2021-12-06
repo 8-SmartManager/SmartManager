@@ -4,23 +4,23 @@ import java.io.Serializable;
 import java.sql.Time;
 
 public class ThongKe implements Serializable {
-    private String InfoPercent;
+    private double InfoPercent;
     private String InfoCategory;
     private String InfoThuOrChi;
     private double InfoMoney;
 
-    public ThongKe(String infoPercent, String infoCategory, String infoThuOrChi, double infoMoney) {
+    public ThongKe(double infoPercent, String infoCategory, String infoThuOrChi, double infoMoney) {
         InfoPercent = infoPercent;
         InfoCategory = infoCategory;
         InfoThuOrChi = infoThuOrChi;
         InfoMoney = infoMoney;
     }
 
-    public String getInfoPercent() {
+    public double getInfoPercent() {
         return InfoPercent;
     }
 
-    public void setInfoPercent(String infoPercent) {
+    public void setInfoPercent(double infoPercent) {
         InfoPercent = infoPercent;
     }
 

@@ -6,33 +6,36 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <TableRow>
+    <TableRow
+        android:weightSum="10">
         <TextView
             android:id="@+id/txtTKPercent"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="97%"
-            android:layout_weight="1"
+            android:layout_weight="2.5"
             android:gravity="center"
             android:fontFamily="@font/body_medium_13"
 
             android:textColor="@color/mau_dam"/>
+
         <TextView
             android:id="@+id/txtTKCategory"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="Ăn uống"
-            android:layout_weight="1"
-            android:gravity="center"
+            android:layout_weight="4"
             android:fontFamily="@font/body_medium_13"
+            android:gravity="center"
+            android:text="Ăn uống"
 
-            android:textColor="@color/mau_dam"/>
+            android:textColor="@color/mau_dam" />
+
         <TextView
             android:id="@+id/txtTKMoney"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="2000000"
-            android:layout_weight="1"
+            android:layout_weight="3.5"
             android:gravity="center"
             android:fontFamily="@font/body_medium_13"
 

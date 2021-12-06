@@ -81,9 +81,9 @@ public class ThongKeAdapter extends BaseAdapter {
         }
         //Binding data
         ThongKe t = thongKeList.get(i);
-        holder.txtTKPercent.setText(t.getInfoPercent());
+        holder.txtTKPercent.setText(String.format("%,.0f",t.getInfoPercent()*100)+"%");
         holder.txtTKCategory.setText(t.getInfoCategory());
-        holder.txtTKMoney.setText(String.valueOf(t.getInfoMoney()));
+        holder.txtTKMoney.setText(String.format("%,.0f",t.getInfoMoney()));
 
 
         return view;

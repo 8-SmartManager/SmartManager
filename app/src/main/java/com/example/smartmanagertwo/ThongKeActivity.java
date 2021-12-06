@@ -60,6 +60,7 @@ public class ThongKeActivity extends AppCompatActivity {
         timeList.add("Hàng tháng");
         timeList.add("Hàng năm");
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, timeList);
+
         spinner.setAdapter(adapter);
         return super.onCreateOptionsMenu(menu);
     }

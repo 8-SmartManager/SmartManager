@@ -184,7 +184,7 @@ public class ThongKeChinhSua extends AppCompatActivity {
         txtTaiKhoan.setText(selectedThongKeChiTiet.getActivityAccount());
         txtTheLoai.setText(selectedThongKeChiTiet.getActivityName());
 
-        edtMoney.setText(String.valueOf(selectedThongKeChiTiet.getActivityAmount()));
+        edtMoney.setText(String.format("%.0f",selectedThongKeChiTiet.getActivityAmount()));
     }
     View.OnClickListener myClick = new View.OnClickListener() {
         @Override

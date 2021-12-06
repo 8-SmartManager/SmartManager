@@ -84,7 +84,7 @@ public class ThongKeChiTietAdapter extends BaseAdapter {
         ThuChiActivity t = thongKeChiTietList.get(i);
         holder.txtTheLoai.setText(t.getActivityName());
         holder.txtTaiKhoan.setText(t.getActivityAccount());
-        holder.txtMoney.setText(String.valueOf(t.getActivityAmount()));
+        holder.txtMoney.setText(String.format("%,.0f",t.getActivityAmount()));
         holder.txtTime.setText(t.getActivityDate().toString());
 
         return view;
