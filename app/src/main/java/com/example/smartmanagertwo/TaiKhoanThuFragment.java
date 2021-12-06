@@ -6,10 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
 public class TaiKhoanThuFragment extends Fragment {
+    TextView txtloaiTKnew;
     TableRow tbrTienMat;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -17,6 +19,7 @@ public class TaiKhoanThuFragment extends Fragment {
         View view = inflater.inflate(R.layout.activity_tai_khoan_chinh, container, false);
 
         tbrTienMat = view.findViewById(R.id.tbrow);
+
 
         addEvents();
 

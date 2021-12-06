@@ -303,4 +303,5 @@
                 android:textColor="@color/mau_dam"/>
         </TableRow>
     </TableLayout>
+
 </LinearLayout>
