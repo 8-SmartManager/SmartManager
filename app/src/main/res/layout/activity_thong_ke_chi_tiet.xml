@@ -40,8 +40,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="10dp"
+        >
         <TextView
+            android:id="@+id/txtTimePeriod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hàng tháng"
@@ -50,6 +52,7 @@
             android:textColor="@color/mau_dam"
             android:layout_margin="10dp"/>
         <TextView
+            android:id="@+id/txtTotalAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2000000"
@@ -71,10 +74,9 @@
     </LinearLayout>
     <ListView
         android:layout_weight="1"
-        android:id="@+id/lvThongKeThuChiTiet"
+        android:id="@+id/lvThongKeChiTiet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:listSelector="@color/thay_trang">
-    </ListView>
+        android:listSelector="@color/thay_trang"/>
 
 </LinearLayout>

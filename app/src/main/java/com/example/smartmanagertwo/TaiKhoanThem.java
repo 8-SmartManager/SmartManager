@@ -7,44 +7,33 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
-
-import com.example.thongke.ThongKeChiTiet;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class TaiKhoanChiTiet extends AppCompatActivity {
-    FloatingActionButton btnThemMoi;
-    TextView txtTienMat_Detail;
+public class TaiKhoanThem extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tai_khoan_chi_tiet);
+        setContentView(R.layout.activity_themtaikhoan);
         Drawable drawable=getResources().getDrawable(R.drawable.ic_back);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(drawable);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
-        getSupportActionBar().setTitle("Tiền mặt");
-
-        linkViews();
-        addEvents();
+        getSupportActionBar().setTitle("Thêm tài khoản");
     }
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -81,54 +70,25 @@ public class TaiKhoanChiTiet extends AppCompatActivity {
             case android.R.id.home:
                 onBackPressed();
                 return true;
-            case R.id.mnLich:
-                Calendar calendarDate= Calendar.getInstance();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                DatePickerDialog.OnDateSetListener callBack= new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                        calendarDate.set(Calendar.YEAR,i);
-                        calendarDate.set(Calendar.MONTH,i1);
-                        calendarDate.set(Calendar.DAY_OF_MONTH,i2);
-                    }
-                };
-                DatePickerDialog datePickerDialog = new DatePickerDialog(TaiKhoanChiTiet.this,callBack,
-                        calendarDate.get(Calendar.YEAR),
-                        calendarDate.get(Calendar.MONTH),
-                        calendarDate.get(Calendar.DAY_OF_MONTH));
-                datePickerDialog.show();
-                break;
+//            case R.id.mnLich:
+//                Calendar calendarDate= Calendar.getInstance();
+//                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//                DatePickerDialog.OnDateSetListener callBack= new DatePickerDialog.OnDateSetListener() {
+//                    @Override
+//                    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+//                        calendarDate.set(Calendar.YEAR,i);
+//                        calendarDate.set(Calendar.MONTH,i1);
+//                        calendarDate.set(Calendar.DAY_OF_MONTH,i2);
+//                    }
+//                };
+//                DatePickerDialog datePickerDialog = new DatePickerDialog(TaiKhoanThem.this,callBack,
+//                        calendarDate.get(Calendar.YEAR),
+//                        calendarDate.get(Calendar.MONTH),
+//                        calendarDate.get(Calendar.DAY_OF_MONTH));
+//                datePickerDialog.show();
+//                break;
             default:break;
         }
         return super.onOptionsItemSelected(item);
     }
-
-    private void addEvents() {
-        btnThemMoi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(TaiKhoanChiTiet.this, ThuChiThemMoi.class);
-                startActivity(intent);
-            }
-        });
-        txtTienMat_Detail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(TaiKhoanChiTiet.this,TaiKhoanSuaChiTiet.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-    private void linkViews() {
-        btnThemMoi=findViewById(R.id.btnThemMoi);
-        txtTienMat_Detail=findViewById(R.id.txtTienMat_Detail);
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.thong_ke_chi_tiet_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-
-    }
-
 }

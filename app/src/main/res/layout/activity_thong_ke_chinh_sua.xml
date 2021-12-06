@@ -62,16 +62,17 @@
                     android:fontFamily="@font/body_medium_13"/>
             </TableRow>
             <TableRow>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
-                    android:text="Thể loại"
                     android:layout_marginLeft="30dp"
-                    android:gravity="left"
-                    android:layout_weight="0.75"
+
                     android:fontFamily="@font/body_medium_13"
-                    android:textSize="13sp"
-                    android:textColor="@color/mau_xam"/>
+                    android:gravity="left"
+                    android:text="Thể loại"
+                    android:textColor="@color/mau_xam"
+                    android:textSize="13sp" />
                 <TextView
                     android:id="@+id/txtTKTheLoai"
                     android:layout_width="match_parent"

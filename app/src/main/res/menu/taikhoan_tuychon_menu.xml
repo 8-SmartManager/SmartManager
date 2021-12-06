@@ -11,6 +11,6 @@
         />
     <item android:title="Xóa"
         android:id="@+id/mnXoa"/>
-    <item android:title="Hiện/Ẩn"
-        android:id="@+id/mnHien_An"/>
+    <item android:title="Thêm"
+        android:id="@+id/mnThem"/>
 </menu>

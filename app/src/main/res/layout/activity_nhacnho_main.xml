@@ -13,61 +13,12 @@
         android:layout_marginRight="16dp"
         android:src="@drawable/ic_dau_cong"
         app:tint="@color/white"
-        android:backgroundTint="@color/thu_cap"
-        >
-
+        android:backgroundTint="@color/thu_cap">
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
     <LinearLayout
         android:id="@+id/layoutContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-<!--        <LinearLayout-->
-<!--            android:id="@+id/layoutNhacNhoTabInfo"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="60dp"-->
-<!--            android:orientation="horizontal">-->
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Thể loại"-->
-<!--                android:layout_marginLeft="16dp"-->
-<!--                android:layout_gravity="center_vertical"-->
-<!--                android:textColor="@color/mau_dam"-->
-<!--                android:fontFamily="@font/body_medium_13"/>-->
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-
-<!--                android:text="Tên"-->
-<!--                android:layout_marginLeft="50dp"-->
-<!--                android:layout_gravity="center_vertical"-->
-<!--                android:textColor="@color/mau_dam"-->
-<!--                android:fontFamily="@font/body_medium_13"/>-->
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Thời gian nhắc"-->
-<!--                android:layout_marginLeft="140dp"-->
-<!--                android:layout_gravity="center_vertical"-->
-<!--                android:textColor="@color/mau_dam"-->
-<!--                android:fontFamily="@font/body_medium_13"/>-->
-<!--        </LinearLayout>-->
-<!--       <LinearLayout-->
-<!--           android:layout_width="match_parent"-->
-<!--           android:layout_height="match_parent"/>-->
-
     </LinearLayout>
-
-
-<!--    <ImageButton-->
-<!--        android:layout_width="60dp"-->
-<!--        android:layout_height="60dp"-->
-<!--        android:src="@drawable/ic_plus_icon"-->
-<!--        android:layout_marginTop="275dp"-->
-<!--        android:layout_marginLeft="316dp"/>-->
-
-
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

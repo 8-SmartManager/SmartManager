@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/bg_dialog"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thông báo"
+        android:fontFamily="@font/header2_bold_20"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="10dp"
+        android:textColor="@color/chu_dao"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bạn chưa nhập tên danh sách"
+        android:fontFamily="@font/body_medium_13"
+        android:textColor="@color/mau_dam"
+        android:paddingVertical="20dp"
+        android:paddingHorizontal="10dp"/>
+    <Button
+        android:id="@+id/btnOk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:text="ok"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@null"
+        android:background="@drawable/btn_dialog"
+        android:textColor="@color/white"/>
+
+
+</LinearLayout>

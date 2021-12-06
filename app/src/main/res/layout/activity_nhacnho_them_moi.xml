@@ -5,20 +5,16 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent">
-
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp">
-
             <TableRow>
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
@@ -26,9 +22,7 @@
                     android:fontFamily="@font/body_medium_13"
                     android:gravity="left"
                     android:text="Thể loại"
-
                     android:textColor="@color/mau_xam" />
-
                 <TextView
                     android:id="@+id/txtNhacNhoThemTheLoai"
                     android:layout_width="match_parent"
@@ -41,11 +35,8 @@
                     android:text=""
                     android:textColor="@color/mau_dam"
                     android:textSize="14sp" />
-
             </TableRow>
-
             <TableRow>
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
@@ -56,24 +47,19 @@
                     android:text="Tên"
 
                     android:textColor="@color/mau_xam" />
-
                 <EditText
                     android:id="@+id/edtNhacNhoThemTen"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:layout_marginRight="30dp"
-
                     android:layout_weight="1"
                     android:background="@drawable/textlines_khong"
                     android:backgroundTint="@color/mau_xam"
                     android:fontFamily="@font/header3_semibold_14"
                     android:textColor="@color/mau_dam"
                     android:textSize="14sp" />
-
             </TableRow>
-
             <TableRow>
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
@@ -81,9 +67,7 @@
                     android:fontFamily="@font/body_medium_13"
                     android:gravity="left"
                     android:text="Chu kỳ"
-
                     android:textColor="@color/mau_xam" />
-
                 <TextView
                     android:id="@+id/txtNhacNhoThemChuKy"
                     android:layout_width="match_parent"
@@ -92,14 +76,11 @@
                     android:layout_weight="1"
                     android:background="@drawable/textlines_khong"
                     android:fontFamily="@font/header3_semibold_14"
-                    android:text=""
                     android:textColor="@color/mau_dam"
                     android:textSize="14sp" />
 
             </TableRow>
-
             <TableRow>
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
@@ -107,9 +88,7 @@
                     android:fontFamily="@font/body_medium_13"
                     android:gravity="left"
                     android:text="Ngày bắt đầu"
-
                     android:textColor="@color/mau_xam" />
-
                 <TextView
                     android:id="@+id/txtNhacNhoThemNgayBatDau"
                     android:layout_width="match_parent"
@@ -120,11 +99,8 @@
                     android:fontFamily="@font/header3_semibold_14"
                     android:textColor="@color/mau_dam"
                     android:textSize="14sp" />
-
             </TableRow>
-
             <TableRow>
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
@@ -132,9 +108,7 @@
                     android:fontFamily="@font/body_medium_13"
                     android:gravity="left"
                     android:text="Giờ nhắc"
-
                     android:textColor="@color/mau_xam" />
-
                 <TextView
                     android:id="@+id/txtNhacNhoThemGioNhac"
                     android:layout_width="match_parent"
@@ -145,10 +119,8 @@
                     android:fontFamily="@font/header3_semibold_14"
                     android:textColor="@color/mau_dam"
                     android:textSize="14sp" />
-
             </TableRow>
         </TableLayout>
-
         <Button
             android:id="@+id/btnNhacNhoThemMoiTao"
             android:layout_width="match_parent"
@@ -157,23 +129,16 @@
             android:layout_marginTop="39dp"
             android:layout_marginRight="32dp"
             android:background="@drawable/bg_button"
-
             android:fontFamily="@font/header3_semibold_14"
             android:text="Tạo nhắc nhở"
             android:textAllCaps="false"
             android:textColor="@color/button_text_color"
-            android:textSize="14sp"
-
-            />
+            android:textSize="14sp"/>
     </LinearLayout>
-
-
     <LinearLayout
         android:id="@+id/layoutContainerThemNhacNho"
         android:layout_width="match_parent"
         android:layout_height="280dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent" />
-
-
+        app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

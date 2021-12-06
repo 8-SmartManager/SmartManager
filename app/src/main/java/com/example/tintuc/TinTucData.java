@@ -6,33 +6,33 @@ public class TinTucData {
     private String newsDetail;
     private Integer newsImage;
 
-    public TinTucData(String movieName, String movieDate, Integer movieImage) {
-        this.newsName = movieName;
+    public TinTucData(String newsName, String newsDate, Integer newwImage) {
+        this.newsName = newsName;
         this.newsDetail = newsDetail;
-        this.newsImage = movieImage;
+        this.newsImage = newsImage;
     }
 
     public String getMovieName() {
         return newsName;
     }
 
-    public void setMovieName(String movieName) {
-        this.newsName = movieName;
+    public void setNewsName(String newsName) {
+        this.newsName = newsName;
     }
 
     public String getMovieDate() {
         return newsDetail;
     }
 
-    public void setMovieDate(String movieDate) {
-        this.newsDetail = movieDate;
+    public void setNewsDate(String newsDate) {
+        this.newsDetail = newsDetail;
     }
 
-    public Integer getMovieImage() {
+    public Integer getNewsImage() {
         return newsImage;
     }
 
-    public void setMovieImage(Integer movieImage) {
-        this.newsImage = movieImage;
+    public void setNewsImage(Integer newsImage) {
+        this.newsImage = newsImage;
     }
 }
