@@ -5,6 +5,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -22,8 +24,8 @@ import java.util.ArrayList;
 public class ThongKeActivity extends AppCompatActivity {
     TabLayout tab_thongKe;
     ViewPager vp_thongKe;
+    public static String time;
 
-    Spinner spTime;
     ArrayList<String> timeList;
     ArrayAdapter<String> adapter;
     @Override
@@ -43,7 +45,7 @@ public class ThongKeActivity extends AppCompatActivity {
         tab_thongKe = findViewById(R.id.tab_thongKe);
         vp_thongKe = findViewById(R.id.vp_thongKe);
 
-        spTime = findViewById(R.id.mnSpinner);
+
     }
     private void initData() {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
@@ -62,6 +64,17 @@ public class ThongKeActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, timeList);
 
         spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                time=adapter.getItem(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
         return super.onCreateOptionsMenu(menu);
     }
 }

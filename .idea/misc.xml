@@ -96,6 +96,8 @@
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/activity_nhacnho_them_moi.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/activity_tao_muc_tieu_chi_tiet.xml" value="0.264" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/activity_thong_ke.xml" value="0.23854166666666668" />
+        <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/activity_thong_ke_chi_chi_tiet.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/activity_thong_ke_thu_chi_tiet.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/ban_phim_so.xml" value="0.23854166666666668" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/custom_muctieu_tietkiem.xml" value="0.13333333333333333" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/dialog_error_nhap_chua_du_thong_tin.xml" value="0.264" />
@@ -109,6 +111,7 @@
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/hop_chon_nhac_nho_the_loai.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/hop_thoai_chon.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/item_theloai_muctieu.xml" value="0.13125" />
+        <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/item_thong_ke_chi_tiet.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/muctieu_hoanthanh_fragment.xml" value="0.13333333333333333" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/muctieu_tamdung_fragment.xml" value="0.13333333333333333" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/layout/nhac_nho_item_layout.xml" value="0.23854166666666668" />
