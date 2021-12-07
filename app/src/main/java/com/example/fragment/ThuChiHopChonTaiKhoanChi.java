@@ -19,7 +19,7 @@ import com.example.smartmanagertwo.R;
 
 import java.util.ArrayList;
 
-public class ThuChiHopChonTaiKhoan extends DialogFragment  {
+public class ThuChiHopChonTaiKhoanChi extends DialogFragment  {
     GridView gvThuChiTaiKhoan;
     ArrayList<HopChonKhongHinhItem> items;
     HopChonKhongHinhAdapter adapter;

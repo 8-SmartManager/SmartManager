@@ -7,20 +7,52 @@
    >
     <EditText
         android:id="@+id/edtThemTK"
+        android:hint="Tên tài khoản"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/chu_dao"
         />
-    <Button
-        android:id="@+id/btnThemTK"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/edtSoTK"
+        android:hint="Số tiền"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Thêm"
         android:textColor="@color/chu_dao"
-        android:background="@drawable/bg_button"
-        android:textSize="14sp"
-        android:fontFamily="@font/header3_semibold_14"/>
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="39dp">
+        <Button
+            android:id="@+id/btnThemTK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thêm"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:textColor="@color/chu_dao"
+            android:background="@drawable/bg_button"
+            android:textSize="14sp"
+            android:fontFamily="@font/header3_semibold_14"/>
+        <Button
+            android:id="@+id/btnXoaTK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xóa"
+            android:layout_weight="1"
+            android:textColor="@color/chu_dao"
+            android:layout_marginRight="32dp"
+            android:background="@drawable/bg_button"
+            android:textSize="14sp"
+            android:fontFamily="@font/header3_semibold_14"/>
+    </LinearLayout>
+    <ListView
+        android:id="@+id/lvHienThiDS"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
 </LinearLayout>

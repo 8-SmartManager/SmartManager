@@ -32,14 +32,10 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
      MyDatabaseHelper db;
      FloatingActionButton fabThem;
      TextView txtTenDanhSach;
-     Button btnBack;
      ListView lvDanhSachItem;
      String tenDanhSach;
      TaskAdapter adapter;
      ArrayList<Task> tasks;
-
-
-     Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,13 +51,10 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
         getSupportActionBar().setTitle(tenDanhSach);
 
         linkView();
-        addEvents();
         prepareDb();
         loadData();
 
     }
-
-
 
     private void linkView() {
         fabThem=findViewById(R.id.fabThem);
@@ -70,58 +63,65 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
     }
     private void loadData() {
 
-//        adapter =new TaskAdapter(DanhSachMuaSamChiTiet.this,R.layout.item_list_ds_mua_sam,getDataFromDb());
-//        rcvDanhSachItem.setAdapter(adapter);
+        adapter =new TaskAdapter(DanhSachMuaSamChiTiet.this,R.layout.item_list_ds_mua_sam,getDataFromDb());
+        lvDanhSachItem.setAdapter(adapter);
     }
     private void prepareDb() {
-//        db = new MyDatabaseHelper(this);
-//        db.createSomeDanhSachData();
+        db = new MyDatabaseHelper(this);
+        db.createSomeDanhSachData();
     }
 
     private ArrayList<Task> getDataFromDb(){
-//        tasks=new ArrayList<>();
-//        Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_DANHSACH);
-//        tasks.clear();
-//        while (cursor.moveToNext()){
-//            tasks.add(new Task(cursor.getInt(0),cursor.getString(1),cursor.getDouble(2)));
-//        }
-//        cursor.close();
-        return null;
+        tasks=new ArrayList<>();
+        Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_DANHSACH);
+        tasks.clear();
+        while (cursor.moveToNext()){
+            tasks.add(new Task(cursor.getInt(0),cursor.getString(1), cursor.getDouble(2)));
+        }
+        cursor.close();
+        return tasks;
     }
 
     private void addEvents() {
+//        fabThem.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openAddDialog();
+//            }
+//
+//            private void openAddDialog() {
+//                LayoutInflater inflater = getLayoutInflater();
+//                View alertLayout = inflater.inflate(R.layout.layout_custom_dialog_add_danhsach, null);
+//                final EditText edtName = alertLayout.findViewById(R.id.edtName);
+//                final EditText edtPrice = alertLayout.findViewById(R.id.edtPrice);
+//
+//                AlertDialog.Builder alert = new AlertDialog.Builder(DanhSachMuaSamChiTiet.this);
+//                alert.setTitle("Thêm Item");
+//                alert.setView(alertLayout);
+//                alert.setCancelable(false);
+//                alert.setPositiveButton("Thêm", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//
+//                    }
+//                });
+//                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        Toast.makeText(getBaseContext(), "Cancel clicked", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//                AlertDialog dialog = alert.create();
+//                dialog.show();
+//            }
+//            });
         fabThem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openAddDialog();
+                //show dialog
             }
-
-            private void openAddDialog() {
-                LayoutInflater inflater = getLayoutInflater();
-                View alertLayout = inflater.inflate(R.layout.layout_custom_dialog_add_danhsach, null);
-                final EditText edtName = alertLayout.findViewById(R.id.edtName);
-                final EditText edtPrice = alertLayout.findViewById(R.id.edtPrice);
-
-                AlertDialog.Builder alert = new AlertDialog.Builder(DanhSachMuaSamChiTiet.this);
-                alert.setTitle("Thêm Item");
-                alert.setView(alertLayout);
-                alert.setCancelable(false);
-                alert.setPositiveButton("Thêm", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                    }
-                });
-                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(getBaseContext(), "Cancel clicked", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                AlertDialog dialog = alert.create();
-                dialog.show();
-            }
-            });
+        });
+    }
 
 //        btnBack.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -130,10 +130,10 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
 //            }
 //        });
 
-            }
+
 
             private void getData() {
-                intent = getIntent();
+                Intent intent = getIntent();
                 tenDanhSach = intent.getStringExtra("tlName");
 
             }

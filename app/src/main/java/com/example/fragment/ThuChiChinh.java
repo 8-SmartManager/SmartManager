@@ -1,5 +1,6 @@
 package com.example.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
@@ -20,7 +21,10 @@ import com.example.adapter.ActivityAdapter;
 import com.example.model.ThuChiActivity;
 import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.R;
+import com.example.smartmanagertwo.TaiKhoanSua;
 import com.example.smartmanagertwo.TaiKhoanSuaChiTiet;
+import com.example.smartmanagertwo.ThongKeChiTietActivity;
+import com.example.smartmanagertwo.ThongKeChinhSua;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -39,6 +43,7 @@ public class ThuChiChinh extends Fragment{
 
     ThuChiActivity selectedActivity;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -87,7 +92,8 @@ public class ThuChiChinh extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 selectedActivity = (ThuChiActivity) adapter.getItem(i);
-                Intent intent = new Intent(getActivity(), TaiKhoanSuaChiTiet.class);
+                //intent qua màn hình Chỉnh sửa ntn?
+                Intent intent = new Intent(getContext(), ThongKeChinhSua.class);
                 intent.putExtra(Constant.SELECTED_ITEM, selectedActivity);
                 startActivity(intent);
 
@@ -96,6 +102,8 @@ public class ThuChiChinh extends Fragment{
             }
         });
     }
+
+
 
 
 }

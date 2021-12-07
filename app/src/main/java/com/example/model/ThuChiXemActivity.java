@@ -2,22 +2,22 @@ package com.example.model;
 
 import java.io.Serializable;
 
-public class XemThuChiActivity implements Serializable {
-    private int activityDate;
+public class ThuChiXemActivity implements Serializable {
+    private String activityDate;
     private int activityAmountChi;
     private int activityAmountThu;
 
-    public XemThuChiActivity(int activityDate, int activityAmountChi, int activityAmountThu) {
+    public ThuChiXemActivity(String activityDate, int activityAmountChi, int activityAmountThu) {
         this.activityDate = activityDate;
         this.activityAmountChi = activityAmountChi;
         this.activityAmountThu = activityAmountThu;
     }
 
-    public int getActivityDate() {
+    public String getActivityDate() {
         return activityDate;
     }
 
-    public void setActivityDate(int activityDate) {
+    public void setActivityDate(String activityDate) {
         this.activityDate = activityDate;
     }
 
