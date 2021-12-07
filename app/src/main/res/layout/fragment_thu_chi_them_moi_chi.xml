@@ -33,7 +33,7 @@
                 android:layout_marginRight="30dp"
                 android:background="@drawable/textlines_khong"
                 android:fontFamily="@font/body_medium_13"
-                android:text="18, Th2"
+                android:text="Chọn ngày"
                 android:textColor="@color/mau_dam"
                 android:textSize="13dp"
                 android:textStyle="bold"

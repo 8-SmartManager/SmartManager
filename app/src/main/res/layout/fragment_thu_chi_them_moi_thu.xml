@@ -27,13 +27,13 @@
                 android:textColor="@color/mau_xam"/>
 
             <TextView
-                android:id="@+id/txtNewActivityDate"
+                android:id="@+id/txtNewActivityDateThu"
                 android:layout_width="256dp"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
                 android:background="@drawable/textlines_khong"
                 android:fontFamily="@font/body_medium_13"
-                android:text="18, Th2"
+                android:text="Chọn ngày"
                 android:textColor="@color/mau_dam"
                 android:textSize="13dp"
                 android:textStyle="bold"
@@ -52,15 +52,16 @@
                 android:textSize="13dp"
                 android:textColor="@color/mau_xam"/>
             <TextView
-                android:id="@+id/txtNewActivityAccount"
+                android:id="@+id/txtNewActivityAccountThu"
                 android:layout_width="256dp"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
-                android:textColor="@color/mau_xam"
-                android:background="@drawable/textlines_chon"
+                android:textColor="@color/mau_dam"
+                android:background="@drawable/textlines_khong"
                 android:text="Chọn tài khoản"
                 android:textSize="13dp"
                 android:fontFamily="@font/body_medium_13"
+                android:textStyle="bold"
                 />
 
         </TableRow>
@@ -75,15 +76,16 @@
                 android:textSize="13dp"
                 android:textColor="@color/mau_xam"/>
             <TextView
-                android:id="@+id/txtNewActivityName"
+                android:id="@+id/txtNewActivityNameThu"
                 android:layout_width="256dp"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
-                android:textColor="@color/mau_xam"
+                android:textColor="@color/mau_dam"
                 android:background="@drawable/textlines_khong"
                 android:text="Chọn thể loại"
                 android:textSize="13dp"
                 android:fontFamily="@font/body_medium_13"
+                android:textStyle="bold"
                 />
         </TableRow>
 
@@ -98,22 +100,23 @@
                 android:textSize="13dp"
                 android:textColor="@color/mau_xam"/>
             <EditText
-                android:id="@+id/txtNewActivityAmount"
+                android:id="@+id/txtNewActivityAmountThu"
                 android:layout_width="256dp"
                 android:layout_height="56dp"
                 android:layout_marginRight="30dp"
                 android:textColor="@color/mau_xam"
                 android:textSize="13dp"
                 android:hint="Nhập số tiền"
-                android:backgroundTint="@color/mau_xam"
-                android:fontFamily="@font/body_medium_13"/>
+                android:backgroundTint="@color/mau_dam"
+                android:fontFamily="@font/body_medium_13"
+                android:textStyle="bold"/>
 
         </TableRow>
 
     </TableLayout>
 
     <Button
-        android:id="@+id/btnSave"
+        android:id="@+id/btnSaveThu"
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:layout_marginTop="39dp"
@@ -130,7 +133,7 @@
         />
 
     <LinearLayout
-        android:id="@+id/layoutContainerThuChiThemMoi"
+        android:id="@+id/layoutContainerThuChiThemMoiThu"
         android:orientation="vertical"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"

@@ -304,6 +304,7 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/dialog_ketnoi_gioithieu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/dialog_ketnoi_invite.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/dialog_nhapmuctieu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/dialog_show_activity.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/dialog_themtien.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/fragment_nhacnho_main_list_is_not_null.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/fragment_nhacnho_main_list_is_null.xml" value="0.25416666666666665" />
@@ -319,6 +320,7 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/fragment_thu_chi_tuan.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/gridview_custom_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/hoat_dong_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/hop_chon_chung.xml" value="0.264" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/hop_chon_item_co_hinh.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/hop_chon_item_khong_hinh.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/hop_thoai_chon.xml" value="0.25416666666666665" />
@@ -327,6 +329,8 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/item_theloai_muctieu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/item_thong_ke_chi_tiet.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/item_thuchi.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/item_thuchi_tuan.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/item_thuchi_tuan_thang.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/muctieu_hoanthanh_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/muctieu_tamdung_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/nhac_nho_item_layout.xml" value="0.25416666666666665" />

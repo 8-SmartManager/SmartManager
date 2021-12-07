@@ -8,17 +8,17 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 
-import com.example.model.XemThuChiActivity;
+import com.example.model.ThuChiXemActivity;
 import com.example.smartmanagertwo.R;
 
 import java.util.List;
 
-public class XemActivityAdapter extends BaseAdapter {
+public class XemActivityNgayAdapter extends BaseAdapter {
     Context context;
     int item_thuchi;
-    List<XemThuChiActivity> activity;
+    List<ThuChiXemActivity> activity;
 
-    public XemActivityAdapter(Context context, int item_thuchi, List<XemThuChiActivity> activity) {
+    public XemActivityNgayAdapter(Context context, int item_thuchi, List<ThuChiXemActivity> activity) {
         this.context = context;
         this.item_thuchi = item_thuchi;
         this.activity = activity;
@@ -41,9 +41,9 @@ public class XemActivityAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        XemActivityAdapter.ViewHolder holder;
+ViewHolder holder;
         if(view == null){
-            holder = new XemActivityAdapter.ViewHolder();
+            holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(item_thuchi, null);
 
@@ -52,11 +52,11 @@ public class XemActivityAdapter extends BaseAdapter {
             holder.txtAmountThu = view.findViewById(R.id.txtAmountThu);
             view.setTag(holder);
         }else{
-            holder = (XemActivityAdapter.ViewHolder) view.getTag();
+            holder = (ViewHolder) view.getTag();
         }
         //binding
-        XemThuChiActivity a = activity.get(i);
-        holder.txtDate.setText(toString().valueOf(a.getActivityDate()));
+        ThuChiXemActivity a = activity.get(i);
+        holder.txtDate.setText(a.getActivityDate());
         holder.txtAmountChi.setText(toString().valueOf(a.getActivityAmountChi()));
         holder.txtAmountThu.setText(toString().valueOf(a.getActivityAmountThu()));
 

@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,19 +22,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.adapter.ActivityAdapter;
-import com.example.muctieutietkiem.packages.TaoMucTieu;
-import com.example.muctieutietkiem.packages.TaoMucTieuChiTiet;
-import com.example.smartmanagertwo.HopChonNhacNhoThemTheLoai;
 import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.R;
-import com.example.smartmanagertwo.ThongKeChinhSua;
-import com.example.smartmanagertwo.ThuChi;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 public class ThuChiThemMoiChi extends Fragment {
 
@@ -103,6 +95,7 @@ public class ThuChiThemMoiChi extends Fragment {
                     Toast.makeText(getContext(), "Thanh cong", Toast.LENGTH_SHORT).show();
 
 
+
                 }
 
             }
@@ -133,7 +126,7 @@ public class ThuChiThemMoiChi extends Fragment {
                     txtNewActivityName.setBackgroundTintList(ContextCompat.getColorStateList(getActivity().getApplicationContext(),R.color.mau_xam));
                     txtNewActivityAmount.setBackgroundTintList(ContextCompat.getColorStateList(getActivity().getApplicationContext(),R.color.mau_xam));
                     txtNewActivityDate.setBackgroundTintList(ContextCompat.getColorStateList(getActivity().getApplicationContext(),R.color.mau_xam));
-                    fragment= new ThuChiHopChonTaiKhoan();
+                    fragment= new ThuChiHopChonTaiKhoanChi();
 
                 }
                 if(view.getId()==R.id.txtNewActivityName ){
