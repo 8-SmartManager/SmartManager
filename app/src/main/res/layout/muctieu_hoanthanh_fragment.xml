@@ -3,13 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#D892E4">
-    <TextView
+    >
+    <ListView
+        android:layout_marginTop="10dp"
+        android:id="@+id/lvGoal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="36sp"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:text="Hoàn thành" />
+        android:divider="@null"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

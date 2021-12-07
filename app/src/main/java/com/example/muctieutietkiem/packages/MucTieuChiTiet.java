@@ -1,7 +1,12 @@
 package com.example.muctieutietkiem.packages;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.nfc.Tag;
@@ -18,6 +23,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.widget.ImageViewCompat;
 
 import com.example.muctieutietkiem.packages.adapter.GoalAdapter;
 import com.example.muctieutietkiem.packages.model.Goal;
@@ -67,29 +73,18 @@ public class MucTieuChiTiet extends AppCompatActivity implements DialogThemTien.
         });
     }
 
-//    private void ShowDialog() {
-//        Dialog dialog = new Dialog(this);
-//        dialog.setContentView(R.layout.dialog_themtien);
-//        EditText edtThemTien = dialog.findViewById(R.id.edtThemTien);
-//        Button btnOk = dialog.findViewById(R.id.btnOk);
-//        btnOk.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                double tienThem = Double.parseDouble(String.valueOf(edtThemTien.getText()));
-////                Intent intent = new Intent(IntentAction.INTENT_ADD_TASK)
-//                dialog.dismiss();
-//
-//            }
-//        });
-//        dialog.show();
-//    }
+
 
     private void getData() {
         Intent intent= getIntent();
         selectedGoal= (Goal) intent.getSerializableExtra("Muc tieu");
+
+        byte[] goalThumb = selectedGoal.getGoalThumb();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(goalThumb,0,goalThumb.length);
+        imvGoal.setImageBitmap(bitmap);
         txtTenMucTieu.setText(selectedGoal.getGoalName());
-        imvGoal.setImageResource(selectedGoal.getGoalThumb());
         txtNgayKetThuc.setText(String.valueOf(selectedGoal.getGoalTime()));
+        ImageViewCompat.setImageTintList(imvGoal, ColorStateList.valueOf(selectedGoal.getGoalColor()));
         double percent = (selectedGoal.getGoalSaved()/selectedGoal.getGoalTarget())*100;
         if((selectedGoal.getGoalSaved()*100)%selectedGoal.getGoalTarget()>0){
             txtPercent.setText(String.format("%,.1f",percent)+"%");
@@ -151,17 +146,33 @@ public class MucTieuChiTiet extends AppCompatActivity implements DialogThemTien.
         double soTienThem = Double.parseDouble(tienThem);
         double tien = soTienThem+selectedGoal.getGoalSaved();
 
-
-        selectedGoal.setGoalSaved(tien);
-        hoat_dong_fragment.db.execSql("UPDATE "+ MyDatabaseHelper.TBL_NAME_MUC_TIEU+" SET "+MyDatabaseHelper.COL_MUCTIEU_SOTIENDATDUOC+" = '"+tien+"'WHERE "+MyDatabaseHelper.COL_MUCTIEU_ID+"=" +selectedGoal.getGoalID());
-
-        txtSoTienDatDuoc.setText(String.format("%,.0f",tien));
-        double percent = (selectedGoal.getGoalSaved()/selectedGoal.getGoalTarget())*100;
-        if((selectedGoal.getGoalSaved()*100)%selectedGoal.getGoalTarget()>0){
-            txtPercent.setText(String.format("%,.1f",percent)+"%");
-        }else {
-            txtPercent.setText(String.format("%,.0f",percent)+"%");
+        if(tien>selectedGoal.getGoalTarget())
+        {
+            AlertDialog.Builder builder= new AlertDialog.Builder(MucTieuChiTiet.this);
+            builder.setTitle("Lỗi!");
+            builder.setMessage("Bạn kiểm tra lại Số tiền thêm vào nhé. Có vẻ như nó đang lớn hơn số tiền mục tiêu í .-.");
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            });
+            builder.create().show();
         }
-        progressBar.setProgress((int) percent);
+        else {
+            selectedGoal.setGoalSaved(tien);
+            hoat_dong_fragment.db.execSql("UPDATE "+ MyDatabaseHelper.TBL_NAME_MUC_TIEU+" SET "+MyDatabaseHelper.COL_MUCTIEU_SOTIENDATDUOC+" = '"+tien+"'WHERE "+MyDatabaseHelper.COL_MUCTIEU_ID+"=" +selectedGoal.getGoalID());
+
+            txtSoTienDatDuoc.setText(String.format("%,.0f",tien));
+            double percent = (selectedGoal.getGoalSaved()/selectedGoal.getGoalTarget())*100;
+            if((selectedGoal.getGoalSaved()*100)%selectedGoal.getGoalTarget()>0){
+                txtPercent.setText(String.format("%,.1f",percent)+"%");
+            }else {
+                txtPercent.setText(String.format("%,.0f",percent)+"%");
+            }
+            progressBar.setProgress((int) percent);
+        }
+
+
     }
 }

@@ -2,6 +2,11 @@ package com.example.muctieutietkiem.packages.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +14,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.core.widget.ImageViewCompat;
 
 import com.example.muctieutietkiem.packages.model.Goal;
 import com.example.smartmanagertwo.R;
@@ -51,11 +58,14 @@ public class GoalAdapter extends BaseAdapter {
             holder=new ViewHolder();
             LayoutInflater inflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(item_layout,null);
-            holder.goalThumb= view.findViewById(R.id.imvGoal);
+            holder.imvGoalThumb= view.findViewById(R.id.imvGoal);
             holder.goalName=view.findViewById(R.id.txtGoal);
             holder.goalTime=view.findViewById(R.id.txtDate);
             holder.progressBar=view.findViewById(R.id.progressBar);
             holder.goalTarget=view.findViewById(R.id.txtGoalTarget);
+
+
+
 
 
             view.setTag(holder);
@@ -63,17 +73,25 @@ public class GoalAdapter extends BaseAdapter {
         else {holder= (ViewHolder) view.getTag();
         }
         Goal g = goalList.get(i);
-        holder.goalThumb.setImageResource(g.getGoalThumb());
+//        holder.goalThumb.setImageResource(g.getGoalThumb());
+        byte[] icon = g.getGoalThumb();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(icon,0,icon.length);
+        holder.imvGoalThumb.setImageBitmap(bitmap);
+
+
+
         holder.goalName.setText(g.getGoalName());
         holder.goalTime.setText(("Ngày đạt: "+g.getGoalTime()));
 
         double percent = (g.getGoalSaved()/g.getGoalTarget())*100;
         holder.goalTarget.setText("Số tiền mục tiêu: "+String.format("%,.0f",g.getGoalTarget())+"đ");
         holder.progressBar.setProgress((int) percent);
+        ImageViewCompat.setImageTintList(holder.imvGoalThumb, ColorStateList.valueOf(g.getGoalColor()));
+
         return view;
     }
     public static class ViewHolder{
-        ImageView goalThumb;
+        ImageView imvGoalThumb;
         TextView goalName,goalTime,goalTarget;
         ProgressBar progressBar;
 

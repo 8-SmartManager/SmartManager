@@ -6,7 +6,7 @@ import java.util.Locale;
 
 public class Goal implements Serializable {
     private int goalID;
-    private int goalThumb;
+    private byte[] goalThumb;
     private String goalName;
     private LocalDate goalTime;
     private int goalColor;
@@ -15,7 +15,7 @@ public class Goal implements Serializable {
     private String goalNote;
 
 
-    public Goal(int goalId, int goalThumb, String goalName, LocalDate goalTime, int goalColor, double goalSaved, double goalTarget, String goalNote) {
+    public Goal(int goalId, byte[] goalThumb, String goalName, LocalDate goalTime, int goalColor, double goalSaved, double goalTarget, String goalNote) {
         this.goalID = goalId;
         this.goalThumb = goalThumb;
         this.goalName = goalName;
@@ -34,11 +34,11 @@ public class Goal implements Serializable {
         this.goalID = goalID;
     }
 
-    public int getGoalThumb() {
+    public byte[] getGoalThumb() {
         return goalThumb;
     }
 
-    public void setGoalThumb(int goalThumb) {
+    public void setGoalThumb(byte[] goalThumb) {
         this.goalThumb = goalThumb;
     }
 

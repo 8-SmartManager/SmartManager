@@ -67,7 +67,7 @@ public class hoat_dong_fragment extends Fragment{
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         db= new MyDatabaseHelper(context);
-        db.createSomeMucTieuHoatDong();
+//        db.createSomeMucTieuHoatDong();
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
     private List<Goal> getDataFromDb() {
@@ -76,7 +76,8 @@ public class hoat_dong_fragment extends Fragment{
         goals.clear();
         while(cursor.moveToNext()){
 //            activity.add(new ThuChiActivity(cursor.getInt(0), cursor.getString(1)));
-            goals.add(new Goal(cursor.getInt(0), cursor.getInt(5), cursor.getString(1), LocalDate.parse( cursor.getString(4)), cursor.getInt(6) , cursor.getDouble(3), cursor.getDouble(2),cursor.getString(7) ));
+            goals.add(new Goal(cursor.getInt(0), cursor.getBlob(5), cursor.getString(1), LocalDate.parse( cursor.getString(4)), cursor.getInt(6) , cursor.getDouble(3), cursor.getDouble(2),cursor.getString(7) ));
+
         }
         cursor.close();
         return goals;

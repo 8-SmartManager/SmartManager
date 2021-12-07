@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/layoutContainer"
     tools:context=".kehoach_muctieu_tietkiem"
-    android:padding="16dp"
+
     android:orientation="vertical">
 
 

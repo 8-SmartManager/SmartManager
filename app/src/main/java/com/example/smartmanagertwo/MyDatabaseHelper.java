@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteStatement;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -66,7 +67,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(sqlNhacNho);
 //        String sqlThongKe = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_THONGKE + "(" + COL_THONGKE_PERCENT + " VARCHAR(10), " + COL_THONGKE_NAME + " VARCHAR(50), " + COL_THONGKE_AMOUNT + " VARCHAR(50))";
 //        sqLiteDatabase.execSQL(sqlThongKe);
-        String sqlMucTieu = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_MUC_TIEU + "(" + COL_MUCTIEU_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_MUCTIEU_NAME + " VARCHAR(50), " + COL_MUCTIEU_SOTIENMUCTIEU + " DOUBLE, "+  COL_MUCTIEU_SOTIENDATDUOC + " DOUBLE," + COL_MUCTIEU_NGAYKETTHUC+ " DATE," + COL_MUCTIEU_IMAGE + " INT, "+ COL_MUCTIEU_IMAGE_COLOR + " INT, " + COL_MUCTIEU_LUUY + " VARCHAR(50))";
+        String sqlMucTieu = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_MUC_TIEU + "(" + COL_MUCTIEU_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_MUCTIEU_NAME + " VARCHAR(50), " + COL_MUCTIEU_SOTIENMUCTIEU + " DOUBLE, "+  COL_MUCTIEU_SOTIENDATDUOC + " DOUBLE," + COL_MUCTIEU_NGAYKETTHUC+ " DATE," + COL_MUCTIEU_IMAGE + " BLOB, "+ COL_MUCTIEU_IMAGE_COLOR + " INT, " + COL_MUCTIEU_LUUY + " VARCHAR(50))";
         sqLiteDatabase.execSQL(sqlMucTieu);
     }
 
@@ -136,6 +137,34 @@ public  void  createSomeNhacNhoData(){
     public  Cursor getData(String sql){
         SQLiteDatabase db = getReadableDatabase();
         return  db.rawQuery(sql, null);
+    }
+
+
+    public boolean insertData( byte[] goalThumb, String goalName, LocalDate goalTime, int goalColor, double goalSaved, double goalTarget,  String goalNote){
+
+
+        try{
+            SQLiteDatabase db = getWritableDatabase();
+            String sql ="INSERT INTO "+TBL_NAME_MUC_TIEU+" VALUES(null, ?, ?, ?, ?, ?, ?, ?)";
+            SQLiteStatement statement = db.compileStatement(sql);
+
+
+            statement.bindString(1,goalName);
+            statement.bindDouble(2,goalTarget);
+            statement.bindDouble(3,goalSaved);
+            statement.bindString(4, String.valueOf(goalTime));
+            statement.bindBlob(5,goalThumb);
+            statement.bindDouble(6,goalColor);
+            statement.bindString(7,goalNote);
+
+            statement.executeInsert();
+            return true;
+        }
+        catch (Exception ex){
+            return false;
+        }
+
+
     }
 
 }

@@ -1,7 +1,9 @@
 package com.example.muctieutietkiem.packages;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,10 +25,14 @@ import com.example.smartmanagertwo.R;
 import java.util.ArrayList;
 
 public class HopChonColor extends DialogFragment {
+
+
+
     GridView gvColor;
     ArrayList<Color> colors;
     ColorAdapter adapter;
     ImageButton btnDismiss;
+    public  static int colorInt;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.hop_chon_chung, container, false);
@@ -44,6 +50,7 @@ public class HopChonColor extends DialogFragment {
                 adapter = new ColorAdapter(getContext(),R.layout.item_color_muctieu,initData());
                 Color color= (Color) adapter.getItem(i);
                 imageView.setImageResource(color.getColorThumb());
+                colorInt=color.getColorID();
                 dismiss();
                 ImageViewCompat.setImageTintList(imvDrop, null);
             }
@@ -55,6 +62,7 @@ public class HopChonColor extends DialogFragment {
                     ImageView imvDrop= getActivity().findViewById(R.id.imvDrop);
                     dismiss();
                     ImageViewCompat.setImageTintList(imvDrop, null);
+
                 }
             });
 

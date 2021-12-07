@@ -17,10 +17,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -30,13 +33,16 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.muctieutietkiem.packages.model.Goal;
 import com.example.nhacnho.HopChonNhacNhoChiTietTen;
 import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.NhacNhoActivity;
 import com.example.smartmanagertwo.NhacNhoChiTietActivity;
 import com.example.smartmanagertwo.R;
 
+import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
 
 public class TaoMucTieuChiTiet extends AppCompatActivity {
@@ -44,6 +50,7 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
     Button btnTao;
     EditText edtTenMucTieu, edtSoTienMucTieu ,edtSoTienDatDuoc, edtNgayKetThuc, edtLuuY;
     ImageView imvColor, imvDropdown;
+    Goal goal;
 
 
     @Override
@@ -113,6 +120,7 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
             edtNgayKetThuc.setOnClickListener(myClick);
             imvColor.setOnClickListener(myClick);
             btnTao.setOnClickListener(new View.OnClickListener() {
+                @RequiresApi(api = Build.VERSION_CODES.O)
                 @Override
                 public void onClick(View view) {
                     String ten= edtTenMucTieu.getText().toString(),
@@ -121,6 +129,17 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
                             ngayKetThuc=edtNgayKetThuc.getText().toString(),
 //                        mau=selectedGoal.getGoalColor(),
                             luuY=edtLuuY.getText().toString();
+
+
+                    double goalTarget = Double.parseDouble(soTienMucTieu);
+                    double goalSaved = Double.parseDouble(soTienDatDuoc);
+                    LocalDate goalTime = LocalDate.parse(ngayKetThuc);
+                    LocalDate currentDate = LocalDate.now();
+                    int time = goalTime.compareTo(currentDate);
+
+                    int color = -11873872;
+                    color = HopChonColor.colorInt;
+
                     if(ten.equals("")||soTienDatDuoc.equals("")||soTienMucTieu.equals("")||ngayKetThuc.equals("")||luuY.equals("")){
                         AlertDialog.Builder builder= new AlertDialog.Builder(TaoMucTieuChiTiet.this);
                         builder.setTitle("Lỗi!");
@@ -146,12 +165,111 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
                         builder.create().show();
 
                     }
+                    else if(time<=0)
+                    {
+                        AlertDialog.Builder builder= new AlertDialog.Builder(TaoMucTieuChiTiet.this);
+                        builder.setTitle("Thông báo");
+                        builder.setMessage("Nhập lại Ngày kết thúc của bạn");
+                        builder.setPositiveButton("Ukii", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        });
+                        builder.create().show();
+                    }
+
+
+
 
 
 
 
                     else {
-                        hoat_dong_fragment.db.execSql("INSERT INTO "+MyDatabaseHelper.TBL_NAME_MUC_TIEU+" VALUES(null, '"+ten+"', '"+soTienMucTieu+"', '"+soTienDatDuoc+"', '"+ngayKetThuc+"',null,'-11873872', '"+luuY+"')");
+
+//                        hoat_dong_fragment.db.execSql("INSERT INTO "+MyDatabaseHelper.TBL_NAME_MUC_TIEU+" VALUES(null, '"+ten+"', '"+soTienMucTieu+"', '"+soTienDatDuoc+"', '"+ngayKetThuc+"',null,'"+color+"', '"+luuY+"')");
+
+
+
+                        if (ten.equals("Mua nhà")){
+                            Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.home);
+                            ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArray);
+                            byte[] goalThumb = byteArray.toByteArray();
+                            color=-48536;
+                            color = HopChonColor.colorInt;
+                            hoat_dong_fragment.db.insertData(goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
+                        }
+                        else if (ten.equals("Mua xe")){
+                            Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.car);
+                            ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArray);
+                            byte[] goalThumb = byteArray.toByteArray();
+
+                            hoat_dong_fragment.db.insertData(goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
+                        }
+                        else if (ten.equals("Du lịch")){
+                            Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.dulich);
+                            ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArray);
+                            byte[] goalThumb = byteArray.toByteArray();
+
+                            hoat_dong_fragment.db.insertData(goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
+                        }
+                        else if (ten.equals("Học tập")){
+                            Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.hoctap);
+                            ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArray);
+                            byte[] goalThumb = byteArray.toByteArray();
+
+                            hoat_dong_fragment.db.insertData(goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
+                        }
+                        else if (ten.equals("Sức khỏe")){
+                            Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.health);
+                            ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArray);
+                            byte[] goalThumb = byteArray.toByteArray();
+
+                            hoat_dong_fragment.db.insertData(goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
+                        }
+                        else if (ten.equals("Con cái")){
+                            Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.concai);
+                            ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArray);
+                            byte[] goalThumb = byteArray.toByteArray();
+
+                            hoat_dong_fragment.db.insertData(goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
+                        }
+                        else if (ten.equals("Kết hôn")){
+                            Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.marriage);
+                            ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArray);
+                            byte[] goalThumb = byteArray.toByteArray();
+
+                            hoat_dong_fragment.db.insertData(goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
+                        }
+                        else if (ten.equals("Bố mẹ")){
+                            Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.bame);
+                            ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArray);
+                            byte[] goalThumb = byteArray.toByteArray();
+
+                            hoat_dong_fragment.db.insertData(goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
+                        }
+
+
+
+                        else {
+                            Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.round);
+                            ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArray);
+                            byte[] goalThumb = byteArray.toByteArray();
+
+                            hoat_dong_fragment.db.insertData(goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
+
+                        }
+
+
 
                         finish();
                     }
@@ -202,6 +320,7 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
                         calendarDate.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
 
+
             }
             if (view.getId() == R.id.imvDrop||view.getId() == R.id.imvColor) {
                 ImageViewCompat.setImageTintList(imvDropdown, ColorStateList.valueOf(-149741));
@@ -228,6 +347,7 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
 
             }
 
+
         }
     };
 
@@ -239,4 +359,5 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
             imm.hideSoftInputFromWindow(view.getWindowToken(),0);
         }
     }
+
 }
