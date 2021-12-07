@@ -8,7 +8,8 @@ public class Task {
     public Task(int taskId, String taskName, double taskPrice) {
         this.taskId = taskId;
         this.taskName = taskName;
-        this.taskPrice = taskPrice;
+        this.taskPrice=taskPrice;
+
     }
 
 
@@ -27,7 +28,6 @@ public class Task {
     public void setTaskName(String taskName) {
         this.taskName = taskName;
     }
-
     public double getTaskPrice() {
         return taskPrice;
     }

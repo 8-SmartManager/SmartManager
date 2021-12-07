@@ -60,10 +60,20 @@
 
         </activity>
         <activity
-            android:name="com.example.KeHoachMuaSam.DanhSachMuaSam"
-            android:exported="true"></activity>
+            android:name="com.example.KeHoachMuaSam.KeHoachMuaSamMain"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
-            android:name="com.example.KeHoachMuaSam.DanhSachMuaSam2"
+            android:name="com.example.KeHoachMuaSam.DanhSachMuaSamThem"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name="com.example.KeHoachMuaSam.DanhSachMuaSamChiTiet"
             android:exported="true">
 
         </activity>
@@ -74,11 +84,7 @@
         <activity
             android:name=".TaiKhoan"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"

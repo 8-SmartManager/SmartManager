@@ -48,7 +48,7 @@ public class TaskAdapter extends BaseAdapter {
             holder=new ViewHolder();
             LayoutInflater inflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(item_layout,null);
-            holder.txtName=view.findViewById(R.id.txtTaskName);
+            holder.txtName=view.findViewById(R.id.txtName);
             holder.txtPrice=view.findViewById(R.id.txtPrice);
             holder.imvEdit=view.findViewById(R.id.imvEdit);
             holder.imvDelete=view.findViewById(R.id.imvDelete);
@@ -62,7 +62,6 @@ public class TaskAdapter extends BaseAdapter {
         // gắn dữ liệu lên
         holder.txtName.setText(t.getTaskName());
         holder.txtPrice.setText(String.valueOf(t.getTaskPrice()));
-
         holder.imvEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,7 +80,7 @@ public class TaskAdapter extends BaseAdapter {
     }
 
     private static class ViewHolder{
-        TextView txtName,txtPrice;
+        TextView txtName, txtPrice;
         ImageView imvEdit, imvDelete;
     }
 }
