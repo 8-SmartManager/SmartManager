@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableRow
+            android:weightSum="10">
+
+            <TextView
+                android:id="@+id/txtAccount"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="5"
+                android:fontFamily="@font/body_medium_13"
+                android:gravity="center"
+                android:text="Tiền mặt"
+
+                android:textColor="@color/mau_dam" />
+
+            <TextView
+                android:id="@+id/txtSoTienTaiKhoan"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="2000000"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:fontFamily="@font/body_medium_13"
+
+                android:textColor="@color/mau_dam"/>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

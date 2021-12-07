@@ -1,39 +1,44 @@
 package com.example.smartmanagertwo;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.taikhoan.ViewPagerAdapterTK;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.taikhoan.TaiKhoanActivity;
+import com.example.taikhoan.TaiKhoanAdapter;
 import com.example.thongke.ThongKe;
-import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TaiKhoan extends AppCompatActivity {
-    TabLayout tab_taikhoan;
-    ViewPager vp_taikhoan;
-    TextView txtloaiTKnew;
-//    ListView lvTaiKhoan;
-//    ArrayAdapter<String> adapter;
 
+    ListView lvTaiKhoanThu;
+    ArrayList<TaiKhoanActivity> InfoTaiKhoanThu;
+    TaiKhoanAdapter adapter;
+    public static MyDatabaseHelper db;
+
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_taikhoan);
-
-//        String[] items = {"Tiền mặt", "Tài khoản Ngân hàng","Thẻ tín dụng"};
-//        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,items);
-//        lvTaiKhoan.setAdapter(adapter);
-
+        setContentView(R.layout.activity_tai_khoan_chinh);
         Drawable drawable=getResources().getDrawable(R.drawable.ic_menu);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(drawable);
@@ -41,20 +46,11 @@ public class TaiKhoan extends AppCompatActivity {
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
         getSupportActionBar().setTitle("Tài khoản");
-
-
-
+        prepareDB();
         linkViews();
-        initData();
-
+        loadData();
+        addEvents();
     }
-
-    private void initData() {
-        ViewPagerAdapterTK viewPagerAdapter = new ViewPagerAdapterTK(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        vp_taikhoan.setAdapter(viewPagerAdapter);
-        tab_taikhoan.setupWithViewPager(vp_taikhoan);
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.taikhoan_tuychon_menu, menu);
@@ -90,11 +86,51 @@ public class TaiKhoan extends AppCompatActivity {
 
     }
 
-    private void linkViews() {
-
-        tab_taikhoan = findViewById(R.id.tab_taikhoan);
-        vp_taikhoan = findViewById(R.id.vp_taikhoan);
-
-        //lvTaiKhoan = findViewById(R.id.lvTaiKhoan);
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    public void onResume() {
+        loadData();
+        super.onResume();
     }
+
+    private void linkViews() {
+        lvTaiKhoanThu = findViewById(R.id.lvTaiKhoanThu);
+    }
+    private void prepareDB() {
+        db = new MyDatabaseHelper(this);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void loadData() {
+        adapter = new TaiKhoanAdapter(TaiKhoan.this,R.layout.item_tai_khoan_layout,getDataFromDb());
+        lvTaiKhoanThu.setAdapter(adapter);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private List<TaiKhoanActivity> getDataFromDb(){
+        InfoTaiKhoanThu = new ArrayList<>();
+        Cursor cursor = db.getData("SELECT "+MyDatabaseHelper.COL_THUCHI_ACCOUNT + " , " + " SUM(" +MyDatabaseHelper.COL_THUCHI_AMOUNT + " ) " + " FROM " + MyDatabaseHelper.TBL_NAME_THUCHI + " GROUP BY " + MyDatabaseHelper.COL_THUCHI_ACCOUNT);
+        InfoTaiKhoanThu.clear();
+        while (cursor.moveToNext()){
+            InfoTaiKhoanThu.add(new TaiKhoanActivity(cursor.getString(0),cursor.getDouble(1)));
+        }
+        cursor.close();
+        return InfoTaiKhoanThu;
+    }
+
+
+    private void addEvents() {
+        lvTaiKhoanThu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(TaiKhoan.this, TaiKhoanChiTiet.class);
+                adapter = new TaiKhoanAdapter(TaiKhoan.this, R.layout.item_tai_khoan_layout,InfoTaiKhoanThu);
+                TaiKhoanActivity taiKhoanActivity= (TaiKhoanActivity) adapter.getItem(i);
+                intent.putExtra("Tai khoan",taiKhoanActivity);
+                startActivity(intent);
+            }
+        });
+    }
+
+
 }
