@@ -5,6 +5,7 @@
         app:actionViewClass="android.widget.Spinner"
         android:id="@+id/mnSpinner"
         android:title="Spinner"
+
         android:background="#ffffff"
         app:showAsAction="always"
         />

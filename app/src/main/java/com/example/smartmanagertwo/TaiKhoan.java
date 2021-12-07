@@ -11,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.taikhoan.ViewPagerAdapterTK;
@@ -20,6 +21,7 @@ import com.google.android.material.tabs.TabLayout;
 public class TaiKhoan extends AppCompatActivity {
     TabLayout tab_taikhoan;
     ViewPager vp_taikhoan;
+    TextView txtloaiTKnew;
 //    ListView lvTaiKhoan;
 //    ArrayAdapter<String> adapter;
 
@@ -39,6 +41,8 @@ public class TaiKhoan extends AppCompatActivity {
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
         getSupportActionBar().setTitle("Tài khoản");
+
+
 
         linkViews();
         initData();
@@ -90,6 +94,7 @@ public class TaiKhoan extends AppCompatActivity {
 
         tab_taikhoan = findViewById(R.id.tab_taikhoan);
         vp_taikhoan = findViewById(R.id.vp_taikhoan);
+
         //lvTaiKhoan = findViewById(R.id.lvTaiKhoan);
     }
 }

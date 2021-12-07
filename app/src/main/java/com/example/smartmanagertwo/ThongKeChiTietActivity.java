@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -25,7 +26,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.model.ThuChiActivity;
 import com.example.thongke.ThongKe;
-import com.example.thongke.ThongKeChiTiet;
 import com.example.thongke.ThongKeChiTietAdapter;
 
 import java.text.SimpleDateFormat;
@@ -40,13 +40,14 @@ public class ThongKeChiTietActivity extends AppCompatActivity {
     ArrayList<ThuChiActivity> InfoTKChiTiet;
     ThongKeChiTietAdapter chiTietAdapter;
     ThongKe selectedThongKe;
+    TextView txtTimePeriod, txtTotalAmount;
     public static MyDatabaseHelper db;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_thong_ke_chi_chi_tiet);
+        setContentView(R.layout.activity_thong_ke_chi_tiet);
 
         getData();
         Drawable drawable=getResources().getDrawable(R.drawable.ic_back);
@@ -54,34 +55,34 @@ public class ThongKeChiTietActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(drawable);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
-
-        if (selectedThongKe.getInfoCategory().equals("Giải trí")){
-            getSupportActionBar().setTitle("Giải trí");
-        }else if(selectedThongKe.getInfoCategory().equals("Ăn uống")){
-            getSupportActionBar().setTitle("Ăn uống");
-        }else if(selectedThongKe.getInfoCategory().equals("Sở thích")){
-            getSupportActionBar().setTitle("Sở thích");
-        }else if(selectedThongKe.getInfoCategory().equals("Giáo dục")){
-            getSupportActionBar().setTitle("Giáo dục");
-        }else if(selectedThongKe.getInfoCategory().equals("Sức khỏe")){
-            getSupportActionBar().setTitle("Sức khỏe");
-        }else if(selectedThongKe.getInfoCategory().equals("Sinh hoạt")){
-            getSupportActionBar().setTitle("Sinh hoạt");
-        }else if(selectedThongKe.getInfoCategory().equals("Áo quần")){
-            getSupportActionBar().setTitle("Áo quần");
-        }else if(selectedThongKe.getInfoCategory().equals("Làm đẹp")){
-            getSupportActionBar().setTitle("Làm đẹp");
-        }else if(selectedThongKe.getInfoCategory().equals("Khác")) {
-            getSupportActionBar().setTitle("Khác");
-        }else if (selectedThongKe.getInfoCategory().equals("Trả thêm giờ")){
-            getSupportActionBar().setTitle("Trả thêm giờ");
-        }else if (selectedThongKe.getInfoCategory().equals("Tiền lương")){
-            getSupportActionBar().setTitle("Tiền lương");
-        }else if (selectedThongKe.getInfoCategory().equals("Tiền thưởng")){
-            getSupportActionBar().setTitle("Tiền thưởng");
-        }else if (selectedThongKe.getInfoCategory().equals("Tiền trợ cấp")){
-            getSupportActionBar().setTitle("Tiền trợ cấp");
-        }
+        getSupportActionBar().setTitle(selectedThongKe.getInfoCategory());
+//        if (selectedThongKe.getInfoCategory().equals("Giải trí")){
+//            getSupportActionBar().setTitle("Giải trí");
+//        }else if(selectedThongKe.getInfoCategory().equals("Ăn uống")){
+//            getSupportActionBar().setTitle("Ăn uống");
+//        }else if(selectedThongKe.getInfoCategory().equals("Sở thích")){
+//            getSupportActionBar().setTitle("Sở thích");
+//        }else if(selectedThongKe.getInfoCategory().equals("Giáo dục")){
+//            getSupportActionBar().setTitle("Giáo dục");
+//        }else if(selectedThongKe.getInfoCategory().equals("Sức khỏe")){
+//            getSupportActionBar().setTitle("Sức khỏe");
+//        }else if(selectedThongKe.getInfoCategory().equals("Sinh hoạt")){
+//            getSupportActionBar().setTitle("Sinh hoạt");
+//        }else if(selectedThongKe.getInfoCategory().equals("Áo quần")){
+//            getSupportActionBar().setTitle("Áo quần");
+//        }else if(selectedThongKe.getInfoCategory().equals("Làm đẹp")){
+//            getSupportActionBar().setTitle("Làm đẹp");
+//        }else if(selectedThongKe.getInfoCategory().equals("Khác")) {
+//            getSupportActionBar().setTitle("Khác");
+//        }else if (selectedThongKe.getInfoCategory().equals("Trả thêm giờ")){
+//            getSupportActionBar().setTitle("Trả thêm giờ");
+//        }else if (selectedThongKe.getInfoCategory().equals("Tiền lương")){
+//            getSupportActionBar().setTitle("Tiền lương");
+//        }else if (selectedThongKe.getInfoCategory().equals("Tiền thưởng")){
+//            getSupportActionBar().setTitle("Tiền thưởng");
+//        }else if (selectedThongKe.getInfoCategory().equals("Tiền trợ cấp")){
+//            getSupportActionBar().setTitle("Tiền trợ cấp");
+//        }
         prepareDb();
         linkViews();
         loadData();
@@ -130,7 +131,7 @@ public class ThongKeChiTietActivity extends AppCompatActivity {
             case android.R.id.home:
                 onBackPressed();
                 return true;
-            case R.id.mnLich:
+            case R.id.mnChooseDate:
                 Calendar calendarDate= Calendar.getInstance();
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 DatePickerDialog.OnDateSetListener callBack= new DatePickerDialog.OnDateSetListener() {
@@ -161,6 +162,8 @@ public class ThongKeChiTietActivity extends AppCompatActivity {
 
     private void linkViews() {
         lvThongKeChiTiet = findViewById(R.id.lvThongKeChiTiet);
+        txtTimePeriod=findViewById(R.id.txtTimePeriod);
+        txtTotalAmount=findViewById(R.id.txtTotalAmount);
     }
 
     private void prepareDb() {
@@ -187,6 +190,13 @@ public class ThongKeChiTietActivity extends AppCompatActivity {
     private void loadData() {
         chiTietAdapter = new ThongKeChiTietAdapter(ThongKeChiTietActivity.this, R.layout.item_thong_ke_chi_tiet, getDataFromDb());
         lvThongKeChiTiet.setAdapter(chiTietAdapter);
+        txtTimePeriod.setText(ThongKeActivity.time);
+        double total=0;
+        for (ThuChiActivity item:InfoTKChiTiet
+             ) {
+            total+=item.getActivityAmount();
+        }
+        txtTotalAmount.setText(String.format("%,.0f",total)+" đồng");
     }
 
     private void addEvents() {

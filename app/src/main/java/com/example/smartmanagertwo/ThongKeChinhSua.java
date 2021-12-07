@@ -48,7 +48,7 @@ public class ThongKeChinhSua extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.thong_ke_chinh_sua);
+        setContentView(R.layout.activity_thong_ke_chinh_sua);
 
         getData1();
 
@@ -184,7 +184,7 @@ public class ThongKeChinhSua extends AppCompatActivity {
         txtTaiKhoan.setText(selectedThongKeChiTiet.getActivityAccount());
         txtTheLoai.setText(selectedThongKeChiTiet.getActivityName());
 
-        edtMoney.setText(String.valueOf(selectedThongKeChiTiet.getActivityAmount()));
+        edtMoney.setText(String.format("%.0f",selectedThongKeChiTiet.getActivityAmount()));
     }
     View.OnClickListener myClick = new View.OnClickListener() {
         @Override

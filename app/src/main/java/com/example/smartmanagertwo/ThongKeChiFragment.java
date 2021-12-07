@@ -55,7 +55,7 @@ public class ThongKeChiFragment extends Fragment {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void loadDataAdapter() {
-        thongKeAdapter = new ThongKeAdapter((Activity) getContext(), R.layout.thong_ke_item_layout,getDataFromDb());
+        thongKeAdapter = new ThongKeAdapter((Activity) getContext(), R.layout.item_thong_ke_layout,getDataFromDb());
         lvThongKe.setAdapter(thongKeAdapter);
     }
 
@@ -68,10 +68,10 @@ public class ThongKeChiFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private List<ThongKe> getDataFromDb(){
         InfoTK = new ArrayList<>();
-        Cursor cursor = db.getData("SELECT " + MyDatabaseHelper.COL_THUCHI_NAME + " , " + MyDatabaseHelper.COL_THUCHI_TYPE+", SUM( " + MyDatabaseHelper.COL_THUCHI_AMOUNT + ") " + " FROM " + MyDatabaseHelper.TBL_NAME_THUCHI +" WHERE "+MyDatabaseHelper.COL_THUCHI_TYPE+"='"+ "Chi"+"' GROUP BY " + MyDatabaseHelper.COL_THUCHI_NAME);
+        Cursor cursor = db.getData("SELECT (SUM("+MyDatabaseHelper.COL_THUCHI_AMOUNT+")/(SELECT SUM("+MyDatabaseHelper.COL_THUCHI_AMOUNT+") FROM "+MyDatabaseHelper.TBL_NAME_THUCHI+" WHERE "+MyDatabaseHelper.COL_THUCHI_TYPE+"='"+ "Chi' )),"+ MyDatabaseHelper.COL_THUCHI_NAME + " , " + MyDatabaseHelper.COL_THUCHI_TYPE+", SUM( " + MyDatabaseHelper.COL_THUCHI_AMOUNT + ") " + " FROM " + MyDatabaseHelper.TBL_NAME_THUCHI +" WHERE "+MyDatabaseHelper.COL_THUCHI_TYPE+"='"+ "Chi"+"' GROUP BY " + MyDatabaseHelper.COL_THUCHI_NAME);
         InfoTK.clear();
         while (cursor.moveToNext()){
-            InfoTK.add(new ThongKe(null, cursor.getString(0), cursor.getString(1),cursor.getDouble(2)));
+            InfoTK.add(new ThongKe( cursor.getDouble(0), cursor.getString(1),cursor.getString(2),cursor.getDouble(3)));
         }
         cursor.close();
         return InfoTK;
@@ -82,7 +82,7 @@ public class ThongKeChiFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getActivity(), ThongKeChiTietActivity.class);
-                thongKeAdapter = new ThongKeAdapter(getActivity(), R.layout.thong_ke_item_layout,InfoTK);
+                thongKeAdapter = new ThongKeAdapter(getActivity(), R.layout.item_thong_ke_layout,InfoTK);
                 ThongKe thongKe= (ThongKe) thongKeAdapter.getItem(i);
                 intent.putExtra("Thong Ke",thongKe);
                 startActivity(intent);

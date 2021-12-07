@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
@@ -18,8 +19,12 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.smartmanagertwo.R;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 public class SaoLuuGGDrive extends AppCompatActivity {
+
+    SwitchMaterial check;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +35,25 @@ public class SaoLuuGGDrive extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
         getSupportActionBar().setTitle("Google Drive");
+
+        linkViews();
+        addEvents();
     }
+
+    private void linkViews() {
+        check = findViewById(R.id.check);
+
+    }
+
+    private void addEvents() {
+        check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                return;
+            }
+        });
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
