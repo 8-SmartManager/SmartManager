@@ -65,10 +65,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
 
     //Bảng Danh Sách Mua Sắm
-//    public static final String TBL_NAME_DANHSACH="DanhSach";
-//    public static final String COL_DANHSACH_ID = "DanhSach_ID";
-//    public static final String COL_DANHSACH_NAME = "DanhSach_Name";
-//    public static final String COL_DANHSACH_PRICE = "DanhSach_Price";
+    public static final String TBL_NAME_DANHSACH="DanhSach";
+    public static final String COL_DANHSACH_ID = "DanhSach_ID";
+    public static final String COL_DANHSACH_NAME = "DanhSach_Name";
+    public static final String COL_DANHSACH_PRICE = "DanhSach_Price";
 
     public MyDatabaseHelper(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -94,8 +94,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 //        sqLiteDatabase.execSQL(sqlThongKeChiTiet);
 //        String sqlThongKeThuChiTiet = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_THONG_KE_THU_CHI_TIET + "(" + COL_TKTHUCHITIET_THELOAI + " VARCHAR(50), " + COL_TKTHUCHITIET_TAIKHOAN + " VARCHAR(50), " + COL_TKTHUCHITIET_MONEY + " VARCHAR(50), " + COL_TKTHUCHITIET_TIME + " DATE )";
 //        sqLiteDatabase.execSQL(sqlThongKeThuChiTiet);
-//        String sqlDanhSach="CREATE TABLE IF NOT EXISTS " + TBL_NAME_DANHSACH +"(" + COL_DANHSACH_ID+ " INTEGER PRIMARY KEY AUTOINCREMENT, " +COL_DANHSACH_NAME +" VARCHAR(50), " + COL_DANHSACH_PRICE +" DOUBLE)";
-//        sqLiteDatabase.execSQL(sqlDanhSach);
+        String sqlDanhSach="CREATE TABLE IF NOT EXISTS " + TBL_NAME_DANHSACH +"(" + COL_DANHSACH_ID+ " INTEGER PRIMARY KEY AUTOINCREMENT, " +COL_DANHSACH_NAME +" VARCHAR(50), " + COL_DANHSACH_PRICE +" DOUBLE)";
+        sqLiteDatabase.execSQL(sqlDanhSach);
     }
 
     @Override
@@ -142,13 +142,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
-//    public int getCountDanhSach(){
-//        SQLiteDatabase db = getReadableDatabase();
-//        Cursor cursor = db.rawQuery("SELECT * FROM " + TBL_NAME_DANHSACH, null);
-//        int count = cursor.getCount();
-//        cursor.close();
-//        return count;
-//    }
+    public int getCountDanhSach(){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TBL_NAME_DANHSACH, null);
+        int count = cursor.getCount();
+        cursor.close();
+        return count;
+    }
 
 //    public int getCountThongKeChiChiTiet(){
 //        SQLiteDatabase db = getReadableDatabase();
@@ -200,14 +200,14 @@ public  void  createSomeNhacNhoData(){
         execSql("INSERT INTO " + TBL_NAME_NHAC_NHO + " VALUES(null, 'Chi','Chơi game','Hàng tuần','2021-09-10','20:00:00')");
     }
 }
-//    public  void createSomeDanhSachData(){
-//        int countDanhSach = getCountDanhSach();
-//        if(countDanhSach == 0){
-//            execSql("INSERT INTO " + TBL_NAME_DANHSACH + " VALUES(null, 'Áo quần', '5000000')");
-//            execSql("INSERT INTO " + TBL_NAME_DANHSACH + " VALUES(null, 'Áo quần', '5000000')");
-//
-//        }
-//    }
+    public  void createSomeDanhSachData(){
+        int countDanhSach = getCountDanhSach();
+        if(countDanhSach == 0){
+            execSql("INSERT INTO " + TBL_NAME_DANHSACH + " VALUES(null, 'Áo quần', '5000000')");
+            execSql("INSERT INTO " + TBL_NAME_DANHSACH + " VALUES(null, 'Áo quần', '5000000')");
+
+        }
+    }
 
 
 //    public void createSomeThongKeChiTietData(){
