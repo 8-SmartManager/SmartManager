@@ -59,7 +59,7 @@
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
                 android:textSize="13dp"
-                android:textColor="@color/thu_cap"/>
+                android:textColor="@color/mau_xam"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="28dp"
