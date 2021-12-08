@@ -7,6 +7,9 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -25,6 +28,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.widget.ImageViewCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.muctieutietkiem.packages.model.Goal;
 import com.example.smartmanagertwo.MyDatabaseHelper;
@@ -32,15 +39,17 @@ import com.example.smartmanagertwo.NhacNhoActivity;
 import com.example.smartmanagertwo.NhacNhoChiTietActivity;
 import com.example.smartmanagertwo.R;
 
+import java.io.ByteArrayOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
 
 public class EditMucTieuHoatDong extends AppCompatActivity {
 
     EditText edtTenMucTieu, edtSoTienMucTieu ,edtSoTienDatDuoc, edtNgayKetThuc, edtLuuY;
     Goal selectedGoal;
-    ImageView imvColor;
+    ImageView imvColor, imvDropdown;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,6 +99,7 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -98,6 +108,33 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
             case android.R.id.home:
                 onBackPressed();
                 return true;
+            case R.id.mnPause:
+                Dialog dialogPause = new Dialog(EditMucTieuHoatDong.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                dialogPause.setContentView(R.layout.dialog_error);
+                TextView txtTitlePause=dialogPause.findViewById(R.id.txtTitle),
+                        txtMessagePause=dialogPause.findViewById(R.id.txtMessage);
+                Button btnYesPause=dialogPause.findViewById(R.id.btnYes),
+                        btnNoPause=dialogPause.findViewById(R.id.btnNo);
+                txtTitlePause.setText("Xác nhận");
+                txtMessagePause.setText("Bạn có chắc chắn muốn tạm dừng?");
+                btnYesPause.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        hoat_dong_fragment.db.execSql("DELETE FROM "+ MyDatabaseHelper.TBL_NAME_MUC_TIEU+" WHERE "+MyDatabaseHelper.COL_MUCTIEU_ID + "=" +selectedGoal.getGoalID());
+                        hoat_dong_fragment.db.insertMucTieuPausedData(selectedGoal.getGoalThumb(),selectedGoal.getGoalName(),selectedGoal.getGoalTime(),selectedGoal.getGoalColor(),selectedGoal.getGoalSaved(),selectedGoal.getGoalTarget(),selectedGoal.getGoalNote());
+//                        hoat_dong_fragment.db.updateData(selectedGoal.getGoalID(),goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
+
+                        finish();
+                    }
+                });
+                btnNoPause.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialogPause.dismiss();
+                    }
+                });
+                dialogPause.show();
+                break;
             case R.id.mnDelete:
                 Dialog dialog = new Dialog(EditMucTieuHoatDong.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
                 dialog.setContentView(R.layout.dialog_error);
@@ -105,7 +142,7 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
                         txtMessage=dialog.findViewById(R.id.txtMessage);
                 Button btnYes=dialog.findViewById(R.id.btnYes),
                         btnNo=dialog.findViewById(R.id.btnNo);
-                txtTitle.setText("Thông báo");
+                txtTitle.setText("Xác nhận");
                 txtMessage.setText("Bạn có chắc chắn muốn xóa?");
                 btnYes.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -130,6 +167,15 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
                         ngayKetThuc=edtNgayKetThuc.getText().toString(),
 //                        mau=selectedGoal.getGoalColor(),
                         luuY=edtLuuY.getText().toString();
+                double goalTarget = Double.parseDouble(soTienMucTieu);
+                double goalSaved = Double.parseDouble(soTienDatDuoc);
+                LocalDate goalTime = LocalDate.parse(ngayKetThuc);
+                LocalDate currentDate = LocalDate.now();
+                int time = goalTime.compareTo(currentDate);
+
+                int color = -11873872;
+                color = HopChonColor.colorInt;
+
                 if(ten.equals("")||soTienDatDuoc.equals("")||soTienMucTieu.equals("")||ngayKetThuc.equals("")||luuY.equals("")){
                     AlertDialog.Builder builder= new AlertDialog.Builder(EditMucTieuHoatDong.this);
                     builder.setTitle("Lỗi!");
@@ -141,8 +187,125 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
                         }
                     });
                     builder.create().show();
-                }else {
-                    hoat_dong_fragment.db.execSql("UPDATE "+MyDatabaseHelper.TBL_NAME_MUC_TIEU+" SET "+MyDatabaseHelper.COL_MUCTIEU_NAME+" = '"+ten+"', "+MyDatabaseHelper.COL_MUCTIEU_SOTIENMUCTIEU+" = '"+soTienMucTieu+"', "+MyDatabaseHelper.COL_MUCTIEU_SOTIENDATDUOC+" = '"+soTienDatDuoc+"', "+MyDatabaseHelper.COL_MUCTIEU_NGAYKETTHUC+" = '"+ngayKetThuc+"', "+MyDatabaseHelper.COL_MUCTIEU_LUUY+" = '"+luuY+"' WHERE "+MyDatabaseHelper.COL_MUCTIEU_ID+"=" +selectedGoal.getGoalID());
+                }
+                else if ( Double.parseDouble(soTienMucTieu)<Double.parseDouble(soTienDatDuoc)){
+                    AlertDialog.Builder builder= new AlertDialog.Builder(EditMucTieuHoatDong.this);
+                    builder.setTitle("Ủa alo!");
+                    builder.setMessage("Sao Số tiền đạt được của bạn lại lớn hơn Số tiền mục tiêu dzợ .-. Bạn chỉnh lại chỗ này nhennn!");
+                    builder.setPositiveButton("Ukii", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+                    builder.create().show();
+
+                }
+                else if(time<=0)
+                {
+                    AlertDialog.Builder builder= new AlertDialog.Builder(EditMucTieuHoatDong.this);
+                    builder.setTitle("Thông báo");
+                    builder.setMessage("Nhập lại Ngày kết thúc của bạn");
+                    builder.setPositiveButton("Ukii", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+                    builder.create().show();
+                }
+
+
+
+
+
+
+
+                else {
+
+//                        hoat_dong_fragment.db.execSql("INSERT INTO "+MyDatabaseHelper.TBL_NAME_MUC_TIEU+" VALUES(null, '"+ten+"', '"+soTienMucTieu+"', '"+soTienDatDuoc+"', '"+ngayKetThuc+"',null,'"+color+"', '"+luuY+"')");
+
+
+
+                    if (ten.equals("Mua nhà")){
+                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.home);
+                        ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArray);
+                        byte[] goalThumb = byteArray.toByteArray();
+                        color=-48536;
+                        color = HopChonColor.colorInt;
+                        hoat_dong_fragment.db.updateData(selectedGoal.getGoalID(),goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
+                    }
+                    else if (ten.equals("Mua xe")){
+                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.car);
+                        ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArray);
+                        byte[] goalThumb = byteArray.toByteArray();
+
+                        hoat_dong_fragment.db.updateData(selectedGoal.getGoalID(),goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
+                    }
+                    else if (ten.equals("Du lịch")){
+                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.dulich);
+                        ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArray);
+                        byte[] goalThumb = byteArray.toByteArray();
+
+                        hoat_dong_fragment.db.updateData(selectedGoal.getGoalID(),goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
+                    }
+                    else if (ten.equals("Học tập")){
+                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.hoctap);
+                        ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArray);
+                        byte[] goalThumb = byteArray.toByteArray();
+
+                        hoat_dong_fragment.db.updateData(selectedGoal.getGoalID(),goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
+                    }
+                    else if (ten.equals("Sức khỏe")){
+                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.health);
+                        ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArray);
+                        byte[] goalThumb = byteArray.toByteArray();
+
+                        hoat_dong_fragment.db.updateData(selectedGoal.getGoalID(),goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
+                    }
+                    else if (ten.equals("Con cái")){
+                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.concai);
+                        ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArray);
+                        byte[] goalThumb = byteArray.toByteArray();
+
+                        hoat_dong_fragment.db.updateData(selectedGoal.getGoalID(),goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
+                    }
+                    else if (ten.equals("Kết hôn")){
+                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.marriage);
+                        ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArray);
+                        byte[] goalThumb = byteArray.toByteArray();
+
+                        hoat_dong_fragment.db.updateData(selectedGoal.getGoalID(),goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
+                    }
+                    else if (ten.equals("Bố mẹ")){
+                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.bame);
+                        ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArray);
+                        byte[] goalThumb = byteArray.toByteArray();
+
+                        hoat_dong_fragment.db.updateData(selectedGoal.getGoalID(),goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
+                    }
+
+
+
+                    else {
+                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.round);
+                        ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArray);
+                        byte[] goalThumb = byteArray.toByteArray();
+
+                        hoat_dong_fragment.db.updateData(selectedGoal.getGoalID(),goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
+
+                    }
+
+
 
                     finish();
                 }
@@ -161,6 +324,8 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
     private void addEvents() {
 
             edtNgayKetThuc.setOnClickListener(myClick);
+            imvColor.setOnClickListener(myClick);
+            imvDropdown.setOnClickListener(myClick);
 
     }
 
@@ -188,6 +353,7 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
         edtNgayKetThuc=findViewById(R.id.edtSelectDate);
         edtLuuY=findViewById(R.id.edtLuuY);
         imvColor=findViewById(R.id.imvColor);
+        imvDropdown=findViewById(R.id.imvDrop);
     }
     View.OnClickListener myClick = new View.OnClickListener() {
         @Override
@@ -210,6 +376,38 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
                         calendarDate.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
             }
+            if (view.getId() == R.id.imvDrop||view.getId() == R.id.imvColor) {
+                ImageViewCompat.setImageTintList(imvDropdown, ColorStateList.valueOf(-149741));
+                closeKeyBoard();
+                FragmentManager manager = getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                Fragment fragment = new HopChonColor();
+                transaction.replace(R.id.LayoutContainerMucTieu, fragment,"fragmentColor");
+
+                transaction.commit();
+
+
+
+
+            }if(view.getId() == R.id.edtTenMucTieu||view.getId() == R.id.edtSoTienMucTieu||view.getId() == R.id.edtSoTienDatDuoc||view.getId() == R.id.edtSelectDate||view.getId() == R.id.edtLuuY){
+                Fragment fragment =getSupportFragmentManager().findFragmentByTag("fragmentColor");
+                if(fragment!=null) {
+                    getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+                    ImageViewCompat.setImageTintList(imvDropdown, null);
+
+
+                }
+
+
+            }
         }
     };
+    private void closeKeyBoard() {
+        View view= this.getCurrentFocus();
+        if(view!=null)
+        {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(),0);
+        }
+    }
     }
