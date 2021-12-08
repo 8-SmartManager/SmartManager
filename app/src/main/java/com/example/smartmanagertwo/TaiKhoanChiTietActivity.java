@@ -39,6 +39,7 @@ import java.util.List;
 
 public class TaiKhoanChiTietActivity extends AppCompatActivity {
     ListView lvTaiKhoanChiTiet;
+    TextView txtTong;
     ArrayList<ThuChiActivity> InfoTaiKhoanChiTiet;
     TaiKhoanChiTietAdapter chiTietTKAdapter;
     TaiKhoanActivity selectedTaiKhoan;
@@ -110,7 +111,7 @@ public class TaiKhoanChiTietActivity extends AppCompatActivity {
             case android.R.id.home:
                 onBackPressed();
                 return true;
-            case R.id.mnLich:
+            case R.id.mnChooseDate:
                 Calendar calendarDate= Calendar.getInstance();
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 DatePickerDialog.OnDateSetListener callBack= new DatePickerDialog.OnDateSetListener() {
@@ -140,6 +141,7 @@ public class TaiKhoanChiTietActivity extends AppCompatActivity {
     private void linkViews() {
         lvTaiKhoanChiTiet=findViewById(R.id.lvTaiKhoanChiTiet);
         btnThemMoiTaiKhoan=findViewById(R.id.btnThemMoiTaiKhoan);
+        txtTong=findViewById(R.id.txtTong);
 
     }
 
@@ -167,13 +169,19 @@ public class TaiKhoanChiTietActivity extends AppCompatActivity {
         //chiTietTKAdapter = new TaiKhoanChiTietAdapter(TaiKhoanChiTietActivity.this, R.layout.item_tai_khoan_layout, getDataFromDb());
         chiTietTKAdapter = new TaiKhoanChiTietAdapter(TaiKhoanChiTietActivity.this,R.layout.item_thong_ke_chi_tiet,getDataFromDb());
         lvTaiKhoanChiTiet.setAdapter(chiTietTKAdapter);
+        double total=0;
+        for (ThuChiActivity item:InfoTaiKhoanChiTiet
+        ) {
+            total+=item.getActivityAmount();
+        }
+        txtTong.setText(String.format("%,.0f",total)+" đồng");
 
     }
     private void addEvents() {
         btnThemMoiTaiKhoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(TaiKhoanChiTietActivity.this, ThuChiThemMoi.class);
+                Intent intent = new Intent(TaiKhoanChiTietActivity.this, TaiKhoanSuaChiTiet.class);
                 startActivity(intent);
             }
         });

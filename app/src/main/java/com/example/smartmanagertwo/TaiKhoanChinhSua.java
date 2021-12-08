@@ -58,7 +58,7 @@ public class TaiKhoanChinhSua extends AppCompatActivity {
         if (selectedThongKeChiTiet.getActivityAccount().equals("Tiền mặt")){
             getSupportActionBar().setTitle("Tiền mặt");
         }else if(selectedThongKeChiTiet.getActivityAccount().equals("TK ngân hàng")){
-            getSupportActionBar().setTitle("Tài khoản ngân hàng");
+            getSupportActionBar().setTitle("TK ngân hàng");
         } else if(selectedThongKeChiTiet.getActivityAccount().equals("Thẻ tín dụng")){
             getSupportActionBar().setTitle("Thẻ tín dụng");
         }

@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.model.ThuChiActivity;
 import com.example.taikhoan.TaiKhoanActivity;
 import com.example.taikhoan.TaiKhoanAdapter;
 import com.example.thongke.ThongKe;
@@ -28,6 +30,7 @@ import java.util.List;
 public class TaiKhoan extends AppCompatActivity {
 
     ListView lvTaiKhoanThu;
+    TextView txtTongTK;
     ArrayList<TaiKhoanActivity> InfoTaiKhoanThu;
     TaiKhoanAdapter adapter;
     public static MyDatabaseHelper db;
@@ -95,6 +98,7 @@ public class TaiKhoan extends AppCompatActivity {
 
     private void linkViews() {
         lvTaiKhoanThu = findViewById(R.id.lvTaiKhoanThu);
+        txtTongTK = findViewById(R.id.txtTongTK);
     }
     private void prepareDB() {
         db = new MyDatabaseHelper(this);
@@ -104,6 +108,12 @@ public class TaiKhoan extends AppCompatActivity {
     private void loadData() {
         adapter = new TaiKhoanAdapter(TaiKhoan.this,R.layout.item_tai_khoan_layout,getDataFromDb());
         lvTaiKhoanThu.setAdapter(adapter);
+        double total=0;
+        for (TaiKhoanActivity item:InfoTaiKhoanThu
+        ) {
+            total+=item.getInfoSoTien();
+        }
+        txtTongTK.setText(String.format("%,.0f",total)+" đồng");
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
