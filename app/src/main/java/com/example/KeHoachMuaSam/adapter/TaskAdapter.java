@@ -66,13 +66,14 @@ public class TaskAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 //Edit data
-                //context.openEditDialog(t);
+                context.openEditDialog(t);
             }
         });
         holder.imvDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Delete data
+                context.deleteTask(t);
             }
         });
 

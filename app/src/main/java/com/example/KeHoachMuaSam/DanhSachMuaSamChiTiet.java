@@ -2,7 +2,6 @@ package com.example.KeHoachMuaSam;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -53,7 +52,7 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
         linkView();
         prepareDb();
         loadData();
-
+        addEvents();
     }
 
     private void linkView() {
@@ -83,44 +82,82 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
     }
 
     private void addEvents() {
-//        fabThem.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                openAddDialog();
-//            }
-//
-//            private void openAddDialog() {
-//                LayoutInflater inflater = getLayoutInflater();
-//                View alertLayout = inflater.inflate(R.layout.layout_custom_dialog_add_danhsach, null);
-//                final EditText edtName = alertLayout.findViewById(R.id.edtName);
-//                final EditText edtPrice = alertLayout.findViewById(R.id.edtPrice);
-//
-//                AlertDialog.Builder alert = new AlertDialog.Builder(DanhSachMuaSamChiTiet.this);
-//                alert.setTitle("Thêm Item");
-//                alert.setView(alertLayout);
-//                alert.setCancelable(false);
-//                alert.setPositiveButton("Thêm", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//
-//                    }
-//                });
-//                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        Toast.makeText(getBaseContext(), "Cancel clicked", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//                AlertDialog dialog = alert.create();
-//                dialog.show();
-//            }
-//            });
         fabThem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //show dialog
+                openAddDialog();
+            }
+
+            private void openAddDialog() {
+                LayoutInflater inflater = getLayoutInflater();
+                View alertLayout = inflater.inflate(R.layout.dialog_add_danhsach, null);
+                final EditText edtName = alertLayout.findViewById(R.id.edtName);
+                final EditText edtPrice = alertLayout.findViewById(R.id.edtPrice);
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(DanhSachMuaSamChiTiet.this);
+                alert.setTitle("Thêm Item");
+                alert.setView(alertLayout);
+                alert.setCancelable(false);
+                alert.setPositiveButton("Thêm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String itemName= edtName.getText().toString();
+                        String itemPrice=edtPrice.getText().toString();
+                        if(itemName.equals("")&& itemPrice.equals("")){
+                            Toast.makeText(DanhSachMuaSamChiTiet.this, "Vui lòng nhập công việc", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            db.execSql("INSERT INTO " +MyDatabaseHelper.TBL_NAME_DANHSACH + " VALUES(null,'"+itemName+"', '"+itemPrice+"')");
+                            Toast.makeText(DanhSachMuaSamChiTiet.this, "Success!", Toast.LENGTH_SHORT).show();
+                            dialogInterface.dismiss();
+                            loadData();
+                        }
+                    }
+                });
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(getBaseContext(), "Cancel clicked", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                AlertDialog dialog = alert.create();
+                dialog.show();
             }
         });
+
+    }
+    public void openEditDialog(Task t){
+        //Toast.makeText(this, "t.getTaskName", Toast.LENGTH_SHORT).show();
+        Dialog dialog=new Dialog(this);
+        dialog.setContentView(R.layout.dialog_edit_danhsachmuasam);
+        EditText edtName=dialog.findViewById(R.id.edtName);
+        EditText edtPrice=dialog.findViewById(R.id.edtPrice);
+
+        edtName.setText(t.getTaskName());
+        edtPrice.setText(String.valueOf(t.getTaskPrice()));
+        Button btnOK= dialog.findViewById(R.id.btnOK);
+        btnOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String taskName=edtName.getText().toString();
+                String taskPrice=edtPrice.getText().toString();
+//                db.execSql("UPDATE " + MyDatabaseHelper.TBL_NAME_DANHSACH + " SET " + MyDatabaseHelper.COL_DANHSACH_NAME + " = '" + taskName + MyDatabaseHelper.COL_DANHSACH_PRICE + taskPrice + "' " +
+//                        "' WHERE " + MyDatabaseHelper.COL_DANHSACH_ID + " = "  + t.getTaskId());
+                db.execSql("UPDATE "+MyDatabaseHelper.TBL_NAME_DANHSACH + " SET " + MyDatabaseHelper.COL_NHACNHO_NAME +" = '"+taskName+"', "+MyDatabaseHelper.COL_DANHSACH_PRICE+" = '"+taskPrice+"' " +
+                        " 'WHERE "+MyDatabaseHelper.COL_DANHSACH_ID+"=" +t.getTaskId());
+                Toast.makeText(DanhSachMuaSamChiTiet.this, "Success!", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+                loadData();
+            }
+        });
+        Button btnCancle=dialog.findViewById(R.id.btnCancel);
+        btnCancle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 
 //        btnBack.setOnClickListener(new View.OnClickListener() {
@@ -129,6 +166,27 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
 //
 //            }
 //        });
+public void  deleteTask (Task t){
+    AlertDialog.Builder builder=new AlertDialog.Builder(this);
+    builder.setTitle("Confirm!");
+    builder.setMessage("Are you sure you want to delete this item: " + t.getTaskName()+ "?");
+    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {
+            db.execSql("DELETE FROM " + MyDatabaseHelper.TBL_NAME_DANHSACH + " WHERE " + MyDatabaseHelper.COL_DANHSACH_ID + " = " + t.getTaskId());
+            Toast.makeText(DanhSachMuaSamChiTiet.this, "Success!", Toast.LENGTH_SHORT).show();
+            loadData();
+        }
+    });
+    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {
+            dialogInterface.dismiss();
+        }
+    });
+    builder.create().show();
+
+}
 
 
 

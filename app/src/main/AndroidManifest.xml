@@ -62,11 +62,7 @@
         <activity
             android:name="com.example.KeHoachMuaSam.KeHoachMuaSamMain"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.example.KeHoachMuaSam.DanhSachMuaSamThem"
@@ -75,7 +71,11 @@
         <activity
             android:name="com.example.KeHoachMuaSam.DanhSachMuaSamChiTiet"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".TaiKhoanThem" android:exported="true"></activity>
         <activity android:name=".TaiKhoanSua" android:exported="true">
