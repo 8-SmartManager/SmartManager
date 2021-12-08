@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/llTaoMucTieu"
-    tools:context="com.example.muctieutietkiem.packages.TaoMucTieuChiTiet"
+    tools:context="com.example.muctieutietkiem.packages.EditMucTieuHoatDong"
     >
 
     <LinearLayout
@@ -211,7 +211,7 @@
         </TableLayout>
 
 
-            />
+
     </LinearLayout>
 
     <LinearLayout

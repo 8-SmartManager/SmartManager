@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="Tạm dừng"
-        android:id="@+id/edit"
+        android:id="@+id/mnPause"
         android:icon="@drawable/ic_pause__1_"
         android:iconTint="@color/white"
         app:showAsAction="always"/>

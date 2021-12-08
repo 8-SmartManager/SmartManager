@@ -41,9 +41,7 @@ public class HopChonColor extends DialogFragment {
 
         adapter = new ColorAdapter(getContext(),R.layout.item_color_muctieu,initData());
         gvColor.setAdapter(adapter);
-        gvColor.setSelection(4);
-        Color color= (Color) adapter.getItem(4);
-        colorInt=color.getColorID();
+
         gvColor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
