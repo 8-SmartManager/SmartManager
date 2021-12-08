@@ -62,7 +62,7 @@ public class TaiKhoan extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.mnSua:
-                Intent intents = new Intent(TaiKhoan.this, TaiKhoanSua.class);
+                Intent intents = new Intent(TaiKhoan.this, TaiKhoanChinhSua.class);
                 startActivity(intents);
                 Toast.makeText(this, "Bạn vừa chọn Sửa tài khoản", Toast.LENGTH_SHORT).show();
                 break;
@@ -123,10 +123,10 @@ public class TaiKhoan extends AppCompatActivity {
         lvTaiKhoanThu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(TaiKhoan.this, TaiKhoanChiTiet.class);
+                Intent intent = new Intent(TaiKhoan.this, TaiKhoanChiTietActivity.class);
                 adapter = new TaiKhoanAdapter(TaiKhoan.this, R.layout.item_tai_khoan_layout,InfoTaiKhoanThu);
                 TaiKhoanActivity taiKhoanActivity= (TaiKhoanActivity) adapter.getItem(i);
-                intent.putExtra("Tai khoan",taiKhoanActivity);
+                intent.putExtra("Tai Khoan",taiKhoanActivity);
                 startActivity(intent);
             }
         });

@@ -10,7 +10,6 @@ public class TaiKhoanActivity implements Serializable {
         InfoTaiKhoan = infoTaiKhoan;
         InfoSoTien = infoSoTien;
     }
-
     public String getInfoTaiKhoan() {
         return InfoTaiKhoan;
     }
@@ -18,7 +17,6 @@ public class TaiKhoanActivity implements Serializable {
     public void setInfoTaiKhoan(String infoTaiKhoan) {
         InfoTaiKhoan = infoTaiKhoan;
     }
-
     public double getInfoSoTien() {
         return InfoSoTien;
     }

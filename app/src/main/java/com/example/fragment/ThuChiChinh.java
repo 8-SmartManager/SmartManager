@@ -1,6 +1,5 @@
 package com.example.fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
@@ -21,9 +20,6 @@ import com.example.adapter.ActivityAdapter;
 import com.example.model.ThuChiActivity;
 import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.R;
-import com.example.smartmanagertwo.TaiKhoanSua;
-import com.example.smartmanagertwo.TaiKhoanSuaChiTiet;
-import com.example.smartmanagertwo.ThongKeChiTietActivity;
 import com.example.smartmanagertwo.ThongKeChinhSua;
 
 import java.time.LocalDate;

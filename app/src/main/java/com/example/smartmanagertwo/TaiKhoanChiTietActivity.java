@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -17,35 +18,57 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.thongke.ThongKeChiTiet;
+import com.example.model.ThuChiActivity;
+import com.example.taikhoan.TaiKhoanActivity;
+import com.example.taikhoan.TaiKhoanChiTietAdapter;
+import com.example.thongke.ThongKe;
+import com.example.thongke.ThongKeChiTietAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
-public class TaiKhoanChiTiet extends AppCompatActivity {
-    FloatingActionButton btnThemMoi;
-    TextView txtTienMat_Detail;
+public class TaiKhoanChiTietActivity extends AppCompatActivity {
+    ListView lvTaiKhoanChiTiet;
+    ArrayList<ThuChiActivity> InfoTaiKhoanChiTiet;
+    TaiKhoanChiTietAdapter chiTietTKAdapter;
+    TaiKhoanActivity selectedTaiKhoan;
+    FloatingActionButton btnThemMoiTaiKhoan;
+    public static MyDatabaseHelper db;
 
+
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tai_khoan_chi_tiet);
+
+        getData();
         Drawable drawable=getResources().getDrawable(R.drawable.ic_back);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(drawable);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
-        getSupportActionBar().setTitle("Tiền mặt");
+        getSupportActionBar().setTitle(selectedTaiKhoan.getInfoTaiKhoan());
 
+        prepareDb();
         linkViews();
+        loadData();
         addEvents();
     }
+
+
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
@@ -75,6 +98,12 @@ public class TaiKhoanChiTiet extends AppCompatActivity {
         }
     }
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.thong_ke_chi_tiet_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+
+    }
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId())
         {
@@ -92,7 +121,7 @@ public class TaiKhoanChiTiet extends AppCompatActivity {
                         calendarDate.set(Calendar.DAY_OF_MONTH,i2);
                     }
                 };
-                DatePickerDialog datePickerDialog = new DatePickerDialog(TaiKhoanChiTiet.this,callBack,
+                DatePickerDialog datePickerDialog = new DatePickerDialog(TaiKhoanChiTietActivity.this,callBack,
                         calendarDate.get(Calendar.YEAR),
                         calendarDate.get(Calendar.MONTH),
                         calendarDate.get(Calendar.DAY_OF_MONTH));
@@ -102,33 +131,66 @@ public class TaiKhoanChiTiet extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-    private void addEvents() {
-        btnThemMoi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(TaiKhoanChiTiet.this, ThuChiThemMoi.class);
-                startActivity(intent);
-            }
-        });
-        txtTienMat_Detail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(TaiKhoanChiTiet.this,TaiKhoanSuaChiTiet.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-    private void linkViews() {
-        btnThemMoi=findViewById(R.id.btnThemMoi);
-        txtTienMat_Detail=findViewById(R.id.txtTienMat_Detail);
-    }
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.thong_ke_chi_tiet_menu, menu);
-        return super.onCreateOptionsMenu(menu);
+    protected void onResume() {
+        loadData();
+        super.onResume();
+    }
+    private void linkViews() {
+        lvTaiKhoanChiTiet=findViewById(R.id.lvTaiKhoanChiTiet);
+        btnThemMoiTaiKhoan=findViewById(R.id.btnThemMoiTaiKhoan);
 
     }
+
+    private void prepareDb() {
+        db = new MyDatabaseHelper(this);
+    }
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private List<ThuChiActivity> getDataFromDb(){
+        InfoTaiKhoanChiTiet = new ArrayList<>();
+        Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_THUCHI+ " WHERE "+MyDatabaseHelper.COL_THUCHI_ACCOUNT+"='"+selectedTaiKhoan.getInfoTaiKhoan()+"'");
+        InfoTaiKhoanChiTiet.clear();
+        while (cursor.moveToNext()){
+            InfoTaiKhoanChiTiet.add(new ThuChiActivity(cursor.getInt(0),LocalDate.parse(cursor.getString(5)), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getDouble(4)));
+        }
+        cursor.close();
+        return InfoTaiKhoanChiTiet;
+    }
+
+    private void getData() {
+        Intent intent = getIntent();
+        selectedTaiKhoan = (TaiKhoanActivity) intent.getSerializableExtra("Tai Khoan");
+    }
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void loadData() {
+        //chiTietTKAdapter = new TaiKhoanChiTietAdapter(TaiKhoanChiTietActivity.this, R.layout.item_tai_khoan_layout, getDataFromDb());
+        chiTietTKAdapter = new TaiKhoanChiTietAdapter(TaiKhoanChiTietActivity.this,R.layout.item_thong_ke_chi_tiet,getDataFromDb());
+        lvTaiKhoanChiTiet.setAdapter(chiTietTKAdapter);
+
+    }
+    private void addEvents() {
+        btnThemMoiTaiKhoan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TaiKhoanChiTietActivity.this, ThuChiThemMoi.class);
+                startActivity(intent);
+            }
+        });
+        lvTaiKhoanChiTiet.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                    Intent intent = new Intent(TaiKhoanChiTietActivity.this, TaiKhoanChinhSua.class);
+                    chiTietTKAdapter = new TaiKhoanChiTietAdapter(TaiKhoanChiTietActivity.this, R.layout.item_thong_ke_chi_tiet, InfoTaiKhoanChiTiet);
+                    ThuChiActivity thongKeChiTiet = (ThuChiActivity) chiTietTKAdapter.getItem(i);
+                    intent.putExtra("ThongKeChiTiet", thongKeChiTiet);
+                    startActivity(intent);
+            }
+        });
+    }
+
+
+
 
 }

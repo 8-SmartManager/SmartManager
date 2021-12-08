@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/thay_trang">
+    android:layout_height="match_parent">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -169,50 +168,15 @@
                 android:textStyle="bold"/>
         </TableRow>
     </TableLayout>
-    <TableLayout
+    <ListView
+        android:layout_weight="1"
+        android:id="@+id/lvTaiKhoanChiTiet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="@color/white"
-        android:layout_weight="1">
-        <TableRow>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Ăn uống"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
-                android:textColor="@color/mau_xam"
-                />
-
-            <TextView
-                android:id="@+id/txtTienMat_Detail"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/body_medium_13"
-                android:gravity="center"
-                android:text="Tiền mặt"
-                android:textColor="@color/mau_xam"
-                android:textSize="13dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="50000"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
-                android:textColor="@color/thu_cap"/>
-
-        </TableRow>
-    </TableLayout>
+        android:listSelector="@color/thay_trang"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnThemMoi"
+        android:id="@+id/btnThemMoiTaiKhoan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
