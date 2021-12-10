@@ -32,7 +32,7 @@
                     android:background="@drawable/textlines_khong"
                     android:backgroundTint="@color/mau_xam"
                     android:fontFamily="@font/header3_semibold_14"
-                    android:text=""
+                    android:text="Chọn thể loại"
                     android:textColor="@color/mau_dam"
                     android:textSize="14sp" />
             </TableRow>
@@ -47,6 +47,7 @@
                     android:text="Tên"
 
                     android:textColor="@color/mau_xam" />
+
                 <EditText
                     android:id="@+id/edtNhacNhoThemTen"
                     android:layout_width="match_parent"
@@ -56,6 +57,7 @@
                     android:background="@drawable/textlines_khong"
                     android:backgroundTint="@color/mau_xam"
                     android:fontFamily="@font/header3_semibold_14"
+                    android:hint="Nhập tên"
                     android:textColor="@color/mau_dam"
                     android:textSize="14sp" />
             </TableRow>
@@ -74,6 +76,7 @@
                     android:layout_height="56dp"
                     android:layout_marginRight="30dp"
                     android:layout_weight="1"
+                    android:text="Chọn chu kỳ"
                     android:background="@drawable/textlines_khong"
                     android:fontFamily="@font/header3_semibold_14"
                     android:textColor="@color/mau_dam"
@@ -94,6 +97,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:layout_marginRight="30dp"
+                    android:text="Chọn ngày bắt đầu"
                     android:layout_weight="1"
                     android:background="@drawable/textlines_khong"
                     android:fontFamily="@font/header3_semibold_14"
@@ -115,6 +119,7 @@
                     android:layout_height="56dp"
                     android:layout_marginRight="30dp"
                     android:layout_weight="1"
+                    android:text="Chọn giờ nhắc"
                     android:background="@drawable/textlines_khong"
                     android:fontFamily="@font/header3_semibold_14"
                     android:textColor="@color/mau_dam"
