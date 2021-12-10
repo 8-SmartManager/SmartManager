@@ -59,7 +59,7 @@ public class ActivityAdapter extends BaseAdapter {
         holder.txtDate.setText(a.getActivityDate().toString());
         holder.txtName.setText(a.getActivityName());
         holder.txtAccount.setText(a.getActivityAccount());
-        holder.txtAmount.setText(toString().valueOf(a.getActivityAmount()));
+        holder.txtAmount.setText(String.format("%,.0f",a.getActivityAmount()));
 
         return view;
     }

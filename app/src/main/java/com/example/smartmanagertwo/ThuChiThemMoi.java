@@ -68,35 +68,35 @@ public class ThuChiThemMoi extends AppCompatActivity {
     }
 
     // hỏi vào thứ 5-> làm sao để chạy nhấn fragment k lên ô chữ
-//    @RequiresApi(api = Build.VERSION_CODES.M)
-//    @Override
-//    public boolean dispatchTouchEvent(MotionEvent ev) {
-//        View v = getCurrentFocus();
-//        if (v != null && (ev.getAction() == MotionEvent.ACTION_UP || ev.getAction() == MotionEvent.ACTION_MOVE) &&
-//                v instanceof EditText &&
-//                !v.getClass().getName().startsWith("android.webkit.")) {
-//            int[] sourceCoordinates = new int[2];
-//            v.getLocationOnScreen(sourceCoordinates);
-//            float x = ev.getRawX() + v.getLeft() - sourceCoordinates[0];
-//            float y = ev.getRawY() + v.getTop() - sourceCoordinates[1];
-//
-//            if (x < v.getLeft() || x > v.getRight() || y < v.getTop() || y > v.getBottom()) {
-//                hideKeyboard(this);
-//            }
-//        }
-//        return super.dispatchTouchEvent(ev);
-//    }
-//
-//    @RequiresApi(api = Build.VERSION_CODES.M)
-//    private void hideKeyboard(Activity activity) {
-//        if (activity != null && activity.getWindow() != null) {
-//            activity.getWindow().getDecorView();
-//            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-//            if (imm != null) {
-//                imm.hideSoftInputFromWindow(activity.getWindow().getDecorView().getWindowToken(), 0);
-//            }
-//        }
-//    }
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        View v = getCurrentFocus();
+        if (v != null && (ev.getAction() == MotionEvent.ACTION_UP || ev.getAction() == MotionEvent.ACTION_MOVE) &&
+                v instanceof EditText &&
+                !v.getClass().getName().startsWith("android.webkit.")) {
+            int[] sourceCoordinates = new int[2];
+            v.getLocationOnScreen(sourceCoordinates);
+            float x = ev.getRawX() + v.getLeft() - sourceCoordinates[0];
+            float y = ev.getRawY() + v.getTop() - sourceCoordinates[1];
+
+            if (x < v.getLeft() || x > v.getRight() || y < v.getTop() || y > v.getBottom()) {
+                hideKeyboard(this);
+            }
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void hideKeyboard(Activity activity) {
+        if (activity != null && activity.getWindow() != null) {
+            activity.getWindow().getDecorView();
+            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (imm != null) {
+                imm.hideSoftInputFromWindow(activity.getWindow().getDecorView().getWindowToken(), 0);
+            }
+        }
+    }
 
     private void addEvents() {
 
