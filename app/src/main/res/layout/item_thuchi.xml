@@ -3,9 +3,18 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="12">
+    android:weightSum="16">
 
-   <TextView
+    <TextView
+        android:id="@+id/txtActivityDate"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:fontFamily="@font/body_medium_13"
+        android:textSize="13dp"
+        android:textColor="@color/mau_xam"/>
+    <TextView
        android:id="@+id/txtActivityName"
        android:layout_width="0dp"
        android:layout_height="40dp"

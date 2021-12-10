@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Smart Manager Help Center"
+        android:textSize="20sp"
+        android:textColor="@color/mau_dam"
+        android:gravity="center"
+        android:background="@drawable/textlines_khong"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Money Manager Help Center > Android User Guide"
+        android:textColor="@color/chu_dao"
+        android:layout_gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:background="@color/thay_trang"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="50dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_tim_kiem"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="32dp"
+            app:tint="@color/mau_xam"/>
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Search"
+            android:layout_weight="1"
+            android:textColor="@color/mau_xam"
+            android:fontFamily="@font/header3_semibold_14"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/header2_bold_20"
+            android:text="Android User Guide"
+            android:textColor="@color/mau_dam"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What's new"
+            android:textColor="@color/mau_dam"
+            android:padding="10dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Xin chào, chúng tôi là Smart Manager. Sau bao nhiêu ngày trông đợi các tính năng mới. Chúng tôi đem đến cho
+bạn một tin tốt: "
+
+        android:textSize="13sp"
+        android:fontFamily="@font/body_medium_13"
+        android:textColor="@color/mau_dam"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chúng tôi vừa thêm chức năng Lập kế hoạch vào các chức năng của ứng dung.
+Nơi đây, bạn có thể tạo mới và quản lý các kế hoạch chi tiêu của mình một cách hợp lý. Hãy trải nghiệm và tẩn hưởng nó nhé!"
+        android:background="@drawable/textlines_khong"
+        android:textSize="13sp"
+            android:textStyle="bold"
+        android:fontFamily="@font/body_medium_13"
+        android:textColor="@color/mau_dam"/>
+
+    </LinearLayout>
+</LinearLayout>

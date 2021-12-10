@@ -94,6 +94,12 @@
             android:name=".CaiDatThongTinAppChinhSach"
             android:exported="true" />
         <activity
+            android:name=".CaiDatTroGiup"
+            android:exported="true" />
+        <activity
+            android:name=".CaiDatTroGiupNew"
+            android:exported="true" />
+        <activity
             android:name=".NhacNhoChiTietActivity"
             android:exported="true" />
         <activity

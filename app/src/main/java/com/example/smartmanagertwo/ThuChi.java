@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -34,6 +36,8 @@ public class                                                ThuChi extends AppCo
         addEvents();
 
     }
+
+   
 
     private void addEvents() {
         btnThemMoi.setOnClickListener(new View.OnClickListener() {

@@ -1,5 +1,6 @@
 package com.example.fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
@@ -66,6 +67,12 @@ public class ThuChiChinh extends Fragment{
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void loadData() {
+        activity = new ArrayList<>();
+        Cursor cursor = ThuChiChinh.db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_THUCHI);
+        while(cursor.moveToNext()){
+            activity.add(new ThuChiActivity(cursor.getInt(0), LocalDate.parse(cursor.getString(5)), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getDouble(4)));
+        }
+        cursor.close();
         adapter = new ActivityAdapter(getActivity(), R.layout.item_thuchi, getDataFromDb());
         lvActivity.setAdapter(adapter);
     }
@@ -88,9 +95,9 @@ public class ThuChiChinh extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 selectedActivity = (ThuChiActivity) adapter.getItem(i);
-                //intent qua màn hình Chỉnh sửa ntn?
+
                 Intent intent = new Intent(getContext(), ThongKeChinhSua.class);
-                intent.putExtra(Constant.SELECTED_ITEM, selectedActivity);
+                intent.putExtra("ThongKeChiTiet", selectedActivity);
                 startActivity(intent);
 
 

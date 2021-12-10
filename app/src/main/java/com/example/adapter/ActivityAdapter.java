@@ -46,6 +46,7 @@ public class ActivityAdapter extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(item_thuchi, null);
 
+            holder.txtDate = view.findViewById(R.id.txtActivityDate);
             holder.txtName = view.findViewById(R.id.txtActivityName);
             holder.txtAccount = view.findViewById(R.id.txtActivityAccount);
             holder.txtAmount = view.findViewById(R.id.txtActivityAmount);
@@ -55,6 +56,7 @@ public class ActivityAdapter extends BaseAdapter {
         }
         //binding
         ThuChiActivity a = activity.get(i);
+        holder.txtDate.setText(a.getActivityDate().toString());
         holder.txtName.setText(a.getActivityName());
         holder.txtAccount.setText(a.getActivityAccount());
         holder.txtAmount.setText(toString().valueOf(a.getActivityAmount()));
@@ -63,6 +65,6 @@ public class ActivityAdapter extends BaseAdapter {
     }
 
     private class ViewHolder{
-        TextView txtName, txtAccount, txtAmount;
+        TextView txtDate, txtName, txtAccount, txtAmount;
     }
 }
