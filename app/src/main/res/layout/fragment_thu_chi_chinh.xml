@@ -6,46 +6,60 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
-    <LinearLayout
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:weightSum="12">
+        android:layout_height="56dp"
+        android:gravity="center">
 
+        <TableRow>
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="56dp"
-                android:text="18, Th2"
-                android:layout_weight="4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thu"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
-                android:textColor="@color/mau_dam"
-                android:textStyle="bold"/>
+                android:textSize="13sp"
+                android:textColor="@color/mau_dam"/>
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chi"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:fontFamily="@font/body_medium_13"
+                android:textSize="13sp"
+                android:textColor="@color/mau_dam"/>
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/txtTongThu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="2000000"
-                android:layout_weight="4"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
                 android:textSize="13dp"
-                android:textColor="@color/mau_dam"
-                android:textStyle="bold"/>
+                android:textColor="@color/mau_dam"/>
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="56dp"
-                android:text="2000000"
-                android:layout_weight="4"
-                android:gravity="center"
+                android:id="@+id/txtTongChi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
+                android:gravity="center"
+                android:text="2050000"
                 android:textColor="@color/thu_cap"
-                android:textStyle="bold"/>
-    </LinearLayout>
+                android:textSize="13dp" />
+
+        </TableRow>
+    </TableLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

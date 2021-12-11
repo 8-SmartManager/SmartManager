@@ -107,6 +107,7 @@
                 android:textColor="@color/mau_xam"
                 android:textSize="13dp"
                 android:hint="Nhập số tiền"
+                android:inputType="number"
                 android:backgroundTint="@color/mau_dam"
                 android:fontFamily="@font/body_medium_13"
                 android:textStyle="bold"/>

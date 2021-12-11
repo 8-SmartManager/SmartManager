@@ -37,6 +37,7 @@ import com.example.nhacnho.HopChonNhacNhoChiTietTheLoai;
 import com.example.nhacnho.NhacNho;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
 
 public class NhacNhoChiTietActivity extends AppCompatActivity {
@@ -96,6 +97,7 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.nhac_nho_edit_option_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -135,17 +137,62 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
                         chuKy=txtChuKy.getText().toString(),
                         ngayBatDau=txtNgayBatDau.getText().toString(),
                         gioNhac=txtGioNhac.getText().toString();
+                LocalDate now=LocalDate.now();
+                LocalDate date=LocalDate.parse(ngayBatDau);
+                Calendar calendar1 = Calendar.getInstance();
+                SimpleDateFormat formatter1 = new SimpleDateFormat("hh:mm:ss");
+                String currentDate = formatter1.format(calendar1.getTime());
                 if(theLoai.equals("")||ten.equals("")||chuKy.equals("")||ngayBatDau.equals("")||gioNhac.equals("")){
-                    AlertDialog.Builder builder= new AlertDialog.Builder(NhacNhoChiTietActivity.this);
-                    builder.setTitle("Lỗi!");
-                    builder.setMessage("Vui lòng nhập đầy đủ thông tin");
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    Dialog dialogDone = new Dialog(NhacNhoChiTietActivity.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                    dialogDone.setContentView(R.layout.dialog_error);
+                    TextView txtTitleDone=dialogDone.findViewById(R.id.txtTitle),
+                            txtMessageDone=dialogDone.findViewById(R.id.txtMessage);
+                    Button btnYesDone=dialogDone.findViewById(R.id.btnYes);
+
+                    txtTitleDone.setText("Lỗi");
+                    txtMessageDone.setText("Vui lòng nhập đầy đủ thông tin!");
+                    btnYesDone.setOnClickListener(new View.OnClickListener() {
                         @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
+                        public void onClick(View view) {
+                            dialogDone.dismiss();
                         }
                     });
-                    builder.create().show();
+
+                    dialogDone.show();
+                }else if(date.compareTo(now)<0){
+                    Dialog dialogDone = new Dialog(NhacNhoChiTietActivity.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                    dialogDone.setContentView(R.layout.dialog_error);
+                    TextView txtTitleDone=dialogDone.findViewById(R.id.txtTitle),
+                            txtMessageDone=dialogDone.findViewById(R.id.txtMessage);
+                    Button btnYesDone=dialogDone.findViewById(R.id.btnYes);
+
+                    txtTitleDone.setText("Lỗi");
+                    txtMessageDone.setText("Ngày bắt đầu phải lớn hơn hoặc bằng ngày hiện tại!");
+                    btnYesDone.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialogDone.dismiss();
+                        }
+                    });
+
+                    dialogDone.show();
+                }else if(date.compareTo(now)==0&&currentDate.compareTo(gioNhac)>0){
+                    Dialog dialogDone = new Dialog(NhacNhoChiTietActivity.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                    dialogDone.setContentView(R.layout.dialog_error);
+                    TextView txtTitleDone=dialogDone.findViewById(R.id.txtTitle),
+                            txtMessageDone=dialogDone.findViewById(R.id.txtMessage);
+                    Button btnYesDone=dialogDone.findViewById(R.id.btnYes);
+
+                    txtTitleDone.setText("Lỗi");
+                    txtMessageDone.setText("Thời gian nhắc phải lớn hơn thời gian hiện tại!");
+                    btnYesDone.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialogDone.dismiss();
+                        }
+                    });
+
+                    dialogDone.show();
                 }else {
                     NhacNhoActivity.db.execSql("UPDATE "+MyDatabaseHelper.TBL_NAME_NHAC_NHO+" SET "+MyDatabaseHelper.COL_NHACNHO_TYPE+" = '"+theLoai+"', "+MyDatabaseHelper.COL_NHACNHO_NAME+" = '"+ten+"', "+MyDatabaseHelper.COL_NHACNHO_PERIOD+" = '"+chuKy+"', "+MyDatabaseHelper.COL_NHACNHO_START_DAY+" = '"+ngayBatDau+"', "+MyDatabaseHelper.COL_NHACNHO_REMIND_TIME+" = '"+gioNhac+":00' WHERE "+MyDatabaseHelper.COL_NHACNHO_ID+"=" +selectedNhacNho.getID());
 

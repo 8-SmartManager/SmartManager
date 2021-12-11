@@ -1,5 +1,6 @@
 package com.example.fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
@@ -32,7 +33,7 @@ public class ThuChiChinh extends Fragment{
 
     public static MyDatabaseHelper db;
 
-    TextView txtActivityName, txtActivityAccount, txtActivityAmount;
+    TextView txtActivityName, txtActivityAccount, txtActivityAmount,txtTongThu,txtTongChi;
     ListView lvActivity;
     ActivityAdapter adapter;
     ArrayList<ThuChiActivity> activity;
@@ -46,10 +47,12 @@ public class ThuChiChinh extends Fragment{
         View view = inflater.inflate(R.layout.fragment_thu_chi_chinh, container, false);
 
         lvActivity = view.findViewById(R.id.lvActivity);
+        txtTongThu=view.findViewById(R.id.txtTongThu);
+        txtTongChi=view.findViewById(R.id.txtTongChi);
 
         prepareDb();
-        linkViews();
-        loadData();
+
+
         addEvents();
 
         return view;
@@ -60,14 +63,30 @@ public class ThuChiChinh extends Fragment{
         db.createSomeData();
     }
 
-    private void linkViews() {
-
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    public void onResume() {
+        loadData();
+        super.onResume();
     }
+
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void loadData() {
         adapter = new ActivityAdapter(getActivity(), R.layout.item_thuchi, getDataFromDb());
         lvActivity.setAdapter(adapter);
+        double thu=0,chi=0;
+        for (ThuChiActivity a:activity
+             ) {
+            if(a.getActivityType().equals("Thu")){
+                thu+=a.getActivityAmount();
+            }else {
+                chi+=a.getActivityAmount();
+            }
+        }
+        txtTongThu.setText(String.format("%,.0f",thu));
+        txtTongChi.setText(String.format("%,.0f",chi));
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -88,9 +107,9 @@ public class ThuChiChinh extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 selectedActivity = (ThuChiActivity) adapter.getItem(i);
-                //intent qua màn hình Chỉnh sửa ntn?
+
                 Intent intent = new Intent(getContext(), ThongKeChinhSua.class);
-                intent.putExtra(Constant.SELECTED_ITEM, selectedActivity);
+                intent.putExtra("ThongKeChiTiet", selectedActivity);
                 startActivity(intent);
 
 

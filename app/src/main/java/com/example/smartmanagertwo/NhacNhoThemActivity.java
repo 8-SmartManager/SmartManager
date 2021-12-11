@@ -1,5 +1,6 @@
 package com.example.smartmanagertwo;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -11,6 +12,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.ContentValues;
 import android.content.Context;
@@ -20,6 +22,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -87,6 +90,18 @@ public class NhacNhoThemActivity extends AppCompatActivity {
             }
         }
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:break;}
+        return super.onOptionsItemSelected(item);
+    }
+
     private void getData() {
          intent= getIntent();
     }
@@ -113,21 +128,68 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                         chuKy=txtChuKy.getText().toString(),
                         ngayBatDau=txtNgayBatDau.getText().toString(),
                         gioNhac=txtGioNhac.getText().toString();
+                LocalDate now=LocalDate.now();
+                LocalDate date=LocalDate.parse(ngayBatDau);
+                Calendar calendar1 = Calendar.getInstance();
+                SimpleDateFormat formatter1 = new SimpleDateFormat("hh:mm:ss");
+                String currentDate = formatter1.format(calendar1.getTime());
                 if(theLoai.equals("")||ten.equals("")||chuKy.equals("")||ngayBatDau.equals("")||gioNhac.equals("")){
-                    AlertDialog.Builder builder= new AlertDialog.Builder(NhacNhoThemActivity.this);
-                    builder.setTitle("Lỗi!");
-                    builder.setMessage("Vui lòng nhập đầy đủ thông tin");
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    Dialog dialog = new Dialog(NhacNhoThemActivity.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                    dialog.setContentView(R.layout.dialog_error);
+                    TextView txtTitle=dialog.findViewById(R.id.txtTitle),
+                            txtMessage=dialog.findViewById(R.id.txtMessage);
+                    Button btnYes=dialog.findViewById(R.id.btnYes);
+
+                    txtTitle.setText("Lỗi");
+                    txtMessage.setText("Vui lòng nhập đầy đủ thông tin!");
+                    btnYes.setOnClickListener(new View.OnClickListener() {
                         @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
+                        public void onClick(View view) {
+                            dialog.dismiss();
                         }
                     });
-                    builder.create().show();
-                }else {
+
+                    dialog.show();
+                }else if(date.compareTo(now)<0){
+                    Dialog dialog = new Dialog(NhacNhoThemActivity.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                    dialog.setContentView(R.layout.dialog_error);
+                    TextView txtTitle=dialog.findViewById(R.id.txtTitle),
+                            txtMessage=dialog.findViewById(R.id.txtMessage);
+                    Button btnYes=dialog.findViewById(R.id.btnYes);
+
+                    txtTitle.setText("Lỗi");
+                    txtMessage.setText("Ngày bắt đầu phải lớn hơn hoặc bằng ngày hiện tại!");
+                    btnYes.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialog.dismiss();
+                        }
+                    });
+
+                    dialog.show();
+                }else if(date.compareTo(now)==0&&currentDate.compareTo(gioNhac)>0){
+                    Dialog dialog = new Dialog(NhacNhoThemActivity.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                    dialog.setContentView(R.layout.dialog_error);
+                    TextView txtTitle=dialog.findViewById(R.id.txtTitle),
+                            txtMessage=dialog.findViewById(R.id.txtMessage);
+                    Button btnYes=dialog.findViewById(R.id.btnYes);
+
+                    txtTitle.setText("Lỗi");
+                    txtMessage.setText("Thời gian nhắc phải lớn hơn thời gian hiện tại!");
+                    btnYes.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialog.dismiss();
+                        }
+                    });
+
+                    dialog.show();
+                }
+                else {
                     NhacNhoActivity.db.execSql("INSERT INTO "+MyDatabaseHelper.TBL_NAME_NHAC_NHO+" VALUES(null, '"+theLoai+"', '"+ten+"', '"+chuKy+"', '"+ngayBatDau+"', '"+gioNhac+":00')");
                     finish();
                 }
+
 
             }
         });
