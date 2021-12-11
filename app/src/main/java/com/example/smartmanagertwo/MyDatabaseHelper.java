@@ -334,8 +334,37 @@ public  void  createSomeNhacNhoData(){
         }
 
 
+
+
     }
-    public boolean updateData( int i,byte[] goalThumb, String goalName, LocalDate goalTime, int goalColor, double goalSaved, double goalTarget,  String goalNote){
+
+    public boolean insertMucTieuCompletedData( byte[] goalThumb, String goalName, LocalDate goalTime, int goalColor, double goalSaved, double goalTarget,  String goalNote) {
+
+
+        try {
+            SQLiteDatabase db = getWritableDatabase();
+            String sql = "INSERT INTO " + TBL_NAME_MUC_TIEU_COMPLETED + " VALUES(null, ?, ?, ?, ?, ?, ?, ?)";
+            SQLiteStatement statement = db.compileStatement(sql);
+
+
+            statement.bindString(1, goalName);
+            statement.bindDouble(2, goalTarget);
+            statement.bindDouble(3, goalSaved);
+            statement.bindString(4, String.valueOf(goalTime));
+            statement.bindBlob(5, goalThumb);
+            statement.bindDouble(6, goalColor);
+            statement.bindString(7, goalNote);
+
+            statement.executeInsert();
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
+    }
+
+
+
+    public boolean updateDataHoatDong( int i,byte[] goalThumb, String goalName, LocalDate goalTime, int goalColor, double goalSaved, double goalTarget,  String goalNote){
 
 
         try{
@@ -353,6 +382,32 @@ public  void  createSomeNhacNhoData(){
             statement.bindDouble(6,goalColor);
             statement.bindString(7,goalNote);
             statement.bindDouble(8,i);
+            statement.executeInsert();
+            return true;
+        }
+        catch (Exception ex){
+            return false;
+        }
+
+
+    }
+    public boolean updateDataPaused( int i, String goalName, LocalDate goalTime, int goalColor, double goalSaved, double goalTarget,  String goalNote){
+
+
+        try{
+            SQLiteDatabase db = getWritableDatabase();
+//            String sql ="INSERT INTO "+TBL_NAME_MUC_TIEU+" VALUES(null, ?, ?, ?, ?, ?, ?, ?)";
+            String sql="UPDATE "+TBL_NAME_MUC_TIEU_PAUSED +" SET "+MyDatabaseHelper.COL_MUCTIEU_NAME +" = ?,"+ MyDatabaseHelper.COL_MUCTIEU_SOTIENMUCTIEU+"=?,"+MyDatabaseHelper.COL_MUCTIEU_SOTIENDATDUOC+" = ?,"+MyDatabaseHelper.COL_MUCTIEU_NGAYKETTHUC+"=?,"+MyDatabaseHelper.COL_MUCTIEU_IMAGE_COLOR+"=?," +MyDatabaseHelper.COL_MUCTIEU_LUUY+"=? WHERE "+MyDatabaseHelper.COL_MUCTIEU_ID+"=?";
+            SQLiteStatement statement = db.compileStatement(sql);
+
+
+            statement.bindString(1,goalName);
+            statement.bindDouble(2,goalTarget);
+            statement.bindDouble(3,goalSaved);
+            statement.bindString(4, String.valueOf(goalTime));
+            statement.bindDouble(5,goalColor);
+            statement.bindString(6,goalNote);
+            statement.bindDouble(7,i);
             statement.executeInsert();
             return true;
         }

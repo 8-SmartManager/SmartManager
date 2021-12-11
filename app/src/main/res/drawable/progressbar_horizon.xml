@@ -4,8 +4,8 @@
         <shape
 
             android:shape="rectangle">
-            <corners android:radius="50dp"/>
-            <solid android:color="@color/mau_xam"/>
+            <corners android:radius="3dp"/>
+            <solid android:color="#C0CDD8"/>
 
         </shape>
 
@@ -13,8 +13,8 @@
     <item android:id="@+id/progress">
         <scale android:scaleWidth="100%">
             <shape android:shape="rectangle">
-                <corners android:radius="50dp"/>
-                <solid android:color="#4CAF50"/>
+                <corners android:radius="3dp"/>
+                <solid android:color="#22D629"/>
 
             </shape>
         </scale>

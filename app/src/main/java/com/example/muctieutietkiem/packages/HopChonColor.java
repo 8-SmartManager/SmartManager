@@ -50,7 +50,7 @@ public class HopChonColor extends DialogFragment {
                 ImageView imvDrop= getActivity().findViewById(R.id.imvDrop);
                 adapter = new ColorAdapter(getContext(),R.layout.item_color_muctieu,initData());
                 Color color= (Color) adapter.getItem(i);
-                imageView.setImageResource(color.getColorThumb());
+                ImageViewCompat.setImageTintList(imageView, ColorStateList.valueOf(color.getColorID()));
                 colorInt=color.getColorID();
                 dismiss();
                 ImageViewCompat.setImageTintList(imvDrop, null);

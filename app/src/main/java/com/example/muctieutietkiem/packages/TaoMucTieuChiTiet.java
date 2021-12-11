@@ -137,8 +137,10 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
                     LocalDate currentDate = LocalDate.now();
                     int time = goalTime.compareTo(currentDate);
 
-                    int color = -11873872;
-                    color = HopChonColor.colorInt;
+                    int color = ImageViewCompat.getImageTintList(imvColor).getDefaultColor();
+
+
+
 
                     if(ten.equals("")||soTienDatDuoc.equals("")||soTienMucTieu.equals("")||ngayKetThuc.equals("")||luuY.equals("")){
                         AlertDialog.Builder builder= new AlertDialog.Builder(TaoMucTieuChiTiet.this);
@@ -187,7 +189,6 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
 
                     else {
 
-//                        hoat_dong_fragment.db.execSql("INSERT INTO "+MyDatabaseHelper.TBL_NAME_MUC_TIEU+" VALUES(null, '"+ten+"', '"+soTienMucTieu+"', '"+soTienDatDuoc+"', '"+ngayKetThuc+"',null,'"+color+"', '"+luuY+"')");
 
 
 
@@ -196,8 +197,7 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
                             ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
                             bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArray);
                             byte[] goalThumb = byteArray.toByteArray();
-                            color=-48536;
-                            color = HopChonColor.colorInt;
+//                            color=-48536;
                             hoat_dong_fragment.db.insertData(goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
                         }
                         else if (ten.equals("Mua xe")){
@@ -286,6 +286,8 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
 
     private void LoadData() {
         Intent intent = new Intent(TaoMucTieuChiTiet.this, TaoMucTieu.class);
+        ImageViewCompat.setImageTintList(imvColor, ColorStateList.valueOf(-11873872));
+
 
     }
 

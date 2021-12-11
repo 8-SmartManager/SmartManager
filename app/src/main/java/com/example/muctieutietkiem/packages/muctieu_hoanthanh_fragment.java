@@ -26,13 +26,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class muctieu_hoanthanh_fragment extends Fragment {
+    public static MyDatabaseHelper db;
     ListView lvGoal;
     ArrayList<Goal> goals;
     GoalAdapter adapter;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.muctieu_hoanthanh_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_muctieu_hoanthanh, container, false);
         lvGoal=view.findViewById(R.id.lvGoal);
 
 
@@ -59,13 +60,12 @@ public class muctieu_hoanthanh_fragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-
-//        db.createSomeMucTieuHoatDong();
+        db= new MyDatabaseHelper(context);
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
     private List<Goal> getDataFromDb() {
         goals = new ArrayList<>();
-        Cursor cursor = hoat_dong_fragment.db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_MUC_TIEU_COMPLETED);
+        Cursor cursor = muctieu_hoanthanh_fragment.db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_MUC_TIEU_COMPLETED);
         goals.clear();
         while(cursor.moveToNext()){
 //            activity.add(new ThuChiActivity(cursor.getInt(0), cursor.getString(1)));
@@ -83,8 +83,8 @@ public class muctieu_hoanthanh_fragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
 
-                Intent intent = new Intent(getActivity(), MucTieuChiTiet.class);
-                adapter= new GoalAdapter(getActivity(),R.layout.chitiet_muctieu,goals);
+                Intent intent = new Intent(getActivity(), MucTieuChiTiet_HoanThanh.class);
+                adapter= new GoalAdapter(getActivity(),R.layout.chitiet_muctieu_hoanthanh,goals);
                 Goal goal= (Goal) adapter.getItem(i);
                 intent.putExtra("Muc tieu",goal);
                 startActivity(intent);

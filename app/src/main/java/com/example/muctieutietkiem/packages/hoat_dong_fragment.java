@@ -36,7 +36,7 @@ public class hoat_dong_fragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.hoat_dong_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_muctieu_hoatdong, container, false);
 
         lvGoal=view.findViewById(R.id.lvGoal);
 

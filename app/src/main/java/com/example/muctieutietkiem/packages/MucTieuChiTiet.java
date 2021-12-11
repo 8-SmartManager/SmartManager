@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.nfc.Tag;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -22,6 +23,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.widget.ImageViewCompat;
 
@@ -30,6 +32,8 @@ import com.example.muctieutietkiem.packages.model.Goal;
 import com.example.nhacnho.NhacNho;
 import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.R;
+
+import java.time.format.DateTimeFormatter;
 
 public class MucTieuChiTiet extends AppCompatActivity implements DialogThemTien.OnInputListener {
     public static final String TAG ="MucTieuChiTiet";
@@ -40,6 +44,7 @@ public class MucTieuChiTiet extends AppCompatActivity implements DialogThemTien.
 
 
     Goal selectedGoal=null;
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,10 +76,41 @@ public class MucTieuChiTiet extends AppCompatActivity implements DialogThemTien.
             }
 
         });
+        btnHoanThanh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dialog dialogComplete = new Dialog(MucTieuChiTiet.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                dialogComplete.setContentView(R.layout.dialog_error);
+                TextView txtTitlePause=dialogComplete.findViewById(R.id.txtTitle),
+                        txtMessagePause=dialogComplete.findViewById(R.id.txtMessage);
+                Button btnYesComplete=dialogComplete.findViewById(R.id.btnYes),
+                        btnNoComplete=dialogComplete.findViewById(R.id.btnNo);
+                txtTitlePause.setText("Xác nhận");
+                txtMessagePause.setText("Bạn có muốn đặt mục tiêu là đã hoàn thành?"+"\n"+"Nó sẽ được chuyển tới trang Hoàn thành và bạn không thể hoàn tác lại. ");
+                btnYesComplete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        hoat_dong_fragment.db.execSql("DELETE FROM "+ MyDatabaseHelper.TBL_NAME_MUC_TIEU+" WHERE "+MyDatabaseHelper.COL_MUCTIEU_ID + "=" +selectedGoal.getGoalID());
+                        hoat_dong_fragment.db.insertMucTieuCompletedData(selectedGoal.getGoalThumb(),selectedGoal.getGoalName(),selectedGoal.getGoalTime(),selectedGoal.getGoalColor(),selectedGoal.getGoalSaved(),selectedGoal.getGoalTarget(),selectedGoal.getGoalNote());
+//                        hoat_dong_fragment.db.updateData(selectedGoal.getGoalID(),goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
+
+                        finish();
+                    }
+                });
+                btnNoComplete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialogComplete.dismiss();
+                    }
+                });
+                dialogComplete.show();
+            }
+        });
     }
 
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void getData() {
         Intent intent= getIntent();
         selectedGoal= (Goal) intent.getSerializableExtra("Muc tieu");
@@ -83,7 +119,7 @@ public class MucTieuChiTiet extends AppCompatActivity implements DialogThemTien.
         Bitmap bitmap = BitmapFactory.decodeByteArray(goalThumb,0,goalThumb.length);
         imvGoal.setImageBitmap(bitmap);
         txtTenMucTieu.setText(selectedGoal.getGoalName());
-        txtNgayKetThuc.setText(String.valueOf(selectedGoal.getGoalTime()));
+        txtNgayKetThuc.setText(String.valueOf(selectedGoal.getGoalTime().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
         ImageViewCompat.setImageTintList(imvGoal, ColorStateList.valueOf(selectedGoal.getGoalColor()));
         double percent = (selectedGoal.getGoalSaved()/selectedGoal.getGoalTarget())*100;
         if((selectedGoal.getGoalSaved()*100)%selectedGoal.getGoalTarget()>0){

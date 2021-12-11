@@ -26,13 +26,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class muctieu_tamdung_fragment extends Fragment {
+    public static MyDatabaseHelper db;
     ListView lvGoal;
     ArrayList<Goal> goals;
     GoalAdapter adapter;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.muctieu_tamdung_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_muctieu_tamdung, container, false);
         lvGoal=view.findViewById(R.id.lvGoal);
 
 
@@ -60,6 +61,7 @@ public class muctieu_tamdung_fragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
+        db= new MyDatabaseHelper(context);
 
 //        hoat_dong_fragment.db.createSomeMucTieuHoatDong();
     }
@@ -84,8 +86,8 @@ public class muctieu_tamdung_fragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
 
-                Intent intent = new Intent(getActivity(), MucTieuChiTiet.class);
-                adapter= new GoalAdapter(getActivity(),R.layout.chitiet_muctieu,goals);
+                Intent intent = new Intent(getActivity(), MucTieuChiTiet_TamDung.class);
+                adapter= new GoalAdapter(getActivity(),R.layout.chitiet_muctieu_tamdung,goals);
                 Goal goal= (Goal) adapter.getItem(i);
                 intent.putExtra("Muc tieu",goal);
                 startActivity(intent);

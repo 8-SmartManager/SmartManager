@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:paddingVertical="5dp"
+    android:paddingHorizontal="10dp"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,11 +13,11 @@
         android:orientation="vertical"
         android:background="@drawable/bg_listview_muctieu"
         android:paddingHorizontal="10dp"
-        android:paddingVertical="25dp"
+        android:paddingVertical="10dp"
         >
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:orientation="horizontal"
             >
             <ImageView
@@ -36,7 +37,7 @@
                     android:id="@+id/txtGoal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     android:text="Mua xe"/>
                 <TextView
                     android:id="@+id/txtDate"
@@ -50,17 +51,37 @@
             android:id="@+id/progressBar"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="7dp"
+            android:layout_height="15dp"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:progressDrawable="@drawable/progressbar_horizon"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
         <TextView
-            android:id="@+id/txtGoalTarget"
-            android:layout_marginTop="10dp"
+            android:id="@+id/txtGoalSaved"
+            android:paddingTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/thu_cap"
-            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="@font/body_medium_13"
             android:text="Đã tiết kiệm: 5.000.000đ"/>
+
+            <TextView
+                android:id="@+id/txtGoalTarget"
+                android:paddingTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textColor="@color/mau_xam"
+                android:fontFamily="@font/body_medium_13"
+                android:text="Mục tiêu: 5.000.000đ"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
