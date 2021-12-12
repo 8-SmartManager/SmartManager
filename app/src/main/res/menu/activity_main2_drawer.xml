@@ -21,55 +21,69 @@
             android:id="@+id/nav_nhacnho"
             android:icon="@drawable/ic_nhac_nho"
             android:title="Nhắc nhở" />
+    </group>
+    <group android:checkableBehavior="single">
         <item android:title="Kế hoạch"
-            android:iconTintMode="@color/white">
+            >
             <menu>
                 <item
+                    android:checkable="true"
                     android:id="@+id/nav_muasam"
                     android:icon="@drawable/ic_ke_hoach"
                     android:title="Kế hoạch mua sắm"
                     />
                 <item
+                    android:checkable="true"
                     android:id="@+id/nav_tietkiem"
                     android:icon="@drawable/ic_ke_hoach_mua_sam"
                     android:title="Mục tiêu tiết kiệm"
                     />
             </menu>
         </item>
+    </group>
+    <group android:checkableBehavior="single">
         <item android:title="Kết nối"
             android:iconTintMode="@color/white">
             <menu>
                 <item
+                    android:checkable="true"
                     android:id="@+id/nav_moiban"
                     android:icon="@drawable/ic_moi_user"
                     android:title="Mời bạn"
                     />
                 <item
+                    android:checkable="true"
                     android:id="@+id/nav_tintuc"
                     android:icon="@drawable/ic_chrome"
                     android:title="Tin tức"
                     />
             </menu>
         </item>
+    </group>
+    <group android:checkableBehavior="single">
         <item android:title="Cài đặt"
             android:iconTintMode="@color/white">
             <menu>
                 <item
+                    android:checkable="true"
                     android:id="@+id/nav_matkhau"
                     android:icon="@drawable/ic_mat_khau"
                     android:title="Mật khẩu"
                     />
                 <item
+                    android:checkable="true"
                     android:id="@+id/nav_saoluu"
                     android:icon="@drawable/ic_sao_luu"
                     android:title="Sao lưu"
                     />
                 <item
+                    android:checkable="true"
                     android:id="@+id/nav_trogiup"
                     android:icon="@drawable/ic_tro_giup"
                     android:title="Trợ giúp"
                     />
                 <item
+                    android:checkable="true"
                     android:id="@+id/nav_thongtin"
                     android:icon="@drawable/ic_info_ve_app"
                     android:title="Thông tin ứng dụng"

@@ -22,4 +22,14 @@
     <style name="Theme.SmartManagerTwo.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.SmartManagerTwo.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="ThemeOverlay.AppCompat.navTheme">
+
+        <!-- Color of text and icon when SELECTED -->
+        <item name="colorPrimary">@color/white</item>
+
+        <!-- Background color when SELECTED -->
+        <item name="colorControlHighlight">@color/thu_cap</item>
+
+    </style>
 </resources>

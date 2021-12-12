@@ -11,10 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.example.muctieutietkiem.packages.MucTieuChiTiet_HoanThanh;
 
 public class KetNoi_MoiBan extends Fragment {
 
-    Button btnInvite,btnHuy;
+    Button btnInvite;
     private AlertDialog.Builder moibanBuilder;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -25,7 +28,6 @@ public class KetNoi_MoiBan extends Fragment {
         dialog.show();
 
         btnInvite=dialog.findViewById(R.id.btnInvite);
-        btnHuy=dialog.findViewById(R.id.btnHuy);
         btnInvite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,16 +39,22 @@ public class KetNoi_MoiBan extends Fragment {
 
         });
 
+
         return root;
 
     }
 
     private void showDialog1() {
-        moibanBuilder = new AlertDialog.Builder(getActivity());
-        moibanBuilder.setCancelable(false);
-        moibanBuilder.setView(R.layout.dialog_ketnoi_gioithieu);
-        moibanBuilder.create();
-        moibanBuilder.show();
+        Dialog dialog1 = new Dialog(getContext(),R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+        dialog1.setContentView(R.layout.dialog_ketnoi_gioithieu);
+        Button btnHuy=dialog1.findViewById(R.id.btnHuy);
+        btnHuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog1.dismiss();
+            }
+        });
+        dialog1.show();
 
 
 
