@@ -2,6 +2,7 @@ package com.example.smartmanagertwo;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -17,7 +18,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +31,7 @@ import com.example.nhacnho.NhacNho;
 import com.example.nhacnho.NhacNhoAdapter;
 import com.example.nhacnho.fragment.FragmentNhacNhoMainDataNotNull;
 import com.example.nhacnho.fragment.FragmentNhacNhoMainDataNull;
+import com.example.smartmanagertwo.databinding.FragmentGalleryBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.sql.Date;
@@ -36,7 +40,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NhacNhoActivity extends AppCompatActivity {
+public class NhacNhoActivity extends Fragment {
 //    ListView lvNhacNho;
     public static ArrayList<NhacNho> nhacNhos;
     LinearLayout layoutContainer;
@@ -45,27 +49,23 @@ public class NhacNhoActivity extends AppCompatActivity {
     FloatingActionButton btnThemMoi;
 
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nhacnho_main);
-        Drawable drawable=getResources().getDrawable(R.drawable.ic_menu);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(drawable);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
-        getSupportActionBar().setTitle("Nhắc nhở");
+    private FragmentGalleryBinding binding;
+
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.activity_nhacnho_main,container,false);
         prepareDb();
 
-        linkViews();
+        btnThemMoi=root.findViewById(R.id.btnNhacNhoTao);
 
 
         addEvents();
+        return root;
 
     }
 
     private void setView() {
-        FragmentManager manager= getSupportFragmentManager();
+        FragmentManager manager= getActivity().getSupportFragmentManager();
         FragmentTransaction transaction= manager.beginTransaction();
         Fragment fragment= null;
         if (nhacNhos.size()==0){
@@ -80,20 +80,15 @@ public class NhacNhoActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
-    protected void onResume() {
+    public void onResume() {
         getDataFromDb();
         setView();
-//        loadData();
         super.onResume();
     }
 
-    private void linkViews() {
-//        lvNhacNho=findViewById(R.id.lvNhacNho);
-        btnThemMoi=findViewById(R.id.btnNhacNhoTao);
-//        layoutTabInfo=findViewById(R.id.layoutNhacNhoTabInfo);
-    }
+
     private void prepareDb() {
-        db = new MyDatabaseHelper(this);
+        db = new MyDatabaseHelper(getContext());
 //        db.createSomeNhacNhoData();
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -109,42 +104,16 @@ public class NhacNhoActivity extends AppCompatActivity {
 
 
     }
-//    @RequiresApi(api = Build.VERSION_CODES.O)
-//    private void initData() {
-//        nhacNhos= new ArrayList<NhacNho>();
-//        nhacNhos.add(new NhacNho("Tiết kiệm","Mua xe","Hàng tháng", LocalDate.of(2021,11,20), Time.valueOf("08:00:00")));
-//        nhacNhos.add(new NhacNho("Chi","Tiền điện","Hàng tháng", LocalDate.of(2021,10,03), Time.valueOf("07:00:00")));
-//        nhacNhos.add(new NhacNho("Chi","Tiền nhà","Một lần", LocalDate.of(2021,05,27), Time.valueOf("07:00:00")));
-//
-//    }
 
-
-
-//    @RequiresApi(api = Build.VERSION_CODES.O)
-//    private void loadData() {
-//        adapter= new NhacNhoAdapter(NhacNhoActivity.this,R.layout.nhac_nho_item_layout,getDataFromDb());
-//
-////        lvNhacNho.setAdapter(adapter);
-//    }
 
     private void addEvents() {
         btnThemMoi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(NhacNhoActivity.this,NhacNhoThemActivity.class);
+                Intent intent = new Intent(getActivity(),NhacNhoThemActivity.class);
                 startActivity(intent);
             }
         });
-//        lvNhacNho.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @RequiresApi(api = Build.VERSION_CODES.O)
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent intent = new Intent(NhacNhoActivity.this, NhacNhoChiTietActivity.class);
-//                adapter= new NhacNhoAdapter(NhacNhoActivity.this,R.layout.nhac_nho_item_layout,nhacNhos);
-//                NhacNho nhacNho= (NhacNho) adapter.getItem(i);
-//                intent.putExtra("Nhac Nho",nhacNho);
-//                startActivity(intent);
-//            }
-//        });
+
     }
 }

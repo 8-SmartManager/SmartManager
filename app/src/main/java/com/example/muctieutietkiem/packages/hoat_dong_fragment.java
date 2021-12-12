@@ -40,12 +40,6 @@ public class hoat_dong_fragment extends Fragment{
 
         lvGoal=view.findViewById(R.id.lvGoal);
 
-
-
-        lvGoal=view.findViewById(R.id.lvGoal);
-//        goals.add(new Goal(1,R.drawable.ic_car,"Mua xe",LocalDate.of(2022,11,22),-11873872,1500000,5000000,"Quan trọng"));
-//        goals.add(new Goal(2,R.drawable.ic_nha,"Mua nhà",LocalDate.of(2024,10,24),-11873872,0,10000000,"Quan trọng"));
-
         addEvents();
         return view;
     }

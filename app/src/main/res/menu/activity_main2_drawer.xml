@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_thuchi"
+            android:icon="@drawable/ic_ghi_nhan_thu_chi"
+            android:title="Thu chi" />
+
+        <item
+            android:id="@+id/nav_thongke"
+            android:icon="@drawable/ic_thong_ke"
+            android:title="Thống kê" />
+        <item
+            android:id="@+id/nav_taikhoan"
+            android:icon="@drawable/ic_tai_khoan"
+            android:title="Tài khoản" />
+        <item
+            android:id="@+id/nav_nhacnho"
+            android:icon="@drawable/ic_nhac_nho"
+            android:title="Nhắc nhở" />
+        <item android:title="Kế hoạch"
+            android:iconTintMode="@color/white">
+            <menu>
+                <item
+                    android:id="@+id/nav_muasam"
+                    android:icon="@drawable/ic_ke_hoach"
+                    android:title="Kế hoạch mua sắm"
+                    />
+                <item
+                    android:id="@+id/nav_tietkiem"
+                    android:icon="@drawable/ic_ke_hoach_mua_sam"
+                    android:title="Mục tiêu tiết kiệm"
+                    />
+            </menu>
+        </item>
+        <item android:title="Kết nối"
+            android:iconTintMode="@color/white">
+            <menu>
+                <item
+                    android:id="@+id/nav_moiban"
+                    android:icon="@drawable/ic_moi_user"
+                    android:title="Mời bạn"
+                    />
+                <item
+                    android:id="@+id/nav_tintuc"
+                    android:icon="@drawable/ic_chrome"
+                    android:title="Tin tức"
+                    />
+            </menu>
+        </item>
+        <item android:title="Cài đặt"
+            android:iconTintMode="@color/white">
+            <menu>
+                <item
+                    android:id="@+id/nav_matkhau"
+                    android:icon="@drawable/ic_mat_khau"
+                    android:title="Mật khẩu"
+                    />
+                <item
+                    android:id="@+id/nav_saoluu"
+                    android:icon="@drawable/ic_sao_luu"
+                    android:title="Sao lưu"
+                    />
+                <item
+                    android:id="@+id/nav_trogiup"
+                    android:icon="@drawable/ic_tro_giup"
+                    android:title="Trợ giúp"
+                    />
+                <item
+                    android:id="@+id/nav_thongtin"
+                    android:icon="@drawable/ic_info_ve_app"
+                    android:title="Thông tin ứng dụng"
+                    />
+            </menu>
+        </item>
+    </group>
+</menu>

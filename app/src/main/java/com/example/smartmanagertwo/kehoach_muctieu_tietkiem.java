@@ -1,6 +1,8 @@
 package com.example.smartmanagertwo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -8,35 +10,38 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.example.muctieutietkiem.packages.TaoMucTieu;
 import com.example.muctieutietkiem.packages.adapter.ViewPagerAdapter;
+import com.example.smartmanagertwo.databinding.FragmentGalleryBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
-public class kehoach_muctieu_tietkiem extends AppCompatActivity {
+public class kehoach_muctieu_tietkiem extends Fragment {
     TabLayout tab_muctieu;
     ViewPager vp_muctieu;
     FloatingActionButton btnTaoMT;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kehoach_muctieu_tietkiem);
-        Drawable drawable=getResources().getDrawable(R.drawable.ic_menu);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(drawable);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
-        getSupportActionBar().setTitle("Mục tiêu tiết kiệm");
-        LinkViews();
+
+
+    private FragmentGalleryBinding binding;
+
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.activity_kehoach_muctieu_tietkiem,container,false);
+        btnTaoMT=root.findViewById(R.id.btnTaoMT);
+        tab_muctieu=root.findViewById(R.id.tab_muctieu);
+        vp_muctieu=root.findViewById(R.id.vp_muctieu);
         initData();
         addEvents();
+        return root;
     }
 
     private void initData() {
-        ViewPagerAdapter viewPagerAdapter=new ViewPagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        ViewPagerAdapter viewPagerAdapter=new ViewPagerAdapter(getActivity().getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         vp_muctieu.setAdapter(viewPagerAdapter);
         tab_muctieu.setupWithViewPager(vp_muctieu);
     }
@@ -45,18 +50,11 @@ public class kehoach_muctieu_tietkiem extends AppCompatActivity {
         btnTaoMT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(kehoach_muctieu_tietkiem.this, TaoMucTieu.class);
+                Intent intent=new Intent(getActivity(), TaoMucTieu.class);
                 startActivity(intent);
             }
         });
     }
 
-    private void LinkViews() {
-        btnTaoMT=findViewById(R.id.btnTaoMT);
-        tab_muctieu=findViewById(R.id.tab_muctieu);
-        vp_muctieu=findViewById(R.id.vp_muctieu);
 
-
-
-    }
 }

@@ -10,6 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartManagerTwo">
         <activity
+            android:name=".Main2Activity"
+            android:exported="true"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.SmartManagerTwo.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="com.example.muctieutietkiem.packages.TaoMucTieuChiTiet"
             android:exported="true" />
         <activity
@@ -20,76 +31,53 @@
             android:exported="true" />
         <activity
             android:name="com.example.muctieutietkiem.packages.MucTieuChiTiet"
-            android:exported="true">
+            android:exported="true"></activity>
 
-        </activity>
+        <activity android:name=".TaiKhoanSuaChiTiet" />
         <activity
-            android:name=".kehoach_muctieu_tietkiem"
-            android:exported="true">
+            android:name=".TaiKhoanChiTietActivity"
+            android:exported="true" />
 
-        </activity>
 
-        <activity android:name=".TaiKhoanSuaChiTiet"></activity>
-        <activity android:name=".TaiKhoanChiTietActivity" android:exported="true" />
-        <activity
-            android:name=".NhacNhoActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".ThuChiThemMoi"
             android:exported="true" />
         <activity
             android:name=".TinTucActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".ThongKeActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".ThongKeChiTietActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".ThongKeChinhSua"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name="com.example.KeHoachMuaSam.KeHoachMuaSamMain"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name="com.example.KeHoachMuaSam.DanhSachMuaSamThem"
-            android:exported="true"></activity>
-
+            android:exported="true" />
         <activity
             android:name="com.example.KeHoachMuaSam.DanhSachMuaSamChiTiet"
-            android:exported="true">
-
-        </activity>
-        <activity android:name=".TaiKhoanThem" android:exported="true"></activity>
-        <activity android:name=".TaiKhoanChinhSua" android:exported="true">
-        </activity>
-        <activity android:name=".TaiKhoanXoa" android:exported="true"></activity>
+            android:exported="true"></activity>
+        <activity
+            android:name=".TaiKhoanThem"
+            android:exported="true" />
+        <activity
+            android:name=".TaiKhoanChinhSua"
+            android:exported="true"></activity>
+        <activity
+            android:name=".TaiKhoanXoa"
+            android:exported="true" />
         <activity
             android:name=".TaiKhoan"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".CaiDatThongTinAppChinhSach"
             android:exported="true" />
@@ -105,12 +93,9 @@
         <activity
             android:name=".NhacNhoThemActivity"
             android:exported="true" />
-
         <activity
             android:name=".ThuChi"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

@@ -205,68 +205,7 @@ public class EditMucTieuTamDung extends AppCompatActivity {
                 });
                 dialog.show();
                 break;
-            case R.id.mnSave:
 
-                double goalTarget = Double.parseDouble(soTienMucTieu);
-                double goalSaved = Double.parseDouble(soTienDatDuoc);
-                LocalDate goalTime = LocalDate.parse(ngayKetThuc);
-                LocalDate currentDate = LocalDate.now();
-                int time = goalTime.compareTo(currentDate);
-
-
-
-                if(ten.equals("")||soTienDatDuoc.equals("")||soTienMucTieu.equals("")||ngayKetThuc.equals("")||luuY.equals("")){
-                    AlertDialog.Builder builder= new AlertDialog.Builder(EditMucTieuTamDung.this);
-                    builder.setTitle("Lỗi!");
-                    builder.setMessage("Vui lòng nhập đầy đủ thông tin");
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
-                        }
-                    });
-                    builder.create().show();
-                }
-                else if (  Double.parseDouble(soTienMucTieu)<Double.parseDouble(soTienDatDuoc)){
-                    AlertDialog.Builder builder= new AlertDialog.Builder(EditMucTieuTamDung.this);
-                    builder.setTitle("Ủa alo!");
-                    builder.setMessage("Sao Số tiền đạt được của bạn lại lớn hơn Số tiền mục tiêu dzợ .-. Bạn chỉnh lại chỗ này nhennn!");
-                    builder.setPositiveButton("Ukii", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
-                        }
-                    });
-                    builder.create().show();
-
-                }
-                else if(time<=0)
-                {
-                    AlertDialog.Builder builder= new AlertDialog.Builder(EditMucTieuTamDung.this);
-                    builder.setTitle("Thông báo");
-                    builder.setMessage("Nhập lại Ngày kết thúc của bạn");
-                    builder.setPositiveButton("Ukii", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
-                        }
-                    });
-                    builder.create().show();
-                }
-
-
-
-
-
-
-
-                else {
-
-                    muctieu_tamdung_fragment.db.updateDataPaused(selectedGoal.getGoalID(),ten,goalTime,color,goalSaved,goalTarget,luuY);
-
-                    finish();
-                }
-                break;
             default:break;
         }
         return super.onOptionsItemSelected(item);

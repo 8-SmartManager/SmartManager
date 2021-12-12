@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_nhacnho">
+
+    <fragment
+        android:id="@+id/nav_tietkiem"
+        android:name="com.example.smartmanagertwo.kehoach_muctieu_tietkiem"
+        android:label="Mục tiêu tiết kiệm"
+        tools:layout="@layout/activity_kehoach_muctieu_tietkiem" />
+
+    <fragment
+        android:id="@+id/nav_nhacnho"
+        android:name="com.example.smartmanagertwo.NhacNhoActivity"
+        android:label="Nhắc nhở"
+        tools:layout="@layout/activity_nhacnho_main" />
+
+
+</navigation>
