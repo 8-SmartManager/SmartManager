@@ -1,48 +1,43 @@
 package com.example.smartmanagertwo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class CaiDatTroGiup extends AppCompatActivity {
+public class CaiDatTroGiup extends Fragment {
 
     TextView txtNew;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cai_dat_tro_giup);
-        Drawable drawable=getResources().getDrawable(R.drawable.ic_menu);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(drawable);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
-        getSupportActionBar().setTitle("Cài đặt Trợ Giúp");
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.activity_cai_dat_tro_giup,container,false);
+        txtNew = root.findViewById(R.id.txtNew);
 
-        linkViews();
         addEvents();
-
+        return root;
     }
 
     private void addEvents() {
         txtNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CaiDatTroGiup.this, CaiDatTroGiupNew.class);
+                Intent intent = new Intent(getActivity(), CaiDatTroGiupNew.class);
                 startActivity(intent);
 
             }
         });
     }
 
-    private void linkViews() {
-        txtNew = findViewById(R.id.txtNew);
-    }
+
 
 
 }

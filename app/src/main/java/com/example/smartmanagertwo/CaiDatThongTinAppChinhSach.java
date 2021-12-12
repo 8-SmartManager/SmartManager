@@ -1,34 +1,39 @@
 package com.example.smartmanagertwo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class CaiDatThongTinAppChinhSach extends AppCompatActivity {
- ImageButton btnBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cai_dat_thong_tin_app_chinh_sach);
-        linkViews();
-        addEvents();
+        Drawable drawable=getResources().getDrawable(R.drawable.ic_back);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(drawable);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
+        getSupportActionBar().setTitle("Chính sách bảo mật");
+
     }
 
-    private void addEvents() {
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
                 onBackPressed();
-            }
-        });
+                return true;
+            default:break;}
+        return super.onOptionsItemSelected(item);
     }
-
-    private void linkViews() {
-        btnBack=findViewById(R.id.btnBack);
-    }
-
-
 }

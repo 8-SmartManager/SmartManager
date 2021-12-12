@@ -4,11 +4,17 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smartmanagertwo.R;
@@ -16,7 +22,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class KeHoachMuaSamMain extends AppCompatActivity {
+public class KeHoachMuaSamMain extends Fragment {
 
     public static final String TAG ="DanhSachMuaSam";
 
@@ -28,34 +34,26 @@ public class KeHoachMuaSamMain extends AppCompatActivity {
     ArrayList<ItemList> items;
     ItemList selectedItem=null;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kehoachmuasam_main);
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.activity_kehoachmuasam_main,container,false);
+        rcvDanhSach=root.findViewById(R.id.rcvDanhSach);
+        fabThemDanhSach=root.findViewById(R.id.fabThemDanhSach);
 
-        Drawable drawable=getResources().getDrawable(R.drawable.ic_menu);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(drawable);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
-        getSupportActionBar().setTitle("Danh Sách Mua Sắm");
-
-        linkView();
         addEvent();
+        return root;
     }
 
-    private void linkView() {
-        rcvDanhSach=findViewById(R.id.rcvDanhSach);
-        fabThemDanhSach=findViewById(R.id.fabThemDanhSach);
-    }
+
 
     private void addEvent() {
         fabThemDanhSach.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(KeHoachMuaSamMain.this, DanhSachMuaSamThem.class);
+                Intent intent = new Intent(getActivity(), DanhSachMuaSamThem.class);
                 startActivity(intent);
-                finish();
+                getActivity().finish();
             }
         });
 //        rcvDanhSach.setOnClickListener(new AdapterView.OnClickListener() {

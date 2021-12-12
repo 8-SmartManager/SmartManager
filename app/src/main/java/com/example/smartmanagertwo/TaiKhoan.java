@@ -6,9 +6,12 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -18,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.example.model.ThuChiActivity;
 import com.example.taikhoan.TaiKhoanActivity;
@@ -27,7 +31,7 @@ import com.example.thongke.ThongKe;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TaiKhoan extends AppCompatActivity {
+public class TaiKhoan extends Fragment {
 
     ListView lvTaiKhoanThu;
     TextView txtTongTK;
@@ -35,54 +39,58 @@ public class TaiKhoan extends AppCompatActivity {
     TaiKhoanAdapter adapter;
     public static MyDatabaseHelper db;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    @Override
-    protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tai_khoan_chinh);
-        Drawable drawable=getResources().getDrawable(R.drawable.ic_menu);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(drawable);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
-        getSupportActionBar().setTitle("Tài khoản");
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.activity_tai_khoan_chinh,container,false);
         prepareDB();
-        linkViews();
+        lvTaiKhoanThu = root.findViewById(R.id.lvTaiKhoanThu);
+        txtTongTK = root.findViewById(R.id.txtTongTK);
         loadData();
         addEvents();
+        return root;
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.taikhoan_tuychon_menu, menu);
-        return super.onCreateOptionsMenu(menu);
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.taikhoan_tuychon_menu, menu);
+//        return super.onCreateOptionsMenu(menu);
+//
+//    }
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.taikhoan_tuychon_menu,menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.mnSua:
-                Intent intents = new Intent(TaiKhoan.this, TaiKhoanChinhSua.class);
+                Intent intents = new Intent(getActivity(), TaiKhoanChinhSua.class);
                 startActivity(intents);
-                Toast.makeText(this, "Bạn vừa chọn Sửa tài khoản", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Bạn vừa chọn Sửa tài khoản", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.mnXoa:
-                Intent myintent = new Intent(TaiKhoan.this, TaiKhoanXoa.class);
+                Intent myintent = new Intent(getActivity(), TaiKhoanXoa.class);
                 startActivity(myintent);
-                Toast.makeText(this, "Bạn vừa chọn Xóa tài khoản", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Bạn vừa chọn Xóa tài khoản", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.mnThem:
-                Intent intent = new Intent(TaiKhoan.this, TaiKhoanThem.class);
+                Intent intent = new Intent(getActivity(), TaiKhoanThem.class);
                 startActivity(intent);
-                Toast.makeText(this, "Bạn vừa chọn Thêm tài khoản", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Bạn vừa chọn Thêm tài khoản", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.mnThongKe:
-                Intent intent_act = new Intent(TaiKhoan.this, ThongKe.class);
+                Intent intent_act = new Intent(getActivity(), ThongKe.class);
                 startActivity(intent_act);
-                Toast.makeText(this, "Bạn chọn thống kê", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Bạn chọn thống kê", Toast.LENGTH_SHORT).show();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -97,16 +105,15 @@ public class TaiKhoan extends AppCompatActivity {
     }
 
     private void linkViews() {
-        lvTaiKhoanThu = findViewById(R.id.lvTaiKhoanThu);
-        txtTongTK = findViewById(R.id.txtTongTK);
+
     }
     private void prepareDB() {
-        db = new MyDatabaseHelper(this);
+        db = new MyDatabaseHelper(getContext());
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void loadData() {
-        adapter = new TaiKhoanAdapter(TaiKhoan.this,R.layout.item_tai_khoan_layout,getDataFromDb());
+        adapter = new TaiKhoanAdapter(getActivity(),R.layout.item_tai_khoan_layout,getDataFromDb());
         lvTaiKhoanThu.setAdapter(adapter);
         double total=0;
         for (TaiKhoanActivity item:InfoTaiKhoanThu
@@ -133,8 +140,8 @@ public class TaiKhoan extends AppCompatActivity {
         lvTaiKhoanThu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(TaiKhoan.this, TaiKhoanChiTietActivity.class);
-                adapter = new TaiKhoanAdapter(TaiKhoan.this, R.layout.item_tai_khoan_layout,InfoTaiKhoanThu);
+                Intent intent = new Intent(getActivity(), TaiKhoanChiTietActivity.class);
+                adapter = new TaiKhoanAdapter(getActivity(), R.layout.item_tai_khoan_layout,InfoTaiKhoanThu);
                 TaiKhoanActivity taiKhoanActivity= (TaiKhoanActivity) adapter.getItem(i);
                 intent.putExtra("Tai Khoan",taiKhoanActivity);
                 startActivity(intent);

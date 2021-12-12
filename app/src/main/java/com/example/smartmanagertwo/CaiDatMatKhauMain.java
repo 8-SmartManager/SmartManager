@@ -1,21 +1,26 @@
 package com.example.smartmanagertwo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class CaiDatMatKhauMain extends AppCompatActivity {
+public class CaiDatMatKhauMain extends Fragment {
     TextView txtChange, txtOff;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cai_dat_mat_khau_main);
-        linkViews();
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.activity_cai_dat_mat_khau_main,container,false);
+        txtOff= root.findViewById(R.id.txtOff);
+        txtChange= root.findViewById(R.id.txtChange);
         addEvents();
+        return root;
     }
 
     private void addEvents() {
@@ -28,13 +33,10 @@ public class CaiDatMatKhauMain extends AppCompatActivity {
         txtChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+
             }
         });
     }
 
-    private void linkViews() {
-        txtOff= findViewById(R.id.txtOff);
-        txtChange= findViewById(R.id.txtChange);
-    }
+
 }

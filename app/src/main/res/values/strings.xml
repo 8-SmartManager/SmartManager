@@ -14,7 +14,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="chinh_sach_bao_mat">"This Privacy Policy (the Policy) explains the way of treatment of the information which is provided or collected in the websites on which this Policy is posted. In addition the Policy also explains the information which is provided or collected in the course of using the applications of the Company which exist in the websites or platforms of other company.\n Through this Policy, the Company regards personal information of the users as important and inform them of the purpose and method of Company\'s using the personal information provided by the users and the measures taken by the Company for protection of those personal information. \nThis Policy will be effective on the 1 th day of March, 2017 and, in case of modification thereof, the Company will make public notice of it through posting it on the bulletin board of Company\'s website or individual notice through sending mails, fax or e-mails)."</string>
-    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_main2">Smart Manager</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>

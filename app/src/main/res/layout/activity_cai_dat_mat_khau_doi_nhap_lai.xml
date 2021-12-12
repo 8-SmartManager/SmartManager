@@ -5,34 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/chu_dao"
-        android:gravity="center_vertical">
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_back"
-            android:layout_marginLeft="16dp"
-            android:backgroundTint="@color/chu_dao"
-            android:layout_marginRight="32dp"
-
-            app:tint="@color/white" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Đổi mật khẩu"
-
-            android:textSize="20sp"
-            android:fontFamily="@font/header2_bold_20"
-            android:textColor="@color/white"
-            android:layout_weight="1"/>
-
-
-    </LinearLayout>
     <ImageView
         android:layout_marginTop="70dp"
         android:layout_width="120dp"

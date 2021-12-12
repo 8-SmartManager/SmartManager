@@ -3,8 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_nhacnho">
+    app:startDestination="@+id/nav_thuchi">
 
+    <fragment
+        android:id="@+id/nav_thuchi"
+        android:name="com.example.smartmanagertwo.ThuChi"
+        android:label="Thu chi"
+        tools:layout="@layout/activity_thu_chi" />
+
+    <fragment
+        android:id="@+id/nav_thongke"
+        android:name="com.example.smartmanagertwo.ThongKeActivity"
+        android:label="Thống kê"
+        tools:layout="@layout/activity_thong_ke" />
     <fragment
         android:id="@+id/nav_tietkiem"
         android:name="com.example.smartmanagertwo.kehoach_muctieu_tietkiem"
@@ -17,5 +28,41 @@
         android:label="Nhắc nhở"
         tools:layout="@layout/activity_nhacnho_main" />
 
+    <fragment
+        android:id="@+id/nav_taikhoan"
+        android:name="com.example.smartmanagertwo.TaiKhoan"
+        android:label="Tài khoản"
+        tools:layout="@layout/activity_tai_khoan_chinh" />
+    <fragment
+        android:id="@+id/nav_muasam"
+        android:name="com.example.KeHoachMuaSam.KeHoachMuaSamMain"
+        android:label="Danh sách mua sắm"
+        tools:layout="@layout/activity_kehoachmuasam_main" />
+
+    <!--    <fragment-->
+    <!--        android:id="@+id/nav_tintuc"-->
+    <!--        android:name="com.example.smartmanagertwo.TinTucActivity"-->
+    <!--        android:label="Tin tức"-->
+    <!--        tools:layout="@layout/activity_tintuc" />-->
+    <fragment
+        android:id="@+id/nav_moiban"
+        android:name="com.example.smartmanagertwo.KetNoi_MoiBan"
+        android:label="Mời bạn"
+        tools:layout="@layout/activity_ket_noi_moi_ban" />
+    <fragment
+        android:id="@+id/nav_matkhau"
+        android:name="com.example.smartmanagertwo.CaiDatMatKhauMain"
+        android:label="Mật khẩu"
+        tools:layout="@layout/activity_cai_dat_mat_khau_main" />
+    <fragment
+        android:id="@+id/nav_trogiup"
+        android:name="com.example.smartmanagertwo.CaiDatTroGiup"
+        android:label="Trợ giúp"
+        tools:layout="@layout/activity_cai_dat_tro_giup" />
+    <fragment
+        android:id="@+id/nav_thongtin"
+        android:name="com.example.smartmanagertwo.CaiDatThongTinAppMain"
+        android:label="Mật khẩu"
+        tools:layout="@layout/activity_cai_dat_thong_tin_app_main" />
 
 </navigation>
