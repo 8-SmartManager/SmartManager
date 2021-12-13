@@ -1,5 +1,6 @@
 package com.example.KeHoachMuaSam;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,15 +12,15 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.KeHoachMuaSam.adapter.TaskAdapter;
-import com.example.KeHoachMuaSam.model.Task;
+import com.example.KeHoachMuaSam.adapter.ItemDapter;
+import com.example.KeHoachMuaSam.model.DanhSachItem;
 import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -28,13 +29,13 @@ import java.util.ArrayList;
 
 public class DanhSachMuaSamChiTiet extends AppCompatActivity {
 
-     MyDatabaseHelper db;
+
      FloatingActionButton fabThem;
-     TextView txtTenDanhSach;
+    ListData selectedList;
      ListView lvDanhSachItem;
      String tenDanhSach;
-     TaskAdapter adapter;
-     ArrayList<Task> tasks;
+     ItemDapter adapter;
+     ArrayList<DanhSachItem> tasks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +51,7 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
         getSupportActionBar().setTitle(tenDanhSach);
 
         linkView();
-        prepareDb();
+
         loadData();
         addEvents();
     }
@@ -62,20 +63,17 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
     }
     private void loadData() {
 
-        adapter =new TaskAdapter(DanhSachMuaSamChiTiet.this,R.layout.item_list_ds_mua_sam,getDataFromDb());
+        adapter =new ItemDapter(DanhSachMuaSamChiTiet.this,R.layout.item_list_ds_mua_sam,getDataFromDb());
         lvDanhSachItem.setAdapter(adapter);
     }
-    private void prepareDb() {
-        db = new MyDatabaseHelper(this);
-        db.createSomeDanhSachData();
-    }
 
-    private ArrayList<Task> getDataFromDb(){
+
+    private ArrayList<DanhSachItem> getDataFromDb(){
         tasks=new ArrayList<>();
-        Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_DANHSACH);
+        Cursor cursor = KeHoachMuaSamMain.db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_DANHSACHITEM);
         tasks.clear();
         while (cursor.moveToNext()){
-            tasks.add(new Task(cursor.getInt(0),cursor.getString(1), cursor.getDouble(2)));
+            tasks.add(new DanhSachItem(cursor.getInt(0),cursor.getString(1), cursor.getDouble(2),cursor.getInt(3)));
         }
         cursor.close();
         return tasks;
@@ -107,7 +105,8 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
                             Toast.makeText(DanhSachMuaSamChiTiet.this, "Vui lòng nhập công việc", Toast.LENGTH_SHORT).show();
                         }
                         else {
-                            db.execSql("INSERT INTO " +MyDatabaseHelper.TBL_NAME_DANHSACH + " VALUES(null,'"+itemName+"', '"+itemPrice+"')");
+
+                            KeHoachMuaSamMain.db.execSql("INSERT INTO " +MyDatabaseHelper.TBL_NAME_DANHSACHITEM + " VALUES(null,'"+itemName+"', '"+itemPrice+"',0)");
                             Toast.makeText(DanhSachMuaSamChiTiet.this, "Success!", Toast.LENGTH_SHORT).show();
                             dialogInterface.dismiss();
                             loadData();
@@ -126,30 +125,41 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
         });
 
     }
-    public void openEditDialog(Task t){
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:break;}
+        return super.onOptionsItemSelected(item);
+    }
+    public void openEditDialog(DanhSachItem t){
         //Toast.makeText(this, "t.getTaskName", Toast.LENGTH_SHORT).show();
         Dialog dialog=new Dialog(this);
         dialog.setContentView(R.layout.dialog_edit_danhsachmuasam);
         EditText edtName=dialog.findViewById(R.id.edtName);
         EditText edtPrice=dialog.findViewById(R.id.edtPrice);
 
-        edtName.setText(t.getTaskName());
-        edtPrice.setText(String.valueOf(t.getTaskPrice()));
+        edtName.setText(t.getItemName());
+        edtPrice.setText(String.format("%,.0f", t.getItemPrice()));
         Button btnOK= dialog.findViewById(R.id.btnOK);
-        btnOK.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String taskName=edtName.getText().toString();
-                String taskPrice=edtPrice.getText().toString();
-//                db.execSql("UPDATE " + MyDatabaseHelper.TBL_NAME_DANHSACH + " SET " + MyDatabaseHelper.COL_DANHSACH_NAME + " = '" + taskName + MyDatabaseHelper.COL_DANHSACH_PRICE + taskPrice + "' " +
-//                        "' WHERE " + MyDatabaseHelper.COL_DANHSACH_ID + " = "  + t.getTaskId());
-                db.execSql("UPDATE "+MyDatabaseHelper.TBL_NAME_DANHSACH + " SET " + MyDatabaseHelper.COL_NHACNHO_NAME +" = '"+taskName+"', "+MyDatabaseHelper.COL_DANHSACH_PRICE+" = '"+taskPrice+"' " +
-                        " 'WHERE "+MyDatabaseHelper.COL_DANHSACH_ID+"=" +t.getTaskId());
-                Toast.makeText(DanhSachMuaSamChiTiet.this, "Success!", Toast.LENGTH_SHORT).show();
-                dialog.dismiss();
-                loadData();
-            }
-        });
+//        btnOK.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String taskName=edtName.getText().toString();
+//                String taskPrice=edtPrice.getText().toString();
+////                db.execSql("UPDATE " + MyDatabaseHelper.TBL_NAME_DANHSACH + " SET " + MyDatabaseHelper.COL_DANHSACH_NAME + " = '" + taskName + MyDatabaseHelper.COL_DANHSACH_PRICE + taskPrice + "' " +
+////                        "' WHERE " + MyDatabaseHelper.COL_DANHSACH_ID + " = "  + t.getTaskId());
+//                db.execSql("UPDATE "+MyDatabaseHelper.TBL_NAME_DANHSACH + " SET " + MyDatabaseHelper.COL_NHACNHO_NAME +" = '"+taskName+"', "+MyDatabaseHelper.COL_DANHSACH_PRICE+" = '"+taskPrice+"' " +
+//                        " 'WHERE "+MyDatabaseHelper.COL_DANHSACH_ID+"=" +t.getTaskId());
+//                Toast.makeText(DanhSachMuaSamChiTiet.this, "Success!", Toast.LENGTH_SHORT).show();
+//                dialog.dismiss();
+//                loadData();
+//            }
+//        });
         Button btnCancle=dialog.findViewById(R.id.btnCancel);
         btnCancle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,20 +170,15 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
         dialog.show();
     }
 
-//        btnBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
-public void  deleteTask (Task t){
+
+public void  deleteTask (DanhSachItem t){
     AlertDialog.Builder builder=new AlertDialog.Builder(this);
     builder.setTitle("Confirm!");
-    builder.setMessage("Are you sure you want to delete this item: " + t.getTaskName()+ "?");
+    builder.setMessage("Are you sure you want to delete this item: " + t.getItemName()+ "?");
     builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialogInterface, int i) {
-            db.execSql("DELETE FROM " + MyDatabaseHelper.TBL_NAME_DANHSACH + " WHERE " + MyDatabaseHelper.COL_DANHSACH_ID + " = " + t.getTaskId());
+            KeHoachMuaSamMain.db.execSql("DELETE FROM " + MyDatabaseHelper.TBL_NAME_DANHSACHITEM + " WHERE " + MyDatabaseHelper.COL_DANHSACHITEM_ID + " = " + t.getItemId());
             Toast.makeText(DanhSachMuaSamChiTiet.this, "Success!", Toast.LENGTH_SHORT).show();
             loadData();
         }
@@ -192,7 +197,8 @@ public void  deleteTask (Task t){
 
             private void getData() {
                 Intent intent = getIntent();
-                tenDanhSach = intent.getStringExtra("tlName");
+                tenDanhSach=  intent.getStringExtra("tlName");
+
 
             }
         }

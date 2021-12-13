@@ -5,35 +5,36 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.KeHoachMuaSam.DanhSachMuaSamChiTiet;
-import com.example.KeHoachMuaSam.model.Task;
+import com.example.KeHoachMuaSam.model.DanhSachItem;
 import com.example.smartmanagertwo.R;
 
 import java.util.List;
 
-public class TaskAdapter extends BaseAdapter {
+public class ItemDapter extends BaseAdapter {
 
     DanhSachMuaSamChiTiet context;
     int item_layout;
-    List<Task> tasks;
+    List<DanhSachItem> items;
 
-    public TaskAdapter(DanhSachMuaSamChiTiet context, int item_layout, List<Task> tasks) {
+    public ItemDapter(DanhSachMuaSamChiTiet context, int item_layout, List<DanhSachItem> items) {
         this.context = context;
         this.item_layout = item_layout;
-        this.tasks = tasks;
+        this.items = items;
     }
 
     @Override
     public int getCount() {
-        return tasks.size();
+        return items.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return tasks.get(i);
+        return items.get(i);
     }
 
     @Override
@@ -58,10 +59,13 @@ public class TaskAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
         //Binding dữ liệu
-        Task t = tasks.get(i);
+        DanhSachItem t = items.get(i);
         // gắn dữ liệu lên
-        holder.txtName.setText(t.getTaskName());
-        holder.txtPrice.setText(String.valueOf(t.getTaskPrice()));
+        holder.txtName.setText(t.getItemName());
+        holder.txtPrice.setText(String.valueOf(t.getItemPrice()));
+        if(t.getItemCompleted()==1){
+            holder.chkCompleted.setChecked(true);
+        }
         holder.imvEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,6 +86,7 @@ public class TaskAdapter extends BaseAdapter {
 
     private static class ViewHolder{
         TextView txtName, txtPrice;
+        CheckBox chkCompleted;
         ImageView imvEdit, imvDelete;
     }
 }

@@ -5,6 +5,11 @@
     android:orientation="horizontal"
     android:padding="10dp"
     android:weightSum="10">
+    <CheckBox
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/chkComplete"/>
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="50dp"

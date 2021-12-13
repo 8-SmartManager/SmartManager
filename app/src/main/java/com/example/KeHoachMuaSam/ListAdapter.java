@@ -4,65 +4,66 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smartmanagertwo.R;
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
+import java.util.List;
 
-    ListData[] myListData;
+public class ListAdapter extends BaseAdapter {
     Context context;
+    List<ListData> listData;
+    int item_layout;
 
-    public ListAdapter(ListData[] myListData, DanhSachMuaSamThem activity) {
-        this.myListData = myListData;
-        this.context = activity;
-    }
-
-
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.item_dsmuasam,parent,false);
-        ViewHolder viewHolder = new ViewHolder(view);
-        return viewHolder;
+    public ListAdapter(Context context, List<ListData> listData, int item_layout) {
+        this.context = context;
+        this.listData = listData;
+        this.item_layout = item_layout;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final ListData myShopingListData = myListData[position];
-        holder.txtTitle.setText(myShopingListData.getListTitle());
-        holder.txtTotal.setText(myShopingListData.getListTotal());
-        holder.txtPrice.setText((int) myShopingListData.getListPrice());
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+    public int getCount() {
+        return listData.size();
     }
 
     @Override
-    public int getItemCount() {
-        return myListData.length;
+    public Object getItem(int i) {
+        return listData.get(i);
     }
 
+    @Override
+    public long getItemId(int i) {
+        return 0;
+    }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
-        TextView txtTitle;
-        TextView txtTotal;
-        TextView txtPrice;
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            txtTitle=itemView.findViewById(R.id.txtTitle);
-            txtTotal=itemView.findViewById(R.id.txtTotal);
-            txtPrice=itemView.findViewById(R.id.txtPrice);
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        ViewHolder holder;
+        if(view == null){
+            holder=new ViewHolder();
+            LayoutInflater inflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            view = inflater.inflate(item_layout,null);
+            holder.txtTitle=view.findViewById(R.id.txtTitle);
+            holder.txtPrice=view.findViewById(R.id.txtPrice);
+            holder.txtTotal=view.findViewById(R.id.txtTotal);
+            holder.txtCompleted=view.findViewById(R.id.txtCompleted);
+            view.setTag(holder);
         }
-    }
+        else {
+            holder = (ViewHolder) view.getTag();
+        }
+        //Binding dữ liệu
+        ListData data= listData.get(i);
+        // gắn dữ liệu lên
+        holder.txtTitle.setText(data.getListTitle());
+        holder.txtPrice.setText(String.format("%,.0f",data.getListPrice()));
+        holder.txtTotal.setText(String.valueOf(data.getListTotal()));
+        holder.txtCompleted.setText(String.valueOf(data.getListCompleted()));
 
+        return view;
+    }
+    public static class ViewHolder{
+        TextView txtTitle,txtCompleted,txtTotal,txtPrice;
+    }
 }

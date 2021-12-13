@@ -45,18 +45,14 @@
         <activity
             android:name=".TinTucActivity"
             android:exported="true"></activity>
-        <activity
-            android:name=".ThongKeActivity"
-            android:exported="true"></activity>
+
         <activity
             android:name=".ThongKeChiTietActivity"
             android:exported="true"></activity>
         <activity
             android:name=".ThongKeChinhSua"
             android:exported="true"></activity>
-        <activity
-            android:name="com.example.KeHoachMuaSam.KeHoachMuaSamMain"
-            android:exported="true"></activity>
+
         <activity
             android:name="com.example.KeHoachMuaSam.DanhSachMuaSamThem"
             android:exported="true" />
@@ -72,18 +68,14 @@
         <activity
             android:name=".TaiKhoanXoa"
             android:exported="true" />
-        <activity
-            android:name=".TaiKhoan"
-            android:exported="true"></activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"></activity>
         <activity
             android:name=".CaiDatThongTinAppChinhSach"
             android:exported="true" />
-        <activity
-            android:name=".CaiDatTroGiup"
-            android:exported="true" />
+
         <activity
             android:name=".CaiDatTroGiupNew"
             android:exported="true" />
@@ -93,9 +85,7 @@
         <activity
             android:name=".NhacNhoThemActivity"
             android:exported="true" />
-        <activity
-            android:name=".ThuChi"
-            android:exported="true"></activity>
+     
     </application>
 
 </manifest>

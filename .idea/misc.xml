@@ -137,15 +137,32 @@
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/menu/edit_hoatdong_menu.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/menu/hoatdong_menu.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/P4/app/src/main/res/menu/nhac_nho_edit_option_menu.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager/app/src/main/res/layout/activity_danh_sach_mua_sam_chi_tiet.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/SmartManager/app/src/main/res/layout/activity_edit_muctieu_hoatdong.xml" value="0.2421875" />
-        <entry key="..\:/HK5/Android/Project/SmartManager/app/src/main/res/layout/activity_nhacnho_chi_tiet.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager/app/src/main/res/layout/activity_nhacnho_chi_tiet.xml" value="0.536" />
         <entry key="..\:/HK5/Android/Project/SmartManager/app/src/main/res/layout/activity_nhacnho_them_moi.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/SmartManager/app/src/main/res/layout/activity_tao_muc_tieu_chi_tiet.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/SmartManager/app/src/main/res/layout/activity_thong_ke_chi_tiet.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager/app/src/main/res/layout/activity_thu_chi.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/SmartManager/app/src/main/res/layout/fragment_the_loai_muctieu.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager/app/src/main/res/layout/fragment_thu_chi_chinh.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager/app/src/main/res/layout/fragment_thu_chi_ngay.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/SmartManager/app/src/main/res/layout/muctieu_hoanthanh_fragment.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/SmartManager/app/src/main/res/layout/muctieu_tamdung_fragment.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/SmartManager/app/src/main/res/menu/edit_hoatdong_menu.xml" value="0.176" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/drawable/side_nav_bar.xml" value="0.25833333333333336" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/activity_cai_dat_mat_khau_doi.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/activity_cai_dat_mat_khau_doi_nhap_lai.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/activity_cai_dat_mat_khau_doi_nhap_moi.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/activity_cai_dat_mat_khau_main.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/activity_cai_dat_mat_khau_tat.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/activity_cai_dat_thong_tin_app_chinh_sach.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/activity_cai_dat_thong_tin_app_main.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/activity_cai_dat_tro_giup.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/activity_ket_noi_moi_ban.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/activity_ketnoi_tintuc_chitiet.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/cai_dat_sao_luu.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/nav_header_main2.xml" value="0.2421875" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/DD/app/src/main/res/layout/activity_danh_sach_mua_sam.xml" value="0.4742468415937804" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/DD/app/src/main/res/layout/activity_danh_sach_mua_sam2.xml" value="0.2" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/DD/app/src/main/res/layout/activity_ds_shopping.xml" value="0.1037037037037037" />
@@ -356,24 +373,6 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManagerTwo/app/src/main/res/layout/nav_header_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManagerTwo/app/src/main/res/menu/activity_menu_drawer.xml" value="0.4" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManagerTwo/app/src/main/res/menu/menu.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/drawable/highlight_color.xml" value="0.20052083333333334" />
-        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/drawable/ic_dau_cong.xml" value="0.20052083333333334" />
-        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/drawable/nav_item_drawable.xml" value="0.20052083333333334" />
-        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/activity_kehoach_muctieu_tietkiem.xml" value="0.12777777777777777" />
-        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/activity_kehoachmuasam_main.xml" value="0.184375" />
-        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/activity_main2.xml" value="0.184375" />
-        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/app_bar_main.xml" value="0.184375" />
-        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/app_bar_main2.xml" value="0.184375" />
-        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/content_main2.xml" value="0.184375" />
-        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/dialog_ketnoi_gioithieu.xml" value="0.22" />
-        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/dialog_ketnoi_invite.xml" value="0.11197916666666667" />
-        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/nav_header_main2.xml" value="0.11197916666666667" />
-        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/menu/activity_main2_drawer.xml" value="0.184375" />
-        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/menu/edit_hoatdong_menu.xml" value="0.1787037037037037" />
-        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/menu/hoanthanh_menu.xml" value="0.1787037037037037" />
-        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/menu/hoatdong_menu.xml" value="0.1787037037037037" />
-        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/menu/main2.xml" value="0.184375" />
-        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/menu/main_activity2.xml" value="0.184375" />
       </map>
     </option>
   </component>

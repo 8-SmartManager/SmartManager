@@ -11,12 +11,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.R;
 
 public class DanhSachMuaSamThem extends AppCompatActivity {
 
     Button btnTaoDanhSach;
     EditText edtNhap;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +51,10 @@ public class DanhSachMuaSamThem extends AppCompatActivity {
                     ShowDialog();
                 }
                 else {
+                    String name=edtNhap.getText().toString();
+                    KeHoachMuaSamMain.db.execSql("INSERT INTO " +MyDatabaseHelper.TBL_NAME_DANHSACH + " VALUES(null,'"+name+"', '5000000')");
+
+
                     Intent intent = new Intent(DanhSachMuaSamThem.this, DanhSachMuaSamChiTiet.class);
                     intent.putExtra("tlName",edtNhap.getText().toString());
                     startActivity(intent);

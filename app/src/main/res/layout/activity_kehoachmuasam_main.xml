@@ -10,21 +10,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcvDanhSach"
+        <ListView
+            android:id="@+id/lvDanhSach"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabThemDanhSach"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="16dp"
-        app:backgroundTint="@color/thu_cap"
-        app:srcCompat="@drawable/ic_dau_cong"/>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnThemDanhSach"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="32dp"
+            app:backgroundTint="@color/thu_cap"
+            android:tint="@color/white"
+            app:srcCompat="@drawable/ic_dau_cong"/>
     </RelativeLayout>
 
 </LinearLayout>

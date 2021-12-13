@@ -52,7 +52,7 @@ public class TaiKhoan extends Fragment {
         prepareDB();
         lvTaiKhoanThu = root.findViewById(R.id.lvTaiKhoanThu);
         txtTongTK = root.findViewById(R.id.txtTongTK);
-        loadData();
+
         addEvents();
         return root;
     }
