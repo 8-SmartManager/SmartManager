@@ -235,7 +235,7 @@ public  void  createSomeNhacNhoData(){
         int countDanhSach = getCountDanhSach();
         if(countDanhSach == 0){
             execSql("INSERT INTO " + TBL_NAME_DANHSACH + " VALUES(null, 'Áo quần', '5000000')");
-            execSql("INSERT INTO " + TBL_NAME_DANHSACH + " VALUES(null, 'Áo quần', '5000000')");
+
 
         }
     }

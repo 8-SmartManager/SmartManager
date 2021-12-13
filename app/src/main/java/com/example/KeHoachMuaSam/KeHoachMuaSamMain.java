@@ -1,30 +1,26 @@
 package com.example.KeHoachMuaSam;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.KeHoachMuaSam.model.DanhSachItem;
 import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.R;
 import com.example.smartmanagertwo.TaiKhoanChiTietActivity;
-import com.example.taikhoan.TaiKhoanActivity;
-import com.example.taikhoan.TaiKhoanAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -40,12 +36,13 @@ public class KeHoachMuaSamMain extends Fragment {
     FloatingActionButton btnThemDanhSach;
     ListAdapter adapter;
     ArrayList<ListData> listDatas;
-    ItemList selectedItem=null;
+    DanhSachItem selectedItem=null;
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.activity_kehoachmuasam_main,container,false);
+        View root = inflater.inflate(R.layout.activity_danh_sach_mua_sam_main,container,false);
         prepareDB();
         lvDanhSach=root.findViewById(R.id.lvDanhSach);
         btnThemDanhSach=root.findViewById(R.id.btnThemDanhSach);
@@ -55,17 +52,6 @@ public class KeHoachMuaSamMain extends Fragment {
     }
 
 
-
-    private void addEvent() {
-        btnThemDanhSach.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), DanhSachMuaSamThem.class);
-                startActivity(intent);
-
-            }
-        });
-    }
 
     private void prepareDB() {
         db = new MyDatabaseHelper(getContext());
@@ -101,7 +87,15 @@ public class KeHoachMuaSamMain extends Fragment {
     }
 
 
-    private void addEvents() {
+    private void addEvent() {
+        btnThemDanhSach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), DanhSachMuaSamThem.class);
+                startActivity(intent);
+
+            }
+        });
         lvDanhSach.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -112,6 +106,38 @@ public class KeHoachMuaSamMain extends Fragment {
                 startActivity(intent);
             }
         });
+        lvDanhSach.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+                builder.setTitle("Confirm!");
+                builder.setMessage("Bạn có chắc chắn muốn xóa danh sách này?");
+                builder.setIcon(android.R.drawable.ic_delete);
+
+                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        KeHoachMuaSamMain.db.execSql("DELETE FROM "+MyDatabaseHelper.TBL_NAME_DANHSACH+" WHERE "+MyDatabaseHelper.COL_DANHSACH_ID + "=" +selectedItem.getItemId());
+
+                    }
+                });
+
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                AlertDialog dialog =builder.create();
+                dialog.show();
+                return false;
+            }
+        });
+
+
     }
 
+
 }
+
+
