@@ -51,7 +51,7 @@
         tools:layout="@layout/activity_ket_noi_moi_ban" />
     <fragment
         android:id="@+id/nav_matkhau"
-        android:name="com.example.smartmanagertwo.CaiDatMatKhauMain"
+        android:name="com.example.caidatmatkhau.CaiDatMatKhauMain"
         android:label="Mật khẩu"
         tools:layout="@layout/activity_cai_dat_mat_khau_main" />
     <fragment

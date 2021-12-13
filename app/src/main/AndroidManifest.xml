@@ -38,8 +38,12 @@
         <activity
             android:name=".TaiKhoanChiTietActivity"
             android:exported="true" />
-
-
+        <activity
+            android:name="com.example.caidatmatkhau.MatKhauOff"
+            android:exported="true" />
+        <activity
+            android:name="com.example.caidatmatkhau.MatKhauChange"
+            android:exported="true" />
         <activity
             android:name=".ThuChiThemMoi"
             android:exported="true" />
