@@ -41,7 +41,7 @@
 
         <fragment
             android:id="@+id/nav_tintuc"
-            android:name="com.example.smartmanagertwo.TinTucActivity"
+            android:name="com.example.tintuc.TinTucActivity"
             android:label="Tin tức"
             tools:layout="@layout/activity_tintuc" />
     <fragment

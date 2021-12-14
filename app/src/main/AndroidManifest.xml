@@ -87,10 +87,6 @@
         <activity
             android:name=".NhacNhoThemActivity"
             android:exported="true" />
-        <activity android:name="com.example.tintuc.TinTucActivity"
-            android:exported="true">
-
-        </activity>
         <activity android:name="com.example.tintuc.KetNoiTinTucChiTiet"
             android:exported="true"></activity>
     </application>
