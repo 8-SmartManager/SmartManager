@@ -4,69 +4,66 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smartmanagertwo.R;
-import com.example.smartmanagertwo.TinTucActivity;
 
-public class TinTucAdapter extends RecyclerView.Adapter<TinTucAdapter.ViewHolder> {
+import java.util.List;
 
-    TinTucData[] myNewsData;
+public class TinTucAdapter extends BaseAdapter{
     Context context;
+    int item_tintuc;
+    List<TinTucData> newsList;
 
-    public TinTucAdapter(TinTucData[] myNewsData, Context context) {
-        this.myNewsData = myNewsData;
+    public TinTucAdapter(Context context, int item_tintuc, List<TinTucData> newsList) {
         this.context = context;
-    }
-
-
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.tintuc_item_list,parent,false);
-        ViewHolder viewHolder = new ViewHolder(view);
-        return viewHolder;
+        this.item_tintuc = item_tintuc;
+        this.newsList = newsList;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final TinTucData myNewsDataList = myNewsData[position];
-        holder.textViewName.setText(myNewsDataList.getMovieName());
-        holder.textViewDetail.setText(myNewsDataList.getMovieDate());
-        holder.newImage.setImageResource(myNewsDataList.getNewsImage());
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, myNewsDataList.getMovieName(), Toast.LENGTH_SHORT).show();
-            }
-        });
+    public int getCount() {
+        return newsList.size();
     }
 
     @Override
-    public int getItemCount() {
-        return myNewsData.length;
+    public Object getItem(int i) {
+        return newsList.get(i);
     }
 
+    @Override
+    public long getItemId(int i) {
+        return 0;
+    }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView newImage;
-        TextView textViewName;
-        TextView textViewDetail;
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        TinTucAdapter.ViewHolder holder;
+        if (view==null)
+        {
+            holder = new ViewHolder();
+            LayoutInflater inflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            view = inflater.inflate(item_tintuc,null);
+            holder.imvThumb= view.findViewById(R.id.imvThumb);
+            holder.txtName= view.findViewById(R.id.txtName);
+            holder.txtDetail= view.findViewById(R.id.txtDetail);
 
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            newImage = itemView.findViewById(R.id.imageview);
-            textViewName = itemView.findViewById(R.id.txtName);
-            textViewDetail = itemView.findViewById(R.id.txtDetail);
 
+
+            view.setTag(holder);
         }
+        else {holder= (TinTucAdapter.ViewHolder) view.getTag();
+        }
+        TinTucData n = newsList.get(i);
+        holder.imvThumb.setImageResource(n.getNewsImage());
+        holder.txtName.setText(n.getNewsName());
+        holder.txtDetail.setText(n.getNewsDetail());
+        return view;
     }
-
+    public static class ViewHolder{
+        ImageView imvThumb;
+        TextView txtName, txtDetail;
+    }
 }

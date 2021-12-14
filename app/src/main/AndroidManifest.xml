@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.smartmanagertwo">
 
     <application
@@ -37,14 +38,15 @@
         <activity
             android:name=".TaiKhoanChiTietActivity"
             android:exported="true" />
-
-
+        <activity
+            android:name="com.example.caidatmatkhau.MatKhauOff"
+            android:exported="true" />
+        <activity
+            android:name="com.example.caidatmatkhau.MatKhauChange"
+            android:exported="true" />
         <activity
             android:name=".ThuChiThemMoi"
             android:exported="true" />
-        <activity
-            android:name=".TinTucActivity"
-            android:exported="true"></activity>
 
         <activity
             android:name=".ThongKeChiTietActivity"
@@ -85,7 +87,12 @@
         <activity
             android:name=".NhacNhoThemActivity"
             android:exported="true" />
-     
+        <activity android:name="com.example.tintuc.TinTucActivity"
+            android:exported="true">
+
+        </activity>
+        <activity android:name="com.example.tintuc.KetNoiTinTucChiTiet"
+            android:exported="true"></activity>
     </application>
 
 </manifest>

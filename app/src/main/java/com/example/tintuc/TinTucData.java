@@ -6,13 +6,13 @@ public class TinTucData {
     private String newsDetail;
     private Integer newsImage;
 
-    public TinTucData(String newsName, String newsDate, Integer newwImage) {
+    public TinTucData(String newsName, String newsDetail, Integer newsImage) {
         this.newsName = newsName;
         this.newsDetail = newsDetail;
         this.newsImage = newsImage;
     }
 
-    public String getMovieName() {
+    public String getNewsName() {
         return newsName;
     }
 
@@ -20,11 +20,11 @@ public class TinTucData {
         this.newsName = newsName;
     }
 
-    public String getMovieDate() {
+    public String getNewsDetail() {
         return newsDetail;
     }
 
-    public void setNewsDate(String newsDate) {
+    public void setNewsDetail(String newsDetail) {
         this.newsDetail = newsDetail;
     }
 

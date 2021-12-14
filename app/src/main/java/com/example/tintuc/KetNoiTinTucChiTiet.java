@@ -1,4 +1,4 @@
-package com.example.smartmanagertwo;
+package com.example.tintuc;
 
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -7,6 +7,8 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.smartmanagertwo.R;
 
 public class KetNoiTinTucChiTiet extends AppCompatActivity {
     @Override

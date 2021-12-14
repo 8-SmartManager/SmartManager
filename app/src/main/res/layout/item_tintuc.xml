@@ -22,7 +22,7 @@
             <ImageView
                 android:layout_margin="10dp"
                 android:src="@drawable/anh1"
-                android:id="@+id/imageview"
+                android:id="@+id/imvThumb"
                 android:layout_width="300dp"
                 android:layout_height="240dp"/>
 

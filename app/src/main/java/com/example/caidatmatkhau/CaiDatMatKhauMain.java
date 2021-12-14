@@ -1,4 +1,4 @@
-package com.example.smartmanagertwo;
+package com.example.caidatmatkhau;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.smartmanagertwo.R;
 
 public class CaiDatMatKhauMain extends Fragment {
     TextView txtChange, txtOff;
@@ -27,13 +29,16 @@ public class CaiDatMatKhauMain extends Fragment {
         txtOff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),MatKhauOff.class);
+                startActivity(intent);
 
             }
         });
         txtChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent=new Intent(getActivity(),MatKhauChange.class);
+                startActivity(intent);
             }
         });
     }

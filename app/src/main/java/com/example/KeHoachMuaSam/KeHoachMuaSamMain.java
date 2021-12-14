@@ -36,7 +36,7 @@ public class KeHoachMuaSamMain extends Fragment {
 
     public static MyDatabaseHelper db;
 
-     ListView lvDanhSach;
+   ListView lvDanhSach;
     FloatingActionButton btnThemDanhSach;
     ListAdapter adapter;
     public  static ArrayList<ListData> listDatas;
@@ -74,11 +74,11 @@ public class KeHoachMuaSamMain extends Fragment {
     private List<ListData> getDataFromDb(){
         listDatas = new ArrayList<>();
 //        Cursor cursor = db.getData("SELECT "+MyDatabaseHelper.COL_DANHSACH_ID+", "+MyDatabaseHelper.COL_DANHSACH_NAME+", 3, 4"+", (SELECT SUM("+MyDatabaseHelper.COL_DANHSACHITEM_PRICE+") FROM "+MyDatabaseHelper.TBL_NAME_DANHSACHITEM+") FROM "+MyDatabaseHelper.TBL_NAME_DANHSACH);
-        Cursor cursor = db.getData("SELECT "+ MyDatabaseHelper.COL_DANHSACH_ID+", "+MyDatabaseHelper.COL_DANHSACH_NAME+",0, COUNT(*), SUM("+MyDatabaseHelper.COL_DANHSACHITEM_PRICE+") FROM "+MyDatabaseHelper.TBL_NAME_DANHSACH+" INNER JOIN "+MyDatabaseHelper.TBL_NAME_DANHSACHITEM+" ON "+MyDatabaseHelper.COL_DANHSACH_NAME+"="+MyDatabaseHelper.COL_DANHSACHITEM_DANHSACHNAME+" GROUP BY "+MyDatabaseHelper.COL_DANHSACH_NAME+", "+MyDatabaseHelper.COL_DANHSACH_ID);
+        Cursor cursor = db.getData("SELECT * FROM "+MyDatabaseHelper.TBL_NAME_DANHSACH);
 
         listDatas.clear();
         while (cursor.moveToNext()){
-            listDatas.add(new ListData(cursor.getInt(0),cursor.getString(1),cursor.getInt(2), cursor.getInt(3), cursor.getDouble(4)));
+            listDatas.add(new ListData(cursor.getInt(0),cursor.getString(1),3, 4, cursor.getDouble(2)));
         }
         cursor.close();
         return listDatas;
@@ -101,7 +101,6 @@ public class KeHoachMuaSamMain extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), DanhSachMuaSamThem.class);
                 startActivity(intent);
-
             }
         });
     }
