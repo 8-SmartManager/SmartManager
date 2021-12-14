@@ -111,7 +111,7 @@ public class MucTieuChiTiet_HoanThanh extends AppCompatActivity {
                 return true;
             case R.id.mnDelete:
                 Dialog dialog = new Dialog(MucTieuChiTiet_HoanThanh.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-                dialog.setContentView(R.layout.dialog_error);
+                dialog.setContentView(R.layout.dialog_thong_bao);
                 TextView txtTitle=dialog.findViewById(R.id.txtTitle),
                         txtMessage=dialog.findViewById(R.id.txtMessage);
                 Button btnYes=dialog.findViewById(R.id.btnYes),

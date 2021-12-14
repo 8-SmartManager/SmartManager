@@ -38,7 +38,6 @@
             android:id="@+id/btnNo"
             android:layout_width="136dp"
             android:layout_height="42dp"
-            android:visibility="invisible"
 
             android:fontFamily="@font/publicsans_semibold_600"
             android:text="Không"
@@ -51,7 +50,7 @@
             android:layout_height="42dp"
 
             android:fontFamily="@font/publicsans_semibold_600"
-            android:text="OK"
+            android:text="Có"
             android:layout_marginStart="16dp"
             android:textAllCaps="false"
             android:background="@drawable/button_dialog_error_color"

@@ -9,7 +9,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.nfc.Tag;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -27,9 +25,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.widget.ImageViewCompat;
 
-import com.example.muctieutietkiem.packages.adapter.GoalAdapter;
 import com.example.muctieutietkiem.packages.model.Goal;
-import com.example.nhacnho.NhacNho;
 import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.R;
 
@@ -80,7 +76,7 @@ public class MucTieuChiTiet extends AppCompatActivity implements DialogThemTien.
             @Override
             public void onClick(View view) {
                 Dialog dialogComplete = new Dialog(MucTieuChiTiet.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-                dialogComplete.setContentView(R.layout.dialog_error);
+                dialogComplete.setContentView(R.layout.dialog_thong_bao);
                 TextView txtTitlePause=dialogComplete.findViewById(R.id.txtTitle),
                         txtMessagePause=dialogComplete.findViewById(R.id.txtMessage);
                 Button btnYesComplete=dialogComplete.findViewById(R.id.btnYes),

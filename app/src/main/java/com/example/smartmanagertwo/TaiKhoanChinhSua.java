@@ -148,7 +148,7 @@ public class TaiKhoanChinhSua extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Dialog dialog = new Dialog(TaiKhoanChinhSua.this, R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-                dialog.setContentView(R.layout.dialog_error);
+                dialog.setContentView(R.layout.dialog_thong_bao);
                 TextView txtTitle = dialog.findViewById(R.id.txtTitle), txtMessage = dialog.findViewById(R.id.txtMessage);
                 Button btnYes = dialog.findViewById(R.id.btnYes), btnNo = dialog.findViewById(R.id.btnNo);
                 txtTitle.setText("Thông báo!");

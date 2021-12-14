@@ -36,12 +36,10 @@ public class KeHoachMuaSamMain extends Fragment {
 
     public static MyDatabaseHelper db;
 
-   ListView lvDanhSach;
+     ListView lvDanhSach;
     FloatingActionButton btnThemDanhSach;
     ListAdapter adapter;
-    ArrayList<ListData> listDatas;
-    ItemList selectedItem=null;
-
+    public  static ArrayList<ListData> listDatas;
     @RequiresApi(api = Build.VERSION_CODES.O)
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -50,23 +48,9 @@ public class KeHoachMuaSamMain extends Fragment {
         lvDanhSach=root.findViewById(R.id.lvDanhSach);
         btnThemDanhSach=root.findViewById(R.id.btnThemDanhSach);
 
-        addEvent();
+        addEvents();
         return root;
     }
-
-
-
-    private void addEvent() {
-        btnThemDanhSach.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), DanhSachMuaSamThem.class);
-                startActivity(intent);
-
-            }
-        });
-    }
-
     private void prepareDB() {
         db = new MyDatabaseHelper(getContext());
         db.createSomeDanhSachData();
@@ -90,11 +74,11 @@ public class KeHoachMuaSamMain extends Fragment {
     private List<ListData> getDataFromDb(){
         listDatas = new ArrayList<>();
 //        Cursor cursor = db.getData("SELECT "+MyDatabaseHelper.COL_DANHSACH_ID+", "+MyDatabaseHelper.COL_DANHSACH_NAME+", 3, 4"+", (SELECT SUM("+MyDatabaseHelper.COL_DANHSACHITEM_PRICE+") FROM "+MyDatabaseHelper.TBL_NAME_DANHSACHITEM+") FROM "+MyDatabaseHelper.TBL_NAME_DANHSACH);
-        Cursor cursor = db.getData("SELECT * FROM "+MyDatabaseHelper.TBL_NAME_DANHSACH);
+        Cursor cursor = db.getData("SELECT "+ MyDatabaseHelper.COL_DANHSACH_ID+", "+MyDatabaseHelper.COL_DANHSACH_NAME+",0, COUNT(*), SUM("+MyDatabaseHelper.COL_DANHSACHITEM_PRICE+") FROM "+MyDatabaseHelper.TBL_NAME_DANHSACH+" INNER JOIN "+MyDatabaseHelper.TBL_NAME_DANHSACHITEM+" ON "+MyDatabaseHelper.COL_DANHSACH_NAME+"="+MyDatabaseHelper.COL_DANHSACHITEM_DANHSACHNAME+" GROUP BY "+MyDatabaseHelper.COL_DANHSACH_NAME+", "+MyDatabaseHelper.COL_DANHSACH_ID);
 
         listDatas.clear();
         while (cursor.moveToNext()){
-            listDatas.add(new ListData(cursor.getInt(0),cursor.getString(1),3, 4, cursor.getDouble(2)));
+            listDatas.add(new ListData(cursor.getInt(0),cursor.getString(1),cursor.getInt(2), cursor.getInt(3), cursor.getDouble(4)));
         }
         cursor.close();
         return listDatas;
@@ -108,8 +92,16 @@ public class KeHoachMuaSamMain extends Fragment {
                 Intent intent = new Intent(getActivity(), DanhSachMuaSamChiTiet.class);
                 adapter = new ListAdapter(getActivity(),listDatas, R.layout.item_dsmuasam);
                 ListData list= (ListData) adapter.getItem(i);
-                intent.putExtra("tlName",list);
+                intent.putExtra("tlName",list.getListTitle());
                 startActivity(intent);
+            }
+        });
+        btnThemDanhSach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), DanhSachMuaSamThem.class);
+                startActivity(intent);
+
             }
         });
     }

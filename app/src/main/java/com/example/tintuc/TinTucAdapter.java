@@ -19,9 +19,9 @@ public class TinTucAdapter extends RecyclerView.Adapter<TinTucAdapter.ViewHolder
     TinTucData[] myNewsData;
     Context context;
 
-    public TinTucAdapter(TinTucData[] myNewsData, TinTucActivity activity) {
+    public TinTucAdapter(TinTucData[] myNewsData, Context context) {
         this.myNewsData = myNewsData;
-        this.context = activity;
+        this.context = context;
     }
 
 

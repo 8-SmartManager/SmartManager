@@ -162,7 +162,17 @@
         <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/activity_ket_noi_moi_ban.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/activity_ketnoi_tintuc_chitiet.xml" value="0.2421875" />
         <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/cai_dat_sao_luu.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/dialog_edit_danhsachmuasam.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/dialog_error.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/dialog_ketnoi_invite.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/dialog_nhapdanhsach.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/dialog_show_activity.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/dialog_themtien.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/dialog_thong_bao.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/item_dsmuasam.xml" value="0.23425925925925925" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/item_list_ds_mua_sam.xml" value="0.23425925925925925" />
         <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/layout/nav_header_main2.xml" value="0.2421875" />
+        <entry key="..\:/HK5/Android/Project/SmartManager6/app/src/main/res/menu/nhac_nho_edit_option_menu.xml" value="0.2421875" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/DD/app/src/main/res/layout/activity_danh_sach_mua_sam.xml" value="0.4742468415937804" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/DD/app/src/main/res/layout/activity_danh_sach_mua_sam2.xml" value="0.2" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/DD/app/src/main/res/layout/activity_ds_shopping.xml" value="0.1037037037037037" />

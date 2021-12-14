@@ -39,11 +39,11 @@
         android:label="Danh sách mua sắm"
         tools:layout="@layout/activity_kehoachmuasam_main" />
 
-    <!--    <fragment-->
-    <!--        android:id="@+id/nav_tintuc"-->
-    <!--        android:name="com.example.smartmanagertwo.TinTucActivity"-->
-    <!--        android:label="Tin tức"-->
-    <!--        tools:layout="@layout/activity_tintuc" />-->
+        <fragment
+            android:id="@+id/nav_tintuc"
+            android:name="com.example.smartmanagertwo.TinTucActivity"
+            android:label="Tin tức"
+            tools:layout="@layout/activity_tintuc" />
     <fragment
         android:id="@+id/nav_moiban"
         android:name="com.example.smartmanagertwo.KetNoi_MoiBan"
@@ -54,6 +54,11 @@
         android:name="com.example.smartmanagertwo.CaiDatMatKhauMain"
         android:label="Mật khẩu"
         tools:layout="@layout/activity_cai_dat_mat_khau_main" />
+    <fragment
+        android:id="@+id/nav_saoluu"
+        android:name="com.example.caidat.SaoLuuActivity"
+        android:label="Sao lưu"
+        tools:layout="@layout/cai_dat_sao_luu" />
     <fragment
         android:id="@+id/nav_trogiup"
         android:name="com.example.smartmanagertwo.CaiDatTroGiup"

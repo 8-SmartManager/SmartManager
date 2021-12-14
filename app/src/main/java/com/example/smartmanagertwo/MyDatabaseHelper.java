@@ -74,11 +74,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String TBL_NAME_DANHSACH="DanhSach";
     public static final String COL_DANHSACH_ID = "DanhSach_ID";
     public static final String COL_DANHSACH_NAME = "DanhSach_Name";
-    public static final String COL_DANHSACH_PRICE_TOTAL = "DanhSach_Price_Total";
+
 
     //Bảng Item Danh Sách Mua Sắm
     public static final String TBL_NAME_DANHSACHITEM="DanhSachItem";
     public static final String COL_DANHSACHITEM_ID = "DanhSachItem_ID";
+    public static final String COL_DANHSACHITEM_DANHSACHNAME = "DanhSachItem_DanhSachName";
     public static final String COL_DANHSACHITEM_NAME = "DanhSachItem_Name";
     public static final String COL_DANHSACHITEM_PRICE = "DanhSachItem_Price";
     public static final String COL_DANHSACHITEM_COMPLETE = "DanhSachItem_Complete";
@@ -112,9 +113,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 //        sqLiteDatabase.execSQL(sqlThongKeChiTiet);
 //        String sqlThongKeThuChiTiet = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_THONG_KE_THU_CHI_TIET + "(" + COL_TKTHUCHITIET_THELOAI + " VARCHAR(50), " + COL_TKTHUCHITIET_TAIKHOAN + " VARCHAR(50), " + COL_TKTHUCHITIET_MONEY + " VARCHAR(50), " + COL_TKTHUCHITIET_TIME + " DATE )";
 //        sqLiteDatabase.execSQL(sqlThongKeThuChiTiet);
-        String sqlDanhSach="CREATE TABLE IF NOT EXISTS " + TBL_NAME_DANHSACH +"(" + COL_DANHSACH_ID+ " INTEGER PRIMARY KEY AUTOINCREMENT, " +COL_DANHSACH_NAME +" VARCHAR(50), " + COL_DANHSACH_PRICE_TOTAL +" DOUBLE)";
+        String sqlDanhSach="CREATE TABLE IF NOT EXISTS " + TBL_NAME_DANHSACH +"(" + COL_DANHSACH_ID+ " INTEGER PRIMARY KEY AUTOINCREMENT, " +COL_DANHSACH_NAME +" VARCHAR(50))";
         sqLiteDatabase.execSQL(sqlDanhSach);
-        String sqlDanhSachItem="CREATE TABLE IF NOT EXISTS " + TBL_NAME_DANHSACHITEM +"(" + COL_DANHSACHITEM_ID+ " INTEGER PRIMARY KEY AUTOINCREMENT, " +COL_DANHSACHITEM_NAME +" VARCHAR(50), " + COL_DANHSACHITEM_PRICE +" DOUBLE,"+COL_DANHSACHITEM_COMPLETE+" INT)";
+        String sqlDanhSachItem="CREATE TABLE IF NOT EXISTS " + TBL_NAME_DANHSACHITEM +"(" + COL_DANHSACHITEM_ID+ " INTEGER PRIMARY KEY AUTOINCREMENT, " +COL_DANHSACHITEM_DANHSACHNAME +" VARCHAR(50), "+COL_DANHSACHITEM_NAME +" VARCHAR(50), " + COL_DANHSACHITEM_PRICE +" DOUBLE,"+COL_DANHSACHITEM_COMPLETE+" INT)";
         sqLiteDatabase.execSQL(sqlDanhSachItem);
     }
 
@@ -234,12 +235,19 @@ public  void  createSomeNhacNhoData(){
     public  void createSomeDanhSachData(){
         int countDanhSach = getCountDanhSach();
         if(countDanhSach == 0){
-            execSql("INSERT INTO " + TBL_NAME_DANHSACH + " VALUES(null, 'Áo quần', '5000000')");
-            execSql("INSERT INTO " + TBL_NAME_DANHSACH + " VALUES(null, 'Áo quần', '5000000')");
+            execSql("INSERT INTO " + TBL_NAME_DANHSACH + " VALUES(null, 'Áo quần')");
+            execSql("INSERT INTO " + TBL_NAME_DANHSACH + " VALUES(null, 'Dạo phố')");
 
         }
     }
+    public  void createSomeDanhSachItemData(){
+        int countDanhSachItem = getCountDanhSachItem();
+        if(countDanhSachItem == 0){
+            execSql("INSERT INTO " + TBL_NAME_DANHSACHITEM + " VALUES(null, 'Áo quần','Áo khoác',300000,0)");
+            execSql("INSERT INTO " + TBL_NAME_DANHSACHITEM + " VALUES(null, 'Dạo phố', 'Cà phê',50000,1)");
 
+        }
+    }
 
 
     public void execSql(String sql){

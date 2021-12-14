@@ -1,12 +1,10 @@
 package com.example.smartmanagertwo;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -20,7 +18,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -108,7 +105,7 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
                 return true;
             case R.id.mnDelete:
                 Dialog dialog = new Dialog(NhacNhoChiTietActivity.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-                dialog.setContentView(R.layout.dialog_error);
+                dialog.setContentView(R.layout.dialog_thong_bao);
                 TextView txtTitle=dialog.findViewById(R.id.txtTitle),
                         txtMessage=dialog.findViewById(R.id.txtMessage);
                 Button btnYes=dialog.findViewById(R.id.btnYes),
@@ -210,67 +207,7 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
         txtChuKy.setOnClickListener(myClick);
         txtNgayBatDau.setOnClickListener(myClick);
         txtGioNhac.setOnClickListener(myClick);
-//        btnBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//               onBackPressed();
-//            }
-//        });
-//        btnDone.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String theLoai=txtTheLoai.getText().toString(),
-//                        ten=edtTen.getText().toString(),
-//                        chuKy=txtChuKy.getText().toString(),
-//                        ngayBatDau=txtNgayBatDau.getText().toString(),
-//                        gioNhac=txtGioNhac.getText().toString();
-//                if(theLoai.equals("")||ten.equals("")||chuKy.equals("")||ngayBatDau.equals("")||gioNhac.equals("")){
-//                    AlertDialog.Builder builder= new AlertDialog.Builder(NhacNhoChiTietActivity.this);
-//                    builder.setTitle("Lỗi!");
-//                    builder.setMessage("Vui lòng nhập đầy đủ thông tin");
-//                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialogInterface, int i) {
-//                            dialogInterface.dismiss();
-//                        }
-//                    });
-//                    builder.create().show();
-//                }else {
-//                    NhacNhoActivity.db.execSql("UPDATE "+MyDatabaseHelper.TBL_NAME_NHAC_NHO+" SET "+MyDatabaseHelper.COL_NHACNHO_TYPE+" = '"+theLoai+"', "+MyDatabaseHelper.COL_NHACNHO_NAME+" = '"+ten+"', "+MyDatabaseHelper.COL_NHACNHO_PERIOD+" = '"+chuKy+"', "+MyDatabaseHelper.COL_NHACNHO_START_DAY+" = '"+ngayBatDau+"', "+MyDatabaseHelper.COL_NHACNHO_REMIND_TIME+" = '"+gioNhac+"' WHERE "+MyDatabaseHelper.COL_NHACNHO_ID+"=" +selectedNhacNho.getID());
-//
-//                    finish();
-//                }
-//
-//            }
-//        });
-//        btnDelete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Dialog dialog = new Dialog(NhacNhoChiTietActivity.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-//                dialog.setContentView(R.layout.dialog_error);
-//                TextView txtTitle=dialog.findViewById(R.id.txtTitle),
-//                        txtMessage=dialog.findViewById(R.id.txtMessage);
-//                Button btnYes=dialog.findViewById(R.id.btnYes),
-//                        btnNo=dialog.findViewById(R.id.btnNo);
-//                txtTitle.setText("Thông báo");
-//                txtMessage.setText("Bạn có chắc chắn muốn xóa?");
-//                btnYes.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        NhacNhoActivity.db.execSql("DELETE FROM "+MyDatabaseHelper.TBL_NAME_NHAC_NHO+" WHERE "+MyDatabaseHelper.COL_NHACNHO_ID + "=" +selectedNhacNho.getID());
-//
-//                        finish();
-//                    }
-//                });
-//               btnNo.setOnClickListener(new View.OnClickListener() {
-//                   @Override
-//                   public void onClick(View view) {
-//                       dialog.dismiss();
-//                   }
-//               });
-//               dialog.show();
-//            }
-//        });
+
 
     }
 

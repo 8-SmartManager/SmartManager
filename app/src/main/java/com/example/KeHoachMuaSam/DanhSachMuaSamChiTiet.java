@@ -12,11 +12,13 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.KeHoachMuaSam.adapter.ItemDapter;
@@ -35,7 +37,7 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
      ListView lvDanhSachItem;
      String tenDanhSach;
      ItemDapter adapter;
-     ArrayList<DanhSachItem> tasks;
+     ArrayList<DanhSachItem> items;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,14 +71,14 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
 
 
     private ArrayList<DanhSachItem> getDataFromDb(){
-        tasks=new ArrayList<>();
-        Cursor cursor = KeHoachMuaSamMain.db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_DANHSACHITEM);
-        tasks.clear();
+        items=new ArrayList<>();
+        Cursor cursor = KeHoachMuaSamMain.db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_DANHSACHITEM+" WHERE "+MyDatabaseHelper.COL_DANHSACHITEM_DANHSACHNAME+"='"+tenDanhSach+"'");
+        items.clear();
         while (cursor.moveToNext()){
-            tasks.add(new DanhSachItem(cursor.getInt(0),cursor.getString(1), cursor.getDouble(2),cursor.getInt(3)));
+            items.add(new DanhSachItem(cursor.getInt(0),cursor.getString(1),cursor.getString(2), cursor.getDouble(3),cursor.getInt(4)));
         }
         cursor.close();
-        return tasks;
+        return items;
     }
 
     private void addEvents() {
@@ -106,7 +108,7 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
                         }
                         else {
 
-                            KeHoachMuaSamMain.db.execSql("INSERT INTO " +MyDatabaseHelper.TBL_NAME_DANHSACHITEM + " VALUES(null,'"+itemName+"', '"+itemPrice+"',0)");
+                            KeHoachMuaSamMain.db.execSql("INSERT INTO " +MyDatabaseHelper.TBL_NAME_DANHSACHITEM + " VALUES(null,'"+tenDanhSach+"','"+itemName+"', '"+itemPrice+"',0)");
                             Toast.makeText(DanhSachMuaSamChiTiet.this, "Success!", Toast.LENGTH_SHORT).show();
                             dialogInterface.dismiss();
                             loadData();
@@ -127,39 +129,109 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.nhac_nho_edit_option_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId())
         {
             case android.R.id.home:
-                onBackPressed();
-                return true;
+              if(items.size()==0){
+                  Dialog dialogDone = new Dialog(DanhSachMuaSamChiTiet.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                  dialogDone.setContentView(R.layout.dialog_error);
+                  TextView txtTitleDone=dialogDone.findViewById(R.id.txtTitle),
+                          txtMessageDone=dialogDone.findViewById(R.id.txtMessage);
+                  Button btnYesDone=dialogDone.findViewById(R.id.btnYes);
+
+                  txtTitleDone.setText("Lỗi");
+                  txtMessageDone.setText("Vui lòng thêm item danh sách");
+                  btnYesDone.setOnClickListener(new View.OnClickListener() {
+                      @Override
+                      public void onClick(View view) {
+                          dialogDone.dismiss();
+                      }
+                  });
+
+                  dialogDone.show();
+              }
+              else {
+                  onBackPressed();
+              }
+//                onBackPressed();
+                break;
+            case R.id.mnDelete:
+                Dialog dialog = new Dialog(DanhSachMuaSamChiTiet.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                dialog.setContentView(R.layout.dialog_thong_bao);
+                TextView txtTitle=dialog.findViewById(R.id.txtTitle),
+                        txtMessage=dialog.findViewById(R.id.txtMessage);
+                Button btnYes=dialog.findViewById(R.id.btnYes),
+                        btnNo=dialog.findViewById(R.id.btnNo);
+                txtTitle.setText("Thông báo");
+                txtMessage.setText("Bạn có chắc chắn muốn xóa?");
+                btnYes.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        KeHoachMuaSamMain.db.execSql("DELETE FROM "+MyDatabaseHelper.TBL_NAME_DANHSACH+" WHERE "+MyDatabaseHelper.COL_DANHSACH_NAME + "='" +tenDanhSach+"'");
+                        finish();
+                    }
+                });
+                btnNo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+                break;
+            case R.id.mnDone:
+                finish();
             default:break;}
         return super.onOptionsItemSelected(item);
     }
     public void openEditDialog(DanhSachItem t){
-        //Toast.makeText(this, "t.getTaskName", Toast.LENGTH_SHORT).show();
+
         Dialog dialog=new Dialog(this);
         dialog.setContentView(R.layout.dialog_edit_danhsachmuasam);
         EditText edtName=dialog.findViewById(R.id.edtName);
         EditText edtPrice=dialog.findViewById(R.id.edtPrice);
 
         edtName.setText(t.getItemName());
-        edtPrice.setText(String.format("%,.0f", t.getItemPrice()));
+        edtPrice.setText(String.format("%.0f", t.getItemPrice()));
         Button btnOK= dialog.findViewById(R.id.btnOK);
-//        btnOK.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String taskName=edtName.getText().toString();
-//                String taskPrice=edtPrice.getText().toString();
-////                db.execSql("UPDATE " + MyDatabaseHelper.TBL_NAME_DANHSACH + " SET " + MyDatabaseHelper.COL_DANHSACH_NAME + " = '" + taskName + MyDatabaseHelper.COL_DANHSACH_PRICE + taskPrice + "' " +
-////                        "' WHERE " + MyDatabaseHelper.COL_DANHSACH_ID + " = "  + t.getTaskId());
-//                db.execSql("UPDATE "+MyDatabaseHelper.TBL_NAME_DANHSACH + " SET " + MyDatabaseHelper.COL_NHACNHO_NAME +" = '"+taskName+"', "+MyDatabaseHelper.COL_DANHSACH_PRICE+" = '"+taskPrice+"' " +
-//                        " 'WHERE "+MyDatabaseHelper.COL_DANHSACH_ID+"=" +t.getTaskId());
-//                Toast.makeText(DanhSachMuaSamChiTiet.this, "Success!", Toast.LENGTH_SHORT).show();
-//                dialog.dismiss();
-//                loadData();
-//            }
-//        });
+        btnOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String itemName=edtName.getText().toString();
+                String itemPrice=edtPrice.getText().toString();
+                if(itemName.equals("")||itemPrice.equals("")){
+                    Dialog dialogDone = new Dialog(DanhSachMuaSamChiTiet.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                    dialogDone.setContentView(R.layout.dialog_error);
+                    TextView txtTitleDone=dialogDone.findViewById(R.id.txtTitle),
+                            txtMessageDone=dialogDone.findViewById(R.id.txtMessage);
+                    Button btnYesDone=dialogDone.findViewById(R.id.btnYes);
+
+                    txtTitleDone.setText("Lỗi");
+                    txtMessageDone.setText("Vui lòng nhập đầy đủ thông tin!");
+                    btnYesDone.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialogDone.dismiss();
+                        }
+                    });
+
+                    dialogDone.show();
+                }else {
+                    KeHoachMuaSamMain.db.execSql("UPDATE " + MyDatabaseHelper.TBL_NAME_DANHSACHITEM + " SET " + MyDatabaseHelper.COL_DANHSACHITEM_NAME + " = '" + itemName + "', " + MyDatabaseHelper.COL_DANHSACHITEM_PRICE + " = " + itemPrice + " " +
+                            " WHERE " + MyDatabaseHelper.COL_DANHSACHITEM_ID + "=" + t.getItemId());
+                    Toast.makeText(DanhSachMuaSamChiTiet.this, "Success!", Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                    loadData();
+                }
+            }
+        });
         Button btnCancle=dialog.findViewById(R.id.btnCancel);
         btnCancle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,24 +244,29 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
 
 
 public void  deleteTask (DanhSachItem t){
-    AlertDialog.Builder builder=new AlertDialog.Builder(this);
-    builder.setTitle("Confirm!");
-    builder.setMessage("Are you sure you want to delete this item: " + t.getItemName()+ "?");
-    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+    Dialog dialog = new Dialog(DanhSachMuaSamChiTiet.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+    dialog.setContentView(R.layout.dialog_thong_bao);
+    TextView txtTitle=dialog.findViewById(R.id.txtTitle),
+            txtMessage=dialog.findViewById(R.id.txtMessage);
+    Button btnYes=dialog.findViewById(R.id.btnYes),
+            btnNo=dialog.findViewById(R.id.btnNo);
+    txtTitle.setText("Thông báo");
+    txtMessage.setText("Bạn có chắc chắn muốn xóa?");
+    btnYes.setOnClickListener(new View.OnClickListener() {
         @Override
-        public void onClick(DialogInterface dialogInterface, int i) {
+        public void onClick(View view) {
             KeHoachMuaSamMain.db.execSql("DELETE FROM " + MyDatabaseHelper.TBL_NAME_DANHSACHITEM + " WHERE " + MyDatabaseHelper.COL_DANHSACHITEM_ID + " = " + t.getItemId());
             Toast.makeText(DanhSachMuaSamChiTiet.this, "Success!", Toast.LENGTH_SHORT).show();
-            loadData();
+            dialog.dismiss();
         }
     });
-    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+    btnNo.setOnClickListener(new View.OnClickListener() {
         @Override
-        public void onClick(DialogInterface dialogInterface, int i) {
-            dialogInterface.dismiss();
+        public void onClick(View view) {
+            dialog.dismiss();
         }
     });
-    builder.create().show();
+    dialog.show();
 
 }
 

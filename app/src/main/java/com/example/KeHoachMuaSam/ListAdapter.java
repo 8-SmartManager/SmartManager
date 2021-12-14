@@ -57,7 +57,7 @@ public class ListAdapter extends BaseAdapter {
         ListData data= listData.get(i);
         // gắn dữ liệu lên
         holder.txtTitle.setText(data.getListTitle());
-        holder.txtPrice.setText(String.format("%,.0f",data.getListPrice()));
+        holder.txtPrice.setText(String.format("%,.0f",data.getListPrice())+" dồng");
         holder.txtTotal.setText(String.valueOf(data.getListTotal()));
         holder.txtCompleted.setText(String.valueOf(data.getListCompleted()));
 

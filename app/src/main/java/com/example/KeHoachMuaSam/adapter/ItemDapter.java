@@ -62,7 +62,7 @@ public class ItemDapter extends BaseAdapter {
         DanhSachItem t = items.get(i);
         // gắn dữ liệu lên
         holder.txtName.setText(t.getItemName());
-        holder.txtPrice.setText(String.valueOf(t.getItemPrice()));
+        holder.txtPrice.setText(String.format("%,.0f",t.getItemPrice()));
         if(t.getItemCompleted()==1){
             holder.chkCompleted.setChecked(true);
         }

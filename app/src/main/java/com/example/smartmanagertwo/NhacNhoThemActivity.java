@@ -4,19 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
-import android.content.ContentValues;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -29,12 +25,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
@@ -135,7 +128,7 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                 String currentDate = formatter1.format(calendar1.getTime());
                 if(theLoai.equals("")||ten.equals("")||chuKy.equals("")||ngayBatDau.equals("")||gioNhac.equals("")){
                     Dialog dialog = new Dialog(NhacNhoThemActivity.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-                    dialog.setContentView(R.layout.dialog_error);
+                    dialog.setContentView(R.layout.dialog_thong_bao);
                     TextView txtTitle=dialog.findViewById(R.id.txtTitle),
                             txtMessage=dialog.findViewById(R.id.txtMessage);
                     Button btnYes=dialog.findViewById(R.id.btnYes);
@@ -152,7 +145,7 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                     dialog.show();
                 }else if(date.compareTo(now)<0){
                     Dialog dialog = new Dialog(NhacNhoThemActivity.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-                    dialog.setContentView(R.layout.dialog_error);
+                    dialog.setContentView(R.layout.dialog_thong_bao);
                     TextView txtTitle=dialog.findViewById(R.id.txtTitle),
                             txtMessage=dialog.findViewById(R.id.txtMessage);
                     Button btnYes=dialog.findViewById(R.id.btnYes);
@@ -169,7 +162,7 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                     dialog.show();
                 }else if(date.compareTo(now)==0&&currentDate.compareTo(gioNhac)>0){
                     Dialog dialog = new Dialog(NhacNhoThemActivity.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-                    dialog.setContentView(R.layout.dialog_error);
+                    dialog.setContentView(R.layout.dialog_thong_bao);
                     TextView txtTitle=dialog.findViewById(R.id.txtTitle),
                             txtMessage=dialog.findViewById(R.id.txtMessage);
                     Button btnYes=dialog.findViewById(R.id.btnYes);

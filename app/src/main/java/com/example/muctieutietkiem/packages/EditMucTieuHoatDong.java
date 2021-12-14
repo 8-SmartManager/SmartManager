@@ -35,12 +35,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.muctieutietkiem.packages.model.Goal;
 import com.example.smartmanagertwo.MyDatabaseHelper;
-import com.example.smartmanagertwo.NhacNhoActivity;
-import com.example.smartmanagertwo.NhacNhoChiTietActivity;
 import com.example.smartmanagertwo.R;
 
 import java.io.ByteArrayOutputStream;
-import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
@@ -132,7 +129,7 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
                 else {
 
                         Dialog dialogBack = new Dialog(EditMucTieuHoatDong.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-                        dialogBack.setContentView(R.layout.dialog_error);
+                        dialogBack.setContentView(R.layout.dialog_thong_bao);
                         TextView txtTitleCancel=dialogBack.findViewById(R.id.txtTitle),
                                 txtMessageCancel=dialogBack.findViewById(R.id.txtMessage);
                         Button btnYesCancel=dialogBack.findViewById(R.id.btnYes),
@@ -162,7 +159,7 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
                 break;
             case R.id.mnPause:
                 Dialog dialogPause = new Dialog(EditMucTieuHoatDong.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-                dialogPause.setContentView(R.layout.dialog_error);
+                dialogPause.setContentView(R.layout.dialog_thong_bao);
                 TextView txtTitlePause=dialogPause.findViewById(R.id.txtTitle),
                         txtMessagePause=dialogPause.findViewById(R.id.txtMessage);
                 Button btnYesPause=dialogPause.findViewById(R.id.btnYes),
@@ -189,7 +186,7 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
                 break;
             case R.id.mnDelete:
                 Dialog dialog = new Dialog(EditMucTieuHoatDong.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-                dialog.setContentView(R.layout.dialog_error);
+                dialog.setContentView(R.layout.dialog_thong_bao);
                 TextView txtTitle=dialog.findViewById(R.id.txtTitle),
                         txtMessage=dialog.findViewById(R.id.txtMessage);
                 Button btnYes=dialog.findViewById(R.id.btnYes),

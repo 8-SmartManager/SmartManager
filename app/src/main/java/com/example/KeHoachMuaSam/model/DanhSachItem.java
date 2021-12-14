@@ -2,12 +2,14 @@ package com.example.KeHoachMuaSam.model;
 
 public class DanhSachItem {
     private int itemId;
+    private String listName;
     private String itemName;
     private double itemPrice;
     private int itemCompleted;
 
-    public DanhSachItem(int itemId, String itemName, double itemPrice, int itemCompleted) {
+    public DanhSachItem(int itemId, String listName, String itemName, double itemPrice, int itemCompleted) {
         this.itemId = itemId;
+        this.listName = listName;
         this.itemName = itemName;
         this.itemPrice = itemPrice;
         this.itemCompleted = itemCompleted;
@@ -15,6 +17,14 @@ public class DanhSachItem {
 
     public int getItemCompleted() {
         return itemCompleted;
+    }
+
+    public String getListName() {
+        return listName;
+    }
+
+    public void setListName(String listName) {
+        this.listName = listName;
     }
 
     public void setItemCompleted(int itemCompleted) {

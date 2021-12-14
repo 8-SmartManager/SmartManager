@@ -4,55 +4,49 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.R;
-import com.example.smartmanagertwo.ThongKeChiTietActivity;
 
-import java.io.InputStream;
-
-public class SaoLuuActivity extends AppCompatActivity {
+public class SaoLuuActivity extends Fragment {
 
     LinearLayout chooseGGDrive, chooseThietBi, chooseTatCaKhoiTao, chooseChuKyKhoiTao;
     TextView txtChoice;
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.cai_dat_sao_luu);
-        Drawable drawable=getResources().getDrawable(R.drawable.ic_menu);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(drawable);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
-        getSupportActionBar().setTitle("Sao Lưu");
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.cai_dat_sao_luu,container,false);
+        chooseGGDrive = root.findViewById(R.id.chooseGGDrive);
+        chooseThietBi =  root.findViewById(R.id.chooseThietBi);
+        chooseTatCaKhoiTao =  root.findViewById(R.id.chooseTatCaKhoiTao);
+        chooseChuKyKhoiTao =  root.findViewById(R.id.chooseChuKyKhoiTao);
 
-        linkViews();
+        txtChoice =  root.findViewById(R.id.txtChoice);
+
         addEvents();
+        return root;
     }
 
-    private void linkViews() {
-        chooseGGDrive = findViewById(R.id.chooseGGDrive);
-        chooseThietBi = findViewById(R.id.chooseThietBi);
-        chooseTatCaKhoiTao = findViewById(R.id.chooseTatCaKhoiTao);
-        chooseChuKyKhoiTao = findViewById(R.id.chooseChuKyKhoiTao);
-
-        txtChoice = findViewById(R.id.txtChoice);
-    }
 
     private void addEvents() {
         chooseGGDrive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SaoLuuActivity.this, SaoLuuGGDrive.class);
+                Intent intent = new Intent(getActivity(), SaoLuuGGDrive.class);
                 startActivity(intent);
             }
         });
@@ -71,15 +65,15 @@ public class SaoLuuActivity extends AppCompatActivity {
         chooseThietBi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SaoLuuActivity.this, SaoLuuThietBi.class);
+                Intent intent = new Intent(getActivity(), SaoLuuThietBi.class);
                 startActivity(intent);
             }
         });
         chooseTatCaKhoiTao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Dialog dialog = new Dialog(SaoLuuActivity.this, R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-                dialog.setContentView(R.layout.dialog_error);
+                Dialog dialog = new Dialog(getActivity(), R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                dialog.setContentView(R.layout.dialog_thong_bao);
                 TextView txtTitle = dialog.findViewById(R.id.txtTitle), txtMessage = dialog.findViewById(R.id.txtMessage);
                 Button btnYes = dialog.findViewById(R.id.btnYes), btnNo = dialog.findViewById(R.id.btnNo);
                 txtTitle.setText("Thông báo!");
@@ -102,8 +96,8 @@ public class SaoLuuActivity extends AppCompatActivity {
         chooseChuKyKhoiTao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Dialog dialog = new Dialog(SaoLuuActivity.this, R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-                dialog.setContentView(R.layout.dialog_error);
+                Dialog dialog = new Dialog(getActivity(), R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                dialog.setContentView(R.layout.dialog_thong_bao);
                 TextView txtTitle = dialog.findViewById(R.id.txtTitle), txtMessage = dialog.findViewById(R.id.txtMessage);
                 Button btnYes = dialog.findViewById(R.id.btnYes), btnNo = dialog.findViewById(R.id.btnNo);
                 txtTitle.setText("Thông báo!");

@@ -1,15 +1,11 @@
 package com.example.muctieutietkiem.packages;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -37,9 +33,7 @@ import com.example.muctieutietkiem.packages.model.Goal;
 import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.R;
 
-import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Calendar;
 
 public class EditMucTieuTamDung extends AppCompatActivity {
@@ -125,7 +119,7 @@ public class EditMucTieuTamDung extends AppCompatActivity {
                 else {
 
                     Dialog dialogBack = new Dialog(EditMucTieuTamDung.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-                    dialogBack.setContentView(R.layout.dialog_error);
+                    dialogBack.setContentView(R.layout.dialog_thong_bao);
                     TextView txtTitleCancel=dialogBack.findViewById(R.id.txtTitle),
                             txtMessageCancel=dialogBack.findViewById(R.id.txtMessage);
                     Button btnYesCancel=dialogBack.findViewById(R.id.btnYes),
@@ -155,7 +149,7 @@ public class EditMucTieuTamDung extends AppCompatActivity {
                 break;
             case R.id.mnResume:
                 Dialog dialogResume = new Dialog(EditMucTieuTamDung.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-                dialogResume.setContentView(R.layout.dialog_error);
+                dialogResume.setContentView(R.layout.dialog_thong_bao);
                 TextView txtTitlePause=dialogResume.findViewById(R.id.txtTitle),
                         txtMessagePause=dialogResume.findViewById(R.id.txtMessage);
                 Button btnYesPause=dialogResume.findViewById(R.id.btnYes),
@@ -182,7 +176,7 @@ public class EditMucTieuTamDung extends AppCompatActivity {
                 break;
             case R.id.mnDelete:
                 Dialog dialog = new Dialog(EditMucTieuTamDung.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-                dialog.setContentView(R.layout.dialog_error);
+                dialog.setContentView(R.layout.dialog_thong_bao);
                 TextView txtTitle=dialog.findViewById(R.id.txtTitle),
                         txtMessage=dialog.findViewById(R.id.txtMessage);
                 Button btnYes=dialog.findViewById(R.id.btnYes),

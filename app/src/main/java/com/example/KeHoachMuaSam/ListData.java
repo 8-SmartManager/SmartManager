@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class ListData implements Serializable {
     private int listID;
 
+
     private String listTitle;
     private int listCompleted;
     private int listTotal;
