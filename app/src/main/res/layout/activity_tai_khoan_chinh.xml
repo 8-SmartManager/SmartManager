@@ -52,6 +52,7 @@
                 android:textSize="13dp"
                 android:textColor="@color/mau_dam"/>
             <TextView
+                android:id="@+id/txtNo"
                 android:layout_width="match_parent"
                 android:layout_height="28dp"
                 android:text="0đ"
@@ -61,6 +62,7 @@
                 android:textSize="13dp"
                 android:textColor="@color/mau_xam"/>
             <TextView
+                android:id="@+id/txtCong"
                 android:layout_width="match_parent"
                 android:layout_height="28dp"
                 android:text="0đ"

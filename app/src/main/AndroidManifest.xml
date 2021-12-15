@@ -22,6 +22,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.example.muctieutietkiem.packages.MucTieuChiTiet_TamDung"
+            android:exported="true" />
+        <activity
             android:name="com.example.muctieutietkiem.packages.TaoMucTieuChiTiet"
             android:exported="true" />
         <activity
@@ -62,15 +65,10 @@
             android:name="com.example.KeHoachMuaSam.DanhSachMuaSamChiTiet"
             android:exported="true"></activity>
         <activity
-            android:name=".TaiKhoanThem"
-            android:exported="true" />
-        <activity
             android:name=".TaiKhoanChinhSua"
-            android:exported="true"></activity>
-        <activity
-            android:name=".TaiKhoanXoa"
-            android:exported="true" />
-
+            android:exported="true"></activity><![CDATA[
+        >
+        ]]>
         <activity
             android:name=".MainActivity"
             android:exported="true"></activity>
