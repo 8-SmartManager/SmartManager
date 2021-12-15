@@ -258,6 +258,7 @@ public void  deleteTask (DanhSachItem t){
             KeHoachMuaSamMain.db.execSql("DELETE FROM " + MyDatabaseHelper.TBL_NAME_DANHSACHITEM + " WHERE " + MyDatabaseHelper.COL_DANHSACHITEM_ID + " = " + t.getItemId());
             Toast.makeText(DanhSachMuaSamChiTiet.this, "Success!", Toast.LENGTH_SHORT).show();
             dialog.dismiss();
+            loadData();
         }
     });
     btnNo.setOnClickListener(new View.OnClickListener() {

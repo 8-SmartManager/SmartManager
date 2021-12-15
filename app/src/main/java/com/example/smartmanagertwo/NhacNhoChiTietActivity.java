@@ -29,6 +29,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.muctieutietkiem.packages.EditMucTieuHoatDong;
 import com.example.nhacnho.HopChonNhacNhoChiTietChuKy;
 import com.example.nhacnho.HopChonNhacNhoChiTietTheLoai;
 import com.example.nhacnho.NhacNho;
@@ -97,12 +98,56 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        String theLoai=txtTheLoai.getText().toString(),
+                ten=edtTen.getText().toString(),
+                chuKy=txtChuKy.getText().toString(),
+                ngayBatDau=txtNgayBatDau.getText().toString(),
+                gioNhac=txtGioNhac.getText().toString();
 
         switch (item.getItemId())
         {
             case android.R.id.home:
-                onBackPressed();
-                return true;
+                if (ten.equals(selectedNhacNho.getTen())&&theLoai.equals(selectedNhacNho.getTheLoai())&&chuKy.equals(selectedNhacNho.getChuKy())&&ngayBatDau.equals(selectedNhacNho.getNgayBatDau().toString())&&(gioNhac+":00").equals(selectedNhacNho.getGioNhac().toString())){
+
+
+                    {
+                        onBackPressed();
+                    }
+
+
+
+                }
+                else {
+
+                    Dialog dialogBack = new Dialog(NhacNhoChiTietActivity.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                    dialogBack.setContentView(R.layout.dialog_thong_bao);
+                    TextView txtTitleCancel=dialogBack.findViewById(R.id.txtTitle),
+                            txtMessageCancel=dialogBack.findViewById(R.id.txtMessage);
+                    Button btnYesCancel=dialogBack.findViewById(R.id.btnYes),
+                            btnNoCancel=dialogBack.findViewById(R.id.btnNo);
+                    txtTitleCancel.setText("Xác nhận");
+                    txtMessageCancel.setText("Bạn có chắc chắn muốn thoát khi chưa lưu thay đổi?");
+                    btnYesCancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            onBackPressed();
+
+
+                        }
+
+                    });
+                    btnNoCancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialogBack.dismiss();
+                        }
+                    });
+                    dialogBack.show();
+
+
+
+                }
+                break;
             case R.id.mnDelete:
                 Dialog dialog = new Dialog(NhacNhoChiTietActivity.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
                 dialog.setContentView(R.layout.dialog_thong_bao);
@@ -129,11 +174,7 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
                 dialog.show();
                 break;
             case R.id.mnDone:
-                String theLoai=txtTheLoai.getText().toString(),
-                        ten=edtTen.getText().toString(),
-                        chuKy=txtChuKy.getText().toString(),
-                        ngayBatDau=txtNgayBatDau.getText().toString(),
-                        gioNhac=txtGioNhac.getText().toString();
+
                 LocalDate now=LocalDate.now();
                 LocalDate date=LocalDate.parse(ngayBatDau);
                 Calendar calendar1 = Calendar.getInstance();
@@ -232,7 +273,8 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
         edtTen.setText(selectedNhacNho.getTen());
         txtChuKy.setText(selectedNhacNho.getChuKy());
         txtNgayBatDau.setText(selectedNhacNho.getNgayBatDau().toString());
-        txtGioNhac.setText(selectedNhacNho.getGioNhac().toString());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm");
+        txtGioNhac.setText(simpleDateFormat.format(selectedNhacNho.getGioNhac()));
     }
 
     View.OnClickListener myClick = new View.OnClickListener() {
