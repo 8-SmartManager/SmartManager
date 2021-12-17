@@ -11,14 +11,13 @@
 
             <TextView
                 android:id="@+id/txtAccount"
-                android:layout_width="match_parent"
+                android:layout_width="80dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/body_medium_13"
                 android:gravity="center"
                 android:text="Tiền mặt"
-
-                android:textColor="@color/mau_dam" />
+                android:textColor="@color/mau_xam" />
 
             <TextView
                 android:id="@+id/txtSoTienTaiKhoan"

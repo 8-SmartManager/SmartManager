@@ -7,14 +7,15 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="70dp"
         android:background="@color/white">
-        <TableRow>
+        <TableRow
+            android:layout_marginTop="10dp">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="28dp"
                 android:text="Kỳ thanh toán"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="20dp"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
                 android:textSize="13dp"
@@ -36,139 +37,19 @@
                 app:tint="@color/chu_dao"
                 android:backgroundTint="@color/white"/>
         </TableRow>
-        <TableRow>
+        <TableRow
+            >
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="28dp"
                 android:text="01.10.2021 ~ 31.10"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="20dp"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
                 android:textSize="13dp"
                 android:textColor="@color/mau_dam"/>
         </TableRow>
     </TableLayout>
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/white">
-        <TableRow>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="28dp"
-                android:text="Tổng"
-                android:layout_marginLeft="10dp"
-                android:gravity="left"
-                android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
-                android:textColor="@color/mau_xam"/>
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="28dp"-->
-<!--                android:text="Rút tiền"-->
-<!--                android:layout_weight="1"-->
-<!--                android:gravity="center"-->
-<!--                android:fontFamily="@font/body_medium_13"-->
-<!--                android:textSize="13dp"-->
-<!--                android:textColor="@color/mau_xam"/>-->
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="28dp"-->
-<!--                android:text="Cộng"-->
-<!--                android:layout_weight="1"-->
-<!--                android:gravity="center"-->
-<!--                android:fontFamily="@font/body_medium_13"-->
-<!--                android:textSize="13dp"-->
-<!--                android:textColor="@color/mau_dam"/>-->
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="28dp"-->
-<!--                android:text="Cân bằng"-->
-<!--                android:layout_weight="1"-->
-<!--                android:gravity="center"-->
-<!--                android:fontFamily="@font/body_medium_13"-->
-<!--                android:textSize="13dp"-->
-<!--                android:textColor="@color/mau_xam"/>-->
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:id="@+id/txtTong"
-                android:layout_width="match_parent"
-                android:layout_height="28dp"
-                android:text="0"
-                android:layout_marginLeft="10dp"
-                android:gravity="left"
-                android:fontFamily="@font/body_medium_13"
-                android:textSize="13dp"
-                android:textColor="@color/mau_dam"/>
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="28dp"-->
-<!--                android:text="3000000"-->
-<!--                android:layout_weight="1"-->
-<!--                android:gravity="center"-->
-<!--                android:fontFamily="@font/body_medium_13"-->
-<!--                android:textSize="13dp"-->
-<!--                android:textColor="@color/thu_cap"/>-->
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="28dp"-->
-<!--                android:text="-3000000"-->
-<!--                android:layout_weight="1"-->
-<!--                android:gravity="center"-->
-<!--                android:fontFamily="@font/body_medium_13"-->
-<!--                android:textSize="13dp"-->
-<!--                android:textColor="@color/mau_dam"/>-->
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="28dp"-->
-<!--                android:text="-3000000đ"-->
-<!--                android:layout_weight="1"-->
-<!--                android:gravity="center"-->
-<!--                android:fontFamily="@font/body_medium_13"-->
-<!--                android:textSize="13dp"-->
-<!--                android:textColor="@color/thu_cap"/>-->
-        </TableRow>
-    </TableLayout>
-<!--    <TableLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:background="@color/white">-->
-<!--        <TableRow>-->
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="56dp"-->
-<!--                android:text="18, Th2"-->
-<!--                android:layout_weight="1"-->
-<!--                android:gravity="center"-->
-<!--                android:fontFamily="@font/body_medium_13"-->
-<!--                android:textSize="13dp"-->
-<!--                android:textColor="@color/mau_dam"-->
-<!--                android:textStyle="bold"/>-->
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="56dp"-->
-<!--                android:text="0đ"-->
-<!--                android:layout_weight="1"-->
-<!--                android:gravity="center"-->
-<!--                android:fontFamily="@font/body_medium_13"-->
-<!--                android:textSize="13dp"-->
-<!--                android:textColor="@color/mau_dam"-->
-<!--                android:textStyle="bold"/>-->
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="56dp"-->
-<!--                android:text="3000000đ"-->
-<!--                android:layout_weight="1"-->
-<!--                android:gravity="center"-->
-<!--                android:fontFamily="@font/body_medium_13"-->
-<!--                android:textSize="13dp"-->
-<!--                android:textColor="@color/thu_cap"-->
-<!--                android:textStyle="bold"/>-->
-<!--        </TableRow>-->
-<!--    </TableLayout>-->
     <ListView
         android:layout_weight="1"
         android:id="@+id/lvTaiKhoanChiTiet"
@@ -176,14 +57,4 @@
         android:layout_height="wrap_content"
         android:listSelector="@color/thay_trang"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnThemMoiTaiKhoan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_dau_cong"
-        app:tint="@color/white"
-        android:backgroundTint="@color/thu_cap">
-    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 </LinearLayout>

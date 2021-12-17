@@ -88,9 +88,9 @@ public class TaiKhoan extends Fragment {
 
 
         }
-        txtTongTK.setText(String.format("%,.0f",taikhoan)+" đồng");
-        txtNo.setText(String.format("%,.0f",no)+" đồng");
-        txtCong.setText(String.format("%,.0f",taikhoan - no)+" đồng");
+        txtTongTK.setText(String.format("%,.0f",taikhoan));
+        txtNo.setText(String.format("%,.0f",no));
+        txtCong.setText(String.format("%,.0f",taikhoan - no));
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

@@ -6,17 +6,17 @@
     android:weightSum="10">
     <TextView
         android:id="@+id/txtTKChiTietTheLoai"
-        android:layout_width="wrap_content"
+        android:layout_width="75dp"
         android:layout_height="70dp"
-        android:text="Giải trí"
+        android:text="Tiền lương"
         android:layout_gravity="center_vertical"
         android:gravity="center"
         android:fontFamily="@font/body_medium_13"
-        android:layout_weight="3"
+        android:layout_weight="4"
         android:textColor="@color/mau_xam"
         />
     <LinearLayout
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
         android:gravity="center_vertical"
