@@ -33,7 +33,6 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
 
 
      FloatingActionButton fabThem;
-    ListData selectedList;
      ListView lvDanhSachItem;
      String tenDanhSach;
      ItemDapter adapter;
@@ -53,7 +52,6 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
         getSupportActionBar().setTitle(tenDanhSach);
 
         linkView();
-
         loadData();
         addEvents();
     }
@@ -72,7 +70,7 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
 
     private ArrayList<DanhSachItem> getDataFromDb(){
         items=new ArrayList<>();
-        Cursor cursor = KeHoachMuaSamMain.db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_DANHSACHITEM+" WHERE "+MyDatabaseHelper.COL_DANHSACHITEM_DANHSACHNAME+"='"+tenDanhSach+"'");
+        Cursor cursor = DanhSachMuaSamMain.db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_DANHSACHITEM+" WHERE "+MyDatabaseHelper.COL_DANHSACHITEM_DANHSACHNAME+"='"+tenDanhSach+"'");
         items.clear();
         while (cursor.moveToNext()){
             items.add(new DanhSachItem(cursor.getInt(0),cursor.getString(1),cursor.getString(2), cursor.getDouble(3),cursor.getInt(4)));
@@ -89,18 +87,15 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
             }
 
             private void openAddDialog() {
-                LayoutInflater inflater = getLayoutInflater();
-                View alertLayout = inflater.inflate(R.layout.dialog_add_danhsach, null);
-                final EditText edtName = alertLayout.findViewById(R.id.edtName);
-                final EditText edtPrice = alertLayout.findViewById(R.id.edtPrice);
-
-                AlertDialog.Builder alert = new AlertDialog.Builder(DanhSachMuaSamChiTiet.this);
-                alert.setTitle("Thêm Item");
-                alert.setView(alertLayout);
-                alert.setCancelable(false);
-                alert.setPositiveButton("Thêm", new DialogInterface.OnClickListener() {
+                Dialog dialog = new Dialog(DanhSachMuaSamChiTiet.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                dialog.setContentView(R.layout.dialog_add_danhsach);
+                EditText edtName=dialog.findViewById(R.id.edtName),
+                        edtPrice=dialog.findViewById(R.id.edtPrice);
+                Button btnAdd=dialog.findViewById(R.id.btnAdd),
+                        btnCancel=dialog.findViewById(R.id.btnCancel);
+                btnAdd.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                    public void onClick(View view) {
                         String itemName= edtName.getText().toString();
                         String itemPrice=edtPrice.getText().toString();
                         if(itemName.equals("")&& itemPrice.equals("")){
@@ -108,24 +103,23 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
                         }
                         else {
 
-                            KeHoachMuaSamMain.db.execSql("INSERT INTO " +MyDatabaseHelper.TBL_NAME_DANHSACHITEM + " VALUES(null,'"+tenDanhSach+"','"+itemName+"', '"+itemPrice+"',0)");
+                            DanhSachMuaSamMain.db.execSql("INSERT INTO " +MyDatabaseHelper.TBL_NAME_DANHSACHITEM + " VALUES(null,'"+tenDanhSach+"','"+itemName+"', '"+itemPrice+"',0)");
                             Toast.makeText(DanhSachMuaSamChiTiet.this, "Success!", Toast.LENGTH_SHORT).show();
-                            dialogInterface.dismiss();
+                            dialog.dismiss();
                             loadData();
                         }
                     }
                 });
-                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                btnCancel.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                    public void onClick(View view) {
                         Toast.makeText(getBaseContext(), "Cancel clicked", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
                     }
                 });
-                AlertDialog dialog = alert.create();
                 dialog.show();
             }
         });
-
     }
 
     @Override
@@ -133,7 +127,6 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.nhac_nho_edit_option_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId())
@@ -160,21 +153,16 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
               else {
                   onBackPressed();
               }
-//                onBackPressed();
                 break;
             case R.id.mnDelete:
                 Dialog dialog = new Dialog(DanhSachMuaSamChiTiet.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
                 dialog.setContentView(R.layout.dialog_thong_bao);
-                TextView txtTitle=dialog.findViewById(R.id.txtTitle),
-                        txtMessage=dialog.findViewById(R.id.txtMessage);
                 Button btnYes=dialog.findViewById(R.id.btnYes),
                         btnNo=dialog.findViewById(R.id.btnNo);
-                txtTitle.setText("Thông báo");
-                txtMessage.setText("Bạn có chắc chắn muốn xóa?");
                 btnYes.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        KeHoachMuaSamMain.db.execSql("DELETE FROM "+MyDatabaseHelper.TBL_NAME_DANHSACH+" WHERE "+MyDatabaseHelper.COL_DANHSACH_NAME + "='" +tenDanhSach+"'");
+                        DanhSachMuaSamMain.db.execSql("DELETE FROM "+MyDatabaseHelper.TBL_NAME_DANHSACH+" WHERE "+MyDatabaseHelper.COL_DANHSACH_NAME + "='" +tenDanhSach+"'");
                         finish();
                     }
                 });
@@ -192,12 +180,10 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     public void openEditDialog(DanhSachItem t){
-
         Dialog dialog=new Dialog(this);
         dialog.setContentView(R.layout.dialog_edit_danhsachmuasam);
         EditText edtName=dialog.findViewById(R.id.edtName);
         EditText edtPrice=dialog.findViewById(R.id.edtPrice);
-
         edtName.setText(t.getItemName());
         edtPrice.setText(String.format("%.0f", t.getItemPrice()));
         Button btnOK= dialog.findViewById(R.id.btnOK);
@@ -212,7 +198,6 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
                     TextView txtTitleDone=dialogDone.findViewById(R.id.txtTitle),
                             txtMessageDone=dialogDone.findViewById(R.id.txtMessage);
                     Button btnYesDone=dialogDone.findViewById(R.id.btnYes);
-
                     txtTitleDone.setText("Lỗi");
                     txtMessageDone.setText("Vui lòng nhập đầy đủ thông tin!");
                     btnYesDone.setOnClickListener(new View.OnClickListener() {
@@ -221,10 +206,9 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
                             dialogDone.dismiss();
                         }
                     });
-
                     dialogDone.show();
                 }else {
-                    KeHoachMuaSamMain.db.execSql("UPDATE " + MyDatabaseHelper.TBL_NAME_DANHSACHITEM + " SET " + MyDatabaseHelper.COL_DANHSACHITEM_NAME + " = '" + itemName + "', " + MyDatabaseHelper.COL_DANHSACHITEM_PRICE + " = " + itemPrice + " " +
+                    DanhSachMuaSamMain.db.execSql("UPDATE " + MyDatabaseHelper.TBL_NAME_DANHSACHITEM + " SET " + MyDatabaseHelper.COL_DANHSACHITEM_NAME + " = '" + itemName + "', " + MyDatabaseHelper.COL_DANHSACHITEM_PRICE + " = " + itemPrice + " " +
                             " WHERE " + MyDatabaseHelper.COL_DANHSACHITEM_ID + "=" + t.getItemId());
                     Toast.makeText(DanhSachMuaSamChiTiet.this, "Success!", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
@@ -241,41 +225,33 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
         });
         dialog.show();
     }
-
-
-public void  deleteTask (DanhSachItem t){
-    Dialog dialog = new Dialog(DanhSachMuaSamChiTiet.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-    dialog.setContentView(R.layout.dialog_thong_bao);
-    TextView txtTitle=dialog.findViewById(R.id.txtTitle),
-            txtMessage=dialog.findViewById(R.id.txtMessage);
-    Button btnYes=dialog.findViewById(R.id.btnYes),
-            btnNo=dialog.findViewById(R.id.btnNo);
-    txtTitle.setText("Thông báo");
-    txtMessage.setText("Bạn có chắc chắn muốn xóa?");
-    btnYes.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            KeHoachMuaSamMain.db.execSql("DELETE FROM " + MyDatabaseHelper.TBL_NAME_DANHSACHITEM + " WHERE " + MyDatabaseHelper.COL_DANHSACHITEM_ID + " = " + t.getItemId());
-            Toast.makeText(DanhSachMuaSamChiTiet.this, "Success!", Toast.LENGTH_SHORT).show();
-            dialog.dismiss();
-        }
-    });
-    btnNo.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            dialog.dismiss();
-        }
-    });
-    dialog.show();
-
-}
-
-
-
-            private void getData() {
-                Intent intent = getIntent();
-                tenDanhSach=  intent.getStringExtra("tlName");
-
-
+    public void  deleteTask (DanhSachItem t){
+        Dialog dialog = new Dialog(DanhSachMuaSamChiTiet.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+        dialog.setContentView(R.layout.dialog_xoadanhsach);
+        TextView txtTitle=dialog.findViewById(R.id.txtTitle),
+                txtMessage=dialog.findViewById(R.id.txtMessage);
+        Button btnYes=dialog.findViewById(R.id.btnYes),
+                btnNo=dialog.findViewById(R.id.btnNo);
+        txtTitle.setText("Thông báo");
+        txtMessage.setText("Bạn có chắc chắn muốn xóa?");
+        btnYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DanhSachMuaSamMain.db.execSql("DELETE FROM " + MyDatabaseHelper.TBL_NAME_DANHSACHITEM + " WHERE " + MyDatabaseHelper.COL_DANHSACHITEM_ID + " = " + t.getItemId());
+                Toast.makeText(DanhSachMuaSamChiTiet.this, "Success!", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
             }
-        }
+        });
+        btnNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+    private void getData() {
+        Intent intent = getIntent();
+        tenDanhSach=  intent.getStringExtra("tlName");
+    }
+}

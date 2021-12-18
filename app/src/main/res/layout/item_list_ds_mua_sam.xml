@@ -15,16 +15,15 @@
     android:layout_height="50dp"
     android:orientation="vertical"
     android:layout_weight="9">
-
     <TextView
         android:id="@+id/txtName"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/header2_bold_20"
-        android:textSize="14sp"
+        android:textSize="13sp"
         android:layout_weight="9"
-        android:text="áo quần"/>
-
+        android:text="áo quần"
+        android:fontFamily="@font/body_medium_13"
+        android:textColor="@color/mau_dam"/>
     <TextView
         android:id="@+id/txtPrice"
         android:layout_width="300dp"
@@ -32,8 +31,8 @@
         android:fontFamily="@font/header3_semibold_14"
         android:textSize="14sp"
         android:layout_weight="9"
-        android:text="100000"/>
-
+        android:text="100000"
+        android:textColor="@color/thu_cap"/>
 </LinearLayout>
 <LinearLayout
     android:layout_width="wrap_content"

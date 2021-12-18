@@ -30,7 +30,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class KeHoachMuaSamMain extends Fragment {
+public class DanhSachMuaSamMain extends Fragment {
 
     public static final String TAG ="DanhSachMuaSam";
 
