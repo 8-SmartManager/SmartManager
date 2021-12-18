@@ -33,7 +33,7 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
 
 
      FloatingActionButton fabThem;
-    ListData selectedList;
+
      ListView lvDanhSachItem;
      String tenDanhSach;
      ItemDapter adapter;
@@ -72,7 +72,7 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
 
     private ArrayList<DanhSachItem> getDataFromDb(){
         items=new ArrayList<>();
-        Cursor cursor = KeHoachMuaSamMain.db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_DANHSACHITEM+" WHERE "+MyDatabaseHelper.COL_DANHSACHITEM_DANHSACHNAME+"='"+tenDanhSach+"'");
+        Cursor cursor = DanhSachMuaSamMain.db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_DANHSACHITEM+" WHERE "+MyDatabaseHelper.COL_DANHSACHITEM_DANHSACHNAME+"='"+tenDanhSach+"'");
         items.clear();
         while (cursor.moveToNext()){
             items.add(new DanhSachItem(cursor.getInt(0),cursor.getString(1),cursor.getString(2), cursor.getDouble(3),cursor.getInt(4)));
@@ -108,7 +108,7 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
                         }
                         else {
 
-                            KeHoachMuaSamMain.db.execSql("INSERT INTO " +MyDatabaseHelper.TBL_NAME_DANHSACHITEM + " VALUES(null,'"+tenDanhSach+"','"+itemName+"', '"+itemPrice+"',0)");
+                            DanhSachMuaSamMain.db.execSql("INSERT INTO " +MyDatabaseHelper.TBL_NAME_DANHSACHITEM + " VALUES(null,'"+tenDanhSach+"','"+itemName+"', '"+itemPrice+"',0)");
                             Toast.makeText(DanhSachMuaSamChiTiet.this, "Success!", Toast.LENGTH_SHORT).show();
                             dialogInterface.dismiss();
                             loadData();
@@ -174,7 +174,7 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
                 btnYes.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        KeHoachMuaSamMain.db.execSql("DELETE FROM "+MyDatabaseHelper.TBL_NAME_DANHSACH+" WHERE "+MyDatabaseHelper.COL_DANHSACH_NAME + "='" +tenDanhSach+"'");
+                        DanhSachMuaSamMain.db.execSql("DELETE FROM "+MyDatabaseHelper.TBL_NAME_DANHSACH+" WHERE "+MyDatabaseHelper.COL_DANHSACH_NAME + "='" +tenDanhSach+"'");
                         finish();
                     }
                 });
@@ -224,7 +224,7 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
 
                     dialogDone.show();
                 }else {
-                    KeHoachMuaSamMain.db.execSql("UPDATE " + MyDatabaseHelper.TBL_NAME_DANHSACHITEM + " SET " + MyDatabaseHelper.COL_DANHSACHITEM_NAME + " = '" + itemName + "', " + MyDatabaseHelper.COL_DANHSACHITEM_PRICE + " = " + itemPrice + " " +
+                    DanhSachMuaSamMain.db.execSql("UPDATE " + MyDatabaseHelper.TBL_NAME_DANHSACHITEM + " SET " + MyDatabaseHelper.COL_DANHSACHITEM_NAME + " = '" + itemName + "', " + MyDatabaseHelper.COL_DANHSACHITEM_PRICE + " = " + itemPrice + " " +
                             " WHERE " + MyDatabaseHelper.COL_DANHSACHITEM_ID + "=" + t.getItemId());
                     Toast.makeText(DanhSachMuaSamChiTiet.this, "Success!", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
@@ -255,7 +255,7 @@ public void  deleteTask (DanhSachItem t){
     btnYes.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            KeHoachMuaSamMain.db.execSql("DELETE FROM " + MyDatabaseHelper.TBL_NAME_DANHSACHITEM + " WHERE " + MyDatabaseHelper.COL_DANHSACHITEM_ID + " = " + t.getItemId());
+            DanhSachMuaSamMain.db.execSql("DELETE FROM " + MyDatabaseHelper.TBL_NAME_DANHSACHITEM + " WHERE " + MyDatabaseHelper.COL_DANHSACHITEM_ID + " = " + t.getItemId());
             Toast.makeText(DanhSachMuaSamChiTiet.this, "Success!", Toast.LENGTH_SHORT).show();
             dialog.dismiss();
         }

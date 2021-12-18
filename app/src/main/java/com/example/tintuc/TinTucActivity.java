@@ -61,7 +61,6 @@ public class TinTucActivity extends Fragment {
         news.add(new TinTucData("Personal Finance Tips for 2020: “The Simple Path to Wealth","Find your road map to financial independence and a rich life through simple awareness.",R.drawable.anh2));
         news.add(new TinTucData("Personal Finance Tips for 2020: “The Simple Path to Wealth","Find your road map to financial independence and a rich life through simple awareness.",R.drawable.anh1));
         news.add(new TinTucData("Personal Finance Tips for 2020: “The Simple Path to Wealth","Find your road map to financial independence and a rich life through simple awareness.",R.drawable.anh2));
-
         return news;
     }
 }
