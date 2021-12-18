@@ -39,11 +39,10 @@ import java.util.List;
 
 public class TaiKhoanChiTietActivity extends AppCompatActivity {
     ListView lvTaiKhoanChiTiet;
-    TextView txtTong;
     ArrayList<ThuChiActivity> InfoTaiKhoanChiTiet;
     TaiKhoanChiTietAdapter chiTietTKAdapter;
     TaiKhoanActivity selectedTaiKhoan;
-    FloatingActionButton btnThemMoiTaiKhoan;
+
     public static MyDatabaseHelper db;
 
 
@@ -140,8 +139,7 @@ public class TaiKhoanChiTietActivity extends AppCompatActivity {
     }
     private void linkViews() {
         lvTaiKhoanChiTiet=findViewById(R.id.lvTaiKhoanChiTiet);
-        btnThemMoiTaiKhoan=findViewById(R.id.btnThemMoiTaiKhoan);
-        txtTong=findViewById(R.id.txtTong);
+
 
     }
 
@@ -167,24 +165,13 @@ public class TaiKhoanChiTietActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void loadData() {
         //chiTietTKAdapter = new TaiKhoanChiTietAdapter(TaiKhoanChiTietActivity.this, R.layout.item_tai_khoan_layout, getDataFromDb());
-        chiTietTKAdapter = new TaiKhoanChiTietAdapter(TaiKhoanChiTietActivity.this,R.layout.item_thong_ke_chi_tiet,getDataFromDb());
+        chiTietTKAdapter = new TaiKhoanChiTietAdapter(TaiKhoanChiTietActivity.this,R.layout.item_tai_khoan_chi_tiet,getDataFromDb());
         lvTaiKhoanChiTiet.setAdapter(chiTietTKAdapter);
-        double total=0;
-        for (ThuChiActivity item:InfoTaiKhoanChiTiet
-        ) {
-            total+=item.getActivityAmount();
-        }
-        txtTong.setText(String.format("%,.0f",total)+" đồng");
+
 
     }
     private void addEvents() {
-        btnThemMoiTaiKhoan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(TaiKhoanChiTietActivity.this, TaiKhoanSuaChiTiet.class);
-                startActivity(intent);
-            }
-        });
+
         lvTaiKhoanChiTiet.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

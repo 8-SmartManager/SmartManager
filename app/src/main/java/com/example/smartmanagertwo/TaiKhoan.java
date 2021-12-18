@@ -28,17 +28,18 @@ import com.example.taikhoan.TaiKhoanActivity;
 import com.example.taikhoan.TaiKhoanAdapter;
 import com.example.thongke.ThongKe;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TaiKhoan extends Fragment {
 
     ListView lvTaiKhoanThu;
-    TextView txtTongTK;
+    TextView txtTongTK, txtNo, txtCong;
     ArrayList<TaiKhoanActivity> InfoTaiKhoanThu;
     TaiKhoanAdapter adapter;
     public static MyDatabaseHelper db;
-
+    ArrayList<ThuChiActivity> arrThuChi;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,51 +53,12 @@ public class TaiKhoan extends Fragment {
         prepareDB();
         lvTaiKhoanThu = root.findViewById(R.id.lvTaiKhoanThu);
         txtTongTK = root.findViewById(R.id.txtTongTK);
+        txtCong=root.findViewById(R.id.txtCong);
+        txtNo=root.findViewById(R.id.txtNo);
 
         addEvents();
         return root;
     }
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.taikhoan_tuychon_menu, menu);
-//        return super.onCreateOptionsMenu(menu);
-//
-//    }
-
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.taikhoan_tuychon_menu,menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.mnSua:
-                Intent intents = new Intent(getActivity(), TaiKhoanChinhSua.class);
-                startActivity(intents);
-                Toast.makeText(getContext(), "Bạn vừa chọn Sửa tài khoản", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.mnXoa:
-                Intent myintent = new Intent(getActivity(), TaiKhoanXoa.class);
-                startActivity(myintent);
-                Toast.makeText(getContext(), "Bạn vừa chọn Xóa tài khoản", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.mnThem:
-                Intent intent = new Intent(getActivity(), TaiKhoanThem.class);
-                startActivity(intent);
-                Toast.makeText(getContext(), "Bạn vừa chọn Thêm tài khoản", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.mnThongKe:
-                Intent intent_act = new Intent(getActivity(), ThongKe.class);
-                startActivity(intent_act);
-                Toast.makeText(getContext(), "Bạn chọn thống kê", Toast.LENGTH_SHORT).show();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-
-    }
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onResume() {
@@ -115,12 +77,20 @@ public class TaiKhoan extends Fragment {
     private void loadData() {
         adapter = new TaiKhoanAdapter(getActivity(),R.layout.item_tai_khoan_layout,getDataFromDb());
         lvTaiKhoanThu.setAdapter(adapter);
-        double total=0;
-        for (TaiKhoanActivity item:InfoTaiKhoanThu
+        double taikhoan=0, no=0;
+        for (ThuChiActivity thuchiac:getDataFromDb1()
         ) {
-            total+=item.getInfoSoTien();
+            if(thuchiac.getActivityType().equals("Thu")){
+                taikhoan += thuchiac.getActivityAmount();
+            }else {
+                no += thuchiac.getActivityAmount();
+            }
+
+
         }
-        txtTongTK.setText(String.format("%,.0f",total)+" đồng");
+        txtTongTK.setText(String.format("%,.0f",taikhoan));
+        txtNo.setText(String.format("%,.0f",no));
+        txtCong.setText(String.format("%,.0f",taikhoan - no));
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -133,6 +103,17 @@ public class TaiKhoan extends Fragment {
         }
         cursor.close();
         return InfoTaiKhoanThu;
+    }
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private List<ThuChiActivity> getDataFromDb1(){
+        arrThuChi = new ArrayList<>();
+        Cursor cursor = db.getData("SELECT *  FROM " + MyDatabaseHelper.TBL_NAME_THUCHI );
+        arrThuChi.clear();
+        while (cursor.moveToNext()){
+            arrThuChi.add(new ThuChiActivity(cursor.getInt(0), LocalDate.parse(cursor.getString(5)), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getDouble(4)));
+        }
+        cursor.close();
+        return arrThuChi;
     }
 
 
