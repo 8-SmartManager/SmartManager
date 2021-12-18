@@ -22,7 +22,6 @@ public class TinTucAdapter extends BaseAdapter{
         this.item_tintuc = item_tintuc;
         this.newsList = newsList;
     }
-
     @Override
     public int getCount() {
         return newsList.size();
@@ -49,9 +48,6 @@ public class TinTucAdapter extends BaseAdapter{
             holder.imvThumb= view.findViewById(R.id.imvThumb);
             holder.txtName= view.findViewById(R.id.txtName);
             holder.txtDetail= view.findViewById(R.id.txtDetail);
-
-
-
             view.setTag(holder);
         }
         else {holder= (TinTucAdapter.ViewHolder) view.getTag();

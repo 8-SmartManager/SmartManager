@@ -1,5 +1,6 @@
 package com.example.KeHoachMuaSam;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
@@ -7,6 +8,7 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,7 +27,7 @@ public class DanhSachMuaSamThem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_danh_sach_mua_sam_them);
 
-        Drawable drawable=getResources().getDrawable(R.drawable.ic_menu);
+        Drawable drawable=getResources().getDrawable(R.drawable.ic_back);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(drawable);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -34,6 +36,16 @@ public class DanhSachMuaSamThem extends AppCompatActivity {
 
         linkViews();
         addEvents();
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void linkViews() {
@@ -53,14 +65,14 @@ public class DanhSachMuaSamThem extends AppCompatActivity {
                 }
                 else {
                     String name=edtNhap.getText().toString();
-                    if(KeHoachMuaSamMain.listDatas.size()==0){
-                        KeHoachMuaSamMain.db.execSql("INSERT INTO " +MyDatabaseHelper.TBL_NAME_DANHSACH + " VALUES(null,'"+name+"')");
+                    if(DanhSachMuaSamMain.listDatas.size()==0){
+                        DanhSachMuaSamMain.db.execSql("INSERT INTO " +MyDatabaseHelper.TBL_NAME_DANHSACH + " VALUES(null,'"+name+"')");
                         Intent intent = new Intent(DanhSachMuaSamThem.this, DanhSachMuaSamChiTiet.class);
                         intent.putExtra("tlName",edtNhap.getText().toString());
                         startActivity(intent);
                         finish();
                     }else {
-                    for (ListData l: KeHoachMuaSamMain.listDatas
+                    for (ListData l: DanhSachMuaSamMain.listDatas
                          ) {
                         if(l.getListTitle().equals(name)){
                             Dialog dialog = new Dialog(DanhSachMuaSamThem.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
@@ -74,9 +86,9 @@ public class DanhSachMuaSamThem extends AppCompatActivity {
                             btnYes.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    KeHoachMuaSamMain.db.execSql("DELETE FROM "+MyDatabaseHelper.TBL_NAME_DANHSACH+" WHERE "+MyDatabaseHelper.COL_DANHSACH_NAME+"='"+name+"'");
-                                    KeHoachMuaSamMain.db.execSql("DELETE FROM "+MyDatabaseHelper.TBL_NAME_DANHSACHITEM+" WHERE "+MyDatabaseHelper.COL_DANHSACHITEM_DANHSACHNAME+"='"+name+"'");
-                                    KeHoachMuaSamMain.db.execSql("INSERT INTO " +MyDatabaseHelper.TBL_NAME_DANHSACH + " VALUES(null,'"+name+"')");
+                                    DanhSachMuaSamMain.db.execSql("DELETE FROM "+MyDatabaseHelper.TBL_NAME_DANHSACH+" WHERE "+MyDatabaseHelper.COL_DANHSACH_NAME+"='"+name+"'");
+                                    DanhSachMuaSamMain.db.execSql("DELETE FROM "+MyDatabaseHelper.TBL_NAME_DANHSACHITEM+" WHERE "+MyDatabaseHelper.COL_DANHSACHITEM_DANHSACHNAME+"='"+name+"'");
+                                    DanhSachMuaSamMain.db.execSql("INSERT INTO " +MyDatabaseHelper.TBL_NAME_DANHSACH + " VALUES(null,'"+name+"')");
 
                                     Intent intent = new Intent(DanhSachMuaSamThem.this, DanhSachMuaSamChiTiet.class);
                                     intent.putExtra("tlName",edtNhap.getText().toString());
@@ -92,7 +104,7 @@ public class DanhSachMuaSamThem extends AppCompatActivity {
                             });
                             dialog.show();
                         }else {
-                            KeHoachMuaSamMain.db.execSql("INSERT INTO " +MyDatabaseHelper.TBL_NAME_DANHSACH + " VALUES(null,'"+name+"')");
+                            DanhSachMuaSamMain.db.execSql("INSERT INTO " +MyDatabaseHelper.TBL_NAME_DANHSACH + " VALUES(null,'"+name+"')");
                             Intent intent = new Intent(DanhSachMuaSamThem.this, DanhSachMuaSamChiTiet.class);
                             intent.putExtra("tlName",edtNhap.getText().toString());
                             startActivity(intent);

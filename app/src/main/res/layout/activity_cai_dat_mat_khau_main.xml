@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.caidatmatkhau.CaiDatMatKhauMain">
+    tools:context="com.example.caidatmatkhau.CaiDatMatKhauMain"
+    >
 
     <TextView
         android:id="@+id/txtOff"
@@ -16,6 +17,7 @@
         android:gravity="center_vertical"
         android:textColor="@color/mau_dam"
         android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/textlines_khong"
         />
@@ -28,6 +30,7 @@
         android:textColor="@color/mau_dam"
         android:gravity="center_vertical"
         android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/textlines_khong"
         />
