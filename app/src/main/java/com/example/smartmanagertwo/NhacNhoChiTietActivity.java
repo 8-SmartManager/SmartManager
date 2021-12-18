@@ -42,6 +42,7 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
     TextView txtTheLoai, txtChuKy, txtNgayBatDau, txtGioNhac;
     public  static String theLoai="";
     EditText edtTen;
+    Button btnXoa,btnLuu;
 
     NhacNho selectedNhacNho;
     @Override
@@ -90,11 +91,7 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.nhac_nho_edit_option_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -148,7 +145,19 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
 
                 }
                 break;
-            case R.id.mnDelete:
+//
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    private void addEvents() {
+        txtTheLoai.setOnClickListener(myClick);
+        edtTen.setOnClickListener(myClick);
+        txtChuKy.setOnClickListener(myClick);
+        txtNgayBatDau.setOnClickListener(myClick);
+        txtGioNhac.setOnClickListener(myClick);
+        btnXoa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 Dialog dialog = new Dialog(NhacNhoChiTietActivity.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
                 dialog.setContentView(R.layout.dialog_thong_bao);
                 TextView txtTitle=dialog.findViewById(R.id.txtTitle),
@@ -161,7 +170,6 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         NhacNhoActivity.db.execSql("DELETE FROM "+MyDatabaseHelper.TBL_NAME_NHAC_NHO+" WHERE "+MyDatabaseHelper.COL_NHACNHO_ID + "=" +selectedNhacNho.getID());
-
                         finish();
                     }
                 });
@@ -172,9 +180,17 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
                     }
                 });
                 dialog.show();
-                break;
-            case R.id.mnDone:
-
+            }
+        });
+        btnLuu.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View view) {
+                String theLoai=txtTheLoai.getText().toString(),
+                        ten=edtTen.getText().toString(),
+                        chuKy=txtChuKy.getText().toString(),
+                        ngayBatDau=txtNgayBatDau.getText().toString(),
+                        gioNhac=txtGioNhac.getText().toString();
                 LocalDate now=LocalDate.now();
                 LocalDate date=LocalDate.parse(ngayBatDau);
                 Calendar calendar1 = Calendar.getInstance();
@@ -236,20 +252,8 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
 
                     finish();
                 }
-                break;
-            default:break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-    private void addEvents() {
-        txtTheLoai.setOnClickListener(myClick);
-        edtTen.setOnClickListener(myClick);
-
-        txtChuKy.setOnClickListener(myClick);
-        txtNgayBatDau.setOnClickListener(myClick);
-        txtGioNhac.setOnClickListener(myClick);
-
-
+            }
+        });
     }
 
     private void linkViews() {
@@ -258,11 +262,8 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
         edtTen= findViewById(R.id.edtNhacNhoChiTietTen);
         txtChuKy= findViewById(R.id.txtNhacNhoChiTietChuKy);
         txtNgayBatDau= findViewById(R.id.txtNhacNhoChiTietNgayBatDau);
-
-
-
-
-
+        btnLuu=findViewById(R.id.btnLuu);
+        btnXoa=findViewById(R.id.btnXoa);
     }
 
     private void getData() {

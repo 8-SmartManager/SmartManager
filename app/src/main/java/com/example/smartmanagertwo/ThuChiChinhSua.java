@@ -29,6 +29,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.fragment.ThuChiChinh;
 import com.example.model.ThuChiActivity;
 import com.example.thongke.HopChonTKTaiKhoan;
 import com.example.thongke.HopChonTKTheLoaiChi;
@@ -37,7 +38,7 @@ import com.example.thongke.HopChonTheLoaiThu;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class ThongKeChinhSua extends AppCompatActivity {
+public class ThuChiChinhSua extends AppCompatActivity {
 
     TextView txtNgay, txtTaiKhoan, txtTheLoai;
     EditText edtMoney;
@@ -102,8 +103,49 @@ public class ThongKeChinhSua extends AppCompatActivity {
         switch (item.getItemId())
         {
             case android.R.id.home:
-                onBackPressed();
-                return true;
+                String ngay = txtNgay.getText().toString(), taiKhoan = txtTaiKhoan.getText().toString(), theLoai = txtTheLoai.getText().toString(), money = edtMoney.getText().toString();
+
+                if (theLoai.equals(selectedThongKeChiTiet.getActivityName())&&taiKhoan.equals(selectedThongKeChiTiet.getActivityAccount())&&ngay.equals(selectedThongKeChiTiet.getActivityDate().toString())&&money.equals(String.format("%.0f",selectedThongKeChiTiet.getActivityAmount()))){
+
+
+                    {
+                        onBackPressed();
+                    }
+
+
+
+                }
+                else {
+
+                    Dialog dialogBack = new Dialog(ThuChiChinhSua.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                    dialogBack.setContentView(R.layout.dialog_thong_bao);
+                    TextView txtTitleCancel=dialogBack.findViewById(R.id.txtTitle),
+                            txtMessageCancel=dialogBack.findViewById(R.id.txtMessage);
+                    Button btnYesCancel=dialogBack.findViewById(R.id.btnYes),
+                            btnNoCancel=dialogBack.findViewById(R.id.btnNo);
+                    txtTitleCancel.setText("Xác nhận");
+                    txtMessageCancel.setText("Bạn có chắc chắn muốn thoát khi chưa lưu thay đổi?");
+                    btnYesCancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            onBackPressed();
+
+
+                        }
+
+                    });
+                    btnNoCancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialogBack.dismiss();
+                        }
+                    });
+                    dialogBack.show();
+
+
+
+                }
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -129,7 +171,7 @@ public class ThongKeChinhSua extends AppCompatActivity {
             public void onClick(View view) {
                 String ngay = txtNgay.getText().toString(), taiKhoan = txtTaiKhoan.getText().toString(), theLoai = txtTheLoai.getText().toString(), money = edtMoney.getText().toString();
                 if (theLoai.equals("") || taiKhoan.equals("") || money.equals("")){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(ThongKeChinhSua.this);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ThuChiChinhSua.this);
                     builder.setTitle("Thông báo!");
                     builder.setMessage("Bạn có chắc chắn muốn chỉnh sửa không?");
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -140,7 +182,7 @@ public class ThongKeChinhSua extends AppCompatActivity {
                     });
                     builder.create().show();
                 }else {
-                    ThongKeChiTietActivity.db.execSql("UPDATE " + MyDatabaseHelper.TBL_NAME_THUCHI + " SET " + MyDatabaseHelper.COL_THUCHI_TIME + " = '" + ngay + "', " + MyDatabaseHelper.COL_THUCHI_NAME + " = '" + theLoai + "', " + MyDatabaseHelper.COL_THUCHI_ACCOUNT + " = '" + taiKhoan + "', " + MyDatabaseHelper.COL_THUCHI_AMOUNT + " = '" + money + "' WHERE " + MyDatabaseHelper.COL_THUCHI_TYPE + " = '" + selectedThongKeChiTiet.getActivityType() + "'" + " AND " + MyDatabaseHelper.COL_THUCHI_ID + "=" + selectedThongKeChiTiet.getActivityId());
+                    ThuChiChinh.db.execSql("UPDATE " + MyDatabaseHelper.TBL_NAME_THUCHI + " SET " + MyDatabaseHelper.COL_THUCHI_TIME + " = '" + ngay + "', " + MyDatabaseHelper.COL_THUCHI_NAME + " = '" + theLoai + "', " + MyDatabaseHelper.COL_THUCHI_ACCOUNT + " = '" + taiKhoan + "', " + MyDatabaseHelper.COL_THUCHI_AMOUNT + " = '" + money + "' WHERE " + MyDatabaseHelper.COL_THUCHI_TYPE + " = '" + selectedThongKeChiTiet.getActivityType() + "'" + " AND " + MyDatabaseHelper.COL_THUCHI_ID + "=" + selectedThongKeChiTiet.getActivityId());
                     finish();
                 }
             }
@@ -148,7 +190,7 @@ public class ThongKeChinhSua extends AppCompatActivity {
         btnXoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Dialog dialog = new Dialog(ThongKeChinhSua.this, R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                Dialog dialog = new Dialog(ThuChiChinhSua.this, R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
                 dialog.setContentView(R.layout.dialog_thong_bao);
                 TextView txtTitle = dialog.findViewById(R.id.txtTitle), txtMessage = dialog.findViewById(R.id.txtMessage);
                 Button btnYes = dialog.findViewById(R.id.btnYes), btnNo = dialog.findViewById(R.id.btnNo);
@@ -157,7 +199,7 @@ public class ThongKeChinhSua extends AppCompatActivity {
                 btnYes.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        ThongKeChiTietActivity.db.execSql("DELETE FROM "+MyDatabaseHelper.TBL_NAME_THUCHI+" WHERE "+MyDatabaseHelper.COL_THUCHI_ID + "=" +selectedThongKeChiTiet.getActivityId());
+                        ThuChiChinh.db.execSql("DELETE FROM "+MyDatabaseHelper.TBL_NAME_THUCHI+" WHERE "+MyDatabaseHelper.COL_THUCHI_ID + "=" +selectedThongKeChiTiet.getActivityId());
                         finish();
                     }
                 });
@@ -239,7 +281,7 @@ public class ThongKeChinhSua extends AppCompatActivity {
                         txtNgay.setText(simpleDateFormat.format(calendarDate.getTime()));
                     }
                 };
-                DatePickerDialog datePickerDialog = new DatePickerDialog(ThongKeChinhSua.this,callBack,
+                DatePickerDialog datePickerDialog = new DatePickerDialog(ThuChiChinhSua.this,callBack,
                         calendarDate.get(Calendar.YEAR),
                         calendarDate.get(Calendar.MONTH),
                         calendarDate.get(Calendar.DAY_OF_MONTH));

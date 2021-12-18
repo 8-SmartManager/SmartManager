@@ -24,6 +24,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.fragment.ThuChiChinh;
 import com.example.model.ThuChiActivity;
 import com.example.thongke.ThongKe;
 import com.example.thongke.ThongKeChiTietAdapter;
@@ -41,7 +42,7 @@ public class ThongKeChiTietActivity extends AppCompatActivity {
     ThongKeChiTietAdapter chiTietAdapter;
     ThongKe selectedThongKe;
     TextView txtTimePeriod, txtTotalAmount;
-    public static MyDatabaseHelper db;
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -83,7 +84,7 @@ public class ThongKeChiTietActivity extends AppCompatActivity {
 //        }else if (selectedThongKe.getInfoCategory().equals("Tiền trợ cấp")){
 //            getSupportActionBar().setTitle("Tiền trợ cấp");
 //        }
-        prepareDb();
+
         linkViews();
         loadData();
         addEvents();
@@ -166,13 +167,11 @@ public class ThongKeChiTietActivity extends AppCompatActivity {
         txtTotalAmount=findViewById(R.id.txtTotalAmount);
     }
 
-    private void prepareDb() {
-        db = new MyDatabaseHelper(this);
-    }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     private List<ThuChiActivity> getDataFromDb(){
         InfoTKChiTiet = new ArrayList<>();
-        Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_THUCHI + " WHERE "+MyDatabaseHelper.COL_THUCHI_TYPE+"='"+selectedThongKe.getInfoThuOrChi()+"' AND " + MyDatabaseHelper.COL_THUCHI_NAME + " = '" + selectedThongKe.getInfoCategory() + "'");
+        Cursor cursor = ThuChiChinh.db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_THUCHI + " WHERE "+MyDatabaseHelper.COL_THUCHI_TYPE+"='"+selectedThongKe.getInfoThuOrChi()+"' AND " + MyDatabaseHelper.COL_THUCHI_NAME + " = '" + selectedThongKe.getInfoCategory() + "'");
         InfoTKChiTiet.clear();
         while (cursor.moveToNext()){
             InfoTKChiTiet.add(new ThuChiActivity(cursor.getInt(0), LocalDate.parse(cursor.getString(5)), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getDouble(4)));
@@ -204,7 +203,7 @@ public class ThongKeChiTietActivity extends AppCompatActivity {
         lvThongKeChiTiet.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(ThongKeChiTietActivity.this, ThongKeChinhSua.class);
+                Intent intent = new Intent(ThongKeChiTietActivity.this, ThuChiChinhSua.class);
                 chiTietAdapter = new ThongKeChiTietAdapter(ThongKeChiTietActivity.this, R.layout.item_thong_ke_chi_tiet, InfoTKChiTiet);
                 ThuChiActivity thongKeChiTiet = (ThuChiActivity) chiTietAdapter.getItem(i);
                 intent.putExtra("ThongKeChiTiet", thongKeChiTiet);

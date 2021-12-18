@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import com.example.fragment.ThuChiChinh;
 import com.example.thongke.ThongKe;
 import com.example.thongke.ThongKeAdapter;
 
@@ -28,7 +29,7 @@ public class ThongKeChiFragment extends Fragment {
     ListView lvThongKe;
     ArrayList<ThongKe> InfoTK;
     ThongKeAdapter thongKeAdapter;
-    public static MyDatabaseHelper db;
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Nullable
@@ -62,13 +63,12 @@ public class ThongKeChiFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        db = new MyDatabaseHelper(context);
-        db.createSomeData();
+
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
     private List<ThongKe> getDataFromDb(){
         InfoTK = new ArrayList<>();
-        Cursor cursor = db.getData("SELECT (SUM("+MyDatabaseHelper.COL_THUCHI_AMOUNT+")/(SELECT SUM("+MyDatabaseHelper.COL_THUCHI_AMOUNT+") FROM "+MyDatabaseHelper.TBL_NAME_THUCHI+" WHERE "+MyDatabaseHelper.COL_THUCHI_TYPE+"='"+ "Chi' )),"+ MyDatabaseHelper.COL_THUCHI_NAME + " , " + MyDatabaseHelper.COL_THUCHI_TYPE+", SUM( " + MyDatabaseHelper.COL_THUCHI_AMOUNT + ") " + " FROM " + MyDatabaseHelper.TBL_NAME_THUCHI +" WHERE "+MyDatabaseHelper.COL_THUCHI_TYPE+"='"+ "Chi"+"' GROUP BY " + MyDatabaseHelper.COL_THUCHI_NAME);
+        Cursor cursor = ThuChiChinh.db.getData("SELECT (SUM("+MyDatabaseHelper.COL_THUCHI_AMOUNT+")/(SELECT SUM("+MyDatabaseHelper.COL_THUCHI_AMOUNT+") FROM "+MyDatabaseHelper.TBL_NAME_THUCHI+" WHERE "+MyDatabaseHelper.COL_THUCHI_TYPE+"='"+ "Chi' )),"+ MyDatabaseHelper.COL_THUCHI_NAME + " , " + MyDatabaseHelper.COL_THUCHI_TYPE+", SUM( " + MyDatabaseHelper.COL_THUCHI_AMOUNT + ") " + " FROM " + MyDatabaseHelper.TBL_NAME_THUCHI +" WHERE "+MyDatabaseHelper.COL_THUCHI_TYPE+"='"+ "Chi"+"' GROUP BY " + MyDatabaseHelper.COL_THUCHI_NAME);
         InfoTK.clear();
         while (cursor.moveToNext()){
             InfoTK.add(new ThongKe( cursor.getDouble(0), cursor.getString(1),cursor.getString(2),cursor.getDouble(3)));

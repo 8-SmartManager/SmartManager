@@ -42,7 +42,7 @@ public class ThuChiThemMoiChi extends Fragment {
     TextView  txtNewActivityDate, txtNewActivityAccount, txtNewActivityName, txtNewActivityAmount;
     Intent intent;
 
-    MyDatabaseHelper db;
+
 
     ActivityAdapter adapter;
 
@@ -64,7 +64,7 @@ public class ThuChiThemMoiChi extends Fragment {
 
 
 
-        db = new MyDatabaseHelper(getContext());
+
 
         addEvents();
 
@@ -99,7 +99,7 @@ public class ThuChiThemMoiChi extends Fragment {
                     builder.create().show();
 
                 }else{
-                    db.execSql("INSERT INTO " + MyDatabaseHelper.TBL_NAME_THUCHI + " VALUES(null, '" + activityType+ "', '" + activityName + "', '" + activityAccount + "', '" + activityAmount + "', '" + activityDate + "')");
+                    ThuChiChinh.db.execSql("INSERT INTO " + MyDatabaseHelper.TBL_NAME_THUCHI + " VALUES(null, '" + activityType+ "', '" + activityName + "', '" + activityAccount + "', '" + activityAmount + "', '" + activityDate + "')");
                     getActivity().onBackPressed();
                     Toast.makeText(getContext(), "Thanh cong", Toast.LENGTH_SHORT).show();
 

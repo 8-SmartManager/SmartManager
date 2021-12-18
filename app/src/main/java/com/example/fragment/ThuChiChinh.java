@@ -1,6 +1,5 @@
 package com.example.fragment;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
@@ -21,13 +20,11 @@ import com.example.adapter.ActivityAdapter;
 import com.example.model.ThuChiActivity;
 import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.R;
-import com.example.smartmanagertwo.ThongKeChinhSua;
+import com.example.smartmanagertwo.ThuChiChinhSua;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
-import utils.Constant;
 
 public class ThuChiChinh extends Fragment{
 
@@ -108,7 +105,7 @@ public class ThuChiChinh extends Fragment{
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 selectedActivity = (ThuChiActivity) adapter.getItem(i);
 
-                Intent intent = new Intent(getContext(), ThongKeChinhSua.class);
+                Intent intent = new Intent(getContext(), ThuChiChinhSua.class);
                 intent.putExtra("ThongKeChiTiet", selectedActivity);
                 startActivity(intent);
 
