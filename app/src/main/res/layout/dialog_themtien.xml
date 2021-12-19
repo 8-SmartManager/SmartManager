@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Bạn đã tiết kiệm được thêm bao nhiêu vậy?"
-        android:fontFamily="@font/header3_semibold_14"
+        android:fontFamily="@font/publicsans_regular_400"
         android:paddingVertical="10dp"
         android:textColor="@color/chu_dao"/>
     <EditText
@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:gravity="end"
+        android:gravity="center"
         android:orientation="horizontal">
         <Button
             android:id="@+id/btnCancel"

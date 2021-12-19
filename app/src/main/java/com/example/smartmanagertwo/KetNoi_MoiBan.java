@@ -2,7 +2,6 @@ package com.example.smartmanagertwo;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.app.Dialog;
@@ -11,9 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-
-import com.example.muctieutietkiem.packages.MucTieuChiTiet_HoanThanh;
 
 public class KetNoi_MoiBan extends Fragment {
 

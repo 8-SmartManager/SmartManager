@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/chu_dao">
+        <TextView
+android:id="@+id/txtTieuDe"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center_vertical"
+            android:text="@string/the_loai"
+            android:paddingStart="16dp"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:layout_span="3"
+            android:background="@color/chu_dao"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+    <GridView
+        android:id="@+id/gvHopChonItem"
+        android:layout_width="match_parent"
+        android:layout_height="325dp"
+        android:background="@color/white"
+        android:listSelector="@color/thu_cap"
+        android:numColumns="3" />
+</LinearLayout>

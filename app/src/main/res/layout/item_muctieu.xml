@@ -37,12 +37,13 @@
                     android:id="@+id/txtGoal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
+                    android:fontFamily="@font/body_medium_13"
                     android:text="Mua xe"/>
                 <TextView
                     android:id="@+id/txtDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/body_medium_13"
                     android:text="Ngày đạt: 12/11/2022"/>
             </LinearLayout>
 

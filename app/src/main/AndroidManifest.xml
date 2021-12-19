@@ -21,21 +21,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+
         <activity
-            android:name="com.example.muctieutietkiem.packages.MucTieuChiTiet_TamDung"
+            android:name="com.example.muctieutietkiem.muctieu.TaoMucTieu"
             android:exported="true" />
         <activity
-            android:name="com.example.muctieutietkiem.packages.TaoMucTieuChiTiet"
+            android:name="com.example.muctieutietkiem.muctieu.TaoMucTieuChiTiet"
             android:exported="true" />
         <activity
-            android:name="com.example.muctieutietkiem.packages.EditMucTieuHoatDong"
+            android:name="com.example.muctieutietkiem.muctieu.MucTieuChiTiet"
             android:exported="true" />
         <activity
-            android:name="com.example.muctieutietkiem.packages.TaoMucTieu"
+            android:name="com.example.muctieutietkiem.muctieu.EditMucTieuHoatDong"
             android:exported="true" />
         <activity
-            android:name="com.example.muctieutietkiem.packages.MucTieuChiTiet"
-            android:exported="true"></activity>
+            android:name="com.example.muctieutietkiem.muctieu.MucTieuChiTiet_TamDung"
+            android:exported="true" />
+        <activity
+            android:name="com.example.muctieutietkiem.muctieu.EditMucTieuTamDung"
+            android:exported="true" />
+        <activity
+            android:name="com.example.muctieutietkiem.muctieu.MucTieuChiTiet_HoanThanh"
+            android:exported="true" />
 
         <activity android:name=".TaiKhoanSuaChiTiet" />
         <activity

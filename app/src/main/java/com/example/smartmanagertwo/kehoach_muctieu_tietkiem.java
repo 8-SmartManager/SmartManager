@@ -1,21 +1,18 @@
 package com.example.smartmanagertwo;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.muctieutietkiem.packages.TaoMucTieu;
-import com.example.muctieutietkiem.packages.adapter.ViewPagerAdapter;
+import com.example.muctieutietkiem.muctieu.TaoMucTieu;
+import com.example.muctieutietkiem.muctieu.adapter.ViewPagerAdapter;
 import com.example.smartmanagertwo.databinding.FragmentGalleryBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;

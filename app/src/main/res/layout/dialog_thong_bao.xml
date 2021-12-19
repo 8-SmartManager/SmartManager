@@ -36,7 +36,6 @@
             android:layout_height="42dp"
             android:fontFamily="@font/publicsans_semibold_600"
             android:text="Không"
-            android:layout_marginStart="16dp"
             android:textAllCaps="false"
             android:background="@drawable/button_tao"
             android:textColor="@color/mau_dam"/>

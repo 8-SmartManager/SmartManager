@@ -28,12 +28,13 @@
         android:id="@+id/btnInvite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/chu_dao"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:fontFamily="@font/body_medium_13"
         android:textStyle="bold"
         android:text="Invite"
+        android:backgroundTint="@color/chu_dao"
+        android:background="@drawable/button_tao"
         android:padding="10dp"/>
 
 

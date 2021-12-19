@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/banPhimNhapTien"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Bạn tiết kiệm vì điều gì? "
+        android:fontFamily="@font/header2_bold_20"
+        android:paddingVertical="30dp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+    <LinearLayout
+        android:id="@+id/text_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtTitle"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:gravity="left"
+        android:weightSum="10">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên mục tiêu"
+            android:fontFamily="@font/header3_semibold_14"
+            android:textColor="@color/mau_dam"/>
+        <EditText
+            android:id="@+id/edtTenMucTieu"
+            android:theme="@style/AppTheme.MyEditTextTheme"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:textColor="@color/mau_dam"/>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnTaoMucTieu"
+        app:layout_constraintTop_toBottomOf="@id/text_edittext"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="20dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:fontFamily="@font/header3_semibold_14"
+        app:backgroundTint="@null"
+        android:textAllCaps="false"
+        android:text="Tạo mục tiêu"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@drawable/bg_button"
+        android:textColor="@color/button_text_color"/>
+    <TextView
+        android:id="@+id/txtHoacChon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hoặc chọn"
+        android:gravity="center"
+        android:fontFamily="@font/header3_semibold_14"
+        android:padding="30dp"/>
+<Space
+    android:layout_weight="1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
+    <fragment
+        android:id="@+id/fragmentTheLoai"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:name="com.example.muctieutietkiem.muctieu.HopChonTheLoaiTietKiem"
+        tools:layout="@layout/hop_chon_tietkiem"
+        >
+
+    </fragment>
+</LinearLayout>

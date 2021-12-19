@@ -16,14 +16,11 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
-import com.example.muctieutietkiem.packages.adapter.GoalAdapter;
 import com.example.nhacnho.NhacNho;
 import com.example.nhacnho.NhacNhoAdapter;
 import com.example.smartmanagertwo.NhacNhoActivity;
 import com.example.smartmanagertwo.NhacNhoChiTietActivity;
 import com.example.smartmanagertwo.R;
-
-import java.util.ArrayList;
 
 public class FragmentNhacNhoMainDataNotNull extends Fragment {
     NhacNhoAdapter adapter;

@@ -22,6 +22,7 @@
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_button"
         android:fontFamily="@font/body_medium_13"
         android:text="Hủy"/>
 
