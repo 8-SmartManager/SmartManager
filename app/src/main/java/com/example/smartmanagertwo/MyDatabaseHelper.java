@@ -103,11 +103,11 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(sqlNhacNho);
 //        String sqlThongKe = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_THONGKE + "(" + COL_THONGKE_PERCENT + " VARCHAR(10), " + COL_THONGKE_NAME + " VARCHAR(50), " + COL_THONGKE_AMOUNT + " VARCHAR(50))";
 //        sqLiteDatabase.execSQL(sqlThongKe);
-        String sqlMucTieu = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_MUC_TIEU + "(" + COL_MUCTIEU_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_MUCTIEU_NAME + " VARCHAR(50), " + COL_MUCTIEU_SOTIENMUCTIEU + " DOUBLE, "+  COL_MUCTIEU_SOTIENDATDUOC + " DOUBLE," + COL_MUCTIEU_NGAYKETTHUC+ " DATE," + COL_MUCTIEU_IMAGE + " BLOB, "+ COL_MUCTIEU_IMAGE_COLOR + " INT, " + COL_MUCTIEU_LUUY + " VARCHAR(50))";
+        String sqlMucTieu = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_MUC_TIEU + "(" + COL_MUCTIEU_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_MUCTIEU_NAME + " VARCHAR(50), " + COL_MUCTIEU_SOTIENMUCTIEU + " DOUBLE, "+  COL_MUCTIEU_SOTIENDATDUOC + " DOUBLE," + COL_MUCTIEU_NGAYKETTHUC+ " DATE," + COL_MUCTIEU_IMAGE + " INT, "+ COL_MUCTIEU_IMAGE_COLOR + " INT, " + COL_MUCTIEU_LUUY + " VARCHAR(50))";
         sqLiteDatabase.execSQL(sqlMucTieu);
-        String sqlMucTieuPaused = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_MUC_TIEU_PAUSED + "(" + COL_MUCTIEU_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_MUCTIEU_NAME + " VARCHAR(50), " + COL_MUCTIEU_SOTIENMUCTIEU + " DOUBLE, "+  COL_MUCTIEU_SOTIENDATDUOC + " DOUBLE," + COL_MUCTIEU_NGAYKETTHUC+ " DATE," + COL_MUCTIEU_IMAGE + " BLOB, "+ COL_MUCTIEU_IMAGE_COLOR + " INT, " + COL_MUCTIEU_LUUY + " VARCHAR(50))";
+        String sqlMucTieuPaused = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_MUC_TIEU_PAUSED + "(" + COL_MUCTIEU_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_MUCTIEU_NAME + " VARCHAR(50), " + COL_MUCTIEU_SOTIENMUCTIEU + " DOUBLE, "+  COL_MUCTIEU_SOTIENDATDUOC + " DOUBLE," + COL_MUCTIEU_NGAYKETTHUC+ " DATE," + COL_MUCTIEU_IMAGE + " INT, "+ COL_MUCTIEU_IMAGE_COLOR + " INT, " + COL_MUCTIEU_LUUY + " VARCHAR(50))";
         sqLiteDatabase.execSQL(sqlMucTieuPaused);
-        String sqlMucTieuCompleted = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_MUC_TIEU_COMPLETED + "(" + COL_MUCTIEU_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_MUCTIEU_NAME + " VARCHAR(50), " + COL_MUCTIEU_SOTIENMUCTIEU + " DOUBLE, "+  COL_MUCTIEU_SOTIENDATDUOC + " DOUBLE," + COL_MUCTIEU_NGAYKETTHUC+ " DATE," + COL_MUCTIEU_IMAGE + " BLOB, "+ COL_MUCTIEU_IMAGE_COLOR + " INT, " + COL_MUCTIEU_LUUY + " VARCHAR(50))";
+        String sqlMucTieuCompleted = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_MUC_TIEU_COMPLETED + "(" + COL_MUCTIEU_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_MUCTIEU_NAME + " VARCHAR(50), " + COL_MUCTIEU_SOTIENMUCTIEU + " DOUBLE, "+  COL_MUCTIEU_SOTIENDATDUOC + " DOUBLE," + COL_MUCTIEU_NGAYKETTHUC+ " DATE," + COL_MUCTIEU_IMAGE + " INT, "+ COL_MUCTIEU_IMAGE_COLOR + " INT, " + COL_MUCTIEU_LUUY + " VARCHAR(50))";
         sqLiteDatabase.execSQL(sqlMucTieuCompleted);
 //        String sqlThongKeChiTiet = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_THONG_KE_CHI_CHI_TIET + "(" + COL_TKCHICHITIET_THELOAI + " VARCHAR(50), " + COL_TKCHICHITIET_TAIKHOAN + " VARCHAR(50), " + COL_TKCHICHITIET_MONEY + " VARCHAR(50), " + COL_TKCHICHITIET_TIME + " DATE )";
 //        sqLiteDatabase.execSQL(sqlThongKeChiTiet);
@@ -262,7 +262,7 @@ public  void  createSomeNhacNhoData(){
     }
 
 
-    public boolean insertData( byte[] goalThumb, String goalName, LocalDate goalTime, int goalColor, double goalSaved, double goalTarget,  String goalNote){
+    public boolean insertData( int goalThumb, String goalName, LocalDate goalTime, int goalColor, double goalSaved, double goalTarget,  String goalNote){
 
 
         try{
@@ -275,7 +275,7 @@ public  void  createSomeNhacNhoData(){
             statement.bindDouble(2,goalTarget);
             statement.bindDouble(3,goalSaved);
             statement.bindString(4, String.valueOf(goalTime));
-            statement.bindBlob(5,goalThumb);
+            statement.bindDouble(5,goalThumb);
             statement.bindDouble(6,goalColor);
             statement.bindString(7,goalNote);
 
@@ -288,7 +288,7 @@ public  void  createSomeNhacNhoData(){
 
 
     }
-    public boolean insertMucTieuPausedData( byte[] goalThumb, String goalName, LocalDate goalTime, int goalColor, double goalSaved, double goalTarget,  String goalNote){
+    public boolean insertMucTieuPausedData( int goalThumb, String goalName, LocalDate goalTime, int goalColor, double goalSaved, double goalTarget,  String goalNote){
 
 
         try{
@@ -301,7 +301,7 @@ public  void  createSomeNhacNhoData(){
             statement.bindDouble(2,goalTarget);
             statement.bindDouble(3,goalSaved);
             statement.bindString(4, String.valueOf(goalTime));
-            statement.bindBlob(5,goalThumb);
+            statement.bindDouble(5,goalThumb);
             statement.bindDouble(6,goalColor);
             statement.bindString(7,goalNote);
 
@@ -317,7 +317,7 @@ public  void  createSomeNhacNhoData(){
 
     }
 
-    public boolean insertMucTieuCompletedData( byte[] goalThumb, String goalName, LocalDate goalTime, int goalColor, double goalSaved, double goalTarget,  String goalNote) {
+    public boolean insertMucTieuCompletedData( int goalThumb, String goalName, LocalDate goalTime, int goalColor, double goalSaved, double goalTarget,  String goalNote) {
 
 
         try {
@@ -330,7 +330,7 @@ public  void  createSomeNhacNhoData(){
             statement.bindDouble(2, goalTarget);
             statement.bindDouble(3, goalSaved);
             statement.bindString(4, String.valueOf(goalTime));
-            statement.bindBlob(5, goalThumb);
+            statement.bindDouble(5, goalThumb);
             statement.bindDouble(6, goalColor);
             statement.bindString(7, goalNote);
 
@@ -343,7 +343,7 @@ public  void  createSomeNhacNhoData(){
 
 
 
-    public boolean updateDataHoatDong( int i,byte[] goalThumb, String goalName, LocalDate goalTime, int goalColor, double goalSaved, double goalTarget,  String goalNote){
+    public boolean updateDataHoatDong( int i,int goalThumb, String goalName, LocalDate goalTime, int goalColor, double goalSaved, double goalTarget,  String goalNote){
 
 
         try{
@@ -357,7 +357,7 @@ public  void  createSomeNhacNhoData(){
             statement.bindDouble(2,goalTarget);
             statement.bindDouble(3,goalSaved);
             statement.bindString(4, String.valueOf(goalTime));
-            statement.bindBlob(5,goalThumb);
+            statement.bindDouble(5,goalThumb);
             statement.bindDouble(6,goalColor);
             statement.bindString(7,goalNote);
             statement.bindDouble(8,i);

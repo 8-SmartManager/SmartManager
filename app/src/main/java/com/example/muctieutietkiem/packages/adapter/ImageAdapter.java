@@ -17,6 +17,7 @@ public class ImageAdapter extends BaseAdapter {
     Context context;
     int item_layout;
     List<ImageMucTieu> images;
+
     @Override
     public int getCount() {
         return images.size();
