@@ -216,11 +216,13 @@
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/activity_danh_sach_mua_sam_them.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/activity_ds_shopping.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/activity_kehoach_muctieu_tietkiem.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/activity_ketnoi_tintuc_chitiet.xml" value="0.264" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/activity_main2.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/activity_nhacnho_them_moi.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/activity_tao_muc_tieu_chi_tiet.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/activity_thong_ke_chi_tiet.xml" value="0.1" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/activity_tintuc.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/cai_dat_sao_luu_gg_drive.xml" value="0.25" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/cai_dat_thiet_bi.xml" value="0.25" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/chitiet_muctieu.xml" value="0.25" />
@@ -253,6 +255,7 @@
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_thuchi.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_thuchi_ngay.xml" value="0.25" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_thuchi_tuan_thang.xml" value="0.25" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_tintuc.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/Moiii/app/src/main/res/drawable-v24/ic_anchor.xml" value="0.2703125" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/Moiii/app/src/main/res/drawable-v24/ic_star_y.xml" value="0.2703125" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/Moiii/app/src/main/res/drawable/ic_dau_cong.xml" value="0.15185185185185185" />
