@@ -8,9 +8,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thêm item"
+        android:text="Thêm mới"
         android:fontFamily="@font/header2_bold_20"
         android:paddingVertical="10dp"
+        android:textSize="20sp"
         android:gravity="center"
         android:textColor="@color/chu_dao"/>
     <LinearLayout
@@ -23,18 +24,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.MyEditTextTheme"
-        android:hint="Tên Item"
+        android:hint="Tên"
         android:layout_weight="3"
-        android:fontFamily="@font/header3_semibold_14"/>
+        android:fontFamily="@font/body_medium_13"/>
     <EditText
         android:id="@+id/edtPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Giá item"
+        android:hint="Giá"
         android:theme="@style/AppTheme.MyEditTextTheme"
         android:layout_weight="2"
         android:inputType="number"
-        android:fontFamily="@font/header3_semibold_14"/>
+        android:fontFamily="@font/body_medium_13"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

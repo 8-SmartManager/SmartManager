@@ -156,7 +156,7 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
                 break;
             case R.id.mnDelete:
                 Dialog dialog = new Dialog(DanhSachMuaSamChiTiet.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-                dialog.setContentView(R.layout.dialog_xoadanhsach);
+                dialog.setContentView(R.layout.dialog_xoa);
                 Button btnYes=dialog.findViewById(R.id.btnYes),
                         btnNo=dialog.findViewById(R.id.btnNo);
                 btnYes.setOnClickListener(new View.OnClickListener() {
@@ -227,13 +227,9 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
     }
     public void  deleteTask (DanhSachItem t){
         Dialog dialog = new Dialog(DanhSachMuaSamChiTiet.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-        dialog.setContentView(R.layout.dialog_xoadanhsach);
-        TextView txtTitle=dialog.findViewById(R.id.txtTitle),
-                txtMessage=dialog.findViewById(R.id.txtMessage);
+        dialog.setContentView(R.layout.dialog_xoa);
         Button btnYes=dialog.findViewById(R.id.btnYes),
                 btnNo=dialog.findViewById(R.id.btnNo);
-        txtTitle.setText("Thông báo");
-        txtMessage.setText("Bạn có chắc chắn muốn xóa?");
         btnYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

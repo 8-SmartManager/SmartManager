@@ -228,15 +228,16 @@
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/chitiet_muctieu.xml" value="0.25" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/chitiet_muctieu_hoanthanh.xml" value="0.1" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/custom_taikhoan.xml" value="0.4066193853427896" />
-        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_add_danhsach.xml" value="0.4" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_add_danhsach.xml" value="0.264" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_edit_danhsachmuasam.xml" value="0.2" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_error.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_ketnoi_invite.xml" value="0.264" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_nhapdanhsach.xml" value="0.4" />
-        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_nhapmuctieu.xml" value="0.1" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_nhapmuctieu.xml" value="0.4" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_show_activity.xml" value="0.1" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_themtien.xml" value="0.264" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_thong_bao.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_xoa.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_xoadanhsach.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/fragment_muctieu_hoanthanh.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/fragment_muctieu_hoatdong.xml" value="0.25416666666666665" />
@@ -246,12 +247,14 @@
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/fragment_thu_chi_ngay.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_color_muctieu.xml" value="0.25" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_dsmuasam.xml" value="0.25" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_layout_image_muctieu.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_list_ds_mua_sam.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_muctieu.xml" value="0.536" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_tai_khoan_layout.xml" value="0.264" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_theloai_muctieu.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_themtaikhoan.xml" value="0.25" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_thong_ke_chi_tiet.xml" value="0.25" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_thong_ke_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_thuchi.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_thuchi_ngay.xml" value="0.25" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_thuchi_tuan_thang.xml" value="0.25" />
