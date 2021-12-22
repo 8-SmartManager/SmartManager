@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.smartmanagertwo">
-    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,19 +13,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartManagerTwo">
         <activity
-            android:name=".Main2Activity"
-            android:exported="true"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.SmartManagerTwo.NoActionBar" >
+            android:name=".OnBoarding"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Main2Activity"
+            android:exported="true"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.SmartManagerTwo.NoActionBar">
 
-
-
+        </activity>
         <activity
             android:name="com.example.muctieutietkiem.muctieu.TaoMucTieu"
             android:exported="true" />
@@ -45,7 +49,6 @@
         <activity
             android:name="com.example.muctieutietkiem.muctieu.MucTieuChiTiet_HoanThanh"
             android:exported="true" />
-
         <activity android:name=".TaiKhoanSuaChiTiet" />
         <activity
             android:name=".TaiKhoanChiTietActivity"
@@ -59,32 +62,27 @@
         <activity
             android:name=".ThuChiThemMoi"
             android:exported="true" />
-
         <activity
             android:name=".ThongKeChiTietActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ThuChiChinhSua"
-            android:exported="true"></activity>
-
+            android:exported="true" />
         <activity
             android:name="com.example.KeHoachMuaSam.DanhSachMuaSamThem"
             android:exported="true" />
         <activity
             android:name="com.example.KeHoachMuaSam.DanhSachMuaSamChiTiet"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".TaiKhoanChinhSua"
-            android:exported="true"></activity><![CDATA[
-        >
-        ]]>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".CaiDatThongTinAppChinhSach"
             android:exported="true" />
-
         <activity
             android:name=".CaiDatTroGiupNew"
             android:exported="true" />
@@ -94,8 +92,9 @@
         <activity
             android:name=".NhacNhoThemActivity"
             android:exported="true" />
-        <activity android:name="com.example.tintuc.KetNoiTinTucChiTiet"
-            android:exported="true"></activity>
+        <activity
+            android:name="com.example.tintuc.KetNoiTinTucChiTiet"
+            android:exported="true" />
     </application>
 
 </manifest>
