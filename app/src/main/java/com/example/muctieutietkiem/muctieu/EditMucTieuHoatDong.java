@@ -214,7 +214,7 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
                 int goalThumb= im.getImageId();
 
 
-                if(ten.equals("")||soTienDatDuoc.equals("")||soTienMucTieu.equals("")||ngayKetThuc.equals("")||luuY.equals("")){
+                if(ten.equals("")||soTienDatDuoc.equals("")||soTienMucTieu.equals("")||ngayKetThuc.equals("")){
                     Dialog dialogFill = new Dialog(EditMucTieuHoatDong.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
                     dialogFill.setContentView(R.layout.dialog_error);
                     TextView txtTitleFill=dialogFill.findViewById(R.id.txtTitle),

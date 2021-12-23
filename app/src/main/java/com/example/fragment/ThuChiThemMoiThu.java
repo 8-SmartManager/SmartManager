@@ -3,6 +3,7 @@ package com.example.fragment;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +25,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.adapter.ActivityAdapter;
 import com.example.smartmanagertwo.MyDatabaseHelper;
+import com.example.smartmanagertwo.NhacNhoChiTietActivity;
 import com.example.smartmanagertwo.R;
 import com.example.thongke.HopChonTKTaiKhoan;
 import com.example.thongke.HopChonTheLoaiThu;
@@ -34,9 +37,10 @@ import java.util.Calendar;
 public class ThuChiThemMoiThu extends Fragment {
 
     Button btnSave;
-    TextView  txtNewActivityDate, txtNewActivityAccount, txtNewActivityName, txtNewActivityAmount;
-    Intent intent;
+    TextView  txtNewActivityDate, txtNewActivityAccount, txtNewActivityName;
 
+
+    EditText txtNewActivityAmount;
     MyDatabaseHelper db;
 
     ActivityAdapter adapter;
@@ -79,17 +83,23 @@ public class ThuChiThemMoiThu extends Fragment {
                 String activityAmount = txtNewActivityAmount.getText().toString();
                 String activityName = txtNewActivityName.getText().toString();
                 String activityType = "Thu";
-                if(activityAccount.equals("") || activityName.equals("") || activityAmount.equals("") || activityDate.equals("")){
-                    AlertDialog.Builder builder= new AlertDialog.Builder(getContext());
-                    builder.setTitle("Lỗi!");
-                    builder.setMessage("Vui lòng nhập đầy đủ thông tin");
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                if(activityAccount.equals("Chọn tài khoản") || activityName.equals("Chọn thể loại") || activityAmount.equals("") || activityDate.equals("Chọn ngày")){
+                    Dialog dialogDone = new Dialog(getContext(),R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                    dialogDone.setContentView(R.layout.dialog_error);
+                    TextView txtTitleDone=dialogDone.findViewById(R.id.txtTitle),
+                            txtMessageDone=dialogDone.findViewById(R.id.txtMessage);
+                    Button btnYesDone=dialogDone.findViewById(R.id.btnYes);
+
+                    txtTitleDone.setText("Lỗi");
+                    txtMessageDone.setText("Vui lòng nhập đầy đủ thông tin!");
+                    btnYesDone.setOnClickListener(new View.OnClickListener() {
                         @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
+                        public void onClick(View view) {
+                            dialogDone.dismiss();
                         }
                     });
-                    builder.create().show();
+
+                    dialogDone.show();
 
                 }else{
                     db.execSql("INSERT INTO " + MyDatabaseHelper.TBL_NAME_THUCHI + " VALUES(null, '" + activityType+ "', '" + activityName + "', '" + activityAccount + "', '" + activityAmount + "', '" + activityDate + "')");

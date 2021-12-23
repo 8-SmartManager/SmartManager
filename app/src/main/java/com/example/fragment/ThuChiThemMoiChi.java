@@ -3,6 +3,7 @@ package com.example.fragment;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -39,88 +40,60 @@ import java.util.Calendar;
 public class ThuChiThemMoiChi extends Fragment {
 
     Button btnSave;
-    TextView  txtNewActivityDate, txtNewActivityAccount, txtNewActivityName, txtNewActivityAmount;
-    Intent intent;
-
-
-
-    ActivityAdapter adapter;
-
-    ArrayList<Activity> activities;
+    TextView  txtNewActivityDate, txtNewActivityAccount, txtNewActivityName;
+    EditText txtNewActivityAmount;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_thu_chi_them_moi_chi, container, false);
-
-
         txtNewActivityDate = view.findViewById(R.id.txtNewActivityDate);
         txtNewActivityAccount = view.findViewById(R.id.txtNewActivityAccount);
         txtNewActivityName = view.findViewById(R.id.txtNewActivityName);
         txtNewActivityAmount = view.findViewById(R.id.txtNewActivityAmount);
 
         btnSave = view.findViewById(R.id.btnSave);
-
-
-
-
-
-
         addEvents();
-
-
-
-        return view;
+           return view;
     }
-
-
-
     private void addEvents() {
-
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String activityDate = txtNewActivityDate.getText().toString();
                 String activityAccount = txtNewActivityAccount.getText().toString();
                 String activityAmount = txtNewActivityAmount.getText().toString();
                 String activityName = txtNewActivityName.getText().toString();
                 String activityType = "Chi";
-                if(activityAccount.equals("") || activityName.equals("") || activityAmount.equals("") || activityDate.equals("")){
-                    AlertDialog.Builder builder= new AlertDialog.Builder(getContext());
-                    builder.setTitle("Lỗi!");
-                    builder.setMessage("Vui lòng nhập đầy đủ thông tin");
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                if(activityAccount.equals("Chọn tài khoản") || activityName.equals("Chọn thể loại") || activityAmount.equals("") || activityDate.equals("Chọn ngày")){
+                    Dialog dialogDone = new Dialog(getContext(),R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                    dialogDone.setContentView(R.layout.dialog_error);
+                    TextView txtTitleDone=dialogDone.findViewById(R.id.txtTitle),
+                            txtMessageDone=dialogDone.findViewById(R.id.txtMessage);
+                    Button btnYesDone=dialogDone.findViewById(R.id.btnYes);
+
+                    txtTitleDone.setText("Lỗi");
+                    txtMessageDone.setText("Vui lòng nhập đầy đủ thông tin!");
+                    btnYesDone.setOnClickListener(new View.OnClickListener() {
                         @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
+                        public void onClick(View view) {
+                            dialogDone.dismiss();
                         }
                     });
-                    builder.create().show();
-
+                    dialogDone.show();
                 }else{
+
                     ThuChiChinh.db.execSql("INSERT INTO " + MyDatabaseHelper.TBL_NAME_THUCHI + " VALUES(null, '" + activityType+ "', '" + activityName + "', '" + activityAccount + "', '" + activityAmount + "', '" + activityDate + "')");
                     getActivity().onBackPressed();
                     Toast.makeText(getContext(), "Thanh cong", Toast.LENGTH_SHORT).show();
-
-
-
                 }
-
             }
         });
-
-
         txtNewActivityDate.setOnClickListener(myClick);
         txtNewActivityAccount.setOnClickListener(myClick);
         txtNewActivityName.setOnClickListener(myClick);
         txtNewActivityAmount.setOnClickListener(myClick);
     }
-
-
-
-
-
     View.OnClickListener myClick = new View.OnClickListener(){
 
         @Override
@@ -136,7 +109,6 @@ public class ThuChiThemMoiChi extends Fragment {
                     txtNewActivityAmount.setBackgroundTintList(ContextCompat.getColorStateList(getActivity().getApplicationContext(),R.color.mau_xam));
                     txtNewActivityDate.setBackgroundTintList(ContextCompat.getColorStateList(getActivity().getApplicationContext(),R.color.mau_xam));
                     fragment= new ThuChiHopChonTaiKhoanChi();
-
                 }
                 if(view.getId()==R.id.txtNewActivityName ){
                     txtNewActivityAccount.setBackgroundTintList(ContextCompat.getColorStateList(getActivity().getApplicationContext(),R.color.mau_xam));
@@ -144,11 +116,7 @@ public class ThuChiThemMoiChi extends Fragment {
                     txtNewActivityAmount.setBackgroundTintList(ContextCompat.getColorStateList(getContext().getApplicationContext(),R.color.mau_xam));
                     txtNewActivityDate.setBackgroundTintList(ContextCompat.getColorStateList(getActivity().getApplicationContext(),R.color.mau_xam));
                     fragment= new ThuChiHopChonTheLoaiChi();
-
-
-
                 }
-
                 if(view.getId()==R.id.txtNewActivityAmount){
 
                     txtNewActivityAccount.setBackgroundTintList(ContextCompat.getColorStateList(getActivity().getApplicationContext(),R.color.mau_xam));
@@ -156,8 +124,6 @@ public class ThuChiThemMoiChi extends Fragment {
                     txtNewActivityAmount.setBackgroundTintList(ContextCompat.getColorStateList(getActivity().getApplicationContext(),R.color.thu_cap));
                     txtNewActivityDate.setBackgroundTintList(ContextCompat.getColorStateList(getActivity().getApplicationContext(),R.color.mau_xam));
                     fragment= new Fragment();
-
-
                 }
 
                 transaction.replace(R.id.layoutContainerThuChiThemMoi, fragment);

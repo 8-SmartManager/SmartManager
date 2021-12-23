@@ -98,20 +98,12 @@ public class NhacNhoThemActivity extends AppCompatActivity {
     private void getData() {
          intent= getIntent();
     }
-
     private void addEvents() {
-
         txtTheLoai.setOnClickListener(myClick);
         edtTen.setOnClickListener(myClick);
         txtChuKy.setOnClickListener(myClick);
         txtNgayBatDau.setOnClickListener(myClick);
         txtGioNhac.setOnClickListener(myClick);
-//        btnBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                onBackPressed();
-//            }
-//        });
         btnTao.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -128,7 +120,6 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                     TextView txtTitle=dialog.findViewById(R.id.txtTitle),
                             txtMessage=dialog.findViewById(R.id.txtMessage);
                     Button btnYes=dialog.findViewById(R.id.btnYes);
-
                     txtTitle.setText("Lỗi");
                     txtMessage.setText("Vui lòng nhập đầy đủ thông tin!");
                     btnYes.setOnClickListener(new View.OnClickListener() {
@@ -137,8 +128,8 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                             dialog.dismiss();
                         }
                     });
-
                     dialog.show();
+
                 }else {
                     LocalDate now=LocalDate.now();
                     LocalDate date=LocalDate.parse(ngayBatDau);
@@ -162,6 +153,7 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                         });
 
                         dialog.show();
+
                     } else if (date.compareTo(now) == 0 && currentDate.compareTo(gioNhac) > 0) {
                         Dialog dialog = new Dialog(NhacNhoThemActivity.this, R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
                         dialog.setContentView(R.layout.dialog_error);
@@ -184,13 +176,9 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                         finish();
                     }
                 }
-
             }
         });
-
     }
-
-
     private void linkViews() {
         txtTheLoai=findViewById(R.id.txtNhacNhoThemTheLoai);
         edtTen=findViewById(R.id.edtNhacNhoThemTen);
@@ -198,15 +186,12 @@ public class NhacNhoThemActivity extends AppCompatActivity {
         txtNgayBatDau= findViewById(R.id.txtNhacNhoThemNgayBatDau);
         txtGioNhac=findViewById(R.id.txtNhacNhoThemGioNhac);
         btnTao= findViewById(R.id.btnNhacNhoThemMoiTao);
-
     }
-
     View.OnClickListener myClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             if(view.getId()==R.id.txtNhacNhoThemTheLoai||view.getId()==R.id.txtNhacNhoThemChuKy ||view.getId()==R.id.edtNhacNhoThemTen)
             {
-
             FragmentManager manager= getSupportFragmentManager();
             FragmentTransaction transaction= manager.beginTransaction();
             Fragment fragment= null;
@@ -217,10 +202,7 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                 txtNgayBatDau.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 txtGioNhac.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 fragment= new HopChonNhacNhoThemTheLoai();
-
             }
-
-
             if(view.getId()==R.id.txtNhacNhoThemChuKy){
 
                 txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
@@ -228,9 +210,7 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                 txtChuKy.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.thu_cap));
                 txtNgayBatDau.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 txtGioNhac.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-
                 fragment= new HopChonNhacNhoChuKy();
-
             }
                 if(view.getId()==R.id.edtNhacNhoThemTen ){
                     txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
@@ -238,23 +218,16 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                     txtChuKy.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                     txtNgayBatDau.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                     txtGioNhac.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-                        fragment= new Fragment();
-
-
-
+                    fragment= new Fragment();
                 }
-
             transaction.replace(R.id.layoutContainerThemNhacNho, fragment);
-
             transaction.commit();}
-
             if(view.getId()==R.id.txtNhacNhoThemNgayBatDau){
                 txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 edtTen.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 txtChuKy.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 txtNgayBatDau.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.thu_cap));
                 txtGioNhac.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-
                 Calendar calendarDate= Calendar.getInstance();
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 DatePickerDialog.OnDateSetListener callBack= new DatePickerDialog.OnDateSetListener() {
@@ -271,8 +244,6 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                         calendarDate.get(Calendar.MONTH),
                         calendarDate.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
-
-
             }
             if(view.getId()==R.id.txtNhacNhoThemGioNhac){
                 txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
@@ -282,13 +253,10 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                 txtGioNhac.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.thu_cap));
                 Calendar calendarTime= Calendar.getInstance();
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
-
                 TimePickerDialog.OnTimeSetListener callback = new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-
                         calendarTime.set(0,0,0,i,i1);
-
                         txtGioNhac.setText(simpleDateFormat.format(calendarTime.getTime()));
                     }
                 };
@@ -297,7 +265,6 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                 calendarTime.get(Calendar.MINUTE),true);
                 timePickerDialog.show();
             }
-
         }
     };
 }

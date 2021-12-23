@@ -67,7 +67,7 @@
     <fragment
         android:id="@+id/nav_thongtin"
         android:name="com.example.smartmanagertwo.CaiDatThongTinAppMain"
-        android:label="Mật khẩu"
+        android:label="Thông tin ứng dụng"
         tools:layout="@layout/activity_cai_dat_thong_tin_app_main" />
 
 </navigation>
