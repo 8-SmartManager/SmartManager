@@ -121,14 +121,10 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                         chuKy=txtChuKy.getText().toString(),
                         ngayBatDau=txtNgayBatDau.getText().toString(),
                         gioNhac=txtGioNhac.getText().toString();
-                LocalDate now=LocalDate.now();
-                LocalDate date=LocalDate.parse(ngayBatDau);
-                Calendar calendar1 = Calendar.getInstance();
-                SimpleDateFormat formatter1 = new SimpleDateFormat("hh:mm:ss");
-                String currentDate = formatter1.format(calendar1.getTime());
-                if(theLoai.equals("")||ten.equals("")||chuKy.equals("")||ngayBatDau.equals("")||gioNhac.equals("")){
+
+                if(theLoai.equals("Chọn thể loại")||ten.equals("")||ten.equals("Nhập tên")||chuKy.equals("Chọn chu kỳ")||ngayBatDau.equals("Chọn ngày bắt đầu")||gioNhac.equals("Chọn giờ nhắc")){
                     Dialog dialog = new Dialog(NhacNhoThemActivity.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-                    dialog.setContentView(R.layout.dialog_thong_bao);
+                    dialog.setContentView(R.layout.dialog_error);
                     TextView txtTitle=dialog.findViewById(R.id.txtTitle),
                             txtMessage=dialog.findViewById(R.id.txtMessage);
                     Button btnYes=dialog.findViewById(R.id.btnYes);
@@ -143,46 +139,51 @@ public class NhacNhoThemActivity extends AppCompatActivity {
                     });
 
                     dialog.show();
-                }else if(date.compareTo(now)<0){
-                    Dialog dialog = new Dialog(NhacNhoThemActivity.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-                    dialog.setContentView(R.layout.dialog_thong_bao);
-                    TextView txtTitle=dialog.findViewById(R.id.txtTitle),
-                            txtMessage=dialog.findViewById(R.id.txtMessage);
-                    Button btnYes=dialog.findViewById(R.id.btnYes);
+                }else {
+                    LocalDate now=LocalDate.now();
+                    LocalDate date=LocalDate.parse(ngayBatDau);
+                    Calendar calendar1 = Calendar.getInstance();
+                    SimpleDateFormat formatter1 = new SimpleDateFormat("hh:mm:ss");
+                    String currentDate = formatter1.format(calendar1.getTime());
+                    if (date.compareTo(now) < 0) {
+                        Dialog dialog = new Dialog(NhacNhoThemActivity.this, R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                        dialog.setContentView(R.layout.dialog_error);
+                        TextView txtTitle = dialog.findViewById(R.id.txtTitle),
+                                txtMessage = dialog.findViewById(R.id.txtMessage);
+                        Button btnYes = dialog.findViewById(R.id.btnYes);
 
-                    txtTitle.setText("Lỗi");
-                    txtMessage.setText("Ngày bắt đầu phải lớn hơn hoặc bằng ngày hiện tại!");
-                    btnYes.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            dialog.dismiss();
-                        }
-                    });
+                        txtTitle.setText("Lỗi");
+                        txtMessage.setText("Ngày bắt đầu phải lớn hơn hoặc bằng ngày hiện tại!");
+                        btnYes.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                dialog.dismiss();
+                            }
+                        });
 
-                    dialog.show();
-                }else if(date.compareTo(now)==0&&currentDate.compareTo(gioNhac)>0){
-                    Dialog dialog = new Dialog(NhacNhoThemActivity.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
-                    dialog.setContentView(R.layout.dialog_thong_bao);
-                    TextView txtTitle=dialog.findViewById(R.id.txtTitle),
-                            txtMessage=dialog.findViewById(R.id.txtMessage);
-                    Button btnYes=dialog.findViewById(R.id.btnYes);
+                        dialog.show();
+                    } else if (date.compareTo(now) == 0 && currentDate.compareTo(gioNhac) > 0) {
+                        Dialog dialog = new Dialog(NhacNhoThemActivity.this, R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
+                        dialog.setContentView(R.layout.dialog_error);
+                        TextView txtTitle = dialog.findViewById(R.id.txtTitle),
+                                txtMessage = dialog.findViewById(R.id.txtMessage);
+                        Button btnYes = dialog.findViewById(R.id.btnYes);
 
-                    txtTitle.setText("Lỗi");
-                    txtMessage.setText("Thời gian nhắc phải lớn hơn thời gian hiện tại!");
-                    btnYes.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            dialog.dismiss();
-                        }
-                    });
+                        txtTitle.setText("Lỗi");
+                        txtMessage.setText("Thời gian nhắc phải lớn hơn thời gian hiện tại!");
+                        btnYes.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                dialog.dismiss();
+                            }
+                        });
 
-                    dialog.show();
+                        dialog.show();
+                    } else {
+                        NhacNhoActivity.db.execSql("INSERT INTO " + MyDatabaseHelper.TBL_NAME_NHAC_NHO + " VALUES(null, '" + theLoai + "', '" + ten + "', '" + chuKy + "', '" + ngayBatDau + "', '" + gioNhac + ":00')");
+                        finish();
+                    }
                 }
-                else {
-                    NhacNhoActivity.db.execSql("INSERT INTO "+MyDatabaseHelper.TBL_NAME_NHAC_NHO+" VALUES(null, '"+theLoai+"', '"+ten+"', '"+chuKy+"', '"+ngayBatDau+"', '"+gioNhac+":00')");
-                    finish();
-                }
-
 
             }
         });
