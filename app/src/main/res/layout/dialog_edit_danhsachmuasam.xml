@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Chỉnh sửa item"
+        android:text="Chỉnh sửa"
         android:fontFamily="@font/header2_bold_20"
         android:paddingVertical="10dp"
         android:gravity="center"
@@ -43,7 +43,7 @@
             android:id="@+id/btnCancel"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="Cancel"
+            android:text="Hủy"
             android:textAllCaps="false"
             android:layout_gravity="end"
             android:layout_marginTop="10dp"
