@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:weightSum="12"
     android:padding="5dp"
-    android:background="@color/thay_trang">
+    >
 
    <TextView
        android:id="@+id/txtActivityDate"

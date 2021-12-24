@@ -18,6 +18,7 @@
             android:id="@+id/tab_thuchi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             app:tabIndicatorColor="@color/thu_cap"
             app:tabMode="fixed"
             app:tabSelectedTextColor="@color/mau_dam"
