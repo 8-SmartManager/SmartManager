@@ -9,6 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:textColor="@color/chu_dao"
+
         android:fontFamily="@font/body_medium_13"
         android:text="Giới thiệu với một người bạn"
         android:textSize="20sp"/>
@@ -23,7 +25,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_button"
-        android:fontFamily="@font/body_medium_13"
+        android:textAllCaps="false"
+        android:fontFamily="@font/publicsans_semibold_600"
         android:text="Hủy"/>
 
 

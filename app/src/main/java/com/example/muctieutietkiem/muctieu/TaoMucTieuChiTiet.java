@@ -9,15 +9,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -40,7 +36,6 @@ import com.example.muctieutietkiem.muctieu.adapter.ImageAdapter;
 import com.example.muctieutietkiem.muctieu.model.ImageMucTieu;
 import com.example.smartmanagertwo.R;
 
-import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -270,7 +265,7 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
 
                         } else {
 
-                            hoat_dong_fragment.db.insertData(image, ten, goalTime, color, goalSaved, goalTarget, luuY);
+                            muctieu_hoatdong_fragment.db.insertData(image, ten, goalTime, color, goalSaved, goalTarget, luuY);
 
                             finish();
                         }

@@ -15,9 +15,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.muctieutietkiem.muctieu.adapter.GoalAdapter;
 import com.example.muctieutietkiem.muctieu.model.Goal;
+import com.example.nhacnho.fragment.FragmentNhacNhoMainDataNotNull;
+import com.example.nhacnho.fragment.FragmentNhacNhoMainDataNull;
 import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.R;
 
@@ -25,7 +29,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class hoat_dong_fragment extends Fragment{
+public class muctieu_hoatdong_fragment extends Fragment{
 
     public static MyDatabaseHelper db;
 
@@ -44,10 +48,13 @@ public class hoat_dong_fragment extends Fragment{
         return view;
     }
 
+
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onResume() {
         loadData();
+
         super.onResume();
     }
 
@@ -69,7 +76,6 @@ public class hoat_dong_fragment extends Fragment{
         Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_MUC_TIEU);
         goals.clear();
         while(cursor.moveToNext()){
-//            activity.add(new ThuChiActivity(cursor.getInt(0), cursor.getString(1)));
             goals.add(new Goal(cursor.getInt(0), cursor.getInt(5), cursor.getString(1), LocalDate.parse( cursor.getString(4)), cursor.getInt(6) , cursor.getDouble(3), cursor.getDouble(2),cursor.getString(7) ));
 
         }

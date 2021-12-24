@@ -228,16 +228,15 @@
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/chitiet_muctieu.xml" value="0.25" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/chitiet_muctieu_hoanthanh.xml" value="0.1" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/custom_taikhoan.xml" value="0.4066193853427896" />
-        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_add_danhsach.xml" value="0.264" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_add_danhsach.xml" value="0.4" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_edit_danhsachmuasam.xml" value="0.2" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_error.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_ketnoi_invite.xml" value="0.264" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_nhapdanhsach.xml" value="0.4" />
-        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_nhapmuctieu.xml" value="0.4" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_nhapmuctieu.xml" value="0.1" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_show_activity.xml" value="0.1" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_themtien.xml" value="0.264" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_thong_bao.xml" value="0.25416666666666665" />
-        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_xoa.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/dialog_xoadanhsach.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/fragment_muctieu_hoanthanh.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/fragment_muctieu_hoatdong.xml" value="0.25416666666666665" />
@@ -247,14 +246,12 @@
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/fragment_thu_chi_ngay.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_color_muctieu.xml" value="0.25" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_dsmuasam.xml" value="0.25" />
-        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_layout_image_muctieu.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_list_ds_mua_sam.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_muctieu.xml" value="0.536" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_tai_khoan_layout.xml" value="0.264" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_theloai_muctieu.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_themtaikhoan.xml" value="0.25" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_thong_ke_chi_tiet.xml" value="0.25" />
-        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_thong_ke_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_thuchi.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_thuchi_ngay.xml" value="0.25" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/F/app/src/main/res/layout/item_thuchi_tuan_thang.xml" value="0.25" />
@@ -431,14 +428,6 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/nhac_nho_item_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/thu_chi_chinh.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManager/app/src/main/res/layout/thu_chi_them_moi.xml" value="0.3002780352177943" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManagerTESTSDK/app/src/main/res/layout/activity_tao_muc_tieu_chi_tiet.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManagerTESTSDK/app/src/main/res/layout/activity_tao_muctieu.xml" value="0.23703703703703705" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManagerTESTSDK/app/src/main/res/layout/activity_thu_chi.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManagerTESTSDK/app/src/main/res/layout/fragment_thu_chi_thang.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManagerTESTSDK/app/src/main/res/layout/fragment_thu_chi_them_moi_chi.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManagerTESTSDK/app/src/main/res/layout/fragment_thu_chi_them_moi_thu.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManagerTESTSDK/app/src/main/res/layout/fragment_thu_chi_tuan.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManagerTESTSDK/app/src/main/res/layout/item_thuchi_tuan_thang.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManagerTwo/app/src/main/res/drawable/ic_menu_camera.xml" value="0.26615384615384613" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManagerTwo/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManagerTwo/app/src/main/res/layout/activity_menu.xml" value="0.25416666666666665" />
@@ -450,7 +439,17 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManagerTwo/app/src/main/res/layout/nav_header_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManagerTwo/app/src/main/res/menu/activity_menu_drawer.xml" value="0.4" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/SmartManagerTwo/app/src/main/res/menu/menu.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/activity_kehoach_muctieu_tietkiem.xml" value="0.1287037037037037" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/activity_ket_noi_moi_ban.xml" value="0.184375" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/activity_nhacnho_main.xml" value="0.125" />
         <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/activity_on_boarding.xml" value="0.11574074074074074" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/dialog_error.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/dialog_ketnoi_gioithieu.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/dialog_ketnoi_invite.xml" value="0.125" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/fragment_muctieu_hoatdong.xml" value="0.184375" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/layout/item_muctieu.xml" value="0.1287037037037037" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/menu/activity_main2_drawer.xml" value="0.18153846153846154" />
+        <entry key="..\:/Users/ThinkKING/Desktop/SmartManager/app/src/main/res/menu/main2.xml" value="0.184375" />
       </map>
     </option>
   </component>

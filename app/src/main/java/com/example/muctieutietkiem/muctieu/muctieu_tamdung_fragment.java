@@ -68,7 +68,7 @@ public class muctieu_tamdung_fragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private List<Goal> getDataFromDb() {
         goals = new ArrayList<>();
-        Cursor cursor = hoat_dong_fragment.db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_MUC_TIEU_PAUSED);
+        Cursor cursor = muctieu_hoatdong_fragment.db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_MUC_TIEU_PAUSED);
         goals.clear();
         while(cursor.moveToNext()){
 //            activity.add(new ThuChiActivity(cursor.getInt(0), cursor.getString(1)));
