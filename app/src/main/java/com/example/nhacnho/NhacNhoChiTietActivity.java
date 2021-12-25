@@ -1,4 +1,4 @@
-package com.example.smartmanagertwo;
+package com.example.nhacnho;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -10,7 +10,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -29,9 +28,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.nhacnho.HopChonNhacNhoChiTietChuKy;
-import com.example.nhacnho.HopChonNhacNhoChiTietTheLoai;
-import com.example.nhacnho.NhacNho;
+import com.example.nhacnho.dialogFragment.HopChonNhacNhoChiTietChuKy;
+import com.example.nhacnho.dialogFragment.HopChonNhacNhoChiTietTheLoai;
+import com.example.nhacnho.model.NhacNho;
+import com.example.smartmanagertwo.MyDatabaseHelper;
+import com.example.smartmanagertwo.R;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -168,7 +169,7 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
                 btnYes.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        NhacNhoActivity.db.execSql("DELETE FROM "+MyDatabaseHelper.TBL_NAME_NHAC_NHO+" WHERE "+MyDatabaseHelper.COL_NHACNHO_ID + "=" +selectedNhacNho.getID());
+                        NhacNhoActivity.db.execSql("DELETE FROM "+ MyDatabaseHelper.TBL_NAME_NHAC_NHO+" WHERE "+MyDatabaseHelper.COL_NHACNHO_ID + "=" +selectedNhacNho.getID());
                         finish();
                     }
                 });

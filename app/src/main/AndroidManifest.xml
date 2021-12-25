@@ -87,10 +87,10 @@
             android:name=".CaiDatTroGiupNew"
             android:exported="true" />
         <activity
-            android:name=".NhacNhoChiTietActivity"
+            android:name="com.example.nhacnho.NhacNhoChiTietActivity"
             android:exported="true" />
         <activity
-            android:name=".NhacNhoThemActivity"
+            android:name="com.example.nhacnho.NhacNhoThemActivity"
             android:exported="true" />
         <activity
             android:name="com.example.tintuc.KetNoiTinTucChiTiet"

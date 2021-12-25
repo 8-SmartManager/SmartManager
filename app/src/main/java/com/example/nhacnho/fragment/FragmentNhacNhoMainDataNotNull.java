@@ -1,6 +1,6 @@
 package com.example.nhacnho.fragment;
 
-import static com.example.smartmanagertwo.NhacNhoActivity.nhacNhos;
+import static com.example.nhacnho.NhacNhoActivity.nhacNhos;
 
 import android.content.Intent;
 import android.os.Build;
@@ -16,10 +16,10 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
-import com.example.nhacnho.NhacNho;
-import com.example.nhacnho.NhacNhoAdapter;
-import com.example.smartmanagertwo.NhacNhoActivity;
-import com.example.smartmanagertwo.NhacNhoChiTietActivity;
+import com.example.nhacnho.model.NhacNho;
+import com.example.nhacnho.adapter.NhacNhoAdapter;
+import com.example.nhacnho.NhacNhoActivity;
+import com.example.nhacnho.NhacNhoChiTietActivity;
 import com.example.smartmanagertwo.R;
 
 public class FragmentNhacNhoMainDataNotNull extends Fragment {

@@ -1,4 +1,4 @@
-package com.example.smartmanagertwo;
+package com.example.nhacnho;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -27,6 +27,11 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+
+import com.example.nhacnho.dialogFragment.HopChonNhacNhoChuKy;
+import com.example.nhacnho.dialogFragment.HopChonNhacNhoThemTheLoai;
+import com.example.smartmanagertwo.MyDatabaseHelper;
+import com.example.smartmanagertwo.R;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;

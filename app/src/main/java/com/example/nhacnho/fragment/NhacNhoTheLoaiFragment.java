@@ -1,4 +1,4 @@
-package com.example.nhacnho;
+package com.example.nhacnho.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -1,11 +1,8 @@
 package com.example.fragment;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,10 +22,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.adapter.ActivityAdapter;
 import com.example.smartmanagertwo.MyDatabaseHelper;
-import com.example.smartmanagertwo.NhacNhoChiTietActivity;
 import com.example.smartmanagertwo.R;
-import com.example.thongke.HopChonTKTaiKhoan;
-import com.example.thongke.HopChonTheLoaiThu;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
