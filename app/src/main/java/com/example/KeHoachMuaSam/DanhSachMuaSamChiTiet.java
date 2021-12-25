@@ -235,6 +235,7 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
             public void onClick(View view) {
                 DanhSachMuaSamMain.db.execSql("DELETE FROM " + MyDatabaseHelper.TBL_NAME_DANHSACHITEM + " WHERE " + MyDatabaseHelper.COL_DANHSACHITEM_ID + " = " + t.getItemId());
                 Toast.makeText(DanhSachMuaSamChiTiet.this, "Success!", Toast.LENGTH_SHORT).show();
+                loadData();
                 dialog.dismiss();
             }
         });
