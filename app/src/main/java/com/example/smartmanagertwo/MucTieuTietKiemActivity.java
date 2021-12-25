@@ -17,7 +17,7 @@ import com.example.smartmanagertwo.databinding.FragmentGalleryBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
-public class kehoach_muctieu_tietkiem extends Fragment {
+public class MucTieuTietKiemActivity extends Fragment {
     TabLayout tab_muctieu;
     ViewPager vp_muctieu;
     FloatingActionButton btnTaoMT;

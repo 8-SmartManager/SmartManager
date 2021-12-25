@@ -4,7 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#616266"
     tools:context=".KetNoi_MoiBan">
+    <LinearLayout
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:padding="30dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/chu_dao"
+        android:textSize="20sp"
+        android:fontFamily="@font/header2_bold_20"
+        android:layout_marginBottom="10dp"
+        android:text="Tell a friend"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/mau_dam"
+        android:fontFamily="@font/body_medium_13"
+        android:textSize="14sp"
+        android:layout_marginBottom="20dp"
+        android:text="Bạn thích SmartManager? Mời một người bạn để sử dụng ứng dụng tài chính tốt nhất"
 
+        />
+    <Button
+        android:id="@+id/btnInvite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:fontFamily="@font/body_medium_13"
+        android:textStyle="bold"
+        android:text="Invite"
+        android:backgroundTint="@color/chu_dao"
+        android:background="@drawable/button_tao"
+        android:padding="10dp"/>
+    </LinearLayout>
 
 </LinearLayout>

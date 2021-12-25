@@ -19,15 +19,11 @@ public class KetNoi_MoiBan extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.activity_ket_noi_moi_ban,container,false);
-        Dialog dialog = new Dialog(getActivity());
-        dialog.setContentView(R.layout.dialog_ketnoi_invite);
-        dialog.show();
-
-        btnInvite=dialog.findViewById(R.id.btnInvite);
+        btnInvite=root.findViewById(R.id.btnInvite);
         btnInvite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog.dismiss();
+
                 showDialog1();
 
 

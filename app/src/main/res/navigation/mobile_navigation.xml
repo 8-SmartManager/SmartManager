@@ -18,7 +18,7 @@
         tools:layout="@layout/activity_thong_ke" />
     <fragment
         android:id="@+id/nav_tietkiem"
-        android:name="com.example.smartmanagertwo.kehoach_muctieu_tietkiem"
+        android:name="com.example.smartmanagertwo.MucTieuTietKiemActivity"
         android:label="Mục tiêu tiết kiệm"
         tools:layout="@layout/activity_kehoach_muctieu_tietkiem" />
 

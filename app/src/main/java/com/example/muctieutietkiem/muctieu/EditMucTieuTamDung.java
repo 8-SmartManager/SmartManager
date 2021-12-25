@@ -64,7 +64,6 @@ public class EditMucTieuTamDung extends AppCompatActivity {
         LinkViews();
         getData();
         addEvents();
-//        LoadData();
 
 
     }
@@ -116,17 +115,11 @@ public class EditMucTieuTamDung extends AppCompatActivity {
 
             case android.R.id.home:
                 if (ten.equals(selectedGoal.getGoalName())&&soTienDatDuoc.equals(String.format("%.0f",selectedGoal.getGoalSaved()))&&soTienMucTieu.equals(String.format("%.0f",selectedGoal.getGoalTarget()))&&ngayKetThuc.equals(selectedGoal.getGoalTime().toString())&&color==selectedGoal.getGoalColor()&&luuY.equals(selectedGoal.getGoalNote())){
-
-
                     {
                         onBackPressed();
                     }
-
-
-
                 }
                 else {
-
                     Dialog dialogBack = new Dialog(EditMucTieuTamDung.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
                     dialogBack.setContentView(R.layout.dialog_thong_bao);
                     TextView txtTitleCancel=dialogBack.findViewById(R.id.txtTitle),
@@ -139,8 +132,6 @@ public class EditMucTieuTamDung extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             onBackPressed();
-
-
                         }
 
                     });
@@ -151,9 +142,6 @@ public class EditMucTieuTamDung extends AppCompatActivity {
                         }
                     });
                     dialogBack.show();
-
-
-
                 }
                 break;
             case R.id.mnResume:
@@ -170,8 +158,6 @@ public class EditMucTieuTamDung extends AppCompatActivity {
                     public void onClick(View view) {
                         muctieu_tamdung_fragment.db.execSql("DELETE FROM "+ MyDatabaseHelper.TBL_NAME_MUC_TIEU_PAUSED+" WHERE "+MyDatabaseHelper.COL_MUCTIEU_ID + "=" +selectedGoal.getGoalID());
                         muctieu_tamdung_fragment.db.insertData(selectedGoal.getGoalThumb(),selectedGoal.getGoalName(),selectedGoal.getGoalTime(),selectedGoal.getGoalColor(),selectedGoal.getGoalSaved(),selectedGoal.getGoalTarget(),selectedGoal.getGoalNote());
-//                        hoat_dong_fragment.db.updateData(selectedGoal.getGoalID(),goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
-
                         finish();
                     }
                 });
