@@ -35,7 +35,7 @@
         tools:layout="@layout/activity_tai_khoan_chinh" />
     <fragment
         android:id="@+id/nav_muasam"
-        android:name="com.example.KeHoachMuaSam.DanhSachMuaSamMain"
+        android:name="com.example.kehoachmuasam.DanhSachMuaSamMain"
         android:label="Danh sách mua sắm"
         tools:layout="@layout/activity_danh_sach_mua_sam_main" />
 
@@ -46,7 +46,7 @@
             tools:layout="@layout/activity_tintuc" />
     <fragment
         android:id="@+id/nav_moiban"
-        android:name="com.example.smartmanagertwo.KetNoi_MoiBan"
+        android:name="com.example.moiban.KetNoi_MoiBan"
         android:label="Mời bạn"
         tools:layout="@layout/activity_ket_noi_moi_ban" />
     <fragment

@@ -1,4 +1,4 @@
-package com.example.smartmanagertwo;
+package com.example.thuchi;
 
 
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hopchoncohinh.HopChonAdapter;
 import com.example.hopchoncohinh.HopChonItem;
+import com.example.smartmanagertwo.R;
 
 import java.util.ArrayList;
 

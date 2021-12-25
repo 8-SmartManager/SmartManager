@@ -1,4 +1,4 @@
-package com.example.KeHoachMuaSam;
+package com.example.kehoachmuasam;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

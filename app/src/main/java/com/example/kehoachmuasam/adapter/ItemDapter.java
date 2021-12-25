@@ -1,4 +1,4 @@
-package com.example.KeHoachMuaSam.adapter;
+package com.example.kehoachmuasam.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,8 +9,8 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.KeHoachMuaSam.DanhSachMuaSamChiTiet;
-import com.example.KeHoachMuaSam.model.DanhSachItem;
+import com.example.kehoachmuasam.DanhSachMuaSamChiTiet;
+import com.example.kehoachmuasam.model.DanhSachItem;
 import com.example.smartmanagertwo.R;
 
 import java.util.List;

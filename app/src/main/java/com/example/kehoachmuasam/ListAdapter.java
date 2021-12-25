@@ -1,4 +1,4 @@
-package com.example.KeHoachMuaSam;
+package com.example.kehoachmuasam;
 
 import android.content.Context;
 import android.view.LayoutInflater;

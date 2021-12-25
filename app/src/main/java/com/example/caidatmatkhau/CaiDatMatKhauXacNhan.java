@@ -1,8 +1,10 @@
-package com.example.smartmanagertwo;
+package com.example.caidatmatkhau;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.smartmanagertwo.R;
 
 public class CaiDatMatKhauXacNhan extends AppCompatActivity {
 

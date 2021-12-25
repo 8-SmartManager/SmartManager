@@ -69,10 +69,10 @@
             android:name="com.example.thuchi.ThuChiChinhSua"
             android:exported="true" />
         <activity
-            android:name="com.example.KeHoachMuaSam.DanhSachMuaSamThem"
+            android:name="com.example.kehoachmuasam.DanhSachMuaSamThem"
             android:exported="true" />
         <activity
-            android:name="com.example.KeHoachMuaSam.DanhSachMuaSamChiTiet"
+            android:name="com.example.kehoachmuasam.DanhSachMuaSamChiTiet"
             android:exported="true" />
         <activity
             android:name="com.example.taikhoan.TaiKhoanChinhSua"

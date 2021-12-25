@@ -1,17 +1,14 @@
-package com.example.KeHoachMuaSam;
+package com.example.kehoachmuasam;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,8 +18,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.KeHoachMuaSam.adapter.ItemDapter;
-import com.example.KeHoachMuaSam.model.DanhSachItem;
+import com.example.kehoachmuasam.adapter.ItemDapter;
+import com.example.kehoachmuasam.model.DanhSachItem;
 import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;

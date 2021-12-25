@@ -1,4 +1,4 @@
-package com.example.KeHoachMuaSam.model;
+package com.example.kehoachmuasam.model;
 
 public class DanhSachItem {
     private int itemId;
