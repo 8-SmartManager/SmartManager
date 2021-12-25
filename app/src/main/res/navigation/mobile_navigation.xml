@@ -7,18 +7,18 @@
 
     <fragment
         android:id="@+id/nav_thuchi"
-        android:name="com.example.smartmanagertwo.ThuChi"
+        android:name="com.example.thuchi.ThuChi"
         android:label="Thu chi"
         tools:layout="@layout/activity_thu_chi" />
 
     <fragment
         android:id="@+id/nav_thongke"
-        android:name="com.example.smartmanagertwo.ThongKeActivity"
+        android:name="com.example.thongke.ThongKeActivity"
         android:label="Thống kê"
         tools:layout="@layout/activity_thong_ke" />
     <fragment
         android:id="@+id/nav_tietkiem"
-        android:name="com.example.smartmanagertwo.MucTieuTietKiemActivity"
+        android:name="com.example.muctieutietkiem.MucTieuTietKiemActivity"
         android:label="Mục tiêu tiết kiệm"
         tools:layout="@layout/activity_kehoach_muctieu_tietkiem" />
 
@@ -30,7 +30,7 @@
 
     <fragment
         android:id="@+id/nav_taikhoan"
-        android:name="com.example.smartmanagertwo.TaiKhoan"
+        android:name="com.example.taikhoan.TaiKhoan"
         android:label="Tài khoản"
         tools:layout="@layout/activity_tai_khoan_chinh" />
     <fragment
@@ -61,12 +61,12 @@
         tools:layout="@layout/cai_dat_sao_luu" />
     <fragment
         android:id="@+id/nav_trogiup"
-        android:name="com.example.smartmanagertwo.CaiDatTroGiup"
+        android:name="com.example.caidat.fragment.CaiDatTroGiup"
         android:label="Trợ giúp"
         tools:layout="@layout/activity_cai_dat_tro_giup" />
     <fragment
         android:id="@+id/nav_thongtin"
-        android:name="com.example.smartmanagertwo.CaiDatThongTinAppMain"
+        android:name="com.example.caidat.fragment.CaiDatThongTinAppMain"
         android:label="Thông tin ứng dụng"
         tools:layout="@layout/activity_cai_dat_thong_tin_app_main" />
 

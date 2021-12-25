@@ -1,4 +1,4 @@
-package com.example.taikhoan;
+package com.example.thongke.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,15 +13,18 @@ import com.example.smartmanagertwo.R;
 
 import java.util.List;
 
-public class TaiKhoanChiTietAdapter extends BaseAdapter {
+public class ThongKeChiTietAdapter extends BaseAdapter {
+
     Activity context;
     int item_listview;
-    List<ThuChiActivity> taikhoanChiTietList;
-    public TaiKhoanChiTietAdapter(Activity context, int item_listview, List<ThuChiActivity> taikhoanChiTietList) {
+    List<ThuChiActivity> thongKeChiTietList;
+
+    public ThongKeChiTietAdapter(Activity context, int item_listview, List<ThuChiActivity> thongKeChiTietList) {
         this.context = context;
         this.item_listview = item_listview;
-        this.taikhoanChiTietList = taikhoanChiTietList;
+        this.thongKeChiTietList = thongKeChiTietList;
     }
+
     public Activity getContext() {
         return context;
     }
@@ -39,21 +42,21 @@ public class TaiKhoanChiTietAdapter extends BaseAdapter {
     }
 
     public List<ThuChiActivity> getThongKeChiTietList() {
-        return taikhoanChiTietList;
+        return thongKeChiTietList;
     }
 
-    public void setTaiKhoanChiTietList(List<ThuChiActivity> taikhoanChiTietList) {
-        this.taikhoanChiTietList = taikhoanChiTietList;
+    public void setThongKeChiTietList(List<ThuChiActivity> thongKeChiTietList) {
+        this.thongKeChiTietList = thongKeChiTietList;
     }
 
     @Override
     public int getCount() {
-        return taikhoanChiTietList.size();
+        return thongKeChiTietList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return taikhoanChiTietList.get(i);
+        return thongKeChiTietList.get(i);
     }
 
     @Override
@@ -75,10 +78,10 @@ public class TaiKhoanChiTietAdapter extends BaseAdapter {
 
             view.setTag(holder);
         }else{
-            holder = (TaiKhoanChiTietAdapter.ViewHolder) view.getTag();
+            holder = (ViewHolder) view.getTag();
         }
         //Binding data
-        ThuChiActivity t = taikhoanChiTietList.get(i);
+        ThuChiActivity t = thongKeChiTietList.get(i);
         holder.txtTheLoai.setText(t.getActivityName());
         holder.txtTaiKhoan.setText(t.getActivityAccount());
         holder.txtMoney.setText(String.format("%,.0f",t.getActivityAmount()));

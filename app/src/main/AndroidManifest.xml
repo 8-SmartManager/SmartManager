@@ -49,9 +49,9 @@
         <activity
             android:name="com.example.muctieutietkiem.muctieu.MucTieuChiTiet_HoanThanh"
             android:exported="true" />
-        <activity android:name=".TaiKhoanSuaChiTiet" />
+        <activity android:name="com.example.taikhoan.TaiKhoanSuaChiTiet" />
         <activity
-            android:name=".TaiKhoanChiTietActivity"
+            android:name="com.example.taikhoan.TaiKhoanChiTietActivity"
             android:exported="true" />
         <activity
             android:name="com.example.caidatmatkhau.MatKhauOff"
@@ -60,13 +60,13 @@
             android:name="com.example.caidatmatkhau.MatKhauChange"
             android:exported="true" />
         <activity
-            android:name=".ThuChiThemMoi"
+            android:name="com.example.thuchi.ThuChiThemMoi"
             android:exported="true" />
         <activity
-            android:name=".ThongKeChiTietActivity"
+            android:name="com.example.thongke.ThongKeChiTietActivity"
             android:exported="true" />
         <activity
-            android:name=".ThuChiChinhSua"
+            android:name="com.example.thuchi.ThuChiChinhSua"
             android:exported="true" />
         <activity
             android:name="com.example.KeHoachMuaSam.DanhSachMuaSamThem"
@@ -75,16 +75,16 @@
             android:name="com.example.KeHoachMuaSam.DanhSachMuaSamChiTiet"
             android:exported="true" />
         <activity
-            android:name=".TaiKhoanChinhSua"
+            android:name="com.example.taikhoan.TaiKhoanChinhSua"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity
-            android:name=".CaiDatThongTinAppChinhSach"
+            android:name="com.example.caidat.CaiDatThongTinAppChinhSach"
             android:exported="true" />
         <activity
-            android:name=".CaiDatTroGiupNew"
+            android:name="com.example.caidat.CaiDatTroGiupNew"
             android:exported="true" />
         <activity
             android:name="com.example.nhacnho.NhacNhoChiTietActivity"
