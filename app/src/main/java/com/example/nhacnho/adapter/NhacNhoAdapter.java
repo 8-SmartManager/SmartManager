@@ -1,4 +1,4 @@
-package com.example.nhacnho;
+package com.example.nhacnho.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,19 +7,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
+import com.example.nhacnho.model.NhacNho;
 import com.example.smartmanagertwo.R;
 
-import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Locale;
 
 public class NhacNhoAdapter extends BaseAdapter {
     Activity context;

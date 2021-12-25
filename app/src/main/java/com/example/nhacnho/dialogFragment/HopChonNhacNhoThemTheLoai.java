@@ -1,4 +1,4 @@
-package com.example.smartmanagertwo;
+package com.example.nhacnho.dialogFragment;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.example.hopchoncohinh.HopChonAdapter;
 import com.example.hopchoncohinh.HopChonItem;
+import com.example.smartmanagertwo.R;
 
 import java.util.ArrayList;
 import java.util.Objects;

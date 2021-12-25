@@ -1,55 +1,42 @@
-package com.example.smartmanagertwo;
+package com.example.nhacnho;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.app.Activity;
-import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 
-import com.example.nhacnho.NhacNho;
-import com.example.nhacnho.NhacNhoAdapter;
+import com.example.nhacnho.model.NhacNho;
+import com.example.nhacnho.adapter.NhacNhoAdapter;
 import com.example.nhacnho.fragment.FragmentNhacNhoMainDataNotNull;
 import com.example.nhacnho.fragment.FragmentNhacNhoMainDataNull;
-import com.example.smartmanagertwo.databinding.FragmentGalleryBinding;
+import com.example.smartmanagertwo.MyDatabaseHelper;
+import com.example.smartmanagertwo.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 
 public class NhacNhoActivity extends Fragment {
 //    ListView lvNhacNho;
     public static ArrayList<NhacNho> nhacNhos;
     LinearLayout layoutContainer;
     NhacNhoAdapter adapter;
-    public  static  MyDatabaseHelper db;
+    public  static MyDatabaseHelper db;
     FloatingActionButton btnThemMoi;
 
 
-    private FragmentGalleryBinding binding;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -110,7 +97,7 @@ public class NhacNhoActivity extends Fragment {
         btnThemMoi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),NhacNhoThemActivity.class);
+                Intent intent = new Intent(getActivity(), NhacNhoThemActivity.class);
                 startActivity(intent);
             }
         });

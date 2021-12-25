@@ -1,4 +1,4 @@
-package com.example.nhacnho;
+package com.example.nhacnho.model;
 
 import java.io.Serializable;
 import java.sql.Time;
