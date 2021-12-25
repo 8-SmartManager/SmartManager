@@ -26,12 +26,15 @@
         android:id="@+id/btnSaoLuu"
         android:layout_marginBottom="100dp"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="36dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
         android:background="@drawable/bg_button"
+        android:fontFamily="@font/header3_semibold_14"
         android:text="Sao lưu dữ liệu"
         android:textAllCaps="false"
         android:textColor="@color/chu_dao"
-        android:textSize="16sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="32dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

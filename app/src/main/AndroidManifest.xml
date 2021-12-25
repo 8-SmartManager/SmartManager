@@ -93,6 +93,12 @@
             android:name="com.example.nhacnho.NhacNhoThemActivity"
             android:exported="true" />
         <activity
+            android:name="com.example.caidat.SaoLuuThietBi"
+            android:exported="true" />
+        <activity
+            android:name="com.example.caidat.SaoLuuGGDrive"
+            android:exported="true" />
+        <activity
             android:name="com.example.tintuc.KetNoiTinTucChiTiet"
             android:exported="true" />
     </application>
