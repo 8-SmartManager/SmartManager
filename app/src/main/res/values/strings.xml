@@ -25,6 +25,46 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="nhap_mat_khau">Nhập mật khẩu</string>
+    <string name="tat_mat_khau">Tắt mật khẩu</string>
+    <string name="doi_mat_khau">Đổi mật khẩu</string>
+    <string name="nhap_mat_khau_hien_tai">Nhập mật khẩu hiện tại</string>
+    <string name="nhap_lai_mat_khau">Nhập lại mật khẩu</string>
+    <string name="nhap_mat_khau_moi">Nhập mật khẩu mới</string>
+    <string name="ten_danh_sach_cua_ban">Tên danh sách của bạn</string>
+    <string name="mua_sam_cuoi_tuan_qua_cho_gia_dinh">Mua sắm cuối tuần? Quà cho gia đình?</string>
+    <string name="ten_danh_sach">Tên danh sách</string>
+    <string name="nhap_ten_danh_sach">Nhập tên danh sách</string>
+    <string name="tao_danh_sach">Tạo danh sách</string>
+    <string name="the_principles_of">The principles of “The Simple Path to Wealth” were first laid out in a series of letters by the author to his daughter. It takes on a light and casual tone in some chapters but doesn’t shy away from explanations of morre complicated topics, either. Some of these tips are:</string>
+    <string name="money_is_important">Money is important</string>
+    <string name="but_that_doesnt">But that doesn\'t imply constantly thinking about it</string>
+    <string name="understanding_money_is_critical">Understanding money is critical</string>
+    <string name="perceive_money_as_the_most_powerful_tool_you_have_to_navigate_this_complex_world">Perceive money as the most powerful tool you have to navigate this complex world.</string>
+    <string name="it_can_be_a_jotous_journey">It can be a jotous journey</string>
+    <string name="there_are_tools">There are tools to forge your way through with confidence and warm words.</string>
+    <string name="book_the_simple_path_to_wealth">Book:\'The Simple Path to Wealth\'by J.L.Collins</string>
+    <string name="inspirational_finance_books">Inspirational Finance Books</string>
+    <string name="buy_this_book">BUY THIS BOOK</string>
+    <string name="them_moi">Thêm mới</string>
+    <string name="ten">Tên</string>
+    <string name="gia">Giá</string>
+    <string name="huy">Hủy</string>
+    <string name="them">Thêm</string>
+    <string name="ok">OK</string>
+    <string name="thongbao">Thông báo</string>
+    <string name="ban_chua_nhan_ten_danh_sach">Bạn chưa nhập tên danh sách</string>
+    <string name="thong_bao">Thông báo</string>
+    <string name="ban_co_chac_chan_muon_xoa">Bạn có chắc chắn muốn xóa</string>
+    <string name="khong">Không</string>
+    <string name="co">Có</string>
+    <string name="mua_sam">Mua sắm</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_100000">100000</string>
+    <string name="uoc_tinh">Ước tính</string>
+    <string name="personal_finance_tips_for_2020">Personal Finance Tips for 2020: “The Simple Path to Wealth</string>
+    <string name="find_your_road_map">Find your road map to financial independence and a rich life through simple awareness.</string>
 
 
 </resources>

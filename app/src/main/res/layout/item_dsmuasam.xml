@@ -21,7 +21,7 @@ android:padding="10dp">
                     android:id="@+id/txtTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mua sắm"
+                    android:text="@string/mua_sam"
                     android:fontFamily="@font/body_medium_13"
                     android:textColor="@color/mau_dam"/>
                 <LinearLayout
@@ -31,7 +31,7 @@ android:padding="10dp">
                         android:id="@+id/txtCompleted"
                         android:layout_width="20dp"
                         android:layout_height="wrap_content"
-                        android:text="1"
+                        android:text="@string/_1"
                         android:gravity="center"
                         android:fontFamily="@font/body_medium_13"/>
                     <TextView
@@ -44,7 +44,7 @@ android:padding="10dp">
                         android:id="@+id/txtTotal"
                         android:layout_width="20dp"
                         android:layout_height="wrap_content"
-                        android:text="2"
+                        android:text="@string/_2"
                         android:gravity="center"
                         android:fontFamily="@font/body_medium_13"/>
                 </LinearLayout>
@@ -59,13 +59,13 @@ android:padding="10dp">
                     android:id="@+id/txtPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="100000đ"
+                    android:text="@string/_100000"
                     android:fontFamily="@font/header3_semibold_14"
                     android:textColor="@color/thu_cap"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ước tính"
+                    android:text="@string/uoc_tinh"
                     android:fontFamily="@font/body_medium_13"
                     android:textColor="@color/mau_xam"/>
             </LinearLayout>

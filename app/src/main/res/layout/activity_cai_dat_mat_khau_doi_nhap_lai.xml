@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/mau_dam"
-        android:text="Nhập lại mật khẩu"
+        android:text="@string/nhap_lai_mat_khau"
         android:fontFamily="@font/header2_bold_20"
         android:textSize="20sp"
         android:textStyle="bold"

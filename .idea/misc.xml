@@ -424,6 +424,25 @@
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManager_N/app/src/main/res/layout/item_list_ds_mua_sam.xml" value="0.4" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManager_N/app/src/main/res/layout/layout_custom_dialog_add_danhsach.xml" value="0.536" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManager_N/app/src/main/res/menu/nhac_nho_edit_option_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManagerfn/app/src/main/res/layout/activity_cai_dat_mat_khau_doi.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManagerfn/app/src/main/res/layout/activity_cai_dat_mat_khau_doi_nhap_lai.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManagerfn/app/src/main/res/layout/activity_cai_dat_mat_khau_doi_nhap_moi.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManagerfn/app/src/main/res/layout/activity_cai_dat_mat_khau_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManagerfn/app/src/main/res/layout/activity_cai_dat_mat_khau_tat.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManagerfn/app/src/main/res/layout/activity_danh_sach_mua_sam_chi_tiet.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManagerfn/app/src/main/res/layout/activity_danh_sach_mua_sam_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManagerfn/app/src/main/res/layout/activity_danh_sach_mua_sam_them.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManagerfn/app/src/main/res/layout/activity_ket_noi_moi_ban.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManagerfn/app/src/main/res/layout/activity_ketnoi_tintuc_chitiet.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManagerfn/app/src/main/res/layout/activity_tintuc.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManagerfn/app/src/main/res/layout/dialog_add_danhsach.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManagerfn/app/src/main/res/layout/dialog_edit_danhsachmuasam.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManagerfn/app/src/main/res/layout/dialog_nhapdanhsach.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManagerfn/app/src/main/res/layout/dialog_xoa.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManagerfn/app/src/main/res/layout/dialog_xoadanhsach.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManagerfn/app/src/main/res/layout/item_dsmuasam.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManagerfn/app/src/main/res/layout/item_list_ds_mua_sam.xml" value="0.25416666666666665" />
+        <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/SmartManagerfn/app/src/main/res/layout/item_tintuc.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/V/app/src/main/res/layout/activity_cai_dat_mat_khau_doi.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/V/app/src/main/res/layout/activity_cai_dat_mat_khau_main.xml" value="0.25416666666666665" />
         <entry key="..\:/HK5/PhatTrienThuongMaiDiDong/V/app/src/main/res/layout/activity_cai_dat_mat_khau_tat.xml" value="0.25416666666666665" />

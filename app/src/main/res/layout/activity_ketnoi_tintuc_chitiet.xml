@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="The principles of “The Simple Path to Wealth” were first laid out in a series of letters by the author to his daughter. It takes on a light and casual tone in some chapters but doesn’t shy away from explanations of morre complicated topics, either. Some of these tips are:"
+        android:text="@string/the_principles_of"
         android:layout_marginTop="20dp"
         android:padding="10dp"
         android:textSize="20sp"
@@ -31,13 +31,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Money is important"
+                android:text="@string/money_is_important"
                 android:fontFamily="@font/header2_bold_20"
                 android:layout_marginStart="20dp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="But that doesn't imply constantly thinking about it"
+                android:text="@string/but_that_doesnt"
                 android:layout_marginStart="20dp"
                 android:layout_marginRight="10dp"/>
         </LinearLayout>
@@ -61,13 +61,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Understanding money is critical"
+                android:text="@string/understanding_money_is_critical"
                 android:fontFamily="@font/header2_bold_20"
                 android:layout_marginStart="20dp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Perceive money as the most powerful tool you have to navigate this complex world."
+                android:text="@string/perceive_money_as_the_most_powerful_tool_you_have_to_navigate_this_complex_world"
                 android:layout_marginStart="20dp"/>
         </LinearLayout>
     </LinearLayout>
@@ -90,13 +90,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="It can be a jotous journey"
+                android:text="@string/it_can_be_a_jotous_journey"
                 android:fontFamily="@font/header2_bold_20"
                 android:layout_marginStart="20dp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="There are tools to forge your way through with confidence and warm words."
+                android:text="@string/there_are_tools"
                 android:layout_marginStart="20dp"/>
         </LinearLayout>
     </LinearLayout>
@@ -113,13 +113,13 @@
             <TextView
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
-                android:text="Book:'The Simple Path to Wealth'by J.L.Collins"
+                android:text="@string/book_the_simple_path_to_wealth"
                 android:fontFamily="@font/header3_semibold_14"
                 android:textColor="#103256"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Inspirational Finance Books"
+                android:text="@string/inspirational_finance_books"
                 android:textColor="#8098AB"
                 android:fontFamily="@font/body_medium_13"/>
         </LinearLayout>
@@ -148,7 +148,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="BUY THIS BOOK"
+        android:text="@string/buy_this_book"
         android:gravity="center"
         android:fontFamily="@font/header3_semibold_14"
         android:textSize="24sp"

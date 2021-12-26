@@ -35,13 +35,13 @@
                     android:textStyle="bold"
                     android:textSize="25sp"
                     android:layout_margin="10dp"
-                    android:text="Personal Finance Tips for 2020: “The Simple Path to Wealth"
+                    android:text="@string/personal_finance_tips_for_2020"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <TextView
                     android:id="@+id/txtDetail"
                     android:padding="10dp"
-                    android:text="Find your road map to financial independence and a rich life through simple awareness."
+                    android:text="@string/find_your_road_map"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>

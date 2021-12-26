@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:textSize="13sp"
         android:layout_weight="9"
-        android:text="áo quần"
+        android:text="@string/ao_quan"
         android:fontFamily="@font/body_medium_13"
         android:textColor="@color/mau_dam"/>
     <TextView
@@ -31,7 +31,7 @@
         android:fontFamily="@font/header3_semibold_14"
         android:textSize="14sp"
         android:layout_weight="9"
-        android:text="100000"
+        android:text="@string/_100000"
         android:textColor="@color/thu_cap"/>
 </LinearLayout>
 <LinearLayout
