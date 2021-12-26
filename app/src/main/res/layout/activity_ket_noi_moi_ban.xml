@@ -21,7 +21,7 @@
         android:textSize="20sp"
         android:fontFamily="@font/header2_bold_20"
         android:layout_marginBottom="10dp"
-        android:text="Tell a friend"
+        android:text="@string/tell_a_friend_moiban"
         android:textStyle="bold"/>
     <TextView
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
         android:fontFamily="@font/body_medium_13"
         android:textSize="14sp"
         android:layout_marginBottom="20dp"
-        android:text="Bạn thích SmartManager? Mời một người bạn để sử dụng ứng dụng tài chính tốt nhất" />
+        android:text="@string/invite_moiban" />
     <Button
         android:id="@+id/btnInvite"
         android:layout_width="match_parent"
@@ -39,7 +39,7 @@
         android:textSize="20sp"
         android:fontFamily="@font/body_medium_13"
         android:textStyle="bold"
-        android:text="Invite"
+        android:text="@string/invite_button"
         android:backgroundTint="@color/chu_dao"
         android:background="@drawable/button_tao"
         android:padding="10dp"/>

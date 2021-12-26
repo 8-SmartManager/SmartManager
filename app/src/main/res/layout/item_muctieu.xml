@@ -35,13 +35,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/body_medium_13"
-                    android:text="Mua xe"/>
+                    android:text="@string/name_goal"/>
                 <TextView
                     android:id="@+id/txtDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/body_medium_13"
-                    android:text="Ngày đạt: 12/11/2022"/>
+                    android:text="@string/time_goal"/>
             </LinearLayout>
         </LinearLayout>
         <ProgressBar
@@ -64,7 +64,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:fontFamily="@font/body_medium_13"
-            android:text="Đã tiết kiệm: 5.000.000đ"/>
+            android:text="@string/saved_goal"/>
             <TextView
                 android:id="@+id/txtGoalTarget"
                 android:paddingTop="10dp"
@@ -74,7 +74,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:textColor="@color/mau_xam"
                 android:fontFamily="@font/body_medium_13"
-                android:text="Mục tiêu: 5.000.000đ"/>
+                android:text="@string/target_goal"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </LinearLayout>

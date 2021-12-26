@@ -11,7 +11,7 @@
         android:gravity="center"
         android:textColor="@color/chu_dao"
         android:fontFamily="@font/body_medium_13"
-        android:text="Giới thiệu với một người bạn"
+        android:text="@string/gioithieu"
         android:textSize="20sp"/>
     <ImageView
         android:layout_marginTop="10dp"
@@ -26,5 +26,5 @@
         android:background="@drawable/bg_button"
         android:textAllCaps="false"
         android:fontFamily="@font/publicsans_semibold_600"
-        android:text="Hủy"/>
+        android:text="@string/huy_moiban_button"/>
 </LinearLayout>

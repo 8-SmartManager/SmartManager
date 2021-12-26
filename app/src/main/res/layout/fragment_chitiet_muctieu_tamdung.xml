@@ -32,12 +32,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/body_medium_13"
-                android:text="Mua xe"/>
+                android:text="@string/name_goal"/>
             <TextView
                 android:id="@+id/txtNgayKetThuc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ngày đạt: 12/11/2022"/>
+                android:text="@string/time_goal"/>
         </LinearLayout>
     </LinearLayout>
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -62,7 +62,7 @@
         android:id="@+id/txtPercent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="60%"
+        android:text="@string/percent_goal"
         app:layout_constraintBottom_toBottomOf="@id/progressBar"
         app:layout_constraintEnd_toEndOf="@id/progressBar"
         app:layout_constraintStart_toStartOf="@id/progressBar"
@@ -74,7 +74,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Số tiền cập nhật mới nhất"
+        android:text="@string/update_saved_goal"
         android:gravity="center"
         android:fontFamily="@font/header2_bold_20"
         android:textStyle="bold"
@@ -83,7 +83,7 @@
         android:id="@+id/txtSoTienDatDuoc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="750.000đ"
+        android:text="@string/saved_goal"
         android:gravity="center"
         android:fontFamily="@font/header2_bold_20"
         android:textSize="34sp"

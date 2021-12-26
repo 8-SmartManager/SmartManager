@@ -41,7 +41,7 @@ public class MucTieuChiTiet extends AppCompatActivity implements DialogThemTien.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.chitiet_muctieu);
+        setContentView(R.layout.fragment_chitiet_muctieu);
         Drawable drawable=getResources().getDrawable(R.drawable.ic_back);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(drawable);

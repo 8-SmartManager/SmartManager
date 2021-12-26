@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Bạn tiết kiệm vì điều gì? "
+        android:text="@string/visao_tietkiem"
         android:fontFamily="@font/header2_bold_20"
         android:paddingVertical="30dp"
         android:textStyle="bold"
@@ -28,7 +28,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tên mục tiêu"
+            android:text="@string/tenmuctieu_tietkiem"
             android:fontFamily="@font/header3_semibold_14"
             android:textColor="@color/mau_dam"/>
         <EditText
@@ -49,7 +49,7 @@
         android:fontFamily="@font/header3_semibold_14"
         app:backgroundTint="@null"
         android:textAllCaps="false"
-        android:text="Tạo mục tiêu"
+        android:text="@string/tao_muctieu_goal_button"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:background="@drawable/bg_button"
@@ -58,7 +58,7 @@
         android:id="@+id/txtHoacChon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hoặc chọn"
+        android:text="@string/another_tietkiem"
         android:gravity="center"
         android:fontFamily="@font/header3_semibold_14"
         android:padding="30dp"/>

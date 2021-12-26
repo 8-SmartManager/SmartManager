@@ -38,7 +38,7 @@ public class MucTieuChiTiet_HoanThanh extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.chitiet_muctieu_hoanthanh);
+        setContentView(R.layout.fragment_chitiet_muctieu_hoanthanh);
         Drawable drawable=getResources().getDrawable(R.drawable.ic_back);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(drawable);
