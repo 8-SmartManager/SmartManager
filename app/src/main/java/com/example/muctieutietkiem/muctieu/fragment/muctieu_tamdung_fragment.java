@@ -1,4 +1,4 @@
-package com.example.muctieutietkiem.muctieu;
+package com.example.muctieutietkiem.muctieu.fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +16,9 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import com.example.muctieutietkiem.muctieu.MucTieuChiTiet_TamDung;
 import com.example.muctieutietkiem.muctieu.adapter.GoalAdapter;
+import com.example.muctieutietkiem.muctieu.fragment.muctieu_hoatdong_fragment;
 import com.example.muctieutietkiem.muctieu.model.Goal;
 import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.R;

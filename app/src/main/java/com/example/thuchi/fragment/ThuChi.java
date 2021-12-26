@@ -1,4 +1,4 @@
-package com.example.thuchi;
+package com.example.thuchi.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.thuchi.ThuChiThemMoi;
 import com.example.thuchi.adapter.ViewPagerAdapterChinh;
 import com.example.smartmanagertwo.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;

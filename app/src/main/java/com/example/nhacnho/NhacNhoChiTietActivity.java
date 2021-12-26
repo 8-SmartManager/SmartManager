@@ -30,6 +30,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.nhacnho.dialogFragment.HopChonNhacNhoChiTietChuKy;
 import com.example.nhacnho.dialogFragment.HopChonNhacNhoChiTietTheLoai;
+import com.example.nhacnho.fragment.NhacNhoActivity;
 import com.example.nhacnho.model.NhacNho;
 import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.R;

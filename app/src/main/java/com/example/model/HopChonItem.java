@@ -1,4 +1,4 @@
-package com.example.hopchoncohinh;
+package com.example.model;
 
 public class HopChonItem {
     private int itemIcon;

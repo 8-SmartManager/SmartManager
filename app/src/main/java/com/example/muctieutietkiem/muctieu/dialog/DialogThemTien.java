@@ -1,4 +1,4 @@
-package com.example.muctieutietkiem.muctieu;
+package com.example.muctieutietkiem.muctieu.dialog;
 
 import android.content.Context;
 import android.os.Bundle;

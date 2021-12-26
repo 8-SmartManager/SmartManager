@@ -10,10 +10,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 
-import com.example.hopchoncohinh.HopChonAdapter;
-import com.example.hopchoncohinh.HopChonItem;
+import com.example.adapter.HopChonAdapter;
+import com.example.model.HopChonItem;
 import com.example.smartmanagertwo.R;
 
 import java.util.ArrayList;

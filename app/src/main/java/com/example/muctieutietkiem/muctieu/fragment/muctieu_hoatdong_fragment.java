@@ -1,4 +1,4 @@
-package com.example.muctieutietkiem.muctieu;
+package com.example.muctieutietkiem.muctieu.fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,9 +15,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.example.muctieutietkiem.muctieu.MucTieuChiTiet;
 import com.example.muctieutietkiem.muctieu.adapter.GoalAdapter;
 import com.example.muctieutietkiem.muctieu.model.Goal;
+import com.example.nhacnho.fragment.FragmentNhacNhoMainDataNotNull;
+import com.example.nhacnho.fragment.FragmentNhacNhoMainDataNull;
 import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.R;
 
@@ -25,27 +30,29 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class muctieu_hoanthanh_fragment extends Fragment {
+public class muctieu_hoatdong_fragment extends Fragment{
+
     public static MyDatabaseHelper db;
+
     ListView lvGoal;
     ArrayList<Goal> goals;
     GoalAdapter adapter;
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_muctieu_hoanthanh, container, false);
-        lvGoal=view.findViewById(R.id.lvGoal);
+        View view = inflater.inflate(R.layout.fragment_muctieu_hoatdong, container, false);
 
         lvGoal=view.findViewById(R.id.lvGoal);
 
         addEvents();
         return view;
     }
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onResume() {
         loadData();
+
         super.onResume();
     }
 
@@ -63,10 +70,11 @@ public class muctieu_hoanthanh_fragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private List<Goal> getDataFromDb() {
         goals = new ArrayList<>();
-        Cursor cursor = muctieu_hoanthanh_fragment.db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_MUC_TIEU_COMPLETED);
+        Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_MUC_TIEU);
         goals.clear();
         while(cursor.moveToNext()){
             goals.add(new Goal(cursor.getInt(0), cursor.getInt(5), cursor.getString(1), LocalDate.parse( cursor.getString(4)), cursor.getInt(6) , cursor.getDouble(3), cursor.getDouble(2),cursor.getString(7) ));
+
         }
         cursor.close();
         return goals;
@@ -79,12 +87,12 @@ public class muctieu_hoanthanh_fragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
 
-                Intent intent = new Intent(getActivity(), MucTieuChiTiet_HoanThanh.class);
-                adapter= new GoalAdapter(getActivity(),R.layout.chitiet_muctieu_hoanthanh,goals);
-                Goal goal= (Goal) adapter.getItem(i);
-                intent.putExtra("Muc tieu",goal);
-                startActivity(intent);
-            }
+                    Intent intent = new Intent(getActivity(), MucTieuChiTiet.class);
+                    adapter= new GoalAdapter(getActivity(),R.layout.chitiet_muctieu,goals);
+                    Goal goal= (Goal) adapter.getItem(i);
+                    intent.putExtra("Muc tieu",goal);
+                    startActivity(intent);
+                }
         });
-    }
+   }
 }

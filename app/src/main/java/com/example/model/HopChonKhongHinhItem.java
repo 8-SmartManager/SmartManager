@@ -1,4 +1,4 @@
-package com.example.hopchonkhonghinh;
+package com.example.model;
 
 public class HopChonKhongHinhItem {
     private String name;

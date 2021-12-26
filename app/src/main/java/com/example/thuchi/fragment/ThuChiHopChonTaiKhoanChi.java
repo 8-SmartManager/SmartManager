@@ -11,10 +11,8 @@ import android.widget.TextView;
 
 import androidx.fragment.app.DialogFragment;
 
-import com.example.hopchoncohinh.HopChonAdapter;
-import com.example.hopchoncohinh.HopChonItem;
-import com.example.hopchonkhonghinh.HopChonKhongHinhAdapter;
-import com.example.hopchonkhonghinh.HopChonKhongHinhItem;
+import com.example.adapter.HopChonKhongHinhAdapter;
+import com.example.model.HopChonKhongHinhItem;
 import com.example.smartmanagertwo.R;
 
 import java.util.ArrayList;

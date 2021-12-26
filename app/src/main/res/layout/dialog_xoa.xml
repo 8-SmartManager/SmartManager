@@ -17,7 +17,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ban_co_chac_chan_muon_xoa"
+        android:text="@string/confirm_xoa"
         android:fontFamily="@font/body_medium_13"
         android:textColor="@color/mau_dam"
         android:paddingVertical="20dp"
@@ -32,7 +32,7 @@
             android:layout_width="136dp"
             android:layout_height="42dp"
             android:fontFamily="@font/publicsans_semibold_600"
-            android:text="@string/khong"
+            android:text="@string/no"
             android:textAllCaps="false"
             android:background="@drawable/button_tao"
             android:textColor="@color/mau_dam"/>
@@ -41,7 +41,7 @@
             android:layout_width="136dp"
             android:layout_height="42dp"
             android:fontFamily="@font/publicsans_semibold_600"
-            android:text="@string/co"
+            android:text="@string/yes"
             android:layout_marginStart="16dp"
             android:textAllCaps="false"
             android:backgroundTint="@color/chu_dao"

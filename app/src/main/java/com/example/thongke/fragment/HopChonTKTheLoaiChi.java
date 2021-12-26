@@ -13,8 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-import com.example.hopchoncohinh.HopChonAdapter;
-import com.example.hopchoncohinh.HopChonItem;
+import com.example.adapter.HopChonAdapter;
+import com.example.model.HopChonItem;
 import com.example.smartmanagertwo.R;
 
 import java.util.ArrayList;

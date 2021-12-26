@@ -33,6 +33,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.muctieutietkiem.muctieu.adapter.ImageAdapter;
+import com.example.muctieutietkiem.muctieu.fragment.HopChonColor;
+import com.example.muctieutietkiem.muctieu.fragment.muctieu_hoatdong_fragment;
+import com.example.muctieutietkiem.muctieu.fragment.muctieu_tamdung_fragment;
 import com.example.muctieutietkiem.muctieu.model.Goal;
 import com.example.muctieutietkiem.muctieu.model.ImageMucTieu;
 import com.example.smartmanagertwo.MyDatabaseHelper;

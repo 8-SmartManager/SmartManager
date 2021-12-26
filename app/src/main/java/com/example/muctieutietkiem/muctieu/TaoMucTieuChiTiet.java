@@ -31,6 +31,8 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.muctieutietkiem.muctieu.fragment.HopChonColor;
+import com.example.muctieutietkiem.muctieu.fragment.muctieu_hoatdong_fragment;
 import com.example.muctieutietkiem.muctieu.model.Goal;
 import com.example.muctieutietkiem.muctieu.adapter.ImageAdapter;
 import com.example.muctieutietkiem.muctieu.model.ImageMucTieu;

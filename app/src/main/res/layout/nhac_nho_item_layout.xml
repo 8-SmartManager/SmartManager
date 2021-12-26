@@ -7,7 +7,7 @@
     android:id="@+id/txtNhacNhoTheLoai"
     android:layout_width="100dp"
     android:layout_height="70dp"
-    android:text="Giải trí"
+    android:text="@string/giai_tri"
     android:layout_weight="1"
     android:layout_gravity="center_vertical"
     android:gravity="center|left"
@@ -24,7 +24,7 @@
             android:id="@+id/txtNhacNhoTen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tiền điện"
+            android:text="@string/tien_dien"
             android:fontFamily="@font/header2_bold_20"
             android:textColor="@color/mau_dam"/>
         <TextView
@@ -32,7 +32,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hàng tháng"
+            android:text="@string/hang_thang"
             android:fontFamily="@font/body_medium_13"
             android:textColor="@color/mau_xam"/>
     </LinearLayout>
@@ -41,7 +41,7 @@
         android:id="@+id/txtNhacNhoThoiGianNhac"
         android:layout_width="90dp"
         android:layout_height="70dp"
-        android:text="Ngày 12"
+        android:text="@string/ngay12"
         android:gravity="center_vertical"
         android:layout_gravity="center_vertical"
         android:fontFamily="@font/body_medium_13"

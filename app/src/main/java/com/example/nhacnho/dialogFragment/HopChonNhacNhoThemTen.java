@@ -5,19 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 
-import com.example.hopchoncohinh.HopChonAdapter;
-import com.example.hopchoncohinh.HopChonItem;
-import com.example.hopchonkhonghinh.HopChonKhongHinhAdapter;
-import com.example.hopchonkhonghinh.HopChonKhongHinhItem;
+import com.example.adapter.HopChonKhongHinhAdapter;
+import com.example.model.HopChonKhongHinhItem;
 import com.example.smartmanagertwo.R;
 
 import java.util.ArrayList;

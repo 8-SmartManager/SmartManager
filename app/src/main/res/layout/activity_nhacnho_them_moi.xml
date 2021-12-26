@@ -21,7 +21,7 @@
                     android:layout_marginLeft="30dp"
                     android:fontFamily="@font/body_medium_13"
                     android:gravity="left"
-                    android:text="Thể loại"
+                    android:text="@string/nhac_nho_the_loai"
                     android:textColor="@color/mau_xam" />
                 <TextView
                     android:id="@+id/txtNhacNhoThemTheLoai"
@@ -32,7 +32,7 @@
                     android:background="@drawable/textlines_khong"
                     android:backgroundTint="@color/mau_xam"
                     android:fontFamily="@font/header3_semibold_14"
-                    android:text="Chọn thể loại"
+                    android:text="@string/nhac_nho_chon_the_loai"
                     android:textColor="@color/mau_dam"
                     android:textSize="14sp" />
             </TableRow>
@@ -43,7 +43,7 @@
                     android:layout_marginLeft="30dp"
                     android:fontFamily="@font/body_medium_13"
                     android:gravity="left"
-                    android:text="Tên"
+                    android:text="@string/nhac_nho_ten"
                     android:textColor="@color/mau_xam" />
                 <EditText
                     android:id="@+id/edtNhacNhoThemTen"
@@ -54,7 +54,7 @@
                     android:background="@drawable/textlines_khong"
                     android:backgroundTint="@color/mau_xam"
                     android:fontFamily="@font/header3_semibold_14"
-                    android:hint="Nhập tên"
+                    android:hint="@string/nhac_nho_nhap_ten"
                     android:textColor="@color/mau_dam"
                     android:textSize="14sp" />
             </TableRow>
@@ -65,7 +65,7 @@
                     android:layout_marginLeft="30dp"
                     android:fontFamily="@font/body_medium_13"
                     android:gravity="left"
-                    android:text="Chu kỳ"
+                    android:text="@string/nhac_nho_chu_ky"
                     android:textColor="@color/mau_xam" />
                 <TextView
                     android:id="@+id/txtNhacNhoThemChuKy"
@@ -73,7 +73,7 @@
                     android:layout_height="56dp"
                     android:layout_marginRight="30dp"
                     android:layout_weight="1"
-                    android:text="Chọn chu kỳ"
+                    android:text="@string/nhac_nho_chon_chu_ky"
                     android:background="@drawable/textlines_khong"
                     android:fontFamily="@font/header3_semibold_14"
                     android:textColor="@color/mau_dam"
@@ -86,14 +86,14 @@
                     android:layout_marginLeft="30dp"
                     android:fontFamily="@font/body_medium_13"
                     android:gravity="left"
-                    android:text="Ngày bắt đầu"
+                    android:text="@string/nhac_nho_ngay_bat_dau"
                     android:textColor="@color/mau_xam" />
                 <TextView
                     android:id="@+id/txtNhacNhoThemNgayBatDau"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:layout_marginRight="30dp"
-                    android:text="Chọn ngày bắt đầu"
+                    android:text="@string/nhac_nho_chon_ngay"
                     android:layout_weight="1"
                     android:background="@drawable/textlines_khong"
                     android:fontFamily="@font/header3_semibold_14"
@@ -107,7 +107,7 @@
                     android:layout_marginLeft="30dp"
                     android:fontFamily="@font/body_medium_13"
                     android:gravity="left"
-                    android:text="Giờ nhắc"
+                    android:text="@string/nhac_nho_gio_nhac"
                     android:textColor="@color/mau_xam" />
                 <TextView
                     android:id="@+id/txtNhacNhoThemGioNhac"
@@ -115,7 +115,7 @@
                     android:layout_height="56dp"
                     android:layout_marginRight="30dp"
                     android:layout_weight="1"
-                    android:text="Chọn giờ nhắc"
+                    android:text="@string/nhac_nho_chon_gio"
                     android:background="@drawable/textlines_khong"
                     android:fontFamily="@font/header3_semibold_14"
                     android:textColor="@color/mau_dam"
@@ -131,7 +131,7 @@
             android:layout_marginRight="32dp"
             android:background="@drawable/bg_button"
             android:fontFamily="@font/header3_semibold_14"
-            android:text="Tạo nhắc nhở"
+            android:text="@string/nhac_nho_tao"
             android:textAllCaps="false"
             android:textColor="@color/button_text_color"
             android:textSize="14sp" />

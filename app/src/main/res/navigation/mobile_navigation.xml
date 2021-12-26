@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/nav_thuchi"
-        android:name="com.example.thuchi.ThuChi"
+        android:name="com.example.thuchi.fragment.ThuChi"
         android:label="Thu chi"
         tools:layout="@layout/activity_thu_chi" />
 
     <fragment
         android:id="@+id/nav_thongke"
-        android:name="com.example.thongke.ThongKeActivity"
+        android:name="com.example.thongke.fragment.ThongKeActivity"
         android:label="Thống kê"
         tools:layout="@layout/activity_thong_ke" />
     <fragment
@@ -24,13 +24,13 @@
 
     <fragment
         android:id="@+id/nav_nhacnho"
-        android:name="com.example.nhacnho.NhacNhoActivity"
+        android:name="com.example.nhacnho.fragment.NhacNhoActivity"
         android:label="Nhắc nhở"
         tools:layout="@layout/activity_nhacnho_main" />
 
     <fragment
         android:id="@+id/nav_taikhoan"
-        android:name="com.example.taikhoan.TaiKhoan"
+        android:name="com.example.taikhoan.fragment.TaiKhoan"
         android:label="Tài khoản"
         tools:layout="@layout/activity_tai_khoan_chinh" />
     <fragment
@@ -56,7 +56,7 @@
         tools:layout="@layout/activity_cai_dat_mat_khau_main" />
     <fragment
         android:id="@+id/nav_saoluu"
-        android:name="com.example.caidat.SaoLuuActivity"
+        android:name="com.example.caidat.fragment.SaoLuuActivity"
         android:label="Sao lưu"
         tools:layout="@layout/activity_cai_dat_sao_luu" />
     <fragment

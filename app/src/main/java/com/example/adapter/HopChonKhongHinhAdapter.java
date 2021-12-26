@@ -1,25 +1,23 @@
-package com.example.hopchoncohinh;
+package com.example.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.model.HopChonKhongHinhItem;
 import com.example.smartmanagertwo.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class HopChonAdapter extends BaseAdapter {
+public class HopChonKhongHinhAdapter extends BaseAdapter {
     Context context ;
     int item_layout;
-    ArrayList<HopChonItem> hopChonItems ;
+    ArrayList<HopChonKhongHinhItem> hopChonItems ;
 
-    public HopChonAdapter(Context context, int item_layout, ArrayList<HopChonItem> hopChonItems) {
+    public HopChonKhongHinhAdapter(Context context, int item_layout, ArrayList<HopChonKhongHinhItem> hopChonItems) {
         this.context = context;
         this.item_layout = item_layout;
         this.hopChonItems = hopChonItems;
@@ -42,31 +40,29 @@ public class HopChonAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        ViewHolder holder=null;
-        holder=new ViewHolder();
+        HopChonKhongHinhAdapter.ViewHolder holder=null;
+        holder=new HopChonKhongHinhAdapter.ViewHolder();
         //nạp giao diện
         LayoutInflater inflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if(view==null)
         {
             view=inflater.inflate(item_layout, null);
-            holder.imvIcon=view.findViewById(R.id.imvHopChonItemIcon);
+
             holder.txtName=view.findViewById(R.id.txtHopChonItemName);
 
             view.setTag(holder);
         }else {
-            holder= (ViewHolder) view.getTag();
+            holder= (HopChonKhongHinhAdapter.ViewHolder) view.getTag();
         }
         //Binding data
-        HopChonItem item= hopChonItems.get(i);
-        holder.imvIcon.setImageResource(item.getItemIcon());
-        holder.txtName.setText(item.getItemName());
+        HopChonKhongHinhItem item= hopChonItems.get(i);
 
+        holder.txtName.setText(item.getName());
 
         return view;
-
     }
     private static class ViewHolder{
-        ImageView imvIcon;
+
         TextView txtName;
     }
 }

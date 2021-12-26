@@ -21,6 +21,8 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.widget.ImageViewCompat;
 
+import com.example.muctieutietkiem.muctieu.dialog.DialogThemTien;
+import com.example.muctieutietkiem.muctieu.fragment.muctieu_hoatdong_fragment;
 import com.example.muctieutietkiem.muctieu.model.Goal;
 import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.R;
