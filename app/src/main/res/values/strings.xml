@@ -25,6 +25,12 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="smart_manager_help_center">Smart Manager Help Center</string>
+    <string name="money_manager_help_center_android_user_guide"><![CDATA[Money Manager Help Center > Android User Guide]]></string>
+    <string name="search">Search</string>
+    <string name="android_user_guide">Android User Guide</string>
+    <string name="what_s_new">What\'s new</string>
+    <string name="android_4_5_x_update_september_2020">Android 4.5.x Update (September 2020)</string>
 
 
 </resources>
