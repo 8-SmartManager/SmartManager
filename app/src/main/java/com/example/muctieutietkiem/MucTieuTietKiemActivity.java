@@ -23,8 +23,6 @@ public class MucTieuTietKiemActivity extends Fragment {
     ViewPager vp_muctieu;
     FloatingActionButton btnTaoMT;
 
-
-
     private FragmentGalleryBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -53,6 +51,4 @@ public class MucTieuTietKiemActivity extends Fragment {
             }
         });
     }
-
-
 }

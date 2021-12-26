@@ -64,8 +64,6 @@ public class EditMucTieuTamDung extends AppCompatActivity {
         LinkViews();
         getData();
         addEvents();
-
-
     }
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -83,7 +81,6 @@ public class EditMucTieuTamDung extends AppCompatActivity {
             if (x < v.getLeft() || x > v.getRight() || y < v.getTop() || y > v.getBottom()) {
                 hideKeyboard(this);
             }
-
         }
         return super.dispatchTouchEvent(ev);
     }
@@ -97,7 +94,6 @@ public class EditMucTieuTamDung extends AppCompatActivity {
             }
         }
     }
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -255,12 +251,8 @@ public class EditMucTieuTamDung extends AppCompatActivity {
                             }
                         });
                         dialogNgay.show();
-
                     }
-
                     else {
-
-
                         muctieu_tamdung_fragment.db.updateDataPaused(selectedGoal.getGoalID(),goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
 
                         finish();
@@ -277,8 +269,6 @@ public class EditMucTieuTamDung extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.edit_tamdung_menu,menu);
         return super.onCreateOptionsMenu(menu);
     }
-
-
     private void addEvents() {
 
             edtNgayKetThuc.setOnClickListener(myClick);
@@ -348,14 +338,10 @@ public class EditMucTieuTamDung extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
-
                 dialog.show();
-
             }
         });
-
     }
-
     private void getData() {
         Intent intent = getIntent();
         selectedGoal= (Goal) intent.getSerializableExtra("Muc tieu");
@@ -369,8 +355,6 @@ public class EditMucTieuTamDung extends AppCompatActivity {
         ImageViewCompat.setImageTintList(imvIcon, ColorStateList.valueOf(Color.parseColor("#191919")));
         im=new ImageMucTieu(selectedGoal.getGoalThumb());
     }
-
-
     private void LinkViews() {
 
         edtTenMucTieu=findViewById(R.id.edtTenMucTieu);
@@ -413,10 +397,6 @@ public class EditMucTieuTamDung extends AppCompatActivity {
                 transaction.replace(R.id.LayoutContainerMucTieu, fragment,"fragmentColor");
 
                 transaction.commit();
-
-
-
-
             }
             if (view.getId() == R.id.imvDropIcon||view.getId() == R.id.imvIcon) {
                 ImageViewCompat.setImageTintList(imvDropdownIcon, ColorStateList.valueOf(-149741));}
@@ -425,11 +405,7 @@ public class EditMucTieuTamDung extends AppCompatActivity {
                 if(fragment!=null) {
                     getSupportFragmentManager().beginTransaction().remove(fragment).commit();
                     ImageViewCompat.setImageTintList(imvDropdown, null);
-
-
                 }
-
-
             }
         }
     };
@@ -441,4 +417,4 @@ public class EditMucTieuTamDung extends AppCompatActivity {
             imm.hideSoftInputFromWindow(view.getWindowToken(),0);
         }
     }
-    }
+}

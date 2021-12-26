@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.smartmanagertwo.com.example.thuchi.ThuChiChinhSua"
+    tools:context="com.example.thuchi.ThuChiChinhSua"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         android:orientation="vertical">
-
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -62,12 +61,10 @@
                     android:fontFamily="@font/body_medium_13"/>
             </TableRow>
             <TableRow>
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:layout_marginLeft="30dp"
-
                     android:fontFamily="@font/body_medium_13"
                     android:gravity="left"
                     android:text="Thể loại"

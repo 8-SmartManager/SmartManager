@@ -6,17 +6,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.caidat.fragment.CaiDatThongTinAppMain">
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="56dp"
         android:text="SmartManager Inc"
         android:fontFamily="@font/header3_semibold_14"
-
         android:textColor="@color/mau_dam"
         android:layout_gravity="center"
-        android:gravity="center"
-        />
+        android:gravity="center"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -26,18 +23,15 @@
             android:src="@drawable/ic_mail"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="16dp"
-            app:tint="@color/thu_cap" />
+            app:tint="@color/thu_cap"/>
         <TextView
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:text="help@smartmanager.com"
             android:fontFamily="@font/body_medium_13"
-
             android:textColor="@color/chu_dao"
-
-            android:gravity="center"
-            />
+            android:gravity="center"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,11 +49,8 @@
             android:layout_height="50dp"
             android:text="http://smartmanager.com"
             android:fontFamily="@font/body_medium_13"
-
             android:textColor="@color/chu_dao"
-
-            android:gravity="center"
-            />
+            android:gravity="center"/>
     </LinearLayout>
     <Button
         android:id="@+id/btnChinhSachBaoMat"
@@ -69,12 +60,8 @@
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
         android:background="@drawable/bg_button"
-
         android:text="Chính sách bảo mật"
-
         android:fontFamily="@font/header3_semibold_14"
         android:textAllCaps="false"
-        android:textColor="@color/chu_dao"
-
-        />
+        android:textColor="@color/chu_dao"/>
 </LinearLayout>

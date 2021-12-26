@@ -74,7 +74,6 @@ public class NhacNhoThemActivity extends AppCompatActivity {
             if (x < v.getLeft() || x > v.getRight() || y < v.getTop() || y > v.getBottom()) {
                 hideKeyboard(this);
             }
-
         }
         return super.dispatchTouchEvent(ev);
     }

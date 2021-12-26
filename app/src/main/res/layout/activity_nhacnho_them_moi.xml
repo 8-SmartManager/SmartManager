@@ -41,13 +41,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:layout_marginLeft="30dp"
-
                     android:fontFamily="@font/body_medium_13"
                     android:gravity="left"
                     android:text="Tên"
-
                     android:textColor="@color/mau_xam" />
-
                 <EditText
                     android:id="@+id/edtNhacNhoThemTen"
                     android:layout_width="match_parent"
@@ -81,7 +78,6 @@
                     android:fontFamily="@font/header3_semibold_14"
                     android:textColor="@color/mau_dam"
                     android:textSize="14sp" />
-
             </TableRow>
             <TableRow>
                 <TextView
@@ -126,7 +122,6 @@
                     android:textSize="14sp" />
             </TableRow>
         </TableLayout>
-
         <Button
             android:id="@+id/btnNhacNhoThemMoiTao"
             android:layout_width="match_parent"

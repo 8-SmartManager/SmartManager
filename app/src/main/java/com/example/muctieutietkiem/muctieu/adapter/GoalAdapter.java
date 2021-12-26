@@ -67,16 +67,11 @@ public class GoalAdapter extends BaseAdapter {
             holder.goalTarget=view.findViewById(R.id.txtGoalTarget);
             holder.goalSaved=view.findViewById(R.id.txtGoalSaved);
 
-
-
-
             view.setTag(holder);
         }
         else {holder= (ViewHolder) view.getTag();
         }
         Goal g = goalList.get(i);
-
-
 
         holder.imvGoalThumb.setImageResource(g.getGoalThumb());
         holder.goalName.setText(g.getGoalName());
@@ -93,6 +88,5 @@ public class GoalAdapter extends BaseAdapter {
         ImageView imvGoalThumb;
         TextView goalName,goalTime,goalTarget,goalSaved;
         ProgressBar progressBar;
-
     }
 }

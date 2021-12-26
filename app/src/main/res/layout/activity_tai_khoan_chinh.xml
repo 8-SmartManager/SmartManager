@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.taikhoan.TaiKhoan"
     android:orientation="vertical">
-
     <TableLayout
         android:padding="10dp"
         android:layout_width="match_parent"

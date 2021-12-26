@@ -16,7 +16,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
         <EditText
             android:id="@+id/edtName"
             android:layout_width="match_parent"
@@ -60,7 +59,5 @@
             android:backgroundTint="@color/chu_dao"
             android:background="@drawable/button_tao"
             android:textColor="@color/white"/>
-
     </LinearLayout>
-
 </LinearLayout>

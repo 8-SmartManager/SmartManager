@@ -2,8 +2,6 @@ package com.example.caidat;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,9 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.smartmanagertwo.R;
@@ -29,7 +25,7 @@ public class SaoLuuActivity extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.cai_dat_sao_luu,container,false);
+        View root = inflater.inflate(R.layout.activity_cai_dat_sao_luu,container,false);
         chooseGGDrive = root.findViewById(R.id.chooseGGDrive);
         chooseThietBi =  root.findViewById(R.id.chooseThietBi);
         chooseTatCaKhoiTao =  root.findViewById(R.id.chooseTatCaKhoiTao);
@@ -40,8 +36,6 @@ public class SaoLuuActivity extends Fragment {
         addEvents();
         return root;
     }
-
-
     private void addEvents() {
         chooseGGDrive.setOnClickListener(new View.OnClickListener() {
             @Override

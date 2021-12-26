@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     android:orientation="horizontal"
     android:layout_width="140dp"
     android:layout_height="70dp">
-
     <TextView
         android:id="@+id/txtHopChonItemName"
-
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -15,5 +12,4 @@
         android:text="Mua nhà"
         android:textColor="@color/mau_dam"
         android:fontFamily="@font/header3_semibold_14"/>
-
 </LinearLayout>

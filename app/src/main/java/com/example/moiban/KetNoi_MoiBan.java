@@ -27,15 +27,9 @@ public class KetNoi_MoiBan extends Fragment {
             public void onClick(View view) {
 
                 showDialog1();
-
-
             }
-
         });
-
-
         return root;
-
     }
 
     private void showDialog1() {
@@ -49,9 +43,5 @@ public class KetNoi_MoiBan extends Fragment {
             }
         });
         dialog1.show();
-
-
-
-
     }
 }

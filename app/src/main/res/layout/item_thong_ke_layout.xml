@@ -16,9 +16,7 @@
             android:layout_weight="2.5"
             android:gravity="center"
             android:fontFamily="@font/body_medium_13"
-
             android:textColor="@color/mau_dam"/>
-
         <TextView
             android:id="@+id/txtTKCategory"
             android:layout_width="match_parent"
@@ -27,9 +25,7 @@
             android:fontFamily="@font/body_medium_13"
             android:gravity="center"
             android:text="Ăn uống"
-
             android:textColor="@color/mau_dam" />
-
         <TextView
             android:id="@+id/txtTKMoney"
             android:layout_width="match_parent"
@@ -38,7 +34,6 @@
             android:layout_weight="3.5"
             android:gravity="center"
             android:fontFamily="@font/body_medium_13"
-
             android:textColor="@color/mau_dam"/>
     </TableRow>
     </TableLayout>

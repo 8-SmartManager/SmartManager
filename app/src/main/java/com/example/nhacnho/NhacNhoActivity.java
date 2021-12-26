@@ -35,16 +35,12 @@ public class NhacNhoActivity extends Fragment {
     public  static MyDatabaseHelper db;
     FloatingActionButton btnThemMoi;
 
-
-
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.activity_nhacnho_main,container,false);
         prepareDb();
 
         btnThemMoi=root.findViewById(R.id.btnNhacNhoTao);
-
 
         addEvents();
         return root;
@@ -73,10 +69,8 @@ public class NhacNhoActivity extends Fragment {
         super.onResume();
     }
 
-
     private void prepareDb() {
         db = new MyDatabaseHelper(getContext());
-//        db.createSomeNhacNhoData();
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void getDataFromDb() {
@@ -84,14 +78,10 @@ public class NhacNhoActivity extends Fragment {
         Cursor cursor = db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_NHAC_NHO);
         nhacNhos.clear();
         while(cursor.moveToNext()){
-//            activity.add(new ThuChiActivity(cursor.getInt(0), cursor.getString(1)));
             nhacNhos.add(new NhacNho(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3),LocalDate.parse( cursor.getString(4)),Time.valueOf(cursor.getString(5))  ));
         }
         cursor.close();
-
-
     }
-
 
     private void addEvents() {
         btnThemMoi.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +91,5 @@ public class NhacNhoActivity extends Fragment {
                 startActivity(intent);
             }
         });
-
     }
 }

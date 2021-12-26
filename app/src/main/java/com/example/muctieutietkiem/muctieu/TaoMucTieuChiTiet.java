@@ -49,7 +49,6 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
     ImageMucTieu im;
     Goal goal;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,8 +64,6 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
         getData();
         addEvents();
         LoadData();
-
-
     }
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -184,9 +181,7 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
                             ImageViewCompat.setImageTintList(imvDropIcon, null);
                         }
                     });
-
                     dialog.show();
-
                 }
             });
             btnTao.setOnClickListener(new View.OnClickListener() {
@@ -207,9 +202,6 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
 
                     int color = ImageViewCompat.getImageTintList(imvColor).getDefaultColor();
 
-
-
-
                     if(ten.equals("")||soTienDatDuoc.equals("")||soTienMucTieu.equals("")||ngayKetThuc.equals("")){
                         Dialog dialogFill = new Dialog(TaoMucTieuChiTiet.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
                         dialogFill.setContentView(R.layout.dialog_error);
@@ -222,7 +214,6 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
                             @Override
                             public void onClick(View view) {
                                 dialogFill.dismiss();
-
                             }
                         });
                         dialogFill.show();
@@ -242,7 +233,6 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
                                 @Override
                                 public void onClick(View view) {
                                     dialogTien.dismiss();
-
                                 }
                             });
                             dialogTien.show();
@@ -266,12 +256,10 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
                         } else {
 
                             muctieu_hoatdong_fragment.db.insertData(image, ten, goalTime, color, goalSaved, goalTarget, luuY);
-
                             finish();
                         }
                     }
                 }
-
             });
     }
 
@@ -308,15 +296,11 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
         imvIcon.setImageResource(im.getImageId());
         ImageViewCompat.setImageTintList(imvIcon, ColorStateList.valueOf(Color.parseColor("#191919")
         ));
-
-
     }
 
     private void LoadData() {
         Intent intent = new Intent(TaoMucTieuChiTiet.this, TaoMucTieu.class);
         ImageViewCompat.setImageTintList(imvColor, ColorStateList.valueOf(-11873872));
-
-
     }
 
     private void LinkViews() {
@@ -351,8 +335,6 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
                         calendarDate.get(Calendar.MONTH),
                         calendarDate.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
-
-
             }
             if (view.getId() == R.id.imvDrop||view.getId() == R.id.imvColor) {
                 ImageViewCompat.setImageTintList(imvDropdown, ColorStateList.valueOf(-149741));
@@ -363,24 +345,14 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
                 transaction.replace(R.id.LayoutContainerMucTieu, fragment,"fragColor");
 
                 transaction.commit();
-
-
-
-
             }
             if(view.getId() == R.id.edtTenMucTieu||view.getId() == R.id.edtSoTienMucTieu||view.getId() == R.id.edtSoTienDatDuoc||view.getId() == R.id.edtSelectDate||view.getId() == R.id.edtLuuY){
                 Fragment fragment =getSupportFragmentManager().findFragmentByTag("fragColor");
                 if(fragment!=null) {
                     getSupportFragmentManager().beginTransaction().remove(fragment).commit();
                     ImageViewCompat.setImageTintList(imvDropdown, null);
-
-
                 }
-
-
             }
-
-
         }
     };
 
@@ -392,5 +364,4 @@ public class TaoMucTieuChiTiet extends AppCompatActivity {
             imm.hideSoftInputFromWindow(view.getWindowToken(),0);
         }
     }
-
 }

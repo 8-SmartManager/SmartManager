@@ -6,8 +6,6 @@
     android:id="@+id/banPhimNhapTien"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-
     <TextView
         android:id="@+id/txtTitle"
         android:layout_width="match_parent"
@@ -37,13 +35,9 @@
             android:id="@+id/edtTenMucTieu"
             android:theme="@style/AppTheme.MyEditTextTheme"
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content"
             android:textColor="@color/mau_dam"/>
-
-
     </LinearLayout>
-
     <Button
         android:id="@+id/btnTaoMucTieu"
         app:layout_constraintTop_toBottomOf="@id/text_edittext"
@@ -77,8 +71,6 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:name="com.example.muctieutietkiem.muctieu.HopChonTheLoaiTietKiem"
-        tools:layout="@layout/hop_chon_tietkiem"
-        >
-
+        tools:layout="@layout/hop_chon_tietkiem">
     </fragment>
 </LinearLayout>

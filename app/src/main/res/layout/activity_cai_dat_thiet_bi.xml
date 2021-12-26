@@ -19,8 +19,7 @@
             android:fontFamily="@font/body_medium_13"
             android:text="Các tệp tin sao lưu được lưu trữ trong thư mục Smart Manager. Các tệp tin được lưu trữ trong điện thoại của bạn, thật khó để khôi phục lại khi điện thoại của bạn bị mất, bị phá vỡ và thiết lập lại. Nếu bạn chọn mục danh sách, quá trình khôi phục bắt đầu. Trước khi khôi phục lại dữ liệu của bạn, xin vui lòng kiểm tra tên file, ngày tháng và kích cỡ."
             android:textColor="@color/chu_dao"
-            android:textSize="13sp"
-            />
+            android:textSize="13sp"/>
     </LinearLayout>
     <Button
         android:id="@+id/btnSaoLuu"

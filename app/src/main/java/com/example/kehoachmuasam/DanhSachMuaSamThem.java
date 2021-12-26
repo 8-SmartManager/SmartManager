@@ -111,13 +111,9 @@ public class DanhSachMuaSamThem extends AppCompatActivity {
                             finish();
                         }
                     }
-
-
-
                 }
             }}
         });
-
     }
     private void ShowDialog() {
         Dialog dialog = new Dialog(this);

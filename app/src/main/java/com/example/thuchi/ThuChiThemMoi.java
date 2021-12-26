@@ -24,7 +24,6 @@ import com.google.android.material.tabs.TabLayout;
 
 public class ThuChiThemMoi extends AppCompatActivity {
 
-
     TabLayout tab_thuchiThemmoi;
     ViewPager vp_thuchiThemmoi;
 
@@ -39,14 +38,11 @@ public class ThuChiThemMoi extends AppCompatActivity {
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
         getSupportActionBar().setTitle("Thêm Thu Chi");
 
-
         LinkViews();
         initData();
         addEvents();
 
     }
-
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId())
@@ -57,7 +53,6 @@ public class ThuChiThemMoi extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
     // hỏi vào thứ 5-> làm sao để chạy nhấn fragment k lên ô chữ
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override

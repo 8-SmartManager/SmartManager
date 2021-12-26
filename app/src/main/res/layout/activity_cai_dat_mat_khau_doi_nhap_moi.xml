@@ -5,7 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
-
     <ImageView
         android:layout_marginTop="70dp"
         android:layout_width="120dp"
@@ -19,7 +18,6 @@
         android:text="Nhập mật khẩu mới"
         android:fontFamily="@font/header2_bold_20"
         android:textSize="20sp"
-
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp"/>
     <LinearLayout
@@ -56,11 +54,9 @@
         android:layout_height="match_parent"
         android:layout_weight="1"/>
     <fragment
-
         android:id="@+id/fragmentBanPhimSo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:layout="@layout/ban_phim_so"
-        android:name="com.example.smartmanagertwo.BanPhimSoFragment"
-        />
+        android:name="com.example.smartmanagertwo.BanPhimSoFragment"/>
 </LinearLayout>

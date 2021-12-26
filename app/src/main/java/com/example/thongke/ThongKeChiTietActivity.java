@@ -46,7 +46,6 @@ public class ThongKeChiTietActivity extends AppCompatActivity {
     ThongKe selectedThongKe;
     TextView txtTimePeriod, txtTotalAmount;
 
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -60,34 +59,6 @@ public class ThongKeChiTietActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
         getSupportActionBar().setTitle(selectedThongKe.getInfoCategory());
-//        if (selectedThongKe.getInfoCategory().equals("Giải trí")){
-//            getSupportActionBar().setTitle("Giải trí");
-//        }else if(selectedThongKe.getInfoCategory().equals("Ăn uống")){
-//            getSupportActionBar().setTitle("Ăn uống");
-//        }else if(selectedThongKe.getInfoCategory().equals("Sở thích")){
-//            getSupportActionBar().setTitle("Sở thích");
-//        }else if(selectedThongKe.getInfoCategory().equals("Giáo dục")){
-//            getSupportActionBar().setTitle("Giáo dục");
-//        }else if(selectedThongKe.getInfoCategory().equals("Sức khỏe")){
-//            getSupportActionBar().setTitle("Sức khỏe");
-//        }else if(selectedThongKe.getInfoCategory().equals("Sinh hoạt")){
-//            getSupportActionBar().setTitle("Sinh hoạt");
-//        }else if(selectedThongKe.getInfoCategory().equals("Áo quần")){
-//            getSupportActionBar().setTitle("Áo quần");
-//        }else if(selectedThongKe.getInfoCategory().equals("Làm đẹp")){
-//            getSupportActionBar().setTitle("Làm đẹp");
-//        }else if(selectedThongKe.getInfoCategory().equals("Khác")) {
-//            getSupportActionBar().setTitle("Khác");
-//        }else if (selectedThongKe.getInfoCategory().equals("Trả thêm giờ")){
-//            getSupportActionBar().setTitle("Trả thêm giờ");
-//        }else if (selectedThongKe.getInfoCategory().equals("Tiền lương")){
-//            getSupportActionBar().setTitle("Tiền lương");
-//        }else if (selectedThongKe.getInfoCategory().equals("Tiền thưởng")){
-//            getSupportActionBar().setTitle("Tiền thưởng");
-//        }else if (selectedThongKe.getInfoCategory().equals("Tiền trợ cấp")){
-//            getSupportActionBar().setTitle("Tiền trợ cấp");
-//        }
-
         linkViews();
         loadData();
         addEvents();

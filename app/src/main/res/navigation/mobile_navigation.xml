@@ -58,7 +58,7 @@
         android:id="@+id/nav_saoluu"
         android:name="com.example.caidat.SaoLuuActivity"
         android:label="Sao lưu"
-        tools:layout="@layout/cai_dat_sao_luu" />
+        tools:layout="@layout/activity_cai_dat_sao_luu" />
     <fragment
         android:id="@+id/nav_trogiup"
         android:name="com.example.caidat.fragment.CaiDatTroGiup"

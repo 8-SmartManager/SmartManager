@@ -6,9 +6,7 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TableRow
-            >
-
+        <TableRow>
             <TextView
                 android:id="@+id/txtAccount"
                 android:layout_width="80dp"
@@ -18,7 +16,6 @@
                 android:gravity="center"
                 android:text="Tiền mặt"
                 android:textColor="@color/mau_xam" />
-
             <TextView
                 android:id="@+id/txtSoTienTaiKhoan"
                 android:layout_width="match_parent"
@@ -27,7 +24,6 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
-
                 android:textColor="@color/mau_dam"/>
         </TableRow>
     </TableLayout>

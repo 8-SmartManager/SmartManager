@@ -51,7 +51,7 @@ public class ThuChiChinhSua extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_thong_ke_chinh_sua);
+        setContentView(R.layout.activity_thu_chi_chinh_sua);
 
         getData1();
 
@@ -108,14 +108,9 @@ public class ThuChiChinhSua extends AppCompatActivity {
                 String ngay = txtNgay.getText().toString(), taiKhoan = txtTaiKhoan.getText().toString(), theLoai = txtTheLoai.getText().toString(), money = edtMoney.getText().toString();
 
                 if (theLoai.equals(selectedThongKeChiTiet.getActivityName())&&taiKhoan.equals(selectedThongKeChiTiet.getActivityAccount())&&ngay.equals(selectedThongKeChiTiet.getActivityDate().toString())&&money.equals(String.format("%.0f",selectedThongKeChiTiet.getActivityAmount()))){
-
-
                     {
                         onBackPressed();
                     }
-
-
-
                 }
                 else {
 
@@ -131,8 +126,6 @@ public class ThuChiChinhSua extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             onBackPressed();
-
-
                         }
 
                     });
@@ -143,9 +136,6 @@ public class ThuChiChinhSua extends AppCompatActivity {
                         }
                     });
                     dialogBack.show();
-
-
-
                 }
                 break;
         }
@@ -288,7 +278,6 @@ public class ThuChiChinhSua extends AppCompatActivity {
                         calendarDate.get(Calendar.MONTH),
                         calendarDate.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
-
             }
         }
     };

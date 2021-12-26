@@ -47,9 +47,6 @@ public class muctieu_hoatdong_fragment extends Fragment{
         addEvents();
         return view;
     }
-
-
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onResume() {
@@ -68,7 +65,6 @@ public class muctieu_hoatdong_fragment extends Fragment{
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         db= new MyDatabaseHelper(context);
-//        db.createSomeMucTieuHoatDong();
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
     private List<Goal> getDataFromDb() {
@@ -96,9 +92,6 @@ public class muctieu_hoatdong_fragment extends Fragment{
                     intent.putExtra("Muc tieu",goal);
                     startActivity(intent);
                 }
-
         });
-
-
    }
 }

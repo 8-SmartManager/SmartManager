@@ -16,7 +16,6 @@ public class HopChonTheLoaiChi extends AppCompatActivity {
     ArrayList<HopChonItem> items;
     HopChonAdapter adapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

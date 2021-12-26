@@ -144,7 +144,6 @@ public class HopChonNhacNhoChiTietTen extends DialogFragment {
         return items;
 
     }
-
     private ArrayList<HopChonKhongHinhItem> initDataDsMuaSam() {
         items = new ArrayList<HopChonKhongHinhItem>();
         items.add(new HopChonKhongHinhItem( "Shopping"));
@@ -153,8 +152,6 @@ public class HopChonNhacNhoChiTietTen extends DialogFragment {
         return items;
 
     }
-
-
     private void addEvents() {
     }
 }

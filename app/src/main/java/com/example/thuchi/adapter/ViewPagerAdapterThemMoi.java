@@ -47,5 +47,4 @@ public class ViewPagerAdapterThemMoi extends FragmentStatePagerAdapter {
         }
         return title;
     }
-
 }

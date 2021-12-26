@@ -42,8 +42,6 @@ public class TaiKhoanChiTietActivity extends AppCompatActivity {
 
     public static MyDatabaseHelper db;
 
-
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -63,8 +61,6 @@ public class TaiKhoanChiTietActivity extends AppCompatActivity {
         loadData();
         addEvents();
     }
-
-
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -136,8 +132,6 @@ public class TaiKhoanChiTietActivity extends AppCompatActivity {
     }
     private void linkViews() {
         lvTaiKhoanChiTiet=findViewById(R.id.lvTaiKhoanChiTiet);
-
-
     }
 
     private void prepareDb() {
@@ -164,8 +158,6 @@ public class TaiKhoanChiTietActivity extends AppCompatActivity {
         //chiTietTKAdapter = new TaiKhoanChiTietAdapter(TaiKhoanChiTietActivity.this, R.layout.item_tai_khoan_layout, getDataFromDb());
         chiTietTKAdapter = new TaiKhoanChiTietAdapter(TaiKhoanChiTietActivity.this,R.layout.item_tai_khoan_chi_tiet,getDataFromDb());
         lvTaiKhoanChiTiet.setAdapter(chiTietTKAdapter);
-
-
     }
     private void addEvents() {
 
@@ -181,8 +173,4 @@ public class TaiKhoanChiTietActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
-
 }

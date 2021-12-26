@@ -42,7 +42,6 @@ public class TaiKhoanSuaChiTiet extends AppCompatActivity {
     TextView txtNewActivityDate, txtNewActivityAccount, txtNewActivityName, txtNewActivityAmount;
     Intent intent;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -140,8 +139,6 @@ public class TaiKhoanSuaChiTiet extends AppCompatActivity {
 
             }
         });
-
-
         txtNewActivityDate.setOnClickListener(myClick);
         txtNewActivityAccount.setOnClickListener(myClick);
         txtNewActivityName.setOnClickListener(myClick);
@@ -170,9 +167,6 @@ public class TaiKhoanSuaChiTiet extends AppCompatActivity {
                     txtNewActivityAmount.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext().getApplicationContext(),R.color.mau_xam));
                     txtNewActivityDate.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext().getApplicationContext(),R.color.mau_xam));
                     fragment= new ThuChiHopChonTheLoaiChi();
-
-
-
                 }
 
                 if(view.getId()==R.id.txtNewActivityAmount){
@@ -181,9 +175,6 @@ public class TaiKhoanSuaChiTiet extends AppCompatActivity {
                     txtNewActivityName.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext().getApplicationContext(),R.color.mau_xam));
                     txtNewActivityAmount.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext().getApplicationContext(),R.color.thu_cap));
                     txtNewActivityDate.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext().getApplicationContext(),R.color.mau_xam));
-
-
-
                 }
 
                 transaction.replace(R.id.layoutContainerThuChiThemMoi, fragment);
@@ -214,8 +205,6 @@ public class TaiKhoanSuaChiTiet extends AppCompatActivity {
             }
         }
     };
-
-
 
     private void linkViews() {
         txtNewActivityDate = findViewById(R.id.txtNewActivityDate);

@@ -23,7 +23,6 @@
                     android:text="Thể loại"
                     android:textColor="@color/mau_xam"
                     android:textSize="13sp" />
-
                 <TextView
                     android:id="@+id/txtNhacNhoChiTietTheLoai"
                     android:layout_width="match_parent"
@@ -42,7 +41,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:layout_marginLeft="30dp"
-
                     android:fontFamily="@font/body_medium_13"
                     android:gravity="left"
                     android:text="Tên"

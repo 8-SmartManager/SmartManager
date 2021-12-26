@@ -35,7 +35,6 @@ public class DialogThemTien extends DialogFragment {
         btnOk=view.findViewById(R.id.btnOk);
         btnCancel=view.findViewById(R.id.btnCancel);
 
-
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,11 +52,8 @@ public class DialogThemTien extends DialogFragment {
                     mOnInputListener.sendInput(tienThem);
                 }
                 getDialog().dismiss();
-
             }
         });
-
-
         return view;
     }
 

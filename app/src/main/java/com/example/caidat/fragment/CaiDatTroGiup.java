@@ -25,19 +25,13 @@ public class CaiDatTroGiup extends Fragment {
         addEvents();
         return root;
     }
-
     private void addEvents() {
         txtNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), CaiDatTroGiupNew.class);
                 startActivity(intent);
-
             }
         });
     }
-
-
-
-
 }

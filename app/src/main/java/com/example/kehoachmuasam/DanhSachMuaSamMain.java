@@ -90,5 +90,4 @@ public class DanhSachMuaSamMain extends Fragment {
             }
         });
     }
-
 }

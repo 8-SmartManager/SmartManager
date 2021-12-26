@@ -65,5 +65,4 @@ public class ViewPagerAdapterChinh extends FragmentStatePagerAdapter {
         }
         return title;
     }
-    
 }

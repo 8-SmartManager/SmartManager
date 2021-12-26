@@ -39,20 +39,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_NHACNHO_START_DAY = "NhacNho_Start_Day";
     public static final String COL_NHACNHO_REMIND_TIME= "NhacNho_Remind_Time";
 
-    //Bảng Thống kê chi chi tiết
-//    public static final String TBL_NAME_THONG_KE_CHI_CHI_TIET = "ThongKeChiChiTiet";
-//    public static final String COL_TKCHICHITIET_THELOAI = "TKChiChiTiet_TheLoai";
-//    public static final String COL_TKCHICHITIET_TAIKHOAN = "TKChiChiTiet_TaiKhoan";
-//    public static final String COL_TKCHICHITIET_MONEY = "TKChiChiTiet_Money";
-//    public static final String COL_TKCHICHITIET_TIME = "TKChiChiTiet_Time";
-
-    //Bảng Thống kê chi chi tiết
-//    public static final String TBL_NAME_THONG_KE_THU_CHI_TIET = "ThongKeThuChiTiet";
-//    public static final String COL_TKTHUCHITIET_THELOAI = "TKThuChiTiet_TheLoai";
-//    public static final String COL_TKTHUCHITIET_TAIKHOAN = "TKThuChiTiet_TaiKhoan";
-//    public static final String COL_TKTHUCHITIET_MONEY = "TKThuChiTiet_Money";
-//    public static final String COL_TKTHUCHITIET_TIME = "TKThuChiTiet_Time";
-
     // Bảng Mục Tiêu
     public static final String TBL_NAME_MUC_TIEU = "MucTieu";
     public static final String COL_MUCTIEU_ID = "MucTieu_ID";
@@ -89,32 +75,26 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
-
-
-
-
-
-
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String sqlThuChi = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_THUCHI + "(" + COL_THUCHI_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COL_THUCHI_TYPE + " VARCHAR(50), "+ COL_THUCHI_NAME + " VARCHAR(50), "+ COL_THUCHI_ACCOUNT + " VARCHAR(50), " + COL_THUCHI_AMOUNT + " DOUBLE, " + COL_THUCHI_TIME + " DATE)";
         sqLiteDatabase.execSQL(sqlThuChi);
+
         String sqlNhacNho = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_NHAC_NHO + "(" + COL_NHACNHO_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_NHACNHO_TYPE + " VARCHAR(50), " + COL_NHACNHO_NAME + " VARCHAR(50), "+  COL_NHACNHO_PERIOD + " VARCHAR(50)," + COL_NHACNHO_START_DAY+ " DATE," + COL_NHACNHO_REMIND_TIME + " TIME )";
         sqLiteDatabase.execSQL(sqlNhacNho);
-//        String sqlThongKe = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_THONGKE + "(" + COL_THONGKE_PERCENT + " VARCHAR(10), " + COL_THONGKE_NAME + " VARCHAR(50), " + COL_THONGKE_AMOUNT + " VARCHAR(50))";
-//        sqLiteDatabase.execSQL(sqlThongKe);
+
         String sqlMucTieu = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_MUC_TIEU + "(" + COL_MUCTIEU_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_MUCTIEU_NAME + " VARCHAR(50), " + COL_MUCTIEU_SOTIENMUCTIEU + " DOUBLE, "+  COL_MUCTIEU_SOTIENDATDUOC + " DOUBLE," + COL_MUCTIEU_NGAYKETTHUC+ " DATE," + COL_MUCTIEU_IMAGE + " INT, "+ COL_MUCTIEU_IMAGE_COLOR + " INT, " + COL_MUCTIEU_LUUY + " VARCHAR(50))";
         sqLiteDatabase.execSQL(sqlMucTieu);
+
         String sqlMucTieuPaused = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_MUC_TIEU_PAUSED + "(" + COL_MUCTIEU_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_MUCTIEU_NAME + " VARCHAR(50), " + COL_MUCTIEU_SOTIENMUCTIEU + " DOUBLE, "+  COL_MUCTIEU_SOTIENDATDUOC + " DOUBLE," + COL_MUCTIEU_NGAYKETTHUC+ " DATE," + COL_MUCTIEU_IMAGE + " INT, "+ COL_MUCTIEU_IMAGE_COLOR + " INT, " + COL_MUCTIEU_LUUY + " VARCHAR(50))";
         sqLiteDatabase.execSQL(sqlMucTieuPaused);
+
         String sqlMucTieuCompleted = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_MUC_TIEU_COMPLETED + "(" + COL_MUCTIEU_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_MUCTIEU_NAME + " VARCHAR(50), " + COL_MUCTIEU_SOTIENMUCTIEU + " DOUBLE, "+  COL_MUCTIEU_SOTIENDATDUOC + " DOUBLE," + COL_MUCTIEU_NGAYKETTHUC+ " DATE," + COL_MUCTIEU_IMAGE + " INT, "+ COL_MUCTIEU_IMAGE_COLOR + " INT, " + COL_MUCTIEU_LUUY + " VARCHAR(50))";
         sqLiteDatabase.execSQL(sqlMucTieuCompleted);
-//        String sqlThongKeChiTiet = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_THONG_KE_CHI_CHI_TIET + "(" + COL_TKCHICHITIET_THELOAI + " VARCHAR(50), " + COL_TKCHICHITIET_TAIKHOAN + " VARCHAR(50), " + COL_TKCHICHITIET_MONEY + " VARCHAR(50), " + COL_TKCHICHITIET_TIME + " DATE )";
-//        sqLiteDatabase.execSQL(sqlThongKeChiTiet);
-//        String sqlThongKeThuChiTiet = "CREATE TABLE IF NOT EXISTS " + TBL_NAME_THONG_KE_THU_CHI_TIET + "(" + COL_TKTHUCHITIET_THELOAI + " VARCHAR(50), " + COL_TKTHUCHITIET_TAIKHOAN + " VARCHAR(50), " + COL_TKTHUCHITIET_MONEY + " VARCHAR(50), " + COL_TKTHUCHITIET_TIME + " DATE )";
-//        sqLiteDatabase.execSQL(sqlThongKeThuChiTiet);
+
         String sqlDanhSach="CREATE TABLE IF NOT EXISTS " + TBL_NAME_DANHSACH +"(" + COL_DANHSACH_ID+ " INTEGER PRIMARY KEY AUTOINCREMENT, " +COL_DANHSACH_NAME +" VARCHAR(50))";
         sqLiteDatabase.execSQL(sqlDanhSach);
+
         String sqlDanhSachItem="CREATE TABLE IF NOT EXISTS " + TBL_NAME_DANHSACHITEM +"(" + COL_DANHSACHITEM_ID+ " INTEGER PRIMARY KEY AUTOINCREMENT, " +COL_DANHSACHITEM_DANHSACHNAME +" VARCHAR(50), "+COL_DANHSACHITEM_NAME +" VARCHAR(50), " + COL_DANHSACHITEM_PRICE +" DOUBLE,"+COL_DANHSACHITEM_COMPLETE+" INT)";
         sqLiteDatabase.execSQL(sqlDanhSachItem);
     }
@@ -130,7 +110,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TBL_NAME_DANHSACHITEM);
 
         onCreate(sqLiteDatabase);
-
     }
 
     public int getCountThuChi(){
@@ -237,7 +216,6 @@ public  void  createSomeNhacNhoData(){
         if(countDanhSach == 0){
             execSql("INSERT INTO " + TBL_NAME_DANHSACH + " VALUES(null, 'Áo quần')");
             execSql("INSERT INTO " + TBL_NAME_DANHSACH + " VALUES(null, 'Dạo phố')");
-
         }
     }
     public  void createSomeDanhSachItemData(){
@@ -245,7 +223,6 @@ public  void  createSomeNhacNhoData(){
         if(countDanhSachItem == 0){
             execSql("INSERT INTO " + TBL_NAME_DANHSACHITEM + " VALUES(null, 'Áo quần','Áo khoác',300000,0)");
             execSql("INSERT INTO " + TBL_NAME_DANHSACHITEM + " VALUES(null, 'Dạo phố', 'Cà phê',50000,1)");
-
         }
     }
 
@@ -270,7 +247,6 @@ public  void  createSomeNhacNhoData(){
             String sql ="INSERT INTO "+TBL_NAME_MUC_TIEU+" VALUES(null, ?, ?, ?, ?, ?, ?, ?)";
             SQLiteStatement statement = db.compileStatement(sql);
 
-
             statement.bindString(1,goalName);
             statement.bindDouble(2,goalTarget);
             statement.bindDouble(3,goalSaved);
@@ -285,18 +261,13 @@ public  void  createSomeNhacNhoData(){
         catch (Exception ex){
             return false;
         }
-
-
     }
     public boolean insertMucTieuPausedData( int goalThumb, String goalName, LocalDate goalTime, int goalColor, double goalSaved, double goalTarget,  String goalNote){
-
-
         try{
             SQLiteDatabase db = getWritableDatabase();
             String sql ="INSERT INTO "+TBL_NAME_MUC_TIEU_PAUSED+" VALUES(null, ?, ?, ?, ?, ?, ?, ?)";
             SQLiteStatement statement = db.compileStatement(sql);
 
-
             statement.bindString(1,goalName);
             statement.bindDouble(2,goalTarget);
             statement.bindDouble(3,goalSaved);
@@ -311,14 +282,9 @@ public  void  createSomeNhacNhoData(){
         catch (Exception ex){
             return false;
         }
-
-
-
-
     }
 
     public boolean insertMucTieuCompletedData( int goalThumb, String goalName, LocalDate goalTime, int goalColor, double goalSaved, double goalTarget,  String goalNote) {
-
 
         try {
             SQLiteDatabase db = getWritableDatabase();
@@ -341,18 +307,12 @@ public  void  createSomeNhacNhoData(){
         }
     }
 
-
-
     public boolean updateDataHoatDong( int i,int goalThumb, String goalName, LocalDate goalTime, int goalColor, double goalSaved, double goalTarget,  String goalNote){
-
-
         try{
             SQLiteDatabase db = getWritableDatabase();
-//            String sql ="INSERT INTO "+TBL_NAME_MUC_TIEU+" VALUES(null, ?, ?, ?, ?, ?, ?, ?)";
             String sql="UPDATE "+TBL_NAME_MUC_TIEU +" SET "+MyDatabaseHelper.COL_MUCTIEU_NAME +" = ?,"+ MyDatabaseHelper.COL_MUCTIEU_SOTIENMUCTIEU+"=?,"+MyDatabaseHelper.COL_MUCTIEU_SOTIENDATDUOC+" = ?,"+MyDatabaseHelper.COL_MUCTIEU_NGAYKETTHUC+"=?,"+MyDatabaseHelper.COL_MUCTIEU_IMAGE+" = ?,"+MyDatabaseHelper.COL_MUCTIEU_IMAGE_COLOR+"=?," +MyDatabaseHelper.COL_MUCTIEU_LUUY+"=? WHERE "+MyDatabaseHelper.COL_MUCTIEU_ID+"=?";
             SQLiteStatement statement = db.compileStatement(sql);
 
-
             statement.bindString(1,goalName);
             statement.bindDouble(2,goalTarget);
             statement.bindDouble(3,goalSaved);
@@ -367,19 +327,13 @@ public  void  createSomeNhacNhoData(){
         catch (Exception ex){
             return false;
         }
-
-
     }
     public boolean updateDataPaused( int i,int goalThumb, String goalName, LocalDate goalTime, int goalColor, double goalSaved, double goalTarget,  String goalNote){
-
-
         try{
             SQLiteDatabase db = getWritableDatabase();
-//            String sql ="INSERT INTO "+TBL_NAME_MUC_TIEU+" VALUES(null, ?, ?, ?, ?, ?, ?, ?)";
             String sql="UPDATE "+TBL_NAME_MUC_TIEU_PAUSED +" SET "+MyDatabaseHelper.COL_MUCTIEU_NAME +" = ?,"+ MyDatabaseHelper.COL_MUCTIEU_SOTIENMUCTIEU+"=?,"+MyDatabaseHelper.COL_MUCTIEU_SOTIENDATDUOC+" = ?,"+MyDatabaseHelper.COL_MUCTIEU_NGAYKETTHUC+"=?,"+MyDatabaseHelper.COL_MUCTIEU_IMAGE+" = ?,"+MyDatabaseHelper.COL_MUCTIEU_IMAGE_COLOR+"=?," +MyDatabaseHelper.COL_MUCTIEU_LUUY+"=? WHERE "+MyDatabaseHelper.COL_MUCTIEU_ID+"=?";
             SQLiteStatement statement = db.compileStatement(sql);
 
-
             statement.bindString(1,goalName);
             statement.bindDouble(2,goalTarget);
             statement.bindDouble(3,goalSaved);
@@ -394,7 +348,5 @@ public  void  createSomeNhacNhoData(){
         catch (Exception ex){
             return false;
         }
-
-
     }
 }

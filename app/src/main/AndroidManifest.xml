@@ -101,6 +101,7 @@
         <activity
             android:name="com.example.tintuc.KetNoiTinTucChiTiet"
             android:exported="true" />
+
     </application>
 
 </manifest>

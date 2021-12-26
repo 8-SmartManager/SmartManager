@@ -8,31 +8,27 @@
     android:layout_width="match_parent"
     android:background="@color/chu_dao"
     android:paddingLeft="16dp"
-    android:gravity="center_vertical"
-    >
+    android:gravity="center_vertical">
     <TextView
-
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:gravity="center_vertical"
         android:text="@string/the_loai"
         android:textSize="20sp"
         android:layout_span="3"
-
         android:textColor="@color/white"/>
-
 </TableRow>
     <TableRow>
-<Button
-    android:id="@+id/btn1"
-    android:layout_height="70dp"
-    android:layout_width="match_parent"
-    android:drawableLeft="@drawable/ic_giai_tri"
-    android:drawableTint="#FF4268"
-    android:text="@string/giai_tri"
-    android:textAllCaps="false"
-    android:backgroundTint="@color/white"
-    android:textColor="@color/mau_dam"/>
+        <Button
+            android:id="@+id/btn1"
+            android:layout_height="70dp"
+            android:layout_width="match_parent"
+            android:drawableLeft="@drawable/ic_giai_tri"
+            android:drawableTint="#FF4268"
+            android:text="@string/giai_tri"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/mau_dam"/>
 
         <Button
             android:id="@+id/btn2"
@@ -54,8 +50,6 @@
             android:textAllCaps="false"
             android:backgroundTint="@color/white"
             android:textColor="@color/mau_dam"/>
-
-
     </TableRow>
     <TableRow>
         <Button
@@ -68,7 +62,6 @@
             android:textAllCaps="false"
             android:backgroundTint="@color/white"
             android:textColor="@color/mau_dam"/>
-
         <Button
             android:id="@+id/btn5"
             android:layout_width="match_parent"
@@ -89,8 +82,6 @@
             android:textAllCaps="false"
             android:backgroundTint="@color/white"
             android:textColor="@color/mau_dam"/>
-
-
     </TableRow>
     <TableRow>
         <Button
@@ -103,7 +94,6 @@
             android:textAllCaps="false"
             android:backgroundTint="@color/white"
             android:textColor="@color/mau_dam"/>
-
         <Button
             android:id="@+id/btn8"
             android:layout_width="match_parent"
@@ -124,8 +114,5 @@
             android:textAllCaps="false"
             android:backgroundTint="@color/white"
             android:textColor="@color/mau_dam"/>
-
-
     </TableRow>
-
 </TableLayout>

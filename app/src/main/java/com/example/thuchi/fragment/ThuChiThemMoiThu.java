@@ -48,7 +48,6 @@ public class ThuChiThemMoiThu extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_thu_chi_them_moi_thu, container, false);
 
-
         txtNewActivityDate = view.findViewById(R.id.txtNewActivityDateThu);
         txtNewActivityAccount = view.findViewById(R.id.txtNewActivityAccountThu);
         txtNewActivityName = view.findViewById(R.id.txtNewActivityNameThu);
@@ -56,15 +55,9 @@ public class ThuChiThemMoiThu extends Fragment {
 
         btnSave = view.findViewById(R.id.btnSaveThu);
 
-
-
-
         db = new MyDatabaseHelper(getContext());
 
         addEvents();
-
-
-
         return view;
     }
 
@@ -101,25 +94,15 @@ public class ThuChiThemMoiThu extends Fragment {
                     db.execSql("INSERT INTO " + MyDatabaseHelper.TBL_NAME_THUCHI + " VALUES(null, '" + activityType+ "', '" + activityName + "', '" + activityAccount + "', '" + activityAmount + "', '" + activityDate + "')");
                     getActivity().onBackPressed();
                     Toast.makeText(getContext(), "Thanh cong", Toast.LENGTH_SHORT).show();
-
-
-
                 }
 
             }
         });
-
-
         txtNewActivityDate.setOnClickListener(myClick);
         txtNewActivityAccount.setOnClickListener(myClick);
         txtNewActivityName.setOnClickListener(myClick);
         txtNewActivityAmount.setOnClickListener(myClick);
     }
-
-
-
-
-
     View.OnClickListener myClick = new View.OnClickListener(){
 
         @Override
@@ -143,9 +126,6 @@ public class ThuChiThemMoiThu extends Fragment {
                     txtNewActivityAmount.setBackgroundTintList(ContextCompat.getColorStateList(getContext().getApplicationContext(),R.color.mau_xam));
                     txtNewActivityDate.setBackgroundTintList(ContextCompat.getColorStateList(getActivity().getApplicationContext(),R.color.mau_xam));
                     fragment= new ThuChiHopChonTheLoaiThu();
-
-
-
                 }
 
                 if(view.getId()==R.id.txtNewActivityAmountThu){
@@ -154,9 +134,6 @@ public class ThuChiThemMoiThu extends Fragment {
                     txtNewActivityName.setBackgroundTintList(ContextCompat.getColorStateList(getActivity().getApplicationContext(),R.color.mau_xam));
                     txtNewActivityAmount.setBackgroundTintList(ContextCompat.getColorStateList(getActivity().getApplicationContext(),R.color.thu_cap));
                     txtNewActivityDate.setBackgroundTintList(ContextCompat.getColorStateList(getActivity().getApplicationContext(),R.color.mau_xam));
-
-
-
                 }
 
                 transaction.replace(R.id.layoutContainerThuChiThemMoiThu, fragment);
@@ -187,5 +164,4 @@ public class ThuChiThemMoiThu extends Fragment {
             }
         }
     };
-
 }

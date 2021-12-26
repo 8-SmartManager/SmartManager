@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.example.smartmanagertwo.R;
 
 public class CaiDatMatKhauMain extends Fragment {
+
     TextView txtChange, txtOff;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -24,7 +25,6 @@ public class CaiDatMatKhauMain extends Fragment {
         addEvents();
         return root;
     }
-
     private void addEvents() {
         txtOff.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +42,4 @@ public class CaiDatMatKhauMain extends Fragment {
             }
         });
     }
-
-
 }

@@ -4,13 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="0dp">
-
         <GridView xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/gvActivity"
             android:numColumns="3"
@@ -18,7 +16,6 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:listSelector="@color/thay_trang">
-
         </GridView>
     </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -29,10 +26,6 @@
         android:layout_margin="16dp"
         android:src="@drawable/ic_dau_cong"
         app:tint="@color/white"
-        android:backgroundTint="@color/thu_cap"
-        >
-
+        android:backgroundTint="@color/thu_cap">
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
-
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

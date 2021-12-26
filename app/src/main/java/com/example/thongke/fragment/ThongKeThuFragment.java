@@ -33,7 +33,6 @@ public class ThongKeThuFragment extends Fragment {
     ArrayList<ThongKe> InfoTKThu;
     ThongKeAdapter adapter;
 
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Nullable
     @Override
@@ -89,5 +88,4 @@ public class ThongKeThuFragment extends Fragment {
             }
         });
     }
-
 }

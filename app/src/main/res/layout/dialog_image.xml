@@ -17,7 +17,6 @@
         android:id="@+id/btnDismiss"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:text="Hủy"
         android:background="@drawable/bg_dialog"/>
     </LinearLayout>

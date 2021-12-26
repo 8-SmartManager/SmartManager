@@ -43,26 +43,10 @@ public class HopChonTheLoaiTietKiem extends DialogFragment {
                 adapter = new TheLoaiMucTieuAdapter(getContext(),R.layout.item_theloai_muctieu,initData());
                 TheLoai theLoai= (TheLoai) adapter.getItem(i);
                 edtTenMucTieu.setText(theLoai.getTenTheLoai());
-
             }
-
-                                         }
-        );
-
-
+        });
         return view;
-
-
-
-
-
-
-
     }
-
-
-
-
     private ArrayList<TheLoai> initData() {
         theLoai=new ArrayList<TheLoai>();
         theLoai.add(new TheLoai("Mua nhà",R.drawable.ic_nha));
@@ -75,7 +59,5 @@ public class HopChonTheLoaiTietKiem extends DialogFragment {
         theLoai.add(new TheLoai("Bố mẹ",R.drawable.ic_bame));
 
         return theLoai;
-
     }
-
 }

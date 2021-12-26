@@ -86,7 +86,6 @@ public class ThongKeAdapter extends BaseAdapter {
         holder.txtTKCategory.setText(t.getInfoCategory());
         holder.txtTKMoney.setText(String.format("%,.0f",t.getInfoMoney()));
 
-
         return view;
     }
     public static class ViewHolder{

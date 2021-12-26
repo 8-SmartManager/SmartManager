@@ -6,7 +6,6 @@
     android:layout_gravity="center_horizontal"
     android:background="@drawable/bg_dialog"
     android:padding="20dp">
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,6 +32,4 @@
         android:backgroundTint="@null"
         android:background="@drawable/btn_dialog"
         android:textColor="@color/white"/>
-
-
 </LinearLayout>

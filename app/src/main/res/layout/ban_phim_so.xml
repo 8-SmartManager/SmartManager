@@ -88,11 +88,9 @@
             android:textSize="20sp"
             android:fontFamily="@font/header2_bold_20"
             android:textColor="@color/mau_dam"
-
             android:gravity="center"/>
     </TableRow>
     <TableRow>
-
         <Button
             android:layout_width="match_parent"
             android:layout_height="70dp"
@@ -103,6 +101,5 @@
             android:fontFamily="@font/header2_bold_20"
             android:textColor="@color/mau_dam"
             android:gravity="center"/>
-
     </TableRow>
 </TableLayout>

@@ -6,6 +6,5 @@
         android:icon="@drawable/ic_lich"
         android:title="edit"
         android:iconTint="@color/white"
-        app:showAsAction="always"
-        />
+        app:showAsAction="always"/>
 </menu>

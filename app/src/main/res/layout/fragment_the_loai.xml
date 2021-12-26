@@ -2,26 +2,21 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:stretchColumns="*"
-    android:layout_height="325dp"
-    >
+    android:layout_height="325dp">
     <TableRow
         android:layout_height="45dp"
         android:layout_width="match_parent"
         android:background="@color/chu_dao"
         android:paddingLeft="16dp"
-        android:gravity="center_vertical"
-        >
+        android:gravity="center_vertical">
         <TextView
-
             android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:gravity="center_vertical"
             android:text="@string/the_loai"
             android:textSize="20sp"
             android:layout_span="3"
-
             android:textColor="@color/white"/>
-
     </TableRow>
     <TableRow>
         <Button
@@ -33,7 +28,6 @@
             android:textAllCaps="false"
             android:backgroundTint="@color/white"
             android:textColor="@color/mau_dam"/>
-
         <Button
             android:layout_width="match_parent"
             android:layout_height="70dp"
@@ -52,8 +46,6 @@
             android:textAllCaps="false"
             android:backgroundTint="@color/white"
             android:textColor="@color/mau_dam"/>
-
-
     </TableRow>
     <TableRow>
         <Button
@@ -65,7 +57,6 @@
             android:textAllCaps="false"
             android:backgroundTint="@color/white"
             android:textColor="@color/mau_dam"/>
-
         <Button
             android:layout_width="match_parent"
             android:layout_height="70dp"
@@ -84,7 +75,6 @@
             android:textAllCaps="false"
             android:backgroundTint="@color/white"
             android:textColor="@color/mau_dam"/>
-
     </TableRow>
     <TableRow>
         <Button
@@ -96,7 +86,6 @@
             android:textAllCaps="false"
             android:backgroundTint="@color/white"
             android:textColor="@color/mau_dam"/>
-
         <Button
             android:layout_width="match_parent"
             android:layout_height="70dp"
@@ -115,7 +104,5 @@
             android:textAllCaps="false"
             android:backgroundTint="@color/white"
             android:textColor="@color/mau_dam"/>
-
-
     </TableRow>
 </TableLayout>

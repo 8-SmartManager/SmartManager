@@ -34,7 +34,6 @@ public class MucTieuChiTiet_HoanThanh extends AppCompatActivity {
     ImageView imvGoal;
     ProgressBar progressBar;
 
-
     Goal selectedGoal=null;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -51,16 +50,10 @@ public class MucTieuChiTiet_HoanThanh extends AppCompatActivity {
 
         getData();
         addEvents();
-
-
     }
 
     private void addEvents() {
-
     }
-
-
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void getData() {
         Intent intent= getIntent();
@@ -90,8 +83,6 @@ public class MucTieuChiTiet_HoanThanh extends AppCompatActivity {
         txtSoTienDatDuoc=findViewById(R.id.txtSoTienDatDuoc);
         imvGoal=findViewById(R.id.imvGoal);
         progressBar=findViewById(R.id.progressBar);
-
-
     }
 
     @Override
@@ -138,6 +129,4 @@ public class MucTieuChiTiet_HoanThanh extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 }

@@ -58,6 +58,4 @@ public class ThuChiHopChonTaiKhoanThu extends DialogFragment  {
         items.add(new HopChonKhongHinhItem("Thẻ tín dụng"));
         return items;
     }
-
-
 }

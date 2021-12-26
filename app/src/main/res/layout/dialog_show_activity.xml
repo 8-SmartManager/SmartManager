@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:padding="10dp"
     android:weightSum="12">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -39,7 +38,6 @@
         android:fontFamily="@font/body_medium_13"
         android:textSize="13dp"
         android:textColor="@color/thu_cap"/>
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -74,14 +72,6 @@
             android:fontFamily="@font/body_medium_13"
             android:textSize="13dp"
             android:textColor="@color/thu_cap"/>
-
     </LinearLayout>
-
-
-
-
-
-
-
 </LinearLayout>
 

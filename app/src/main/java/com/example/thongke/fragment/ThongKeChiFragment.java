@@ -33,7 +33,6 @@ public class ThongKeChiFragment extends Fragment {
     ArrayList<ThongKe> InfoTK;
     ThongKeAdapter thongKeAdapter;
 
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Nullable
     @Override

@@ -49,8 +49,6 @@ public class ColorAdapter extends BaseAdapter {
             view = inflater.inflate(item_color,null);
             holder.imvColor= view.findViewById(R.id.imvColor);
 
-
-
             view.setTag(holder);
         }
         else {holder= (ColorAdapter.ViewHolder) view.getTag();

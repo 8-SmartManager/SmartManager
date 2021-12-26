@@ -2,13 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_thuchi"
             android:icon="@drawable/ic_ghi_nhan_thu_chi"
             android:title="Thu chi" />
-
         <item
             android:id="@+id/nav_thongke"
             android:icon="@drawable/ic_thong_ke"
@@ -30,14 +28,12 @@
                     android:checkable="true"
                     android:id="@+id/nav_muasam"
                     android:icon="@drawable/ic_ke_hoach"
-                    android:title="Kế hoạch mua sắm"
-                    />
+                    android:title="Kế hoạch mua sắm"/>
                 <item
                     android:checkable="true"
                     android:id="@+id/nav_tietkiem"
                     android:icon="@drawable/ic_ke_hoach_mua_sam"
-                    android:title="Mục tiêu tiết kiệm"
-                    />
+                    android:title="Mục tiêu tiết kiệm"/>
             </menu>
         </item>
     </group>
@@ -49,14 +45,12 @@
                     android:checkable="true"
                     android:id="@+id/nav_moiban"
                     android:icon="@drawable/ic_moi_user"
-                    android:title="Mời bạn"
-                    />
+                    android:title="Mời bạn"/>
                 <item
                     android:checkable="true"
                     android:id="@+id/nav_tintuc"
                     android:icon="@drawable/ic_chrome"
-                    android:title="Tin tức"
-                    />
+                    android:title="Tin tức"/>
             </menu>
         </item>
     </group>
@@ -68,26 +62,22 @@
                     android:checkable="true"
                     android:id="@+id/nav_matkhau"
                     android:icon="@drawable/ic_mat_khau"
-                    android:title="Mật khẩu"
-                    />
+                    android:title="Mật khẩu"/>
                 <item
                     android:checkable="true"
                     android:id="@+id/nav_saoluu"
                     android:icon="@drawable/ic_sao_luu"
-                    android:title="Sao lưu"
-                    />
+                    android:title="Sao lưu"/>
                 <item
                     android:checkable="true"
                     android:id="@+id/nav_trogiup"
                     android:icon="@drawable/ic_tro_giup"
-                    android:title="Trợ giúp"
-                    />
+                    android:title="Trợ giúp"/>
                 <item
                     android:checkable="true"
                     android:id="@+id/nav_thongtin"
                     android:icon="@drawable/ic_info_ve_app"
-                    android:title="Thông tin ứng dụng"
-                    />
+                    android:title="Thông tin ứng dụng"/>
             </menu>
         </item>
     </group>

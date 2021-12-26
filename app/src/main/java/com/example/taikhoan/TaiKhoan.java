@@ -123,6 +123,4 @@ public class TaiKhoan extends Fragment {
             }
         });
     }
-
-
 }

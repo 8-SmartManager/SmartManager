@@ -111,14 +111,9 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
         {
             case android.R.id.home:
                 if (ten.equals(selectedGoal.getGoalName())&&soTienDatDuoc.equals(String.format("%.0f",selectedGoal.getGoalSaved()))&&soTienMucTieu.equals(String.format("%.0f",selectedGoal.getGoalTarget()))&&ngayKetThuc.equals(selectedGoal.getGoalTime().toString())&&color==selectedGoal.getGoalColor()&&luuY.equals(selectedGoal.getGoalNote())){
-
-
                         {
                             onBackPressed();
                         }
-
-
-
                 }
                 else {
 
@@ -144,9 +139,6 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
                             }
                         });
                         dialogBack.show();
-
-
-
                 }
                 break;
             case R.id.mnPause:
@@ -201,13 +193,10 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
                 dialog.show();
                 break;
             case R.id.mnSave:
-
-
                 LocalDate goalTime = LocalDate.parse(ngayKetThuc);
                 LocalDate currentDate = LocalDate.now();
                 int time = goalTime.compareTo(currentDate);
                 int goalThumb= im.getImageId();
-
 
                 if(ten.equals("")||soTienDatDuoc.equals("")||soTienMucTieu.equals("")||ngayKetThuc.equals("")){
                     Dialog dialogFill = new Dialog(EditMucTieuHoatDong.this,R.style.Theme_MaterialComponents_Light_Dialog_FixedSize);
@@ -221,7 +210,6 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             dialogFill.dismiss();
-
                         }
                     });
                     dialogFill.show();
@@ -241,11 +229,9 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
                             @Override
                             public void onClick(View view) {
                                 dialogTien.dismiss();
-
                             }
                         });
                         dialogTien.show();
-
                     }
                     else if(time<=0)
                     {
@@ -263,14 +249,9 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
                             }
                         });
                         dialogNgay.show();
-
                     }
-
                     else {
-
-
                         muctieu_hoatdong_fragment.db.updateDataHoatDong(selectedGoal.getGoalID(),goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
-
                         finish();
                     }
                 }
@@ -284,7 +265,6 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.edit_hoatdong_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
 
     private void addEvents() {
 
@@ -356,14 +336,10 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
                         ImageViewCompat.setImageTintList(imvDropdownIcon, null);
                     }
                 });
-
                 dialog.show();
-
             }
         });
-
     }
-
     private void getData() {
         Intent intent = getIntent();
         selectedGoal= (Goal) intent.getSerializableExtra("Muc tieu");
@@ -377,10 +353,7 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
         ImageViewCompat.setImageTintList(imvIcon, ColorStateList.valueOf(Color.parseColor("#191919")));
         im=new ImageMucTieu(selectedGoal.getGoalThumb());
     }
-
-
     private void LinkViews() {
-
         edtTenMucTieu=findViewById(R.id.edtTenMucTieu);
         edtSoTienMucTieu=findViewById(R.id.edtSoTienMucTieu);
         edtSoTienDatDuoc=findViewById(R.id.edtSoTienDatDuoc);
@@ -421,10 +394,6 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
                 transaction.replace(R.id.LayoutContainerMucTieu, fragment,"fragmentColor");
 
                 transaction.commit();
-
-
-
-
             }
             if (view.getId() == R.id.imvDropIcon||view.getId() == R.id.imvIcon) {
                 ImageViewCompat.setImageTintList(imvDropdownIcon, ColorStateList.valueOf(-149741));}
@@ -433,11 +402,7 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
                 if(fragment!=null) {
                     getSupportFragmentManager().beginTransaction().remove(fragment).commit();
                     ImageViewCompat.setImageTintList(imvDropdown, null);
-
-
                 }
-
-
             }
         }
     };
@@ -449,4 +414,4 @@ public class EditMucTieuHoatDong extends AppCompatActivity {
             imm.hideSoftInputFromWindow(view.getWindowToken(),0);
         }
     }
-    }
+}

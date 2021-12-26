@@ -110,9 +110,6 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
                     {
                         onBackPressed();
                     }
-
-
-
                 }
                 else {
 
@@ -128,10 +125,7 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             onBackPressed();
-
-
                         }
-
                     });
                     btnNoCancel.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -140,12 +134,8 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
                         }
                     });
                     dialogBack.show();
-
-
-
                 }
                 break;
-//
         }
         return super.onOptionsItemSelected(item);
     }
@@ -255,7 +245,6 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
             }
         });
     }
-
     private void linkViews() {
         txtGioNhac= findViewById(R.id.txtNhacNhoChiTietGioNhac);
         txtTheLoai= findViewById(R.id.txtNhacNhoChiTietTheLoai);
@@ -305,9 +294,6 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
                 txtGioNhac.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 fragment= new HopChonNhacNhoChiTietChuKy();
 
-
-
-
                 }
                 if(view.getId()==R.id.edtNhacNhoChiTietTen ){
                     txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
@@ -343,9 +329,6 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
                         calendarDate.get(Calendar.MONTH),
                         calendarDate.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
-
-
-
             }
             if(view.getId()==R.id.txtNhacNhoChiTietGioNhac){
                 txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
@@ -368,12 +351,7 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
                         calendarTime.get(Calendar.HOUR_OF_DAY),
                         calendarTime.get(Calendar.MINUTE),true);
                 timePickerDialog.show();
-
-
-
             }
-
         }
     };
-
 }

@@ -57,7 +57,6 @@ public class TaiKhoanAdapter extends BaseAdapter {
         holder.txtAccount.setText(t.getInfoTaiKhoan());
         holder.txtSoTienTaiKhoan.setText(String.format("%,.0f",t.getInfoSoTien()));
 
-
         return view;
     }
     public static class ViewHolder{

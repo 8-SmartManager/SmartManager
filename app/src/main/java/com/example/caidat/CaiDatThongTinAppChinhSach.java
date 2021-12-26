@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.example.smartmanagertwo.R;
 
 public class CaiDatThongTinAppChinhSach extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +24,7 @@ public class CaiDatThongTinAppChinhSach extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.chu_dao)));
         getSupportActionBar().setTitle("Chính sách bảo mật");
-
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId())

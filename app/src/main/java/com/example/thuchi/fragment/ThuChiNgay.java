@@ -54,7 +54,6 @@ public class ThuChiNgay extends Fragment {
         Dialog dialog = new Dialog(getContext());
         dialog.setContentView(R.layout.dialog_show_activity);
 
-
         dialog.show();
     }
 
@@ -95,7 +94,5 @@ public class ThuChiNgay extends Fragment {
         activities.add(new ThuChiXemActivity("28", 0,0));
         activities.add(new ThuChiXemActivity("29", 0,0));
         activities.add(new ThuChiXemActivity("30", 0,0));
-
-
     }
 }

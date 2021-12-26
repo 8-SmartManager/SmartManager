@@ -21,9 +21,7 @@
         android:fontFamily="@font/body_medium_13"
         android:textSize="14sp"
         android:layout_marginBottom="20dp"
-        android:text="Bạn thích SmartManager? Mời một người bạn để sử dụng ứng dụng tài chính tốt nhất"
-
-        />
+        android:text="Bạn thích SmartManager? Mời một người bạn để sử dụng ứng dụng tài chính tốt nhất" />
     <Button
         android:id="@+id/btnInvite"
         android:layout_width="match_parent"
@@ -36,6 +34,4 @@
         android:backgroundTint="@color/chu_dao"
         android:background="@drawable/button_tao"
         android:padding="10dp"/>
-
-
 </LinearLayout>

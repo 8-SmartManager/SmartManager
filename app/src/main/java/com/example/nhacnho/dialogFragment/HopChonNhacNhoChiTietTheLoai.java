@@ -44,7 +44,6 @@ public class HopChonNhacNhoChiTietTheLoai extends DialogFragment {
                 txtTheLoai.setText(hopChonItem.getItemName());
                 dismiss();
             }
-
         }
         );
         btnDismiss.setOnClickListener(new View.OnClickListener() {
@@ -64,11 +63,7 @@ public class HopChonNhacNhoChiTietTheLoai extends DialogFragment {
         items.add(new HopChonItem(R.drawable.ic_quan__ao_the_loai_nhac_nho, "Tiết kiệm"));
         items.add(new HopChonItem(R.drawable.ic_mua_sam_the_loai_nhac_nho, "DS mua sắm"));
         return items;
-
     }
-
-
-
     private void addEvents() {
     }
 }

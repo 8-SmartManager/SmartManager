@@ -4,17 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_height="wrap_content"
-android:padding="10dp"
-    >
-<!--    <androidx.cardview.widget.CardView-->
-<!--        app:cardElevation="10dp"-->
-<!--        app:cardCornerRadius="5dp"-->
-<!--        android:layout_margin="5dp"-->
-<!--        app:cardBackgroundColor="#FFFFFF"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        >-->
-
+android:padding="10dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,8 +23,7 @@ android:padding="10dp"
                     android:layout_height="wrap_content"
                     android:text="Mua sắm"
                     android:fontFamily="@font/body_medium_13"
-                    android:textColor="@color/mau_dam"
-                    />
+                    android:textColor="@color/mau_dam"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -46,7 +35,6 @@ android:padding="10dp"
                         android:gravity="center"
                         android:fontFamily="@font/body_medium_13"/>
                     <TextView
-
                         android:layout_width="15dp"
                         android:layout_height="wrap_content"
                         android:text="/"
@@ -60,23 +48,20 @@ android:padding="10dp"
                         android:gravity="center"
                         android:fontFamily="@font/body_medium_13"/>
                 </LinearLayout>
-
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_weight="1"
-                android:gravity="right"
-                >
+                android:gravity="right">
                 <TextView
                     android:id="@+id/txtPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="100000đ"
                     android:fontFamily="@font/header3_semibold_14"
-                    android:textColor="@color/thu_cap"
-                    />
+                    android:textColor="@color/thu_cap"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -85,8 +70,4 @@ android:padding="10dp"
                     android:textColor="@color/mau_xam"/>
             </LinearLayout>
         </LinearLayout>
-
-<!--    </androidx.cardview.widget.CardView>-->
-
-
 </LinearLayout>

@@ -4,15 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:gravity="center">
-
         <TableRow>
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -22,7 +19,6 @@
                 android:fontFamily="@font/body_medium_13"
                 android:textSize="13sp"
                 android:textColor="@color/mau_dam"/>
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -32,7 +28,6 @@
                 android:fontFamily="@font/body_medium_13"
                 android:textSize="13sp"
                 android:textColor="@color/mau_dam"/>
-
         </TableRow>
         <TableRow>
             <TextView
@@ -45,7 +40,6 @@
                 android:fontFamily="@font/body_medium_13"
                 android:textSize="13dp"
                 android:textColor="@color/mau_dam"/>
-
             <TextView
                 android:id="@+id/txtTongChi"
                 android:layout_width="match_parent"
@@ -56,15 +50,12 @@
                 android:text="2050000"
                 android:textColor="@color/thu_cap"
                 android:textSize="13dp" />
-
         </TableRow>
     </TableLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="56dp">
-
         <ListView
             android:id="@+id/lvActivity"
             android:layout_width="match_parent"
@@ -79,10 +70,6 @@
         android:layout_margin="16dp"
         android:src="@drawable/ic_dau_cong"
         app:tint="@color/white"
-        android:backgroundTint="@color/thu_cap"
-        >
-
+        android:backgroundTint="@color/thu_cap">
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
-
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

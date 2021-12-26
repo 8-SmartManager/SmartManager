@@ -49,42 +49,13 @@ public class ThongKeActivity extends Fragment {
         vp_thongKe = root.findViewById(R.id.vp_thongKe);
         initData();
         return root;
-
     }
-
-
 
     private void initData() {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         vp_thongKe.setAdapter(viewPagerAdapter);
         tab_thongKe.setupWithViewPager(vp_thongKe);
     }
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getActivity().getMenuInflater().inflate(R.menu.thong_ke_menu, menu);
-//        MenuItem item = menu.findItem(R.id.mnSpinner);
-//        Spinner spinner = (Spinner) MenuItemCompat.getActionView(item);
-//        timeList = new ArrayList<>();
-//        timeList.add("Hàng tuần");
-//        timeList.add("Hàng tháng");
-//        timeList.add("Hàng năm");
-//        adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, timeList);
-//
-//        spinner.setAdapter(adapter);
-//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                time=adapter.getItem(i);
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//            }
-//        });
-//        return super.onCreateOptionsMenu(menu);
-//    }
-
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.thong_ke_menu, menu);
@@ -102,10 +73,8 @@ public class ThongKeActivity extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 time=adapter.getItem(i);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
             }
         });
 

@@ -21,8 +21,6 @@ import com.example.smartmanagertwo.R;
 import java.util.ArrayList;
 
 public class HopChonColor extends DialogFragment {
-
-
     TextView txtTieuDe;
     GridView gvColor;
     ArrayList<Color> colors;
@@ -38,7 +36,6 @@ public class HopChonColor extends DialogFragment {
         txtTieuDe.setText("Chọn màu");
         adapter = new ColorAdapter(getContext(),R.layout.item_color_muctieu,initData());
         gvColor.setAdapter(adapter);
-
 
         gvColor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -61,17 +58,12 @@ public class HopChonColor extends DialogFragment {
                     ImageView imvDrop= getActivity().findViewById(R.id.imvDrop);
                     dismiss();
                     ImageViewCompat.setImageTintList(imvDrop, null);
-
                 }
             });
 
         return view;
 
     }
-
-
-
-
     private ArrayList<Color> initData() {
         colors=new ArrayList<Color>();
         colors.add(new Color("Coral Pink",-430225,R.drawable.ic_coral_pink));
@@ -84,9 +76,6 @@ public class HopChonColor extends DialogFragment {
         colors.add(new Color("Orange",-149741,R.drawable.ic_orange));
         colors.add(new Color("Purple",-3319318,R.drawable.ic_purple));
 
-
         return colors;
-
     }
-
 }

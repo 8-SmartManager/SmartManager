@@ -34,7 +34,6 @@ public class MucTieuChiTiet extends AppCompatActivity implements DialogThemTien.
     ImageView imvGoal;
     ProgressBar progressBar;
 
-
     Goal selectedGoal=null;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -51,8 +50,6 @@ public class MucTieuChiTiet extends AppCompatActivity implements DialogThemTien.
 
         getData();
         addEvents();
-
-
     }
 
     private void addEvents() {
@@ -63,8 +60,6 @@ public class MucTieuChiTiet extends AppCompatActivity implements DialogThemTien.
 
                 DialogThemTien dialog = new DialogThemTien();
                 dialog.show(getSupportFragmentManager(),"DialogThemTien");
-
-
             }
 
         });
@@ -84,7 +79,6 @@ public class MucTieuChiTiet extends AppCompatActivity implements DialogThemTien.
                     public void onClick(View view) {
                         muctieu_hoatdong_fragment.db.execSql("DELETE FROM "+ MyDatabaseHelper.TBL_NAME_MUC_TIEU+" WHERE "+MyDatabaseHelper.COL_MUCTIEU_ID + "=" +selectedGoal.getGoalID());
                         muctieu_hoatdong_fragment.db.insertMucTieuCompletedData(selectedGoal.getGoalThumb(),selectedGoal.getGoalName(),selectedGoal.getGoalTime(),selectedGoal.getGoalColor(),selectedGoal.getGoalSaved(),selectedGoal.getGoalTarget(),selectedGoal.getGoalNote());
-//                        hoat_dong_fragment.db.updateData(selectedGoal.getGoalID(),goalThumb,ten,goalTime,color,goalSaved,goalTarget,luuY);
 
                         finish();
                     }
@@ -99,8 +93,6 @@ public class MucTieuChiTiet extends AppCompatActivity implements DialogThemTien.
             }
         });
     }
-
-
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void getData() {
@@ -132,8 +124,6 @@ public class MucTieuChiTiet extends AppCompatActivity implements DialogThemTien.
         txtSoTienDatDuoc=findViewById(R.id.txtSoTienDatDuoc);
         imvGoal=findViewById(R.id.imvGoal);
         progressBar=findViewById(R.id.progressBar);
-
-
     }
 
     @Override
@@ -151,8 +141,6 @@ public class MucTieuChiTiet extends AppCompatActivity implements DialogThemTien.
                 return true;
             case R.id.editMucTieu:
                 Intent intent = new Intent(MucTieuChiTiet.this,EditMucTieuHoatDong.class);
-
-
                 intent.putExtra("Muc tieu",selectedGoal);
                 startActivity(intent);
                 finish();
@@ -202,7 +190,5 @@ public class MucTieuChiTiet extends AppCompatActivity implements DialogThemTien.
             }
             progressBar.setProgress((int) percent);
         }
-
-
     }
 }

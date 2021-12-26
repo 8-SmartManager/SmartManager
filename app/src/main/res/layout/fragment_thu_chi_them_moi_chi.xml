@@ -3,37 +3,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-  >
-
-
+    xmlns:tools="http://schemas.android.com/tools">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp">
-
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp">
-
             <TableRow>
-
                 <TextView
-
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
-
                     android:layout_marginLeft="30dp"
                     android:fontFamily="@font/body_medium_13"
                     android:gravity="left"
                     android:text="Ngày"
                     android:textColor="@color/mau_xam"
-                    android:textSize="13dp" />
-
+                    android:textSize="13sp" />
                 <TextView
                     android:id="@+id/txtNewActivityDate"
                     android:layout_width="256dp"
@@ -43,23 +34,19 @@
                     android:fontFamily="@font/body_medium_13"
                     android:text="Chọn ngày"
                     android:textColor="@color/mau_dam"
-                    android:textSize="13dp"
+                    android:textSize="13sp"
                     android:textStyle="bold" />
             </TableRow>
-
             <TableRow>
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:layout_marginLeft="30dp"
                     android:fontFamily="@font/body_medium_13"
-
                     android:gravity="left"
                     android:text="Tài khoản"
                     android:textColor="@color/mau_xam"
-                    android:textSize="13dp" />
-
+                    android:textSize="13sp" />
                 <TextView
                     android:id="@+id/txtNewActivityAccount"
                     android:layout_width="256dp"
@@ -69,13 +56,10 @@
                     android:fontFamily="@font/body_medium_13"
                     android:text="Chọn tài khoản"
                     android:textColor="@color/mau_dam"
-                    android:textSize="13dp"
+                    android:textSize="13sp"
                     android:textStyle="bold" />
-
             </TableRow>
-
             <TableRow>
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
@@ -84,8 +68,7 @@
                     android:gravity="left"
                     android:text="Thể loại"
                     android:textColor="@color/mau_xam"
-                    android:textSize="13dp" />
-
+                    android:textSize="13sp" />
                 <TextView
                     android:id="@+id/txtNewActivityName"
                     android:layout_width="256dp"
@@ -95,12 +78,10 @@
                     android:fontFamily="@font/body_medium_13"
                     android:text="Chọn thể loại"
                     android:textColor="@color/mau_dam"
-                    android:textSize="13dp"
+                    android:textSize="13sp"
                     android:textStyle="bold" />
             </TableRow>
-
             <TableRow>
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
@@ -109,8 +90,7 @@
                     android:gravity="left"
                     android:text="Số tiền"
                     android:textColor="@color/mau_xam"
-                    android:textSize="13dp" />
-
+                    android:textSize="13sp" />
                 <EditText
                     android:id="@+id/txtNewActivityAmount"
                     android:layout_width="256dp"
@@ -121,13 +101,10 @@
                     android:hint="Nhập số tiền"
                     android:inputType="number"
                     android:textColor="@color/mau_xam"
-                    android:textSize="13dp"
+                    android:textSize="13sp"
                     android:textStyle="bold" />
-
             </TableRow>
-
         </TableLayout>
-
         <Button
             android:id="@+id/btnSave"
             android:layout_width="match_parent"
@@ -136,27 +113,16 @@
             android:layout_marginTop="39dp"
             android:layout_marginRight="32dp"
             android:background="@drawable/bg_button"
-
             android:fontFamily="@font/header3_semibold_14"
             android:text="Lưu"
-
             android:textAllCaps="false"
             android:textColor="@color/button_text_color"/>
-
-
         <LinearLayout
             android:id="@+id/layoutContainerThuChiThemMoi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:orientation="vertical" >
-
         </LinearLayout>
     </LinearLayout>
-
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

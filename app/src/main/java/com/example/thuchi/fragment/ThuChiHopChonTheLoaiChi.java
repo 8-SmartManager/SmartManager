@@ -26,7 +26,6 @@ public class ThuChiHopChonTheLoaiChi extends DialogFragment {
     HopChonAdapter adapter;
     ImageButton btnDismiss;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -73,5 +72,4 @@ public class ThuChiHopChonTheLoaiChi extends DialogFragment {
         items.add(new HopChonItem(R.drawable.ic_thu_nhap_the_loai_nhac_nho, "Khác"));
         return items;
     }
-
 }

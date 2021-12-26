@@ -32,5 +32,4 @@ public class KetNoiTinTucChiTiet extends AppCompatActivity {
             default:break;}
         return super.onOptionsItemSelected(item);
     }
-
 }

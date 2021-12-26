@@ -22,10 +22,6 @@ public class TaoMucTieu extends AppCompatActivity {
     EditText edtTenMucTieu;
     Button btnTaoMucTieu;
     Intent intent;
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +38,6 @@ public class TaoMucTieu extends AppCompatActivity {
     }
 
     private void addEvents() {
-
-
         btnTaoMucTieu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,27 +54,11 @@ public class TaoMucTieu extends AppCompatActivity {
                 }
             }
         });
-
     }
-
-//    private void loadFragment() {
-//        FragmentManager manager = getSupportFragmentManager();
-//        FragmentTransaction transaction = manager.beginTransaction();
-//        Fragment fragment = null;
-//        fragment = new HopChonTheLoaiTietKiem();
-//        transaction.replace(R.id.LayoutContainerTietKiem, fragment,"fragMucTieu");
-//
-//        transaction.commit();
-//
-//
-//
-//    }
 
     private void LinkView() {
         edtTenMucTieu= findViewById(R.id.edtTenMucTieu);
         btnTaoMucTieu=findViewById(R.id.btnTaoMucTieu);
-
-
     }
 
     private void ShowDialog() {
@@ -109,5 +87,4 @@ public class TaoMucTieu extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

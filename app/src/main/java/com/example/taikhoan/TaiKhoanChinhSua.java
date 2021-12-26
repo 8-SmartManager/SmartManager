@@ -48,7 +48,7 @@ public class TaiKhoanChinhSua extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_thong_ke_chinh_sua);
+        setContentView(R.layout.activity_thu_chi_chinh_sua);
 
         getData1();
 
@@ -245,7 +245,6 @@ public class TaiKhoanChinhSua extends AppCompatActivity {
                         calendarDate.get(Calendar.MONTH),
                         calendarDate.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
-
             }
         }
     };

@@ -37,9 +37,6 @@ public class  ThuChi extends Fragment {
         addEvents();
         return root;
     }
-
-
-
     private void addEvents() {
         btnThemMoi.setOnClickListener(new View.OnClickListener() {
             @Override

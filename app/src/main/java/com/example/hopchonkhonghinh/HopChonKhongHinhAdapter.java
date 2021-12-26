@@ -61,13 +61,10 @@ public class HopChonKhongHinhAdapter extends BaseAdapter {
 
         holder.txtName.setText(item.getName());
 
-
         return view;
-
     }
     private static class ViewHolder{
 
         TextView txtName;
     }
-
 }

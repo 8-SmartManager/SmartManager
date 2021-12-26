@@ -23,7 +23,6 @@ public class ThuChiThang extends Fragment {
     ArrayList<ThuChiXemActivity> activities;
     XemActivityThangAdapter adapter;
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -42,8 +41,6 @@ public class ThuChiThang extends Fragment {
         lvActivity.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-
             }
         });
     }
@@ -64,7 +61,6 @@ public class ThuChiThang extends Fragment {
         activities.add(new ThuChiXemActivity("Tháng 12", 0,0));
 
     }
-
     private void loadData() {
         adapter = new XemActivityThangAdapter(getContext(),R.layout.item_thuchi_tuan_thang, activities);
         lvActivity.setAdapter(adapter);

@@ -52,7 +52,6 @@ public class TheLoaiMucTieuAdapter extends BaseAdapter {
             holder.imvTheLoaiIcon= view.findViewById(R.id.imvTheLoaiIcon);
             holder.txtItemTenTheLoai=view.findViewById(R.id.txtItemTenTheLoai);
 
-
             view.setTag(holder);
         }
         else {holder= (TheLoaiMucTieuAdapter.ViewHolder) view.getTag();
@@ -61,12 +60,10 @@ public class TheLoaiMucTieuAdapter extends BaseAdapter {
         holder.imvTheLoaiIcon.setImageResource(tl.getIcon());
         holder.txtItemTenTheLoai.setText(tl.getTenTheLoai());
 
-
         return view;
     }
     public static class ViewHolder{
         ImageView imvTheLoaiIcon;
         TextView txtItemTenTheLoai;
-
     }
 }

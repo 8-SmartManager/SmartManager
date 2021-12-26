@@ -7,15 +7,13 @@
     android:gravity="center_horizontal"
     android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <LinearLayout
         android:id="@+id/listMucTieu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginHorizontal="14dp"
-        android:layout_marginVertical="35dp"
-        >
+        android:layout_marginVertical="35dp">
         <ImageView
             android:id="@+id/imvGoal"
             android:layout_width="60dp"
@@ -41,19 +39,10 @@
                 android:layout_height="wrap_content"
                 android:text="Ngày đạt: 12/11/2022"/>
         </LinearLayout>
-
     </LinearLayout>
-<!--    <ImageView-->
-<!--        android:layout_width="200dp"-->
-<!--        android:layout_height="200dp"-->
-<!--        android:layout_marginBottom="15dp"-->
-<!--        android:src="@drawable/ic_percent"/>-->
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-
-    >
-
+    android:layout_height="wrap_content">
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="250dp"
@@ -69,7 +58,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
-
     <TextView
         android:id="@+id/txtPercent"
         android:layout_width="wrap_content"
@@ -82,7 +70,6 @@
         android:fontFamily="@font/header2_bold_20"
         android:textSize="40sp"
         android:textColor="@color/thu_cap"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
     <TextView
         android:layout_width="match_parent"
@@ -102,7 +89,4 @@
         android:textSize="34sp"
         android:padding="10dp"
         android:textColor="@color/thu_cap"/>
-
-
-
 </LinearLayout>

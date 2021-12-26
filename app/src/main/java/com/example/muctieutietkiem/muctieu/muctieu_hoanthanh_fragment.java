@@ -36,8 +36,6 @@ public class muctieu_hoanthanh_fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_muctieu_hoanthanh, container, false);
         lvGoal=view.findViewById(R.id.lvGoal);
 
-
-
         lvGoal=view.findViewById(R.id.lvGoal);
 
         addEvents();
@@ -68,9 +66,7 @@ public class muctieu_hoanthanh_fragment extends Fragment {
         Cursor cursor = muctieu_hoanthanh_fragment.db.getData("SELECT * FROM " + MyDatabaseHelper.TBL_NAME_MUC_TIEU_COMPLETED);
         goals.clear();
         while(cursor.moveToNext()){
-//            activity.add(new ThuChiActivity(cursor.getInt(0), cursor.getString(1)));
             goals.add(new Goal(cursor.getInt(0), cursor.getInt(5), cursor.getString(1), LocalDate.parse( cursor.getString(4)), cursor.getInt(6) , cursor.getDouble(3), cursor.getDouble(2),cursor.getString(7) ));
-
         }
         cursor.close();
         return goals;
@@ -89,9 +85,6 @@ public class muctieu_hoanthanh_fragment extends Fragment {
                 intent.putExtra("Muc tieu",goal);
                 startActivity(intent);
             }
-
         });
-
-
     }
 }

@@ -117,11 +117,7 @@ public class HopChonNhacNhoThemTen extends DialogFragment {
                         dismiss();
                     }
                 });
-
-
             }
-
-
         btnDismiss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -141,7 +137,6 @@ public class HopChonNhacNhoThemTen extends DialogFragment {
         items.add(new HopChonKhongHinhItem( "Khác"));
 
         return items;
-
     }
     private ArrayList<HopChonKhongHinhItem> initDataThu() {
         items = new ArrayList<HopChonKhongHinhItem>();
@@ -150,7 +145,6 @@ public class HopChonNhacNhoThemTen extends DialogFragment {
         items.add(new HopChonKhongHinhItem( "Tiền"));
 
         return items;
-
     }
     private ArrayList<HopChonKhongHinhItem> initDataChi() {
         items = new ArrayList<HopChonKhongHinhItem>();
@@ -163,7 +157,6 @@ public class HopChonNhacNhoThemTen extends DialogFragment {
         items.add(new HopChonKhongHinhItem( "Áo quần"));
         items.add(new HopChonKhongHinhItem( "Làm đẹp"));
         return items;
-
     }
 
     private ArrayList<HopChonKhongHinhItem> initDataDsMuaSam() {
@@ -172,10 +165,7 @@ public class HopChonNhacNhoThemTen extends DialogFragment {
         items.add(new HopChonKhongHinhItem( "Ăn uống"));
 
         return items;
-
     }
-
-
     private void addEvents() {
     }
 }

@@ -29,7 +29,6 @@ public class HopChonNhacNhoThemTheLoai extends DialogFragment {
     HopChonAdapter adapter;
     ImageButton btnDismiss;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,7 +49,6 @@ public class HopChonNhacNhoThemTheLoai extends DialogFragment {
 
                 txtTheLoai.setText(hopChonItem.getItemName());
                 dismiss();}
-
             }
         );
         btnDismiss.setOnClickListener(new View.OnClickListener() {
@@ -59,14 +57,11 @@ public class HopChonNhacNhoThemTheLoai extends DialogFragment {
                 dismiss();
             }
         });
-
-
         addEvents();
 
         return view;
 
     }
-
     private ArrayList<HopChonItem> initData() {
         items = new ArrayList<HopChonItem>();
         items.add(new HopChonItem(R.drawable.ic_thu_nhap_the_loai_nhac_nho, "Thu"));
@@ -74,11 +69,7 @@ public class HopChonNhacNhoThemTheLoai extends DialogFragment {
         items.add(new HopChonItem(R.drawable.ic_quan__ao_the_loai_nhac_nho, "Tiết kiệm"));
         items.add(new HopChonItem(R.drawable.ic_mua_sam_the_loai_nhac_nho, "DS mua sắm"));
 return items;
-
     }
-
-
-
     private void addEvents() {
     }
 }

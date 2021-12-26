@@ -48,10 +48,7 @@ public class ThuChiChinh extends Fragment{
         txtTongChi=view.findViewById(R.id.txtTongChi);
 
         prepareDb();
-
-
         addEvents();
-
         return view;
     }
 
@@ -108,16 +105,9 @@ public class ThuChiChinh extends Fragment{
                 Intent intent = new Intent(getContext(), ThuChiChinhSua.class);
                 intent.putExtra("ThongKeChiTiet", selectedActivity);
                 startActivity(intent);
-
-
-
             }
         });
     }
-
-
-
-
 }
 
 

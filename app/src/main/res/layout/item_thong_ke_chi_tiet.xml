@@ -13,8 +13,7 @@
         android:gravity="center"
         android:fontFamily="@font/body_medium_13"
         android:layout_weight="3"
-        android:textColor="@color/mau_xam"
-        />
+        android:textColor="@color/mau_xam"/>
     <LinearLayout
         android:layout_weight="4"
         android:layout_width="wrap_content"
@@ -46,6 +45,5 @@
         android:layout_weight="3"
         android:layout_gravity="center_vertical"
         android:fontFamily="@font/body_medium_13"
-        android:textColor="@color/thu_cap"
-        />
+        android:textColor="@color/thu_cap"/>
 </LinearLayout>

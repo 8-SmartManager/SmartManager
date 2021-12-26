@@ -12,27 +12,23 @@
         app:cardBackgroundColor="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
-
             <ImageView
                 android:layout_margin="10dp"
                 android:src="@drawable/anh1"
                 android:id="@+id/imvThumb"
                 android:layout_width="300dp"
                 android:layout_height="240dp"/>
-
             <LinearLayout
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
                 <TextView
                     android:id="@+id/txtName"
                     android:textColor="@color/chu_dao"
@@ -42,19 +38,13 @@
                     android:text="Personal Finance Tips for 2020: “The Simple Path to Wealth"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-
                 <TextView
                     android:id="@+id/txtDetail"
                     android:padding="10dp"
                     android:text="Find your road map to financial independence and a rich life through simple awareness."
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-
             </LinearLayout>
-
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
-
-
 </LinearLayout>

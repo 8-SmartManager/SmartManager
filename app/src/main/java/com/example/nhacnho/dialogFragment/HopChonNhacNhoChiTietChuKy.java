@@ -64,7 +64,5 @@ public class HopChonNhacNhoChiTietChuKy extends DialogFragment {
         items.add(new HopChonKhongHinhItem( "Hàng năm"));
 
         return items;
-
     }
-
 }

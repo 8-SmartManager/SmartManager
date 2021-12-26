@@ -28,7 +28,7 @@ public class SaoLuuGGDrive extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cai_dat_sao_luu_gg_drive);
+        setContentView(R.layout.activity_cai_dat_sao_luu_gg_drive);
         Drawable drawable=getResources().getDrawable(R.drawable.ic_back);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(drawable);
