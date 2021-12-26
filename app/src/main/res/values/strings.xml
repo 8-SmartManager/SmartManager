@@ -2,7 +2,7 @@
     <string name="app_name">Smart Manager</string>
 
     <string name="nhac_nho">Nhắc nhở</string>
-    <string name="the_loai">    Thể loại</string>
+    <string name="the_loai">Thể loại</string>
     <string name="giai_tri">Giải trí</string>
     <string name="an_uong">Ăn uống</string>
     <string name="so_thich">Sở thích</string>
@@ -65,6 +65,34 @@
     <string name="uoc_tinh">Ước tính</string>
     <string name="personal_finance_tips_for_2020">Personal Finance Tips for 2020: “The Simple Path to Wealth</string>
     <string name="find_your_road_map">Find your road map to financial independence and a rich life through simple awareness.</string>
-
+    <string name="nhac_nho_the_loai">Thể loại</string>
+    <string name="nhac_nho_chon_the_loai">Chọn thể loại</string>
+    <string name="nhac_nho_ten">Tên</string>
+    <string name="nhac_nho_nhap_ten">Nhập tên</string>
+    <string name="nhac_nho_chu_ky">Chu kỳ</string>
+    <string name="nhac_nho_chon_chu_ky">Chọn chu kỳ</string>
+    <string name="nhac_nho_ngay_bat_dau">Ngày bắt đầu</string>
+    <string name="nhac_nho_chon_ngay">Chọn ngày bắt đầu</string>
+    <string name="nhac_nho_gio_nhac">Giờ nhắc</string>
+    <string name="nhac_nho_chon_gio">Chọn giờ nhắc</string>
+    <string name="nhac_nho_xoa">Xóa</string>
+    <string name="nhac_nho_luu">Lưu</string>
+    <string name="nhac_nho_tao">Tạo nhắc nhở</string>
+    <string name="dieu_khoan_1">1. Thông tin được thu thập và phương pháp thu thập</string>
+    <string name="dieu_khoan_2">2. Sử dụng thông tin thu thập được</string>
+    <string name="dieu_khoan_3">3. Chia sẻ thông tin đã thu thập</string>
+    <string name="dieu_khoan_4">4. Cookies, Beacons và các công nghệ tương tự</string>
+    <string name="smartmanager_inc">SmartManager Inc</string>
+    <string name="help_smartmanager_email">help@smartmanager.com</string>
+    <string name="website">http://smartmanager.com</string>
+    <string name="chinh_sach_bao_mat_button_text">Chính sách bảo mật</string>
+    <string name="nhac_nho_thoi_gian_nhac">Thời gian nhắc</string>
+    <string name="tao_them_nhac_nho">Tạo thêm nhắc nhở</string>
+    <string name="tien_dien">Tiền điện</string>
+    <string name="hang_thang">Hàng tháng</string>
+    <string name="ngay12">Ngày 12</string>
+    <string name="confirm_xoa">Bạn có chắc chắn muốn xóa</string>
+    <string name="no">Không</string>
+    <string name="yes">Có</string>
 
 </resources>

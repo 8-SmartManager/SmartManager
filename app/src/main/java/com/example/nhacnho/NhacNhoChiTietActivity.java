@@ -44,7 +44,6 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
     public  static String theLoai="";
     EditText edtTen;
     Button btnXoa,btnLuu;
-
     NhacNho selectedNhacNho;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +91,6 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
         }
     }
 
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -106,8 +104,6 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
         {
             case android.R.id.home:
                 if (ten.equals(selectedNhacNho.getTen())&&theLoai.equals(selectedNhacNho.getTheLoai())&&chuKy.equals(selectedNhacNho.getChuKy())&&ngayBatDau.equals(selectedNhacNho.getNgayBatDau().toString())&&(gioNhac+":00").equals(selectedNhacNho.getGioNhac().toString())){
-
-
                     {
                         onBackPressed();
                     }
@@ -284,7 +280,6 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
                 txtNgayBatDau.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 txtGioNhac.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                         fragment= new HopChonNhacNhoChiTietTheLoai();
-
             }
 
             if(view.getId()==R.id.txtNhacNhoChiTietChuKy){
@@ -294,7 +289,6 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
                 txtNgayBatDau.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 txtGioNhac.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 fragment= new HopChonNhacNhoChiTietChuKy();
-
                 }
                 if(view.getId()==R.id.edtNhacNhoChiTietTen ){
                     txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
@@ -302,12 +296,10 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
                     txtChuKy.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                     txtNgayBatDau.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                     txtGioNhac.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
-
                     fragment= new Fragment();
             }
             transaction.replace(R.id.layoutContainerChiTietNhacNho, fragment);
             transaction.commit();}
-
             if(view.getId()==R.id.txtNhacNhoChiTietNgayBatDau){
                 txtTheLoai.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
                 edtTen.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(),R.color.mau_xam));
@@ -342,9 +334,7 @@ public class NhacNhoChiTietActivity extends AppCompatActivity {
                 TimePickerDialog.OnTimeSetListener callback = new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-
                         calendarTime.set(0,0,0,i,i1);
-
                         txtGioNhac.setText(simpleDateFormat.format(calendarTime.getTime()));
                     }
                 };

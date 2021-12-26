@@ -39,7 +39,7 @@ public class FragmentNhacNhoMainDataNotNull extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getActivity(), NhacNhoChiTietActivity.class);
-                adapter= new NhacNhoAdapter(getActivity(),R.layout.nhac_nho_item_layout,NhacNhoActivity.nhacNhos);
+                adapter= new NhacNhoAdapter(getActivity(),R.layout.item_nhac_nho_layout,NhacNhoActivity.nhacNhos);
                 NhacNho nhacNho= (NhacNho) adapter.getItem(i);
                 intent.putExtra("Nhac Nho",nhacNho);
                 startActivity(intent);
@@ -56,7 +56,7 @@ public class FragmentNhacNhoMainDataNotNull extends Fragment {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void loadData() {
-        adapter = new NhacNhoAdapter(getActivity(),R.layout.nhac_nho_item_layout, nhacNhos);
+        adapter = new NhacNhoAdapter(getActivity(),R.layout.item_nhac_nho_layout, nhacNhos);
         lvNhacNho.setAdapter(adapter);
     }
 }
