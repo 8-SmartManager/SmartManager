@@ -11,7 +11,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Thể loại"
+            android:text="@string/nhac_nho_the_loai"
             android:layout_marginLeft="16dp"
             android:layout_weight="2.25"
             android:layout_gravity="center_vertical"
@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="6"
-            android:text="Tên"
+            android:text="@string/nhac_nho_ten"
 
             android:layout_gravity="center_vertical"
             android:textColor="@color/mau_dam"
@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="Thời gian nhắc"
+            android:text="@string/nhac_nho_thoi_gian_nhac"
             android:layout_gravity="center_vertical"
             android:textColor="@color/mau_dam"
             android:fontFamily="@font/body_medium_13"/>

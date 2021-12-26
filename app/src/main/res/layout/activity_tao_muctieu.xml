@@ -70,7 +70,7 @@
         android:id="@+id/fragmentTheLoai"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:name="com.example.muctieutietkiem.muctieu.HopChonTheLoaiTietKiem"
+        android:name="com.example.muctieutietkiem.muctieu.fragment.HopChonTheLoaiTietKiem"
         tools:layout="@layout/hop_chon_tietkiem">
     </fragment>
 </LinearLayout>

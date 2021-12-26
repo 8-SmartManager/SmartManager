@@ -1,4 +1,4 @@
-package com.example.caidat;
+package com.example.caidat.fragment;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -15,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import com.example.caidat.SaoLuuGGDrive;
+import com.example.caidat.SaoLuuThietBi;
 import com.example.smartmanagertwo.R;
 
 public class SaoLuuActivity extends Fragment {

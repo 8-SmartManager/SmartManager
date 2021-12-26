@@ -121,7 +121,7 @@ public class DanhSachMuaSamChiTiet extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.nhac_nho_edit_option_menu, menu);
+        getMenuInflater().inflate(R.menu.mua_sam_edit_option_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
     @Override

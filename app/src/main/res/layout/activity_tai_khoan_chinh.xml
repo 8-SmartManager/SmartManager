@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.taikhoan.TaiKhoan"
+    tools:context="com.example.taikhoan.fragment.TaiKhoan"
     android:orientation="vertical">
     <TableLayout
         android:padding="10dp"

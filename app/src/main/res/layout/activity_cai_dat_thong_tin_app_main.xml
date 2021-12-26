@@ -6,11 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.caidat.fragment.CaiDatThongTinAppMain">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="56dp"
-        android:text="SmartManager Inc"
+        android:text="@string/smartmanager_inc"
         android:fontFamily="@font/header3_semibold_14"
+
         android:textColor="@color/mau_dam"
         android:layout_gravity="center"
         android:gravity="center"/>
@@ -28,7 +30,7 @@
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:text="help@smartmanager.com"
+            android:text="@string/help_smartmanager_email"
             android:fontFamily="@font/body_medium_13"
             android:textColor="@color/chu_dao"
             android:gravity="center"/>
@@ -47,7 +49,7 @@
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:text="http://smartmanager.com"
+            android:text="@string/website"
             android:fontFamily="@font/body_medium_13"
             android:textColor="@color/chu_dao"
             android:gravity="center"/>
@@ -60,7 +62,7 @@
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
         android:background="@drawable/bg_button"
-        android:text="Chính sách bảo mật"
+        android:text="@string/chinh_sach_bao_mat_button_text"
         android:fontFamily="@font/header3_semibold_14"
         android:textAllCaps="false"
         android:textColor="@color/chu_dao"/>

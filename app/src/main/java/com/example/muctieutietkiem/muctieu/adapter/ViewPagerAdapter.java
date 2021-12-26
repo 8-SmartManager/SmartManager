@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.example.muctieutietkiem.muctieu.muctieu_hoatdong_fragment;
-import com.example.muctieutietkiem.muctieu.muctieu_hoanthanh_fragment;
-import com.example.muctieutietkiem.muctieu.muctieu_tamdung_fragment;
+import com.example.muctieutietkiem.muctieu.fragment.muctieu_hoatdong_fragment;
+import com.example.muctieutietkiem.muctieu.fragment.muctieu_hoanthanh_fragment;
+import com.example.muctieutietkiem.muctieu.fragment.muctieu_tamdung_fragment;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {

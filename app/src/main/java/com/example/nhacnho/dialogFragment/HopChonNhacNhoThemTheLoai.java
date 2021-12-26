@@ -1,11 +1,7 @@
 package com.example.nhacnho.dialogFragment;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,12 +12,11 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 
-import com.example.hopchoncohinh.HopChonAdapter;
-import com.example.hopchoncohinh.HopChonItem;
+import com.example.adapter.HopChonAdapter;
+import com.example.model.HopChonItem;
 import com.example.smartmanagertwo.R;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class HopChonNhacNhoThemTheLoai extends DialogFragment {
     GridView gvNhacNhoTheLoai;

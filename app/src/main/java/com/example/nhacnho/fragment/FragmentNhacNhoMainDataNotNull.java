@@ -1,6 +1,6 @@
 package com.example.nhacnho.fragment;
 
-import static com.example.nhacnho.NhacNhoActivity.nhacNhos;
+import static com.example.nhacnho.fragment.NhacNhoActivity.nhacNhos;
 
 import android.content.Intent;
 import android.os.Build;
@@ -18,7 +18,6 @@ import androidx.fragment.app.Fragment;
 
 import com.example.nhacnho.model.NhacNho;
 import com.example.nhacnho.adapter.NhacNhoAdapter;
-import com.example.nhacnho.NhacNhoActivity;
 import com.example.nhacnho.NhacNhoChiTietActivity;
 import com.example.smartmanagertwo.R;
 

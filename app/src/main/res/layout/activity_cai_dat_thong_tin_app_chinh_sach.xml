@@ -17,7 +17,7 @@
 <TextView
     android:layout_width="match_parent"
     android:layout_height="40dp"
-    android:text="1. Thông tin được thu thập và phương pháp thu thập"
+    android:text="@string/dieu_khoan_1"
     android:fontFamily="@font/body_medium_13"
     android:paddingLeft="10dp"
     android:background="@color/thay_trang"
@@ -29,7 +29,7 @@
         android:paddingLeft="10dp"
         android:gravity="center_vertical"
         android:background="@color/thay_trang"
-        android:text="2. Sử dụng thông tin thu thập được"
+        android:text="@string/dieu_khoan_2"
         android:fontFamily="@font/body_medium_13"
         android:textColor="@color/mau_dam"/>
     <TextView
@@ -38,7 +38,7 @@
         android:paddingLeft="10dp"
         android:background="@color/thay_trang"
         android:gravity="center_vertical"
-        android:text="3. Chia sẻ thông tin đã thu thập"
+        android:text="@string/dieu_khoan_3"
         android:fontFamily="@font/body_medium_13"
         android:textColor="@color/mau_dam"/>
     <TextView
@@ -47,7 +47,7 @@
         android:layout_height="40dp"
         android:paddingLeft="10dp"
         android:background="@color/thay_trang"
-        android:text="4. Cookies, Beacons và các công nghệ tương tự"
+        android:text="@string/dieu_khoan_4"
         android:fontFamily="@font/body_medium_13"
         android:textColor="@color/mau_dam"/>
 </LinearLayout>

@@ -27,6 +27,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.R;
 import com.example.thongke.adapter.ThongKeChiTietAdapter;
+import com.example.thongke.fragment.ThongKeActivity;
 import com.example.thuchi.fragment.ThuChiChinh;
 import com.example.thuchi.model.ThuChiActivity;
 import com.example.thongke.model.ThongKe;

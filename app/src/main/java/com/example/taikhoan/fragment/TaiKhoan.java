@@ -1,4 +1,4 @@
-package com.example.taikhoan;
+package com.example.taikhoan.fragment;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.smartmanagertwo.MyDatabaseHelper;
 import com.example.smartmanagertwo.R;
+import com.example.taikhoan.TaiKhoanChiTietActivity;
 import com.example.thuchi.model.ThuChiActivity;
 import com.example.taikhoan.model.TaiKhoanInfo;
 import com.example.taikhoan.adapter.TaiKhoanAdapter;
