@@ -94,7 +94,51 @@
     <string name="confirm_xoa">Bạn có chắc chắn muốn xóa</string>
     <string name="no">Không</string>
     <string name="yes">Có</string>
+    <!-- Mục tiêu tiết kiệm -->
+
+    <string name="name_goal">Tên</string>
+    <string name="target_goal">Số tiền mục tiêu</string>
+    <string name="saved_goal">Số tiền đạt được</string>
+    <string name="time_goal">Ngày kết thúc</string>
+    <string name="color_goal">Màu</string>
+    <string name="icon_goal">Biểu tượng</string>
+    <string name="note_goal">Lưu ý</string>
+    <string name="update_saved_goal">Số tiền cập nhật mới nhất</string>
+    <string name="update_saved_goal_button">Thêm số tiền đạt được</string>
+    <string name="complete_goal_button">Hoàn thành mục tiêu</string>
+    <string name="percent_goal">60%</string>
+    <string name="tao_goal_button">Tạo</string>
+    <string name="tao_muctieu_goal_button">Tạo mục tiêu</string>
+    <string name="visao_tietkiem">Bạn tiết kiệm vì điều gì?</string>
+    <string name="another_tietkiem">Hoặc chọn</string>
+    <string name="tenmuctieu_tietkiem">Tên mục tiêu</string>
+
+    <!-- Mời bạn -->
+    <string name="invite_moiban">Bạn thích SmartManager? Mời một người bạn để sử dụng ứng dụng tài chính tốt nhất</string>
+    <string name="tell_a_friend_moiban">Tell a friend</string>
+    <string name="invite_button">Invite</string>
+    <string name="gioithieu">Giới thiệu với một người bạn</string>
+    <string name="huy_moiban_button">Hủy</string>
 
 
+    <string name="thong_ke_tien_mat">Tiền mặt</string>
+    <string name="_2000000">2000000</string>
+    <string name="_2021_11_30">2021-11-30</string>
+    <string name="thong_ke_giai_tri">Giải trí</string>
+    <string name="_97">97%</string>
+    <string name="thong_ke_an_uong">Ăn uống</string>
+    <string name="thong_ke_hang_thang">Hàng tháng</string>
+    <string name="google_drive_sao_luu">Google Drive Sao lưu</string>
+    <string name="tat">Tắt</string>
+    <string name="thiet_bi">Thiết bị</string>
+    <string name="thiet_lap_lai">Thiết lập lại</string>
+    <string name="tat_ca_khoi_tao">Tất cả khởi tạo</string>
+    <string name="chu_ky_khoi_tao">Chu kỳ khởi tạo</string>
+    <string name="url">URL</string>
+    <string name="https_drive_google_com">https.drive.google.com</string>
+    <string name="khoi_phuc">Khôi Phục</string>
+    <string name="mo_ta_gg_drive_sao_luu">Ổ đĩa Goole là nơi lưu trữ trực tuyến miễn phí từ Google hỗ trợ. Bạn có thể tự động sao lưu dữ liệu của bạn vào Google Drive. Bạn có thể khôi phục lại nó bất cứ lúc nào.</string>
+    <string name="canh_bao_sao_luu_thiet_bi">Các tệp tin sao lưu được lưu trữ trong thư mục SmartManager. Các tệp tin được lưu trữ trong điện thoại của bạn, thật khó để khôi phục lại khi điện thoại của bạn bị mất, bị phá vỡ và thiết lập lại. Nếu bạn chọn mục danh sách, quá trình khôi phục bắt đầu. Trước khi khôi phục lại dữ liệu của bạn, xin vui lòng kiểm tra tên file, ngày tháng và kích cỡ.</string>
+    <string name="sao_luu_du_lieu">Sao lưu dữ liệu</string>
 
 </resources>
