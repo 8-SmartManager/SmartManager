@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Smart Manager Help Center"
+        android:text="@string/smart_manager_help_center"
         android:textSize="20sp"
         android:textColor="@color/mau_dam"
         android:gravity="center"
@@ -16,7 +16,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Money Manager Help Center > Android User Guide"
+        android:text="@string/money_manager_help_center_android_user_guide"
         android:textColor="@color/chu_dao"
         android:layout_gravity="center"/>
     <LinearLayout
@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="Search"
+            android:hint="@string/search"
             android:layout_weight="1"
             android:textColor="@color/mau_xam"
             android:fontFamily="@font/header3_semibold_14"
@@ -58,20 +58,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/header2_bold_20"
-            android:text="Android User Guide"
+            android:text="@string/android_user_guide"
             android:textColor="@color/mau_dam"
             android:textSize="20sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="What's new"
+            android:text="@string/what_s_new"
             android:textColor="@color/mau_dam"
             android:padding="10dp"/>
     <TextView
         android:id="@+id/txtNew"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:text="Android 4.5.x Update (September 2020)"
+        android:text="@string/android_4_5_x_update_september_2020"
         android:background="@drawable/textlines_khong"
         android:textSize="13sp"
         android:fontFamily="@font/body_medium_13"
