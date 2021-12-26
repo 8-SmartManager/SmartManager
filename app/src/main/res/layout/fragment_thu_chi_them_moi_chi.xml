@@ -22,7 +22,7 @@
                     android:layout_marginLeft="30dp"
                     android:fontFamily="@font/body_medium_13"
                     android:gravity="left"
-                    android:text="Ngày"
+                    android:text="@string/ngay"
                     android:textColor="@color/mau_xam"
                     android:textSize="13sp" />
                 <TextView
@@ -32,7 +32,7 @@
                     android:layout_marginRight="30dp"
                     android:background="@drawable/textlines_khong"
                     android:fontFamily="@font/body_medium_13"
-                    android:text="Chọn ngày"
+                    android:text="@string/hint_chon_ngay"
                     android:textColor="@color/mau_dam"
                     android:textSize="13sp"
                     android:textStyle="bold" />
@@ -44,7 +44,7 @@
                     android:layout_marginLeft="30dp"
                     android:fontFamily="@font/body_medium_13"
                     android:gravity="left"
-                    android:text="Tài khoản"
+                    android:text="@string/tai_khoan"
                     android:textColor="@color/mau_xam"
                     android:textSize="13sp" />
                 <TextView
@@ -54,19 +54,20 @@
                     android:layout_marginRight="30dp"
                     android:background="@drawable/textlines_khong"
                     android:fontFamily="@font/body_medium_13"
-                    android:text="Chọn tài khoản"
+                    android:text="@string/hint_chon_tai_khoan"
                     android:textColor="@color/mau_dam"
                     android:textSize="13sp"
                     android:textStyle="bold" />
             </TableRow>
             <TableRow>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:layout_marginLeft="30dp"
                     android:fontFamily="@font/body_medium_13"
                     android:gravity="left"
-                    android:text="Thể loại"
+                    android:text="@string/the_loai"
                     android:textColor="@color/mau_xam"
                     android:textSize="13sp" />
                 <TextView
@@ -76,7 +77,7 @@
                     android:layout_marginRight="30dp"
                     android:background="@drawable/textlines_khong"
                     android:fontFamily="@font/body_medium_13"
-                    android:text="Chọn thể loại"
+                    android:text="@string/hint_chon_the_loai"
                     android:textColor="@color/mau_dam"
                     android:textSize="13sp"
                     android:textStyle="bold" />
@@ -88,7 +89,7 @@
                     android:layout_marginLeft="30dp"
                     android:fontFamily="@font/body_medium_13"
                     android:gravity="left"
-                    android:text="Số tiền"
+                    android:text="@string/so_tien"
                     android:textColor="@color/mau_xam"
                     android:textSize="13sp" />
                 <EditText
@@ -98,7 +99,7 @@
                     android:layout_marginRight="30dp"
                     android:backgroundTint="@color/mau_dam"
                     android:fontFamily="@font/body_medium_13"
-                    android:hint="Nhập số tiền"
+                    android:hint="@string/hint_nhap_so_tien"
                     android:inputType="number"
                     android:textColor="@color/mau_xam"
                     android:textSize="13sp"
@@ -114,7 +115,7 @@
             android:layout_marginRight="32dp"
             android:background="@drawable/bg_button"
             android:fontFamily="@font/header3_semibold_14"
-            android:text="Lưu"
+            android:text="@string/luu"
             android:textAllCaps="false"
             android:textColor="@color/button_text_color"/>
         <LinearLayout

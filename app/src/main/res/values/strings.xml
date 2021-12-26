@@ -149,4 +149,43 @@
     <string name="canh_bao_sao_luu_thiet_bi">Các tệp tin sao lưu được lưu trữ trong thư mục SmartManager. Các tệp tin được lưu trữ trong điện thoại của bạn, thật khó để khôi phục lại khi điện thoại của bạn bị mất, bị phá vỡ và thiết lập lại. Nếu bạn chọn mục danh sách, quá trình khôi phục bắt đầu. Trước khi khôi phục lại dữ liệu của bạn, xin vui lòng kiểm tra tên file, ngày tháng và kích cỡ.</string>
     <string name="sao_luu_du_lieu">Sao lưu dữ liệu</string>
 
+    <string name="smart_manager_help_center">Smart Manager Help Center</string>
+    <string name="money_manager_help_center_android_user_guide"><![CDATA[Money Manager Help Center > Android User Guide]]></string>
+    <string name="search">Search</string>
+    <string name="android_user_guide">Android User Guide</string>
+    <string name="what_s_new">What\'s new</string>
+    <string name="android_4_5_x_update_september_2020">Android 4.5.x Update (September 2020)</string>
+    <string name="android_4_4_x_update_april_2020">Android 4.4.x Update (April 2020)</string>
+    <string name="android_4_3_x_update_november_2019">Android 4.3.x Update (November 2019)</string>
+    <string name="android_4_2_x_update_june_2019">Android 4.2.x Update (June 2019)</string>
+    <string name="android_4_1_x_update_december_2018">Android 4.1.x Update (December 2018)</string>
+    <string name="mo_ta">Xin chào, chúng tôi là Smart Manager. Sau bao nhiêu ngày trông đợi các tính năng mới. Chúng tôi đem đến cho bạn một tin tốt:</string>
+    <string name="mo_ta_2">Chúng tôi vừa thêm chức năng Lập kế hoạch vào các chức năng của ứng dung. Nơi đây, bạn có thể tạo mới và quản lý các kế hoạch chi tiêu của mình một cách hợp lý. Hãy trải nghiệm và tẩn hưởng nó nhé!</string>
+    <string name="ngay">Ngày</string>
+    <string name="tai_khoan">Tài khoản</string>
+
+    <string name="so_tien">Số tiền</string>
+    <string name="xoa">Xóa</string>
+    <string name="luu">Lưu</string>
+    <string name="ten_hoat_dong">Tên hoạt động</string>
+    <string name="so_tien_thu">Số tiền thu</string>
+    <string name="so_tien_chi">Số tiền chi</string>
+    <string name="thu">Thu</string>
+    <string name="chi">Chi</string>
+    <string name="_2050000">2050000</string>
+    <string name="hint_chon_ngay">Chọn ngày</string>
+    <string name="hint_chon_tai_khoan">Chọn tài khoản</string>
+    <string name="hint_chon_the_loai">Chọn thể loại</string>
+    <string name="hint_nhap_so_tien">Nhập số tiền</string>
+    <string name="so_sanh">So sánh tháng trước</string>
+    <string name="tong_chi">Tổng chi</string>
+    <string name="tong_thu">Tổng thu</string>
+    <string name="tien_luong">Tiền lương</string>
+    <string name="tien_mat">Tiền mặt</string>
+    <string name="ky_thanh_toan">Kỳ thanh toán</string>
+    <string name="_01_10_2021_31_10">01.10.2021 ~ 31.10</string>
+    <string name="khoan_no">Khoản nợ</string>
+    <string name="cong">Cộng</string>
+
+
 </resources>
