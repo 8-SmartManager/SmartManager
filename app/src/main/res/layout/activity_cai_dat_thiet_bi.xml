@@ -17,7 +17,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="16dp"
             android:fontFamily="@font/body_medium_13"
-            android:text="Các tệp tin sao lưu được lưu trữ trong thư mục Smart Manager. Các tệp tin được lưu trữ trong điện thoại của bạn, thật khó để khôi phục lại khi điện thoại của bạn bị mất, bị phá vỡ và thiết lập lại. Nếu bạn chọn mục danh sách, quá trình khôi phục bắt đầu. Trước khi khôi phục lại dữ liệu của bạn, xin vui lòng kiểm tra tên file, ngày tháng và kích cỡ."
+            android:text="@string/canh_bao_sao_luu_thiet_bi"
             android:textColor="@color/chu_dao"
             android:textSize="13sp"/>
     </LinearLayout>
@@ -30,7 +30,7 @@
         android:layout_marginRight="32dp"
         android:background="@drawable/bg_button"
         android:fontFamily="@font/header3_semibold_14"
-        android:text="Sao lưu dữ liệu"
+        android:text="@string/sao_luu_du_lieu"
         android:textAllCaps="false"
         android:textColor="@color/chu_dao"
         android:textSize="14sp"

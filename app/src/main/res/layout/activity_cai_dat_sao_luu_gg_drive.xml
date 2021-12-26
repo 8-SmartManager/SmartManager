@@ -17,9 +17,9 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="16dp"
             android:fontFamily="@font/header2_bold_20"
-            android:text="Google Drive Sao lưu "
+            android:text="@string/google_drive_sao_luu"
             android:textColor="@color/mau_dam"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="16dp"
             android:fontFamily="@font/body_medium_13"
-            android:text="Ổ đĩa Goole là nơi lưu trữ trực tuyến miễn phí từ Google hỗ trợ. Bạn có thể tự động sao lưu dữ liệu của bạn vào Google Drive. Bạn có thể khôi phục lại nó bất cứ lúc nào."
+            android:text="@string/mo_ta_gg_drive_sao_luu"
             android:textColor="@color/mau_dam"
             android:textSize="13sp" />
         <LinearLayout
@@ -44,16 +44,16 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="32dp"
                 android:fontFamily="@font/header3_semibold_14"
-                android:text="URL"
+                android:text="@string/url"
                 android:textColor="@color/mau_xam"
-                android:textSize="14dp" />
+                android:textSize="14sp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/body_medium_13"
-                android:text="https://drive.google.com"
+                android:text="@string/https_drive_google_com"
                 android:textColor="@color/chu_dao"
-                android:textSize="13dp" />
+                android:textSize="13sp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -75,7 +75,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/header3_semibold_14"
                     android:gravity="center_vertical"
-                    android:text="Google Drive Sao lưu"
+                    android:text="@string/google_drive_sao_luu"
                     android:textColor="@color/mau_dam" />
                 <com.google.android.material.switchmaterial.SwitchMaterial
                     android:id="@+id/check"
@@ -96,7 +96,7 @@
         android:layout_weight="1"
         android:background="@drawable/bg_button"
         android:fontFamily="@font/header3_semibold_14"
-        android:text="Khôi phục"
+        android:text="@string/khoi_phuc"
         android:textColor="@color/chu_dao"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"

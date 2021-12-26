@@ -19,14 +19,14 @@
             android:layout_weight="1"
             android:fontFamily="@font/body_medium_13"
             android:gravity="center"
-            android:text="Google Drive Sao lưu"
+            android:text="@string/google_drive_sao_luu"
             android:textColor="@color/mau_dam"
             android:textSize="13sp" />
         <TextView
             android:id="@+id/txtChoice"
             android:layout_width="wrap_content"
             android:layout_height="56dp"
-            android:text="Tắt"
+            android:text="@string/tat"
             android:fontFamily="@font/body_medium_13"
             android:textColor="@color/mau_dam"
             android:layout_weight="1"
@@ -45,7 +45,7 @@
             android:layout_height="56dp"
             android:fontFamily="@font/body_medium_13"
             android:gravity="center"
-            android:text="Thiết bị"
+            android:text="@string/thiet_bi"
             android:textColor="@color/mau_dam"
             android:textSize="13sp"/>
     </LinearLayout>
@@ -53,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="56dp"
         android:padding="10dp"
-        android:text="Thiết lập lại"
+        android:text="@string/thiet_lap_lai"
         android:fontFamily="@font/body_medium_13"
         android:textColor="@color/mau_dam"
         android:gravity="center"
@@ -69,7 +69,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="56dp"
-            android:text="Tất cả khởi tạo"
+            android:text="@string/tat_ca_khoi_tao"
             android:fontFamily="@font/body_medium_13"
             android:textColor="@color/mau_dam"
             android:gravity="center"
@@ -86,7 +86,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="56dp"
-            android:text="Chu kỳ khởi tạo"
+            android:text="@string/chu_ky_khoi_tao"
             android:fontFamily="@font/body_medium_13"
             android:textColor="@color/mau_dam"
             android:gravity="center"

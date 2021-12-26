@@ -8,7 +8,7 @@
         android:id="@+id/txtTKChiTietTheLoai"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
-        android:text="Giải trí"
+        android:text="@string/thong_ke_giai_tri"
         android:layout_gravity="center_vertical"
         android:gravity="center"
         android:fontFamily="@font/body_medium_13"
@@ -24,7 +24,7 @@
             android:id="@+id/txtTKChiTietTaiKhoan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tiền mặt"
+            android:text="@string/thong_ke_tien_mat"
             android:fontFamily="@font/header2_bold_20"
             android:textColor="@color/mau_dam"/>
         <TextView
@@ -32,7 +32,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2000000"
+            android:text="@string/_2000000"
             android:fontFamily="@font/body_medium_13"
             android:textColor="@color/mau_xam"/>
     </LinearLayout>
@@ -40,7 +40,7 @@
         android:id="@+id/txtTKChiTietTime"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:text="2021-11-30"
+        android:text="@string/_2021_11_30"
         android:gravity="center"
         android:layout_weight="3"
         android:layout_gravity="center_vertical"
