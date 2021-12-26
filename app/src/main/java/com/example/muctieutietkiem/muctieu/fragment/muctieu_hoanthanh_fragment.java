@@ -81,7 +81,7 @@ public class muctieu_hoanthanh_fragment extends Fragment {
 
 
                 Intent intent = new Intent(getActivity(), MucTieuChiTiet_HoanThanh.class);
-                adapter= new GoalAdapter(getActivity(),R.layout.chitiet_muctieu_hoanthanh,goals);
+                adapter= new GoalAdapter(getActivity(),R.layout.fragment_chitiet_muctieu_hoanthanh,goals);
                 Goal goal= (Goal) adapter.getItem(i);
                 intent.putExtra("Muc tieu",goal);
                 startActivity(intent);

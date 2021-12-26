@@ -79,7 +79,7 @@ public class muctieu_tamdung_fragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getActivity(), MucTieuChiTiet_TamDung.class);
-                adapter= new GoalAdapter(getActivity(),R.layout.chitiet_muctieu_tamdung,goals);
+                adapter= new GoalAdapter(getActivity(),R.layout.fragment_chitiet_muctieu_tamdung,goals);
                 Goal goal= (Goal) adapter.getItem(i);
                 intent.putExtra("Muc tieu",goal);
                 startActivity(intent);
