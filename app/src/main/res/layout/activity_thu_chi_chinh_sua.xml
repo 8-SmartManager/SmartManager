@@ -20,7 +20,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
-                    android:text="Ngày"
+                    android:text="@string/ngay"
                     android:layout_marginLeft="30dp"
                     android:gravity="left"
                     android:fontFamily="@font/body_medium_13"
@@ -42,7 +42,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
-                    android:text="Tài khoản"
+                    android:text="@string/tai_khoan"
                     android:layout_marginLeft="30dp"
                     android:gravity="left"
                     android:fontFamily="@font/body_medium_13"
@@ -67,7 +67,7 @@
                     android:layout_marginLeft="30dp"
                     android:fontFamily="@font/body_medium_13"
                     android:gravity="left"
-                    android:text="Thể loại"
+                    android:text="@string/the_loai"
                     android:textColor="@color/mau_xam"
                     android:textSize="13sp" />
                 <TextView
@@ -86,7 +86,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
-                    android:text="Số tiền"
+                    android:text="@string/so_tien"
                     android:layout_marginLeft="30dp"
                     android:gravity="left"
                     android:fontFamily="@font/body_medium_13"
@@ -115,7 +115,7 @@
                 android:id="@+id/btnXoa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Xóa"
+                android:text="@string/xoa"
                 android:layout_marginLeft="32dp"
                 android:layout_marginRight="15dp"
                 android:layout_weight="1"
@@ -127,7 +127,7 @@
                 android:id="@+id/btnLuu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lưu"
+                android:text="@string/luu"
                 android:layout_weight="1"
                 android:textColor="@color/chu_dao"
                 android:layout_marginRight="32dp"

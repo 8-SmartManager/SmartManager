@@ -15,7 +15,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="28dp"
-                android:text="Tài khoản"
+                android:text="@string/tai_khoan"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
@@ -24,7 +24,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="28dp"
-                android:text="Khoản nợ"
+                android:text="@string/khoan_no"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
@@ -33,7 +33,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="28dp"
-                android:text="Cộng"
+                android:text="@string/cong"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"

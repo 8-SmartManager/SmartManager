@@ -13,7 +13,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="56dp"
-                android:text="So sánh tháng trước"
+                android:text="@string/so_sanh"
                 android:layout_weight="6"
                 android:gravity="center"
                 android:fontFamily="@font/body_medium_13"
@@ -49,7 +49,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="56dp"
-            android:text="Tổng chi"
+            android:text="@string/tong_chi"
             android:layout_weight="6"
             android:gravity="center"
             android:fontFamily="@font/body_medium_13"
@@ -85,7 +85,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="56dp"
-            android:text="Tổng thu"
+            android:text="@string/tong_thu"
             android:layout_weight="6"
             android:gravity="center"
             android:fontFamily="@font/body_medium_13"

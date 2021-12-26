@@ -79,7 +79,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:text="Android 4.4.x Update (April 2020)"
+        android:text="@string/android_4_4_x_update_april_2020"
         android:background="@drawable/textlines_khong"
         android:textSize="13sp"
         android:fontFamily="@font/body_medium_13"
@@ -87,7 +87,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:text="Android 4.3.x Update (November 2019)"
+        android:text="@string/android_4_3_x_update_november_2019"
         android:background="@drawable/textlines_khong"
         android:textSize="13sp"
         android:fontFamily="@font/body_medium_13"
@@ -95,7 +95,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:text="Android 4.2.x Update (June 2019)"
+        android:text="@string/android_4_2_x_update_june_2019"
         android:background="@drawable/textlines_khong"
         android:textSize="13sp"
         android:fontFamily="@font/body_medium_13"
@@ -103,7 +103,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:text="Android 4.1.x Update (December 2018)"
+        android:text="@string/android_4_1_x_update_december_2018"
         android:background="@drawable/textlines_khong"
         android:textSize="13sp"
         android:fontFamily="@font/body_medium_13"
